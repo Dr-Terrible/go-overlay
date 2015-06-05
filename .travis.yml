@@ -1,0 +1,31 @@
+language: python
+python:
+    - 3.4
+
+env: PORTAGE_GRPNAME=$USER PORTAGE_USERNAME=$USER
+
+before_install:
+  # Install development portage (it should have the latest suggestions)
+  - "git clone git://anongit.gentoo.org/proj/portage.git $HOME/portage"
+
+  # Set default config
+  - "sudo mkdir /usr/share/portage"
+  - "sudo ln -s $HOME/portage/cnf /usr/share/portage/config"
+
+  # Create /usr/portage
+  - "sudo mkdir /usr/portage"
+  - "sudo chown $USER:$USER /usr/portage"
+
+  # Populate /usr/portage
+  - "rsync -arzp --safe-links rsync://rsync.gentoo.org/gentoo-portage/ /usr/portage/"
+  - "mkdir /usr/portage/distfiles"
+
+  # Popultate /etc/profile
+  # note: this is required to satisfy env variables: USERLAND, USE_EXPAND and USE_EXPAND_HIDDEN
+  - "sudo mkdir /etc/portage"
+  - "sudo ln -s /usr/portage/profiles/default/linux/amd64/13.0/desktop /etc/portage/make.profile"
+
+script:
+  - "$HOME/portage/bin/repoman -vx full"
+  #- "$HOME/portage/bin/repoman -vx full --without-mask"
+  #- "$HOME/portage/bin/repoman -vx full --include-dev --without-mask"
