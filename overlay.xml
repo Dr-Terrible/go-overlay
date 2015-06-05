@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+	<repo priority="50"
+	      quality="stable"
+	      status="official">
+		<name>go-overlay</name>
+		<description lang="en">Golang related ebuilds</description>
+		<homepage>https://github.com/Dr-Terrible/go-overlay</homepage>
+		<owner type="person">
+			<email>toffanin.mauro@gmail.com</email>
+			<name>Mauro Toffanin</name>
+		</owner>
+		<source type="git">git://github.com/Dr-Terrible/go-overlay.git</source>
+		<feed>https://github.com/Dr-Terrible/go-overlay/commits/master.atom</feed>
+	</repo>
+</repositories>
