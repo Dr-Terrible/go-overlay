@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=dev-lang/go dev-lang/go:*
+DESCRIPTION=(riscrivere) A reimplementation of Sublime Text in Go lang.
+EAPI=5
+HOMEPAGE=https://github.com/limetext
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-lang/go
+RESTRICT=mirror fetch
+SLOT=0
+SRC_URI=https://github.com/limetext/lime/archive/1.0.tar.gz -> lime-1.0.tar.gz https://github.com/visualfc/gotools/archive/07fb242eb9ee0950a31ff3d809c1faa5c3b2a5f6.tar.gz -> lime-github.com-visualfc-gotools-07fb242eb9ee0950a31ff3d809c1faa5c3b2a5f6.tar.gz https://github.com/nsf/gocode/archive/a18bb1d557dac8d19062dd0240b44ab09cfa14fd.tar.gz -> lime-github.com-nsf-gocode-a18bb1d557dac8d19062dd0240b44ab09cfa14fd.tar.gz https://golang.org/x/tools/archive/v.20150303.tar.gz -> lime-golang.org-x-tools-v.20150303.tar.gz
+_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	eutils	9fb270e417e0e83d64ca52586c4a79de	golang-single	daa979dfa85905e88d6386cf77d95fa8	multilib	62927b3db3a589b0806255f3a002d5d3	multiprocessing	d7f2985a2c76c365ee20269db5261414	toolchain-funcs	42408102d713fbad60ca21349865edb4
+_md5_=cdf1dc7e032e236096a60750652c60ce

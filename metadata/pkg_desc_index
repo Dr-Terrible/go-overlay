@@ -1,0 +1,3 @@
+app-editors/lime 1.0: (riscrivere) A reimplementation of Sublime Text in Go lang.
+app-editors/liteide 27.1: LiteIDE is a simple, open source, cross-platform Go IDE.
+app-editors/srclib 0.0.40: A hackable, multilange code analysis library for building better software tools
