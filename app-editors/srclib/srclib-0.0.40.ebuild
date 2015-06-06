@@ -54,3 +54,5 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE="test"
+
+#S="${WORKDIR}/gopath"
