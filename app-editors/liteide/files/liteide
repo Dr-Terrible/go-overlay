@@ -1,0 +1,4 @@
+#!/bin/sh
+
+pushd /opt/liteide/bin > /dev/null
+exec /opt/liteide/bin/liteide
