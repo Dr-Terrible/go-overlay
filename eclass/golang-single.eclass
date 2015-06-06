@@ -97,8 +97,6 @@ case "${EAPI:-0}" in
 esac
 DEPEND+=" ${GO_DEPEND}"
 
-S="${WORKDIR}/gopath"
-
 # @ECLASS-VARIABLE: GOLANG_PKG_NAME
 # @DESCRIPTION:
 # Sets the Golang name for the generated package.
@@ -141,10 +139,12 @@ GOLANG_PKG_SUFFIX="${GOLANG_PKG_SUFFIX:=".tar.gz"}"
 
 # @ECLASS-VARIABLE: GOLANG_PKG_OUTPUT_NAME
 # @DESCRIPTION:
-# TODO
-GOLANG_PKG_OUTPUT_NAME="${GOLANG_PKG_OUTPUT_NAME:-}"
+# Specifies the output file name of the package. If not set, it derives from the
+# name of the package, such as $GOLANG_PKG_NAME.
+# This eclass defaults to $PN.
+GOLANG_PKG_OUTPUT_NAME="${GOLANG_PKG_OUTPUT_NAME:="${GOLANG_PKG_NAME}"}"
 
-# @ECLASS-VARIABLE: GOLANG_PKG_OUTPUT_NAME
+# @ECLASS-VARIABLE: GOLANG_PKG_BUILDPATH
 # @DESCRIPTION:
 # TODO
 GOLANG_PKG_BUILDPATH="${GOLANG_PKG_BUILDPATH:-}"
@@ -217,9 +217,13 @@ if [[ ${#GOLANG_PKG_DEPENDENCIES[@]} -gt 0 ]]; then
 		debug-print "${FUNCNAME}: importpath = ${_importpath}"
 		debug-print "${FUNCNAME}: revision = ${_revision}"
 
-		SRC_URI+=" https://${_importpath}/archive/${_revision}${GOLANG_PKG_SUFFIX} -> ${PN}-${_importpath//\//-}-${_revision}${GOLANG_PKG_SUFFIX}"
+		SRC_URI+=" https://${_importpath}/archive/${_revision}${GOLANG_PKG_SUFFIX} -> ${_importpath//\//-}-${_revision}${GOLANG_PKG_SUFFIX}"
 	done
 fi
+
+
+# Define SOURCE directory
+S="${WORKDIR}/gopath/src/${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}"
 
 
 # @FUNCTION: golang-single_pkg_setup
@@ -267,11 +271,16 @@ golang-single_pkg_setup() {
 
 	# Sets the build environment inside Portage's WORKDIR
 	ebegin "Setting up Golang build environment"
+
 		export GOPATH="${WORKDIR}/gopath"
-		debug-print "${FUNCNAME}: GOPATH = ${GOPATH}"
 		export GOBIN="${WORKDIR}/gobin"
-		debug-print "${FUNCNAME}: GOBIN = ${GOBIN}"
+		export EGO_SRC="${GOPATH}/src"
+
 		mkdir -p "${GOPATH}"/src || die
+
+		debug-print "${FUNCNAME}: GOPATH = ${GOPATH}"
+		debug-print "${FUNCNAME}: GOBIN = ${GOBIN}"
+		debug-print "${FUNCNAME}: EGO_SRC = ${EGO_SRC}"
 	eend
 }
 
