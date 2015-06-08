@@ -7,12 +7,12 @@
 # Mauro Toffanin <toffanin.mauro@gmail.com>
 # @AUTHOR:
 # Mauro Toffanin <toffanin.mauro@gmail.com>
-# @BLURB: An eclass for Golang packages not installed inside GOPATH/GOBIN.
+# @BLURB: An eclass for GoLang packages not installed inside GOPATH/GOBIN.
 # @DESCRIPTION:
-# This eclass allows to install arbitrary packages written in Golang which
+# This eclass allows to install arbitrary packages written in GoLang which
 # don't support being installed inside the Go environment.
 # This mostly includes traditional packages (C/C++/GUI) embedding tools written
-# in Golang, and Golang packages that need to be compiled with gcc instead of
+# in GoLang, and GoLang packages that need to be compiled with GCC instead of
 # the standard Go interpreter.
 #
 # @EXAMPLE:
@@ -99,13 +99,13 @@ DEPEND+=" ${GO_DEPEND}"
 
 # @ECLASS-VARIABLE: GOLANG_PKG_NAME
 # @DESCRIPTION:
-# Sets the Golang name for the generated package.
+# Sets the GoLang name for the generated package.
 # GOLANG_PKG_NAME="${PN}"
 GOLANG_PKG_NAME="${GOLANG_PKG_NAME:-${PN}}"
 
 # @ECLASS-VARIABLE: GOLANG_PKG_VERSION
 # @DESCRIPTION:
-# Sets the Golang version for the generated package.
+# Sets the GoLang version for the generated package.
 # GOLANG_PKG_VERSION="${PV}"
 GOLANG_PKG_VERSION="${GOLANG_PKG_VERSION:-${PV/_pre/.pre}}"
 
@@ -123,16 +123,16 @@ GOLANG_PKG_IMPORTPATH_ALIAS="${GOLANG_PKG_IMPORTPATH_ALIAS:="${GOLANG_PKG_IMPORT
 
 # @ECLASS-VARIABLE: GOLANG_PKG_PREFIX
 # @DESCRIPTION:
-# Sets the tarball prefix for the file URI of the package.
-# Most projects hosted on GitHub's mirrors provide tarballs with prefix as
+# Sets the archive prefix for the file URI of the package.
+# Most projects hosted on GitHub's mirrors provide archives with prefix as
 # 'v' or 'source-', other hosted services offer different archive formats.
 # This eclass defaults to an empty prefix.
 GOLANG_PKG_PREFIX="${GOLANG_PKG_PREFIX:-}"
 
 # @ECLASS-VARIABLE: GOLANG_PKG_SUFFIX
 # @DESCRIPTION:
-# Sets the tarball suffix for the file URI of the package.
-# Most projects hosted on GitHub's mirrors provide tarballs with suffix as
+# Sets the archive suffix for the file URI of the package.
+# Most projects hosted on GitHub's mirrors provide archives with suffix as
 # '.tar.gz' or '.zip', other hosted services offer different archive formats.
 # This eclass defaults to '.tar.gz'.
 GOLANG_PKG_SUFFIX="${GOLANG_PKG_SUFFIX:=".tar.gz"}"
@@ -154,6 +154,10 @@ GOLANG_PKG_BUILDPATH="${GOLANG_PKG_BUILDPATH:-}"
 # TODO
 GOLANG_PKG_INSTALLPATH="${GOLANG_PKG_INSTALLPATH:="/usr"}"
 
+# @ECLASS-VARIABLE: GOLANG_PKG_MULTIPLE
+# @DESCRIPTION:
+# Set to enable the building of multiple packages.
+
 # @ECLASS-VARIABLE: GOLANG_PKG_HAVE_TEST
 # @DEFAULT_UNSET
 # @DESCRIPTION:
@@ -162,7 +166,7 @@ GOLANG_PKG_INSTALLPATH="${GOLANG_PKG_INSTALLPATH:="/usr"}"
 # @ECLASS-VARIABLE: GO
 # @DEFAULT_UNSET
 # @DESCRIPTION:
-# The absolute path to the current Golang interpreter.
+# The absolute path to the current GoLang interpreter.
 #
 # This variable is set automatically after calling golang-single_pkg_setup().
 #
@@ -174,7 +178,7 @@ GOLANG_PKG_INSTALLPATH="${GOLANG_PKG_INSTALLPATH:="/usr"}"
 # @ECLASS-VARIABLE: EGO
 # @DEFAULT_UNSET
 # @DESCRIPTION:
-# The executable name of the current Golang interpreter.
+# The executable name of the current GoLang interpreter.
 #
 # This variable is set automatically after calling golang-single_pkg_setup().
 #
@@ -203,7 +207,7 @@ fi
 SRC_URI="https://${GOLANG_PKG_IMPORTPATH}/${GOLANG_PKG_NAME}/archive/${GOLANG_PKG_PREFIX}${GOLANG_PKG_VERSION}${GOLANG_PKG_SUFFIX} -> ${P}${GOLANG_PKG_SUFFIX}"
 
 # We use GOLANG_PKG_IMPORTPATH associative array to populate SRC_URI with
-# the snapshots of the required golang depencies
+# the snapshots of the required GoLang dependencies
 if [[ ${#GOLANG_PKG_DEPENDENCIES[@]} -gt 0 ]]; then
 
 	for module in ${!GOLANG_PKG_DEPENDENCIES[@]} ; do
@@ -222,7 +226,17 @@ if [[ ${#GOLANG_PKG_DEPENDENCIES[@]} -gt 0 ]]; then
 		debug-print "${FUNCNAME}: importpath = ${_importpath}"
 		debug-print "${FUNCNAME}: revision = ${_revision}"
 
-		SRC_URI+=" https://${_importpath}/archive/${_revision}${GOLANG_PKG_SUFFIX} -> ${_importpath//\//-}-${_revision}${GOLANG_PKG_SUFFIX}"
+		# Download the archive
+		case ${_importpath} in
+			github*)
+				SRC_URI+=" https://${_importpath}/archive/${_revision}${GOLANG_PKG_SUFFIX} -> ${_importpath//\//-}-${_revision}${GOLANG_PKG_SUFFIX}"
+				;;
+			bitbucket*)
+				SRC_URI+=" https://${_importpath}/get/${_revision}.zip -> ${_importpath//\//-}-${_revision}.zip"
+				;;
+			*) die "this eclass doesn't support ${_importpath}" ;;
+		esac
+
 	done
 fi
 
@@ -234,7 +248,7 @@ S="${WORKDIR}/gopath/src/${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}"
 # @FUNCTION: golang-single_pkg_setup
 # @DESCRIPTION:
 # Runs pkg_setup.
-# Determine where is the Golang implementation and set Golang build environment.
+# Determine where is the GoLang implementation and set GoLang build environment.
 golang-single_pkg_setup() {
 	debug-print-function ${FUNCNAME} "${@}"
 
@@ -247,10 +261,10 @@ golang-single_pkg_setup() {
 
 	unset EGO
 
-	# Determine is the golang interpreter is working
+	# Determine is the GoLang interpreter is working
 	local IS_EXECUTABLE=1
 	for binary in "${GOLANG_BINS[@]}"; do
-		debug-print "${FUNCNAME}: Cheching ... ${binary}"
+		debug-print "${FUNCNAME}: Checking ... ${binary}"
 
 		[[ -x "${EPREFIX}/${binary}" ]] && continue
 		IS_EXECUTABLE=0
@@ -258,7 +272,7 @@ golang-single_pkg_setup() {
 	done
 
 	# dev-lang/go isn't installed or one of its binaries aren't executable.
-	# Either way, the gentoo box is screwed; no need to setup up the golang env.
+	# Either way, the Gentoo box is screwed; no need to set up the GoLang environment
 	[[ ${IS_EXECUTABLE} == 0 ]] && exit
 
 	# dev-lang/go is available and working.
@@ -272,15 +286,16 @@ golang-single_pkg_setup() {
 	local GOLANG_VERSION="$( ${GO} version )"
 	GOLANG_VERSION="${GOLANG_VERSION/go\ version\ go}"
 	GOLANG_VERSION="${GOLANG_VERSION%\ *}"
-	einfo "Found Golang version: ${GOLANG_VERSION}"
+	einfo "Found GoLang version: ${GOLANG_VERSION}"
 
 	# Sets the build environment inside Portage's WORKDIR
-	ebegin "Setting up Golang build environment"
+	ebegin "Setting up GoLang build environment"
 
 		export GOPATH="${WORKDIR}/gopath"
 		export GOBIN="${WORKDIR}/gobin"
 		export EGO_SRC="${GOPATH}/src"
 
+		mkdir -p "${GOBIN}" || die
 		mkdir -p "${GOPATH}"/src || die
 
 		debug-print "${FUNCNAME}: GOPATH = ${GOPATH}"
@@ -298,13 +313,13 @@ golang-single_src_unpack() {
 
 	base_src_unpack
 
-	einfo "Preparing Golang build environment in ${GOPATH}/src"
+	einfo "Preparing GoLang build environment in ${GOPATH}/src"
 
-	# If the ebuild declares some Golang package deps, then they need to be
-	# correctly installed into the local Golang build environment which was
-	# set up automatically during pkg_setup() phase
+	# If the ebuild declares some GoLang dependencies, then they need to be
+	# correctly installed into the sand-boxed GoLang build environment which
+	# was set up automatically during pkg_setup() phase
 	if [[ ${#GOLANG_PKG_DEPENDENCIES[@]} -gt 0 ]]; then
-		# move Golang dependencies from WORKDIR into GOPATH
+		# move GoLang dependencies from WORKDIR into GOPATH
 		for module in ${!GOLANG_PKG_DEPENDENCIES[@]} ; do
 
 			# Strip all the white spaces
@@ -316,34 +331,60 @@ golang-single_src_unpack() {
 			# Strip the alias
 			DEPENDENCY="${DEPENDENCY%%->*}"
 
-			# Determine the import path, package name, and revision tag
+			# Factorize the import path in specific tokens such as the host name,
+			# the author name, the project name, and the revision tag
 			local _importpath="${DEPENDENCY%:*}"
-			local _pkg_name="${_importpath##*/}"
+			local _host="${_importpath%%/*}"
+			local _project_name="${_importpath##*/}"
+			local _author_name="${_importpath#*/}"
+			_author_name="${_author_name%/*}"
 			local _revision="${DEPENDENCY#*:}"
 
 			# When the alias is not specified, then we set the alias as equal to
-			# the import path minus the package name
+			# the import path minus the project name
 			[[ $DEPENDENCY == $_importpathalias ]] && _importpathalias="${_importpath%/*}"
 
-			debug-print "${FUNCNAME}: index = ${_pkg_name}"
-			debug-print "${FUNCNAME}: importpath = ${_importpath}"
+
+			debug-print "${FUNCNAME}: importpath      = ${_importpath}"
 			debug-print "${FUNCNAME}: importpathalias = ${_importpathalias}"
-			debug-print "${FUNCNAME}: revision = ${_revision}"
+			debug-print "${FUNCNAME}: host            = ${_host}"
+			debug-print "${FUNCNAME}: author          = ${_author_name}"
+			debug-print "${FUNCNAME}: project         = ${_project_name}"
+			debug-print "${FUNCNAME}: revision        = ${_revision}"
+
+			#einfo "importpath      = ${_importpath}"
+			#einfo "importpathalias = ${_importpathalias}"
+			#einfo "host            = ${_host}"
+			#einfo "author          = ${_author_name}"
+			#einfo "project         = ${_project_name}"
+			#einfo "revision        = ${_revision}"
+
 
 			# Create the import path in GOPATH
 			mkdir -p "${GOPATH}"/src/${_importpathalias} || die
 			#einfo "\n${GOPATH}/src/${_importpathalias}"
 
-			# Move package source from WORKDIR into GOPATH
+			# Unpack the archive and move sources from WORKDIR into GOPATH
 			local _message="Moving ${_importpath}"
-			[[ "${_importpath}" != "${_importpathalias}/${_pkg_name}" ]] && _message+=" as ${_importpathalias}/${_pkg_name}"
-			ebegin "${_message}"
-				mv ${_pkg_name}-${_revision}* "${GOPATH}"/src/${_importpathalias}/${_pkg_name} || die
-			eend
+			[[ "${_importpath}" != "${_importpathalias}/${_project_name}" ]] && _message+=" as ${_importpathalias}/${_project_name}"
+			case ${_host} in
+				github*)
+					ebegin "${_message}"
+						mv ${_project_name}-${_revision}* "${GOPATH}"/src/${_importpathalias}/${_project_name} || die
+					eend
+					;;
+				bitbucket*)
+					#einfo "path: ${_author_name}-${_project_name}-${_revision}"
+					ebegin "${_message}"
+						mv ${_author_name}-${_project_name}-${_revision} "${GOPATH}"/src/${_importpathalias}/${_project_name} || die
+					eend
+					;;
+				*) die "this eclass doesn't support ${_importpath}" ;;
+			esac
 		done
 	fi
 
-	# move Golang main package from WORKDIR into GOPATH
+	# move GoLang main package from WORKDIR into GOPATH
 	mkdir -p "${GOPATH}"/src/${GOLANG_PKG_IMPORTPATH_ALIAS} || die
 	ebegin "Moving ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}"
 		mv "${GOLANG_PKG_NAME}-${GOLANG_PKG_VERSION}" "${GOPATH}"/src/${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME} || die
@@ -356,16 +397,16 @@ golang-single_src_unpack() {
 golang-single_src_configure() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	[[ ${EGO} ]] || die "No Golang implementation set (pkg_setup not called?)."
+	[[ ${EGO} ]] || die "No GoLang implementation set (pkg_setup not called?)."
 
-	# Golang doesn't have a configure phase,
+	# GoLang doesn't have a configure phase,
 	# so instead we print the output of 'go env'
 	oldifs="$IFS"
 	IFS=$'\n'
 	local -a GOLANG_ENV=( $( ${GO} env ) )
 	IFS="$oldifs"
 	if [[ ${#GOLANG_ENV[@]} -eq 1 ]]; then
-		eerror "Your golang environment should be more verbose"
+		eerror "Your GoLang environment should be more verbose"
 	fi
 
 	# Prints build environment summary
@@ -381,12 +422,20 @@ golang-single_src_configure() {
 golang-single_src_compile() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	[[ ${EGO} ]] || die "No Golang implementation set (pkg_setup not called?)."
+	[[ ${EGO} ]] || die "No GoLang implementation set (pkg_setup not called?)."
 
+	# Define the output of the project name.
+	# If the GoLang package is a multiple package then we don't specify the output
+	local OUTPUT
+	if [[ -z ${GOLANG_PKG_MULTIPLE} ]]; then
+		OUTPUT="-o ${GOBIN}/${GOLANG_PKG_OUTPUT_NAME}"
+	fi
+
+	# Build the package
 	${EGO} build \
 		-v -a -p $(makeopts_jobs) \
-		-o "${GOBIN}"/${GOLANG_PKG_OUTPUT_NAME} \
-		${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH} \
+		${OUTPUT} \
+		${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}/${GOLANG_PKG_BUILDPATH} \
 		|| die
 }
 
@@ -398,8 +447,10 @@ golang-single_src_install() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	# install binaries
-	into ${GOLANG_PKG_INSTALLPATH}
-	dobin "${GOBIN}"/${GOLANG_PKG_OUTPUT_NAME}
+	if [[ -z ${GOLANG_PKG_MULTIPLE} ]]; then
+		into ${GOLANG_PKG_INSTALLPATH}
+		dobin "${GOBIN}"/${GOLANG_PKG_OUTPUT_NAME}
+	fi
 
 	base_src_install_docs
 }
@@ -411,11 +462,11 @@ golang-single_src_install() {
 golang-single_src_test() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	[[ ${EGO} ]] || die "No Golang implementation set (pkg_setup not called?)."
+	[[ ${EGO} ]] || die "No GoLang implementation set (pkg_setup not called?)."
 
 	${EGO} test \
 		-v -a -p $(makeopts_jobs) \
 		-o "${GOBIN}"/${GOLANG_PKG_OUTPUT_NAME} \
-		${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH} \
+		${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}/${GOLANG_PKG_BUILDPATH} \
 		|| die
 }
