@@ -382,13 +382,13 @@ golang-single_src_unpack() {
 			case ${_host} in
 				github*)
 					ebegin "${_message}"
-						mv ${_project_name}-${_revision}* "${GOPATH}"/src/${_importpathalias}/${_project_name,,} || die
+						mv ${_project_name}-${_revision}* "${GOPATH}"/src/${_importpathalias}/${_project_name} || die
 					eend
 					;;
 				bitbucket*)
 					#einfo "path: ${_author_name}-${_project_name}-${_revision}"
 					ebegin "${_message}"
-						mv ${_author_name}-${_project_name}-${_revision} "${GOPATH}"/src/${_importpathalias}/${_project_name,,} || die
+						mv ${_author_name}-${_project_name}-${_revision} "${GOPATH}"/src/${_importpathalias}/${_project_name} || die
 					eend
 					;;
 				*) die "this eclass doesn't support '${_importpath}'" ;;
@@ -522,8 +522,9 @@ golang-single_src_test() {
 # @DESCRIPTION:
 # Generates a symbolic link for import path <target> as <alias>.
 # Use this function only if GOLANG_PKG_DEPENDENCIES declaration of import path
-# aliases doesn't work (e.g.: the package name differs from both the import path
-# and the alias).
+# aliases doesn't work (e.g.: the package name differs from both the import
+# path and the alias, or the package name is case sensitive but the import path
+# is not).
 golang_fix_importpath_alias() {
 	debug-print-function ${FUNCNAME} "${@}"
 
