@@ -163,6 +163,12 @@ GOLANG_PKG_INSTALLPATH="${GOLANG_PKG_INSTALLPATH:="/usr"}"
 # @DESCRIPTION:
 # Set to enable the execution of automated testing.
 
+# @ECLASS-VARIABLE: GOLANG_PKG_LDFLAGS
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Set the linker arguments to pass to 5l, 6l, or 8l.
+#GOLANG_PKG_LDFLAGS="${GOLANG_PKG_LDFLAGS:-}"
+
 # @ECLASS-VARIABLE: GO
 # @DEFAULT_UNSET
 # @DESCRIPTION:
@@ -234,7 +240,7 @@ if [[ ${#GOLANG_PKG_DEPENDENCIES[@]} -gt 0 ]]; then
 			bitbucket*)
 				SRC_URI+=" https://${_importpath}/get/${_revision}.zip -> ${_importpath//\//-}-${_revision}.zip"
 				;;
-			*) die "this eclass doesn't support ${_importpath}" ;;
+			*) die "this eclass doesn't support '${_importpath}'" ;;
 		esac
 
 	done
@@ -291,12 +297,18 @@ golang-single_pkg_setup() {
 	# Sets the build environment inside Portage's WORKDIR
 	ebegin "Setting up GoLang build environment"
 
-		export GOPATH="${WORKDIR}/gopath"
-		export GOBIN="${WORKDIR}/gobin"
-		export EGO_SRC="${GOPATH}/src"
+		# Prepares gopath/gobin directory in WORKDIR
+		local _GOPATH="${WORKDIR}/gopath"
+		local _GOBIN="${WORKDIR}/gobin"
+		mkdir -p "${_GOBIN}" || die
+		mkdir -p "${_GOPATH}"/src || die
 
-		mkdir -p "${GOBIN}" || die
-		mkdir -p "${GOPATH}"/src || die
+		# Declare special env variable EGO_SRC
+		export EGO_SRC="${_GOPATH}/src"
+
+		# Exports GoLang env variables
+		export GOPATH="$_GOPATH"
+		export GOBIN="$_GOBIN"
 
 		debug-print "${FUNCNAME}: GOPATH = ${GOPATH}"
 		debug-print "${FUNCNAME}: GOBIN = ${GOBIN}"
@@ -370,16 +382,16 @@ golang-single_src_unpack() {
 			case ${_host} in
 				github*)
 					ebegin "${_message}"
-						mv ${_project_name}-${_revision}* "${GOPATH}"/src/${_importpathalias}/${_project_name} || die
+						mv ${_project_name}-${_revision}* "${GOPATH}"/src/${_importpathalias}/${_project_name,,} || die
 					eend
 					;;
 				bitbucket*)
 					#einfo "path: ${_author_name}-${_project_name}-${_revision}"
 					ebegin "${_message}"
-						mv ${_author_name}-${_project_name}-${_revision} "${GOPATH}"/src/${_importpathalias}/${_project_name} || die
+						mv ${_author_name}-${_project_name}-${_revision} "${GOPATH}"/src/${_importpathalias}/${_project_name,,} || die
 					eend
 					;;
-				*) die "this eclass doesn't support ${_importpath}" ;;
+				*) die "this eclass doesn't support '${_importpath}'" ;;
 			esac
 		done
 	fi
@@ -424,18 +436,42 @@ golang-single_src_compile() {
 
 	[[ ${EGO} ]] || die "No GoLang implementation set (pkg_setup not called?)."
 
+	# Populates global env variable GOPATH
+	if [[ -n ${GOLANG_PKG_VENDOR} ]]; then
+		einfo "Using bundled packages in"
+
+		for x in "${GOLANG_PKG_VENDOR[@]}"; do
+			[ -d ${x} ] || continue
+
+			debug-print "$FUNCNAME: GOPATH: Adding vendor path ${x}"
+			ebegin "- ${x//${WORKDIR}\//}"
+				GOPATH="${GOPATH}:${x}"
+			eend
+		done
+
+		export GOPATH
+	fi
+
 	# Define the output of the project name.
-	# If the GoLang package is a multiple package then we don't specify the output
+	# If the GoLang package is a multiple package then
+	# we don't specify the output
 	local OUTPUT
 	if [[ -z ${GOLANG_PKG_MULTIPLE} ]]; then
 		OUTPUT="-o ${GOBIN}/${GOLANG_PKG_OUTPUT_NAME}"
 	fi
 
+	# Define the linker invocation.
+	if [[ -n ${GOLANG_PKG_LDFLAGS} ]]; then
+		GOLANG_PKG_LDFLAGS="-ldflags ${GOLANG_PKG_LDFLAGS}"
+	fi
+
 	# Build the package
+	#einfo "${EGO} build ${GOLANG_PKG_LDFLAGS} -v -a -p $(makeopts_jobs) ${OUTPUT} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
 	${EGO} build \
+		${GOLANG_PKG_LDFLAGS} \
 		-v -a -p $(makeopts_jobs) \
 		${OUTPUT} \
-		${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}/${GOLANG_PKG_BUILDPATH} \
+		${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH} \
 		|| die
 }
 
@@ -446,12 +482,22 @@ golang-single_src_compile() {
 golang-single_src_install() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	# install binaries
-	if [[ -z ${GOLANG_PKG_MULTIPLE} ]]; then
-		into ${GOLANG_PKG_INSTALLPATH}
-		dobin "${GOBIN}"/${GOLANG_PKG_OUTPUT_NAME}
+	# pre-install phase (go install)
+	if [[ -n ${GOLANG_PKG_MULTIPLE} ]]; then
+		${EGO} install \
+			${GOLANG_PKG_LDFLAGS} \
+			-v -p $(makeopts_jobs) \
+			${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH} \
+			|| die
 	fi
 
+	# install binaries
+	into ${GOLANG_PKG_INSTALLPATH}
+	for bin in "${GOBIN}"/* ; do
+		dobin ${bin}
+	done
+
+	# install docs
 	base_src_install_docs
 }
 
@@ -466,7 +512,30 @@ golang-single_src_test() {
 
 	${EGO} test \
 		-v -a -p $(makeopts_jobs) \
-		-o "${GOBIN}"/${GOLANG_PKG_OUTPUT_NAME} \
-		${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}/${GOLANG_PKG_BUILDPATH} \
+		${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}/... \
 		|| die
+}
+
+
+# @FUNCTION: golang_fix_importpath_alias
+# @USAGE: <target> <alias>
+# @DESCRIPTION:
+# Generates a symbolic link for import path <target> as <alias>.
+# Use this function only if GOLANG_PKG_DEPENDENCIES declaration of import path
+# aliases doesn't work (e.g.: the package name differs from both the import path
+# and the alias).
+golang_fix_importpath_alias() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	[[ ${1} ]] || die "${FUNCNAME}: no paths given"
+
+	local TARGET="${1}"
+	local ALIAS="${2}"
+
+	mkdir -p "${GOPATH}/src/${ALIAS%/*}" || die
+	ebegin "Fixing ${TARGET} as ${ALIAS}"
+		ln -sf "${GOPATH}/src/${TARGET}" \
+			"${GOPATH}/src/${ALIAS}" \
+			|| die
+	eend
 }
