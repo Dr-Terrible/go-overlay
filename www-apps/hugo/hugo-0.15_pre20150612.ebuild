@@ -49,12 +49,15 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
 
 src_prepare() {
-	mkdir -p "${GOPATH}"/src/gopkg.in || die
-	ln -sf "${GOPATH}"/src/github.com/go-yaml/yaml \
-		"${GOPATH}"/src/gopkg.in/yaml.v2 \
-		|| die
+	golang_fix_importpath_alias \
+		"github.com/go-yaml/yaml" \
+		"gopkg.in/yaml.v2"
 
-	ln -sf "${GOPATH}"/src/github.com/go-fsnotify/fsnotify \
-		"${GOPATH}"/src/gopkg.in/fsnotify.v1 \
-		|| die
+	golang_fix_importpath_alias \
+		"github.com/go-fsnotify/fsnotify" \
+		"gopkg.in/fsnotify.v1"
+
+	golang_fix_importpath_alias \
+		"github.com/spf13/jWalterWeatherman" \
+		"github.com/spf13/jwalterweatherman"
 }
