@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<upstream>
+		<doc>http://docs.syncthing.net</doc>
+		<bugs-to>https://github.com/syncthing/syncthing/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		Syncthing is an application that lets you synchronize your files across
+		multiple devices. This means the creation, modification or deletion of
+		files on one machine will automatically be replicated to your other
+		devices.
+	</longdescription>
+</pkgmetadata>
