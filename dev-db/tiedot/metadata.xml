@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/HousuoGuo/tiedot/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		Tiedot is a document database engine that uses JSON as document
+		notation. It has a powerful query processor that supports advanced set
+		operation. It can be embedded into your program, or run a stand-alone
+		server using HTTP for an API.
+	</longdescription>
+</pkgmetadata>
