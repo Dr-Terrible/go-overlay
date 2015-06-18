@@ -20,6 +20,12 @@ IUSE="systemd"
 
 RDEPEND="systemd? ( >=sys-apps/systemd-219 )"
 
+src_prepare() {
+	# FIX: provide a version number
+	touch "${S}"/RELEASE || die
+	echo "v${PV}" > "${S}"/RELEASE || die
+}
+
 src_compile() {
 	# Build the package
 	${EGO} run build.go clean || die
