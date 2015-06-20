@@ -1,3 +1,17 @@
-app-editors/lime 1.0: (riscrivere) A reimplementation of Sublime Text in Go lang.
-app-editors/liteide 27.1: LiteIDE is a simple, open source, cross-platform Go IDE.
+app-admin/trousseau 0.3.4 0.3.4-r1 0.3.5: A networked and encrypted key-value database built in GoLang.
+app-editors/lime 1.0: Open source API-compatible alternative to the text editor Sublime Text
+app-editors/liteide 27.2.1: LiteIDE is a simple, open source, cross-platform Go IDE.
 app-editors/srclib 0.0.40: A hackable, multilange code analysis library for building better software tools
+dev-db/bolt 1.0: Bolt is a low level key/value NoSQL database written in GoLang
+dev-db/boltd 1.0: Bolts is a introspection tool for Bolt databases.
+dev-db/cayley 0.4.1: Cayley is a graph databse written in GoLang.
+dev-db/tiedot 3.2: Tiedot is a document-oriented NoSQL database written in GoLang
+dev-go/gb 0.1_pre20150620: Gb is a project based build tool for the Go programming language
+dev-go/gocode 2015.03.03: An autocompletion daemon for the Go programming language
+dev-go/gostatus 20150606: A command-line tool that show the status of GoLang repositories
+dev-go/gxui 0.1_pre20150615: an experimental Go cross platform UI library
+dev-go/lime-backend 2015.06.05: Backend for Lime text editor.
+dev-go/liteide-tools 2015.04.09: Liteide Golang tools
+dev-go/raml 0.8: An implementation of a RAML parser for Go. Compliant with RAML 0.8
+net-misc/syncthing 0.11.9-r1: Syncthing is an application that lets you synchronize your files across multiple devices
+www-apps/hugo 0.14 0.15_pre20150612 0.15_pre20150618: A fast and flexible static site generator built in GoLang
