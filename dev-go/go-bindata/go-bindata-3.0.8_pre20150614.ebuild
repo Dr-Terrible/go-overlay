@@ -18,5 +18,3 @@ HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 LICENSE="CC0-1.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
-
-RESTRICT+=" test"

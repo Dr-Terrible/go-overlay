@@ -1,14 +1,13 @@
 DEFINED_PHASES=compile configure install prepare setup test unpack
 DEPEND=virtual/pkgconfig dev-lang/go:*
-DESCRIPTION=Syncthing is an application that lets you synchronize your files across multiple devices
+DESCRIPTION=An implementation of a RAML parser for Go. Compliant with RAML 0.8
 EAPI=5
-HOMEPAGE=http://syncthing.net
-IUSE=systemd test
+HOMEPAGE=https://github.com/go-raml/raml
+IUSE=test
 KEYWORDS=~amd64 ~x86 ~arm
-LICENSE=MPL-2.0
-RDEPEND=systemd? ( >=sys-apps/systemd-219 )
+LICENSE=BSD
 RESTRICT=mirror
 SLOT=0
-SRC_URI=https://github.com/syncthing/syncthing/archive/v0.11.9.tar.gz -> syncthing-0.11.9.tar.gz
+SRC_URI=https://github.com/go-raml/raml/archive/f85bd2ac2a39b277a196e8691fc55d9fa3542b5e.tar.gz -> raml-0.8.tar.gz https://github.com/advance512/yaml/archive/e401b2b026.tar.gz -> github.com-advance512-yaml-e401b2b026.tar.gz
 _eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	eutils	9fb270e417e0e83d64ca52586c4a79de	golang-single	84a62e45ed141c1e4cf1f201dbe4e9dd	multilib	62927b3db3a589b0806255f3a002d5d3	multiprocessing	d7f2985a2c76c365ee20269db5261414	systemd	090342761f573a8280dd5aa6b0345f3b	toolchain-funcs	42408102d713fbad60ca21349865edb4
-_md5_=329522139a9c2b79d852a48f05ac343e
+_md5_=34620a28dc9992423104ca468153194f

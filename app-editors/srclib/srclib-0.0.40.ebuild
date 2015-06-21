@@ -9,9 +9,11 @@ GOLANG_PKG_IMPORTPATH_ALIAS="sourcegraph.com/sourcegraph"
 GOLANG_PKG_PREFIX="v"
 GOLANG_PKG_OUTPUT_NAME="src"
 GOLANG_PKG_BUILDPATH="/cmd/src"
+GOLANG_PKG_HAVE_TEST=1
 
 # Declare dependencies
 GOLANG_PKG_DEPENDENCIES=(
+	"github.com/petar/GoLLRB:53be0d36a8"
 	"github.com/alecthomas/binary:21c37b530b"
 	"github.com/alecthomas/unsafeslice:a2ace32dbd"
 	"github.com/aybabtme/color:28ad4cc941"
@@ -37,7 +39,6 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/sourcegraph/vcsstore:e7025c91a3 -> sourcegraph.com/sourcegraph"
 	"github.com/sqs/pbtypes:8c90263b5e -> sourcegraph.com/sqs"
 	"github.com/sqs/fileset:4317e899aa"
-	"github.com/petar/GoLLRB:53be0d36a8"
 	"github.com/google/go-querystring:547ef5ac97"
 	"github.com/golang/tools:cc54cd6553 -> golang.org/x"
 	"github.com/golang/protobuf:34a5f244f1"
@@ -53,6 +54,3 @@ HOMEPAGE="http://srclib.org"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
-IUSE="test"
-
-#S="${WORKDIR}/gopath"
