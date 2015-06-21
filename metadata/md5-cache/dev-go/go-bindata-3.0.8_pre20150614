@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=A small utility for embedding binary data in a GoLang program.
+EAPI=5
+HOMEPAGE=https://github.com/jteeuwen/go-bindata
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=CC0-1.0
+RESTRICT=mirror test
+SLOT=0
+SRC_URI=https://github.com/jteeuwen/go-bindata/archive/91db54b0401d0679b3cf743142e4f3c86b4aaa4e.tar.gz -> go-bindata-3.0.8_pre20150614.tar.gz
+_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	eutils	9fb270e417e0e83d64ca52586c4a79de	golang-single	7912db22b5fa722efd451ad25262c51a	multilib	62927b3db3a589b0806255f3a002d5d3	multiprocessing	d7f2985a2c76c365ee20269db5261414	toolchain-funcs	42408102d713fbad60ca21349865edb4
+_md5_=07238f498f74123e7080424bb0c86a66

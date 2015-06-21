@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/jteeuwen/go-bindata/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		This package converts any file into managable Go source code. Useful for
+		embedding binary data into a go program. The file data is optionally
+		gzip compressed before being converted to a raw byte slice.
+	</longdescription>
+</pkgmetadata>
