@@ -154,6 +154,11 @@ GOLANG_PKG_BUILDPATH="${GOLANG_PKG_BUILDPATH:-}"
 # TODO
 GOLANG_PKG_INSTALLPATH="${GOLANG_PKG_INSTALLPATH:="/usr"}"
 
+# @ECLASS-VARIABLE: GOLANG_PKG_INSTALLSUFFIX
+# @DESCRIPTION:
+# TODO
+GOLANG_PKG_INSTALLSUFFIX="${GOLANG_PKG_INSTALLSUFFIX:-}"
+
 # @ECLASS-VARIABLE: GOLANG_PKG_MULTIPLE
 # @DESCRIPTION:
 # Set to enable the building of multiple packages.
@@ -194,9 +199,24 @@ GOLANG_PKG_INSTALLPATH="${GOLANG_PKG_INSTALLPATH:="/usr"}"
 # @CODE
 
 
+# Validates GOLANG_PKG_IMPORTPATH
 if [[ -z ${GOLANG_PKG_IMPORTPATH} ]]; then
 	eerror "The remote import path for this package has not been declared"
 	die "Mandatary variable GOLANG_PKG_IMPORTPATH is unset"
+fi
+
+# Forces a multiple package build when user specifies GOLANG_PKG_MULTIPLE=1
+if [[ -n ${GOLANG_PKG_MULTIPLE} && -z ${GOLANG_PKG_BUILDPATH} ]]; then
+	GOLANG_PKG_BUILDPATH="/..."
+fi
+
+# Validates use of GOLANG_PKG_BUILDPATH combined with GOLANG_PKG_MULTIPLE
+# FIX: makes sure user isn't overriding GOLANG_PKG_BUILDPATH with inane values
+if [[ -n ${GOLANG_PKG_MULTIPLE} && ${GOLANG_PKG_BUILDPATH##*/} != "..." ]]; then
+	ewarn "Ebuild ${CATEGORY}/${PF} specifies GOLANG_PKG_MULTIPLE=1,"
+	ewarn "but then GOLANG_PKG_BUILDPATH is overridden with \"${GOLANG_PKG_BUILDPATH}\"."
+	ewarn "Please, fix it by appending \"/...\" to your GOLANG_PKG_BUILDPATH."
+	ewarn "If in doubt, remove GOLANG_PKG_BUILDPATH entirely."
 fi
 
 # Even though xz-utils are in @system, they must still be added to DEPEND; see
@@ -297,7 +317,7 @@ golang-single_pkg_setup() {
 	# Sets the build environment inside Portage's WORKDIR
 	ebegin "Setting up GoLang build environment"
 
-		# Prepares gopath/gobin directory in WORKDIR
+		# Prepares gopath / gobin directories inside WORKDIR
 		local _GOPATH="${WORKDIR}/gopath"
 		local _GOBIN="${WORKDIR}/gobin"
 		mkdir -p "${_GOBIN}" || die
@@ -452,27 +472,35 @@ golang-single_src_compile() {
 		export GOPATH
 	fi
 
-	# Define the output of the project name.
-	# If the GoLang package is a multiple package then
-	# we don't specify the output
-	local OUTPUT
-	if [[ -z ${GOLANG_PKG_MULTIPLE} ]]; then
-		OUTPUT="-o ${GOBIN}/${GOLANG_PKG_OUTPUT_NAME}"
-	fi
+	# Define the output binary name of the package.
+	# If the package is a multiple package then we don't specify the output
+	local EGO_OUTPUT
+	[[ -z ${GOLANG_PKG_MULTIPLE} ]] && EGO_OUTPUT="-o ${GOBIN}/${GOLANG_PKG_OUTPUT_NAME}"
 
-	# Define the linker invocation.
-	if [[ -n ${GOLANG_PKG_LDFLAGS} ]]; then
-		GOLANG_PKG_LDFLAGS="-ldflags ${GOLANG_PKG_LDFLAGS}"
-	fi
+	# Define the arguments for the linker invocation.
+	local EGO_LDFLAGS
+	[[ -z ${GOLANG_PKG_LDFLAGS} ]] || EGO_LDFLAGS="-ldflags ${GOLANG_PKG_LDFLAGS}"
 
-	# Build the package
-	#einfo "${EGO} build ${GOLANG_PKG_LDFLAGS} -v -a -p $(makeopts_jobs) ${OUTPUT} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
-	${EGO} build \
-		${GOLANG_PKG_LDFLAGS} \
-		-v -a -p $(makeopts_jobs) \
-		${OUTPUT} \
-		${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH} \
-		|| die
+	# Define the install suffix.
+	local EGO_INSTALLSUFFIX
+	[[ -z ${GOLANG_PKG_INSTALLSUFFIX} ]] || EGO_INSTALLSUFFIX="-installsuffix=${GOLANG_PKG_INSTALLSUFFIX}"
+
+	# Define the level of verbosity.
+	local EGO_VERBOSE="-v"
+	[[ -z ${PORTAGE_VERBOSE} ]] || EGO_VERBOSE+=" -x"
+
+	# Define the number of builds that can be run in parallel.
+	local EGO_PARALLEL="-p $(makeopts_jobs)"
+
+	# Define extra options.
+	local EGO_EXTRA_OPTIONS="-a"
+
+	# Prepare build flags for the go toolchain.
+	local EGO_BUILD_FLAGS="${EGO_INSTALLSUFFIX} ${EGO_LDFLAGS} ${EGO_VERBOSE} ${EGO_PARALLEL} ${EGO_EXTRA_OPTIONS} ${EGO_OUTPUT} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
+
+	# Build the package.
+	einfo "${EGO} build ${EGO_BUILD_FLAGS}"
+	${EGO} build ${EGO_BUILD_FLAGS} || die
 }
 
 
@@ -482,22 +510,40 @@ golang-single_src_compile() {
 golang-single_src_install() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	# pre-install phase (go install)
+	# Define the arguments for the linker invocation.
+    local EGO_LDFLAGS
+    [[ -z ${GOLANG_PKG_LDFLAGS} ]] || EGO_LDFLAGS="-ldflags ${GOLANG_PKG_LDFLAGS}"
+
+	# Define the install suffix.
+	local EGO_INSTALLSUFFIX
+	[[ -z ${GOLANG_PKG_INSTALLSUFFIX} ]] || EGO_INSTALLSUFFIX="-installsuffix=${GOLANG_PKG_INSTALLSUFFIX}"
+
+	# Define the level of verbosity.
+	local EGO_VERBOSE="-v"
+	[[ -z ${PORTAGE_VERBOSE} ]] || EGO_VERBOSE+=" -x"
+
+	# Define the number of builds that can be run in parallel.
+	local EGO_PARALLEL="-p $(makeopts_jobs)"
+
+	# Define extra options.
+	local EGO_EXTRA_OPTIONS=""
+
+	# Prepare build flags for the go toolchain.
+	local EGO_BUILD_FLAGS="${EGO_INSTALLSUFFIX} ${EGO_LDFLAGS} ${EGO_VERBOSE} ${EGO_PARALLEL} ${EGO_EXTRA_OPTIONS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
+
+	# Execute the pre-install phase (go install).
 	if [[ -n ${GOLANG_PKG_MULTIPLE} ]]; then
-		${EGO} install \
-			${GOLANG_PKG_LDFLAGS} \
-			-v -p $(makeopts_jobs) \
-			${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH} \
-			|| die
+		einfo "${EGO} install ${EGO_BUILD_FLAGS}"
+		${EGO} install ${EGO_BUILD_FLAGS} || die
 	fi
 
-	# install binaries
+	# Install binaries.
 	into ${GOLANG_PKG_INSTALLPATH}
 	for bin in "${GOBIN}"/* ; do
 		dobin ${bin}
 	done
 
-	# install docs
+	# Install documentation.
 	base_src_install_docs
 }
 
@@ -510,6 +556,14 @@ golang-single_src_test() {
 
 	[[ ${EGO} ]] || die "No GoLang implementation set (pkg_setup not called?)."
 
+	# Add GOBIN to the main PATH.
+	# FIX: this is necessary for the tests that need to invoke bins from GOBIN.
+	export PATH="${GOBIN}:${PATH}"
+
+	# Creates a symbolic link of GOBIN inside S
+	# (required by unit tests executing binaries from $S/bin instead of $GOBIN)
+	ln -s "${GOBIN}" "${S}/bin" || die
+
 	${EGO} test \
 		-v -a -p $(makeopts_jobs) \
 		${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}/... \
@@ -520,11 +574,13 @@ golang-single_src_test() {
 # @FUNCTION: golang_fix_importpath_alias
 # @USAGE: <target> <alias>
 # @DESCRIPTION:
-# Generates a symbolic link for import path <target> as <alias>.
-# Use this function only if GOLANG_PKG_DEPENDENCIES declaration of import path
-# aliases doesn't work (e.g.: the package name differs from both the import
-# path and the alias, or the package name is case sensitive but the import path
-# is not).
+# Helper functions for generating a symbolic link for import path <target> as
+# <alias>.
+#
+# WARNING: Use this function only if GOLANG_PKG_DEPENDENCIES declaration of
+# import path aliases doesn't work (e.g.: the package name differs from both the
+# import path and the alias, or if the package name is case sensitive but the
+# import path is not).
 golang_fix_importpath_alias() {
 	debug-print-function ${FUNCNAME} "${@}"
 
