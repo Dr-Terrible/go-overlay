@@ -22,7 +22,7 @@
 # EAPI=5
 #
 # GOLANG_PKG_IMPORTPATH="github.com/captObvious"
-# GOLANG_PKG_SUFFIX=".zip"
+# GOLANG_PKG_ARCHIVESUFFIX=".zip"
 # GOLANG_PKG_HAVE_TEST
 # inherit golang-single qt4-r2
 #
@@ -72,14 +72,21 @@ QA_FLAGS_IGNORED="usr/bin/.*
 
 EXPORT_FUNCTIONS pkg_setup src_unpack src_configure src_compile src_install src_test
 
+
+# @ECLASS-VARIABLE: GOLANG_PKG_USE_CGO
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Set to enable the compilation of the package with CGO.
+
 # @ECLASS-VARIABLE: GOLANG_PKG_DEPEND_ON_GO_SUBSLOT
 # @DESCRIPTION:
 # Set to ensure the package does depend on the dev-lang/go subslot value.
 # Possible values: {yes,no}
+# This eclass defaults to "no"
 GOLANG_PKG_DEPEND_ON_GO_SUBSLOT=${GOLANG_PKG_DEPEND_ON_GO_SUBSLOT:="no"}
 
 
-# Silence repoman warnings
+# Silences repoman warnings.
 case "${EAPI:-0}" in
 	5)
 		case "${GOLANG_PKG_DEPEND_ON_GO_SUBSLOT:-yes}" in
@@ -96,6 +103,11 @@ case "${EAPI:-0}" in
 		;;
 esac
 DEPEND+=" ${GO_DEPEND}"
+
+# Adds gccgo as a compile-time dependency when GOLANG_PKG_USE_CGO is set.
+[[ -n ${GOLANG_PKG_USE_CGO} ]] && DEPEND+=" >=sys-devel/gcc-4.8.4[go]"
+
+
 
 # @ECLASS-VARIABLE: GOLANG_PKG_NAME
 # @DESCRIPTION:
@@ -121,47 +133,50 @@ GOLANG_PKG_IMPORTPATH="${GOLANG_PKG_IMPORTPATH:-}"
 # GOLANG_PKG_IMPORTPATH_ALIAS="privaterepo.com/captObvious/"
 GOLANG_PKG_IMPORTPATH_ALIAS="${GOLANG_PKG_IMPORTPATH_ALIAS:="${GOLANG_PKG_IMPORTPATH}"}"
 
-# @ECLASS-VARIABLE: GOLANG_PKG_PREFIX
+# @ECLASS-VARIABLE: GOLANG_PKG_ARCHIVEPREFIX
 # @DESCRIPTION:
 # Sets the archive prefix for the file URI of the package.
 # Most projects hosted on GitHub's mirrors provide archives with prefix as
 # 'v' or 'source-', other hosted services offer different archive formats.
 # This eclass defaults to an empty prefix.
-GOLANG_PKG_PREFIX="${GOLANG_PKG_PREFIX:-}"
+GOLANG_PKG_ARCHIVEPREFIX="${GOLANG_PKG_ARCHIVEPREFIX:-}"
 
-# @ECLASS-VARIABLE: GOLANG_PKG_SUFFIX
+# @ECLASS-VARIABLE: GOLANG_PKG_ARCHIVESUFFIX
 # @DESCRIPTION:
 # Sets the archive suffix for the file URI of the package.
 # Most projects hosted on GitHub's mirrors provide archives with suffix as
 # '.tar.gz' or '.zip', other hosted services offer different archive formats.
 # This eclass defaults to '.tar.gz'.
-GOLANG_PKG_SUFFIX="${GOLANG_PKG_SUFFIX:=".tar.gz"}"
+GOLANG_PKG_ARCHIVESUFFIX="${GOLANG_PKG_ARCHIVESUFFIX:=".tar.gz"}"
 
 # @ECLASS-VARIABLE: GOLANG_PKG_OUTPUT_NAME
 # @DESCRIPTION:
-# Specifies the output file name of the package. If not set, it derives from the
-# name of the package, such as $GOLANG_PKG_NAME.
+# Specifies the output file name of the package.
+# If not set, it derives from the name of the package, such as $GOLANG_PKG_NAME.
 # This eclass defaults to $PN.
 GOLANG_PKG_OUTPUT_NAME="${GOLANG_PKG_OUTPUT_NAME:="${GOLANG_PKG_NAME}"}"
 
 # @ECLASS-VARIABLE: GOLANG_PKG_BUILDPATH
 # @DESCRIPTION:
 # TODO
+# This eclass defaults to an empty build path.
 GOLANG_PKG_BUILDPATH="${GOLANG_PKG_BUILDPATH:-}"
 
 # @ECLASS-VARIABLE: GOLANG_PKG_INSTALLPATH
 # @DESCRIPTION:
 # TODO
+# This eclass defaults to "/usr"
 GOLANG_PKG_INSTALLPATH="${GOLANG_PKG_INSTALLPATH:="/usr"}"
 
 # @ECLASS-VARIABLE: GOLANG_PKG_INSTALLSUFFIX
 # @DESCRIPTION:
 # TODO
+# This eclass defaults to an empty install suffix.
 GOLANG_PKG_INSTALLSUFFIX="${GOLANG_PKG_INSTALLSUFFIX:-}"
 
-# @ECLASS-VARIABLE: GOLANG_PKG_MULTIPLE
+# @ECLASS-VARIABLE: GOLANG_PKG_IS_MULTIPLE
 # @DESCRIPTION:
-# Set to enable the building of multiple packages.
+# Set to enable the building of multiple packages from a single import path.
 
 # @ECLASS-VARIABLE: GOLANG_PKG_HAVE_TEST
 # @DEFAULT_UNSET
@@ -171,8 +186,17 @@ GOLANG_PKG_INSTALLSUFFIX="${GOLANG_PKG_INSTALLSUFFIX:-}"
 # @ECLASS-VARIABLE: GOLANG_PKG_LDFLAGS
 # @DEFAULT_UNSET
 # @DESCRIPTION:
-# Set the linker arguments to pass to 5l, 6l, or 8l.
-#GOLANG_PKG_LDFLAGS="${GOLANG_PKG_LDFLAGS:-}"
+# Sets the linker arguments to pass to 5l, 6l, or 8l.
+# This eclass defaults to an empty list.
+GOLANG_PKG_LDFLAGS="${GOLANG_PKG_LDFLAGS:-}"
+
+# @ECLASS-VARIABLE: GOLANG_PKG_VENDOR
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Sets additional standard Go workspaces to be appended to the environment
+# variable GOPATH, as described in http://golang.org/doc/code.html.
+# This eclass defaults to an empty list.
+GOLANG_PKG_VENDOR="${GOLANG_PKG_VENDOR:-}"
 
 # @ECLASS-VARIABLE: GO
 # @DEFAULT_UNSET
@@ -205,15 +229,15 @@ if [[ -z ${GOLANG_PKG_IMPORTPATH} ]]; then
 	die "Mandatary variable GOLANG_PKG_IMPORTPATH is unset"
 fi
 
-# Forces a multiple package build when user specifies GOLANG_PKG_MULTIPLE=1
-if [[ -n ${GOLANG_PKG_MULTIPLE} && -z ${GOLANG_PKG_BUILDPATH} ]]; then
+# Forces a multiple package build when user specifies GOLANG_PKG_IS_MULTIPLE=1
+if [[ -n ${GOLANG_PKG_IS_MULTIPLE} && -z ${GOLANG_PKG_BUILDPATH} ]]; then
 	GOLANG_PKG_BUILDPATH="/..."
 fi
 
-# Validates use of GOLANG_PKG_BUILDPATH combined with GOLANG_PKG_MULTIPLE
+# Validates use of GOLANG_PKG_BUILDPATH combined with GOLANG_PKG_IS_MULTIPLE
 # FIX: makes sure user isn't overriding GOLANG_PKG_BUILDPATH with inane values
-if [[ -n ${GOLANG_PKG_MULTIPLE} && ${GOLANG_PKG_BUILDPATH##*/} != "..." ]]; then
-	ewarn "Ebuild ${CATEGORY}/${PF} specifies GOLANG_PKG_MULTIPLE=1,"
+if [[ -n ${GOLANG_PKG_IS_MULTIPLE} && ${GOLANG_PKG_BUILDPATH##*/} != "..." ]]; then
+	ewarn "Ebuild ${CATEGORY}/${PF} specifies GOLANG_PKG_IS_MULTIPLE=1,"
 	ewarn "but then GOLANG_PKG_BUILDPATH is overridden with \"${GOLANG_PKG_BUILDPATH}\"."
 	ewarn "Please, fix it by appending \"/...\" to your GOLANG_PKG_BUILDPATH."
 	ewarn "If in doubt, remove GOLANG_PKG_BUILDPATH entirely."
@@ -221,7 +245,7 @@ fi
 
 # Even though xz-utils are in @system, they must still be added to DEPEND; see
 # http://archives.gentoo.org/gentoo-dev/msg_a0d4833eb314d1be5d5802a3b710e0a4.xml
-if [[ ${GOLANG_PKG_SUFFIX/.*} == "xz" ]]; then
+if [[ ${GOLANG_PKG_ARCHIVESUFFIX/.*} == "xz" ]]; then
 	DEPEND+=" app-arch/xz-utils"
 fi
 
@@ -230,7 +254,7 @@ if [[ -n ${GOLANG_PKG_HAVE_TEST} ]]; then
 fi
 
 # We use GOLANG_PKG_IMPORTPATH to populate SRC_URI
-SRC_URI="https://${GOLANG_PKG_IMPORTPATH}/${GOLANG_PKG_NAME}/archive/${GOLANG_PKG_PREFIX}${GOLANG_PKG_VERSION}${GOLANG_PKG_SUFFIX} -> ${P}${GOLANG_PKG_SUFFIX}"
+SRC_URI="https://${GOLANG_PKG_IMPORTPATH}/${GOLANG_PKG_NAME}/archive/${GOLANG_PKG_ARCHIVEPREFIX}${GOLANG_PKG_VERSION}${GOLANG_PKG_ARCHIVESUFFIX} -> ${P}${GOLANG_PKG_ARCHIVESUFFIX}"
 
 # We use GOLANG_PKG_IMPORTPATH associative array to populate SRC_URI with
 # the snapshots of the required GoLang dependencies
@@ -255,7 +279,7 @@ if [[ ${#GOLANG_PKG_DEPENDENCIES[@]} -gt 0 ]]; then
 		# Download the archive
 		case ${_importpath} in
 			github*)
-				SRC_URI+=" https://${_importpath}/archive/${_revision}${GOLANG_PKG_SUFFIX} -> ${_importpath//\//-}-${_revision}${GOLANG_PKG_SUFFIX}"
+				SRC_URI+=" https://${_importpath}/archive/${_revision}${GOLANG_PKG_ARCHIVESUFFIX} -> ${_importpath//\//-}-${_revision}${GOLANG_PKG_ARCHIVESUFFIX}"
 				;;
 			bitbucket*)
 				SRC_URI+=" https://${_importpath}/get/${_revision}.zip -> ${_importpath//\//-}-${_revision}.zip"
@@ -274,7 +298,8 @@ S="${WORKDIR}/gopath/src/${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}"
 # @FUNCTION: golang-single_pkg_setup
 # @DESCRIPTION:
 # Runs pkg_setup.
-# Determine where is the GoLang implementation and set GoLang build environment.
+# Determines where is the GoLang implementation and then set-up the
+# GoLang build environment.
 golang-single_pkg_setup() {
 	debug-print-function ${FUNCNAME} "${@}"
 
@@ -304,8 +329,9 @@ golang-single_pkg_setup() {
 	# dev-lang/go is available and working.
 	# Exports EGO/GO global variables
 	export GO="${GOLANG_BINS[0]}"
+	export EGO="${GOLANG_BINS[0]##*/}"
+
 	debug-print "${FUNCNAME}: GO = ${GO}"
-	export EGO="$( basename ${GOLANG_BINS[0]} )"
 	debug-print "${FUNCNAME}: EGO = ${EGO}"
 
 	# Determines go interpreter version
@@ -317,22 +343,28 @@ golang-single_pkg_setup() {
 	# Sets the build environment inside Portage's WORKDIR
 	ebegin "Setting up GoLang build environment"
 
+		# Prepares CGO_ENABLED
+		CGO_ENABLED=0
+		[[ -z ${GOLANG_PKG_USE_CGO} ]] || CGO_ENABLED=1
+
 		# Prepares gopath / gobin directories inside WORKDIR
 		local _GOPATH="${WORKDIR}/gopath"
 		local _GOBIN="${WORKDIR}/gobin"
 		mkdir -p "${_GOBIN}" || die
 		mkdir -p "${_GOPATH}"/src || die
 
-		# Declare special env variable EGO_SRC
+		# Exports special env variable EGO_SRC
 		export EGO_SRC="${_GOPATH}/src"
 
 		# Exports GoLang env variables
 		export GOPATH="$_GOPATH"
 		export GOBIN="$_GOBIN"
+		export CGO_ENABLED
 
 		debug-print "${FUNCNAME}: GOPATH = ${GOPATH}"
 		debug-print "${FUNCNAME}: GOBIN = ${GOBIN}"
 		debug-print "${FUNCNAME}: EGO_SRC = ${EGO_SRC}"
+		debug-print "${FUNCNAME}: CGO_ENABLED = ${CGO_ENABLED}"
 	eend
 }
 
@@ -456,6 +488,10 @@ golang-single_src_compile() {
 
 	[[ ${EGO} ]] || die "No GoLang implementation set (pkg_setup not called?)."
 
+	# Auto-detects the presence of Godep's workspace
+	# (see github.com/tools/godep for more infos)
+	[[ -d "${S}"/Godeps/_workspace/src ]] && GOLANG_PKG_VENDOR+="${S}/Godeps/_workspace"
+
 	# Populates global env variable GOPATH
 	if [[ -n ${GOLANG_PKG_VENDOR} ]]; then
 		einfo "Using bundled packages in"
@@ -475,7 +511,7 @@ golang-single_src_compile() {
 	# Define the output binary name of the package.
 	# If the package is a multiple package then we don't specify the output
 	local EGO_OUTPUT
-	[[ -z ${GOLANG_PKG_MULTIPLE} ]] && EGO_OUTPUT="-o ${GOBIN}/${GOLANG_PKG_OUTPUT_NAME}"
+	[[ -z ${GOLANG_PKG_IS_MULTIPLE} ]] && EGO_OUTPUT="-o ${GOBIN}/${GOLANG_PKG_OUTPUT_NAME}"
 
 	# Define the arguments for the linker invocation.
 	local EGO_LDFLAGS
@@ -511,8 +547,8 @@ golang-single_src_install() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	# Define the arguments for the linker invocation.
-    local EGO_LDFLAGS
-    [[ -z ${GOLANG_PKG_LDFLAGS} ]] || EGO_LDFLAGS="-ldflags ${GOLANG_PKG_LDFLAGS}"
+	local EGO_LDFLAGS
+	[[ -z ${GOLANG_PKG_LDFLAGS} ]] || EGO_LDFLAGS="-ldflags ${GOLANG_PKG_LDFLAGS}"
 
 	# Define the install suffix.
 	local EGO_INSTALLSUFFIX
@@ -532,7 +568,7 @@ golang-single_src_install() {
 	local EGO_BUILD_FLAGS="${EGO_INSTALLSUFFIX} ${EGO_LDFLAGS} ${EGO_VERBOSE} ${EGO_PARALLEL} ${EGO_EXTRA_OPTIONS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
 
 	# Execute the pre-install phase (go install).
-	if [[ -n ${GOLANG_PKG_MULTIPLE} ]]; then
+	if [[ -n ${GOLANG_PKG_IS_MULTIPLE} ]]; then
 		einfo "${EGO} install ${EGO_BUILD_FLAGS}"
 		${EGO} install ${EGO_BUILD_FLAGS} || die
 	fi
@@ -550,7 +586,7 @@ golang-single_src_install() {
 
 # @FUNCTION: golang-single_src_test
 # @DESCRIPTION:
-# Runs the unit test for the main package.
+# Runs the unit tests for the main package.
 golang-single_src_test() {
 	debug-print-function ${FUNCNAME} "${@}"
 
@@ -560,14 +596,26 @@ golang-single_src_test() {
 	# FIX: this is necessary for the tests that need to invoke bins from GOBIN.
 	export PATH="${GOBIN}:${PATH}"
 
-	# Creates a symbolic link of GOBIN inside S
-	# (required by unit tests executing binaries from $S/bin instead of $GOBIN)
+	# Creates a symbolic link of GOBIN inside S.
+	# FIX: required by unit tests executing bins from $S/bin instead of $GOBIN
 	ln -s "${GOBIN}" "${S}/bin" || die
 
-	${EGO} test \
-		-v -a -p $(makeopts_jobs) \
-		${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}/... \
-		|| die
+	# Define the level of verbosity.
+	local EGO_VERBOSE="-v"
+	[[ -z ${PORTAGE_VERBOSE} ]] || EGO_VERBOSE+=" -x"
+
+	# Define the number of builds that can be run in parallel.
+	local EGO_PARALLEL="-p $(makeopts_jobs)"
+
+	# Define extra options.
+	local EGO_EXTRA_OPTIONS="-a"
+
+	# Prepare build flags for the go toolchain.
+	local EGO_BUILD_FLAGS="${EGO_VERBOSE} ${EGO_PARALLEL} ${EGO_EXTRA_OPTIONS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}/..."
+
+	# Runs the unit tests.
+	einfo "${EGO} test ${EGO_BUILD_FLAGS}"
+	${EGO} test ${EGO_BUILD_FLAGS} || die
 }
 
 

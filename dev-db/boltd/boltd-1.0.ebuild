@@ -7,12 +7,10 @@ EAPI=5
 GOLANG_PKG_IMPORTPATH="github.com/boltdb"
 GOLANG_PKG_VERSION="1f04e2021e45203042db17ab1323577452a90350"
 GOLANG_PKG_BUILDPATH="/..."
-GOLANG_PKG_MULTIPLE=1
+GOLANG_PKG_IS_MULTIPLE=1
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-#	"github.com/dgrijalva/jwt-go:8c45ba33b0"
-#	"github.com/codegangsta/cli:7ad88c2740"
 	"github.com/boltdb/bolt:aa66506030"
 )
 

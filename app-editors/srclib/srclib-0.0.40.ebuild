@@ -6,7 +6,7 @@ EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/sourcegraph"
 GOLANG_PKG_IMPORTPATH_ALIAS="sourcegraph.com/sourcegraph"
-GOLANG_PKG_PREFIX="v"
+GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_OUTPUT_NAME="src"
 GOLANG_PKG_BUILDPATH="/cmd/src"
 GOLANG_PKG_HAVE_TEST=1
@@ -53,4 +53,4 @@ HOMEPAGE="http://srclib.org"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="~amd64 ~x86"
