@@ -5,7 +5,7 @@
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/spf13"
-GOLANG_PKG_VERSION="e96624cce85dc72f142b800f5a04ff653c7dad77"
+GOLANG_PKG_VERSION="e764a6e638b8a9e31df6d929c071c5a289441735"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
@@ -37,6 +37,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/kr/text:e373e137fa"
 	"github.com/magiconair/properties:6240095988"
 	"github.com/stretchr/testify:232e856367"
+	"github.com/golang/text:d611288f0d -> golang.org/x"
 )
 
 inherit golang-single
