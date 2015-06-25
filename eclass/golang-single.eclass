@@ -73,42 +73,6 @@ QA_FLAGS_IGNORED="usr/bin/.*
 EXPORT_FUNCTIONS pkg_setup src_unpack src_configure src_compile src_install src_test
 
 
-# @ECLASS-VARIABLE: GOLANG_PKG_USE_CGO
-# @DEFAULT_UNSET
-# @DESCRIPTION:
-# Set to enable the compilation of the package with CGO.
-
-# @ECLASS-VARIABLE: GOLANG_PKG_DEPEND_ON_GO_SUBSLOT
-# @DESCRIPTION:
-# Set to ensure the package does depend on the dev-lang/go subslot value.
-# Possible values: {yes,no}
-# This eclass defaults to "no"
-GOLANG_PKG_DEPEND_ON_GO_SUBSLOT=${GOLANG_PKG_DEPEND_ON_GO_SUBSLOT:="no"}
-
-
-# Silences repoman warnings.
-case "${EAPI:-0}" in
-	5)
-		case "${GOLANG_PKG_DEPEND_ON_GO_SUBSLOT:-yes}" in
-			yes)
-				GO_DEPEND="dev-lang/go:0="
-				;;
-			*)
-				GO_DEPEND="dev-lang/go:*"
-				;;
-		esac
-		;;
-	*)
-		die "EAPI=${EAPI} is not supported by golang-single.eclass"
-		;;
-esac
-DEPEND+=" ${GO_DEPEND}"
-
-# Adds gccgo as a compile-time dependency when GOLANG_PKG_USE_CGO is set.
-[[ -n ${GOLANG_PKG_USE_CGO} ]] && DEPEND+=" >=sys-devel/gcc-4.8.4[go]"
-
-
-
 # @ECLASS-VARIABLE: GOLANG_PKG_NAME
 # @DESCRIPTION:
 # Sets the GoLang name for the generated package.
@@ -183,20 +147,31 @@ GOLANG_PKG_INSTALLSUFFIX="${GOLANG_PKG_INSTALLSUFFIX:-}"
 # @DESCRIPTION:
 # Set to enable the execution of automated testing.
 
-# @ECLASS-VARIABLE: GOLANG_PKG_LDFLAGS
+# @ECLASS-VARIABLE: GOLANG_PKG_USE_CGO
 # @DEFAULT_UNSET
+# @DESCRIPTION:
+# Set to enable the compilation of the package with CGO.
+
+# @ECLASS-VARIABLE: GOLANG_PKG_DEPEND_ON_GO_SUBSLOT
+# @DESCRIPTION:
+# Set to ensure the package does depend on the dev-lang/go subslot value.
+# Possible values: {yes,no}
+# This eclass defaults to "no"
+GOLANG_PKG_DEPEND_ON_GO_SUBSLOT=${GOLANG_PKG_DEPEND_ON_GO_SUBSLOT:="no"}
+
+# @ECLASS-VARIABLE: GOLANG_PKG_LDFLAGS
 # @DESCRIPTION:
 # Sets the linker arguments to pass to 5l, 6l, or 8l.
 # This eclass defaults to an empty list.
 GOLANG_PKG_LDFLAGS="${GOLANG_PKG_LDFLAGS:-}"
 
 # @ECLASS-VARIABLE: GOLANG_PKG_VENDOR
-# @DEFAULT_UNSET
 # @DESCRIPTION:
 # Sets additional standard Go workspaces to be appended to the environment
 # variable GOPATH, as described in http://golang.org/doc/code.html.
 # This eclass defaults to an empty list.
 GOLANG_PKG_VENDOR="${GOLANG_PKG_VENDOR:-}"
+
 
 # @ECLASS-VARIABLE: GO
 # @DEFAULT_UNSET
@@ -221,6 +196,28 @@ GOLANG_PKG_VENDOR="${GOLANG_PKG_VENDOR:-}"
 # @CODE
 # go
 # @CODE
+
+
+# Silences repoman warnings.
+case "${EAPI:-0}" in
+	5)
+		case "${GOLANG_PKG_DEPEND_ON_GO_SUBSLOT:-yes}" in
+			yes)
+				GO_DEPEND="dev-lang/go:0="
+				;;
+			*)
+				GO_DEPEND="dev-lang/go:*"
+				;;
+		esac
+		;;
+	*)
+		die "EAPI=${EAPI} is not supported by golang-single.eclass"
+		;;
+esac
+DEPEND+=" ${GO_DEPEND}"
+
+# Adds gccgo as a compile-time dependency when GOLANG_PKG_USE_CGO is set.
+[[ -n ${GOLANG_PKG_USE_CGO} ]] && DEPEND+=" >=sys-devel/gcc-4.8.4[go]"
 
 
 # Validates GOLANG_PKG_IMPORTPATH
@@ -494,7 +491,7 @@ golang-single_src_compile() {
 
 	# Populates global env variable GOPATH
 	if [[ -n ${GOLANG_PKG_VENDOR} ]]; then
-		einfo "Using bundled packages in"
+		einfo "Using bundled packages from:"
 
 		for x in "${GOLANG_PKG_VENDOR[@]}"; do
 			[ -d ${x} ] || continue
@@ -513,10 +510,6 @@ golang-single_src_compile() {
 	local EGO_OUTPUT
 	[[ -z ${GOLANG_PKG_IS_MULTIPLE} ]] && EGO_OUTPUT="-o ${GOBIN}/${GOLANG_PKG_OUTPUT_NAME}"
 
-	# Define the arguments for the linker invocation.
-	local EGO_LDFLAGS
-	[[ -z ${GOLANG_PKG_LDFLAGS} ]] || EGO_LDFLAGS="-ldflags ${GOLANG_PKG_LDFLAGS}"
-
 	# Define the install suffix.
 	local EGO_INSTALLSUFFIX
 	[[ -z ${GOLANG_PKG_INSTALLSUFFIX} ]] || EGO_INSTALLSUFFIX="-installsuffix=${GOLANG_PKG_INSTALLSUFFIX}"
@@ -532,11 +525,19 @@ golang-single_src_compile() {
 	local EGO_EXTRA_OPTIONS="-a"
 
 	# Prepare build flags for the go toolchain.
-	local EGO_BUILD_FLAGS="${EGO_INSTALLSUFFIX} ${EGO_LDFLAGS} ${EGO_VERBOSE} ${EGO_PARALLEL} ${EGO_EXTRA_OPTIONS} ${EGO_OUTPUT} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
+	local EGO_BUILD_FLAGS="${EGO_INSTALLSUFFIX} ${EGO_OUTPUT} ${EGO_VERBOSE} ${EGO_PARALLEL} ${EGO_EXTRA_OPTIONS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
 
 	# Build the package.
-	einfo "${EGO} build ${EGO_BUILD_FLAGS}"
-	${EGO} build ${EGO_BUILD_FLAGS} || die
+	if [[ -n ${GOLANG_PKG_LDFLAGS} ]]; then
+		# Specifies the arguments for the linker invocation.
+		# WORKAROUND: 6l has several problems parsing certain flags when invoked
+		#             from a shell script; these bugs'll be fixed in go v1.5+
+		einfo "${EGO} build -ldflags='$GOLANG_PKG_LDFLAGS' ${EGO_BUILD_FLAGS}"
+		${EGO} build -ldflags="$GOLANG_PKG_LDFLAGS" ${EGO_BUILD_FLAGS} || die
+	else
+		einfo "${EGO} build ${EGO_BUILD_FLAGS}"
+		${EGO} build ${EGO_BUILD_FLAGS} || die
+	fi
 }
 
 
@@ -548,7 +549,7 @@ golang-single_src_install() {
 
 	# Define the arguments for the linker invocation.
 	local EGO_LDFLAGS
-	[[ -z ${GOLANG_PKG_LDFLAGS} ]] || EGO_LDFLAGS="-ldflags ${GOLANG_PKG_LDFLAGS}"
+	#[[ -z ${GOLANG_PKG_LDFLAGS} ]] || EGO_LDFLAGS="-ldflags '${GOLANG_PKG_LDFLAGS}'"
 
 	# Define the install suffix.
 	local EGO_INSTALLSUFFIX
@@ -565,7 +566,7 @@ golang-single_src_install() {
 	local EGO_EXTRA_OPTIONS=""
 
 	# Prepare build flags for the go toolchain.
-	local EGO_BUILD_FLAGS="${EGO_INSTALLSUFFIX} ${EGO_LDFLAGS} ${EGO_VERBOSE} ${EGO_PARALLEL} ${EGO_EXTRA_OPTIONS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
+	local EGO_BUILD_FLAGS="${EGO_LDFLAGS} ${EGO_INSTALLSUFFIX} ${EGO_VERBOSE} ${EGO_PARALLEL} ${EGO_EXTRA_OPTIONS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
 
 	# Execute the pre-install phase (go install).
 	if [[ -n ${GOLANG_PKG_IS_MULTIPLE} ]]; then
