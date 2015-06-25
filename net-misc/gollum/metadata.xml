@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<upstream>
+		<doc>http://gollum.readthedocs.org/en/latest</doc>
+		<bugs-to>https://github.com/trivago/gollum/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		Gollum is a n:m multiplexer that gathers messages from different sources
+		and broadcasts them to a set of destinations.
+
+		Gollum originally started as a tool to MUL-tiplex LOG-files (read it
+		backwards to get the name). It quickly evolved to a one-way router for
+		all kinds of messages, not limited to just logs. Gollum is written in Go
+		to make it scaleable and easy to extend without the need to use a
+		scripting language.
+	</longdescription>
+</pkgmetadata>
