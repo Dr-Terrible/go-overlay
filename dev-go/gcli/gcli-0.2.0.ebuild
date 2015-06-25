@@ -5,7 +5,7 @@
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/tcnksm"
-GOLANG_PKG_VERSION="473a4ab05362dda1107d570df534576c74c40d01"
+GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
@@ -16,6 +16,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/google/go-querystring:547ef5ac97"
 	"github.com/hashicorp/go-version:999359b6b7"
 	"github.com/golang/crypto:1e856cbfdf -> golang.org/x"
+	"github.com/golang/net:669b27b881 -> golang.org/x"
 	"github.com/codegangsta/cli:7ad88c2740"
 )
 

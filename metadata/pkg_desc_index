@@ -9,7 +9,7 @@ dev-db/tiedot 3.2: Tiedot is a document-oriented NoSQL database written in GoLan
 dev-go/asciinema 1.1.1: A terminal session recorder for asciinema.org service written in GoLang
 dev-go/echo 1.0.0: A fast HTTP router and micro web framework written in GoLang
 dev-go/gb 0.1_pre20150620: Gb is a project based build tool for the Go programming language
-dev-go/gcli 0.2.0_pre20150622: Gcli builds GoLang command-line applications
+dev-go/gcli 0.2.0: Gcli builds GoLang command-line applications
 dev-go/go-bindata 3.0.8_pre20150614: A small utility for embedding binary data in a GoLang program.
 dev-go/gocode 2015.03.03: An autocompletion daemon for the Go programming language
 dev-go/gostatus 20150606: A command-line tool that show the status of GoLang repositories
@@ -17,6 +17,7 @@ dev-go/gxui 0.1_pre20150615: an experimental Go cross platform UI library
 dev-go/lime-backend 2015.06.05 2015.06.18: Backend for Lime text editor.
 dev-go/liteide-tools 2015.04.09: Liteide Golang tools
 dev-go/raml 0.8: An implementation of a RAML parser for Go. Compliant with RAML 0.8
+dev-go/wellington 0.9.0: Wellington is a CSS preprocessor with spriting and based on libsass
 net-misc/gollum 0.3.2: A n:m message multiplexer written in GoLang
 net-misc/syncthing 0.11.10: Syncthing is an application that lets you synchronize your files across multiple devices
 www-apps/hugo 0.14 0.15_pre20150612 0.15_pre20150623: A fast and flexible static site generator built in GoLang
