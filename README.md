@@ -13,16 +13,9 @@ In order to manage the overlay, the package **app-portage/layman** must be insta
 emerge -av app-portage/layman
 ```
 
-If the installation of _layman_ was successfully completed, then you are ready to add this overlay by fetching its remote list as showed below:
+If the installation of _layman_ was successfully completed, then you are ready to sync this repository to your locally installed overlay:
 
 ```
-wget -q -O /etc/layman/overlays/go-overlay.xml https://raw.github.com/Dr-Terrible/go-overlay/master/overlay.xml
-```
-
-At this point you can execute:
-
-```
-layman -Lk
 layman -a go-overlay
 ```
 
@@ -42,7 +35,6 @@ The process of removing this overlay from your Gentoo environment is quite strai
 
 ```
 layman -d go-overlay
-rm -r /etc/layman/overlays/go-overlay.xml
 ```
 
 ## Contributing
