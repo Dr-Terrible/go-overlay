@@ -17,6 +17,7 @@ dev-go/gxui 0.1_pre20150615: an experimental Go cross platform UI library
 dev-go/lime-backend 2015.06.05 2015.06.18: Backend for Lime text editor.
 dev-go/liteide-tools 2015.04.09: Liteide Golang tools
 dev-go/raml 0.8: An implementation of a RAML parser for Go. Compliant with RAML 0.8
+dev-go/re2dfa 0.1.0_pre20150625: Transform regular expressions into finite state machines and output GoLang source code
 dev-go/wellington 0.9.0: Wellington is a CSS preprocessor with spriting and based on libsass
 net-misc/gollum 0.3.2: A n:m message multiplexer written in GoLang
 net-misc/syncthing 0.11.10: Syncthing is an application that lets you synchronize your files across multiple devices

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/opennota/re2dfa</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		re2dfa transforms regular expressions into deterministic finite state
+		machines and outputs Go source code containing the matching function.
+	</longdescription>
+</pkgmetadata>
