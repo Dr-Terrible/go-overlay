@@ -10,8 +10,8 @@ GOLANG_PKG_HAVE_TEST=1
 
 inherit golang-single
 
-DESCRIPTION="A terminal session recorder for asciinema.org service written in GoLang"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
+DESCRIPTION="A terminal session recorder for asciinema.org service"
+HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN} http://asciinema.org"
 
 LICENSE="GPL-3"
 SLOT="0"
