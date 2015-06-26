@@ -20,4 +20,4 @@ dev-go/raml 0.8: An implementation of a RAML parser for Go. Compliant with RAML 
 dev-go/wellington 0.9.0: Wellington is a CSS preprocessor with spriting and based on libsass
 net-misc/gollum 0.3.2: A n:m message multiplexer written in GoLang
 net-misc/syncthing 0.11.10: Syncthing is an application that lets you synchronize your files across multiple devices
-www-apps/hugo 0.14 0.15_pre20150612 0.15_pre20150623: A fast and flexible static site generator built in GoLang
+www-apps/hugo 0.14 0.15_pre20150625: A fast and flexible static site generator built in GoLang
