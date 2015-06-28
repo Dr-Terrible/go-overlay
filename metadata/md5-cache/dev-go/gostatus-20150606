@@ -9,5 +9,5 @@ LICENSE=BSD
 RESTRICT=mirror
 SLOT=0
 SRC_URI=https://github.com/shurcooL/gostatus/archive/3e4092d49bb356fb4d202860addbc64b6091a02e.tar.gz -> gostatus-20150606.tar.gz https://github.com/kisielk/gotool/archive/d678387370.tar.gz -> github.com-kisielk-gotool-d678387370.tar.gz https://github.com/shurcooL/go/archive/3cb0bb26e5.tar.gz -> github.com-shurcooL-go-3cb0bb26e5.tar.gz https://github.com/golang/tools/archive/cc54cd6553.tar.gz -> github.com-golang-tools-cc54cd6553.tar.gz
-_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	eutils	9fb270e417e0e83d64ca52586c4a79de	golang-single	8c61ca2f172aa1e4720a5bb367276217	multilib	62927b3db3a589b0806255f3a002d5d3	multiprocessing	d7f2985a2c76c365ee20269db5261414	toolchain-funcs	42408102d713fbad60ca21349865edb4
+_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	eutils	9fb270e417e0e83d64ca52586c4a79de	golang-single	058a357d1d644eca0475bd656e262c83	multilib	62927b3db3a589b0806255f3a002d5d3	multiprocessing	d7f2985a2c76c365ee20269db5261414	toolchain-funcs	42408102d713fbad60ca21349865edb4
 _md5_=25ad1d4b13beec1a7f1505d3d9926add

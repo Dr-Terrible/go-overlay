@@ -10,5 +10,5 @@ RDEPEND=systemd? ( >=sys-apps/systemd-219 )
 RESTRICT=mirror
 SLOT=0
 SRC_URI=https://github.com/syncthing/syncthing/archive/v0.11.10.tar.gz -> syncthing-0.11.10.tar.gz
-_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	eutils	9fb270e417e0e83d64ca52586c4a79de	golang-single	452cdd9ea35aaca5e70223b52798d5ef	multilib	62927b3db3a589b0806255f3a002d5d3	multiprocessing	d7f2985a2c76c365ee20269db5261414	systemd	090342761f573a8280dd5aa6b0345f3b	toolchain-funcs	42408102d713fbad60ca21349865edb4
+_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	eutils	9fb270e417e0e83d64ca52586c4a79de	golang-single	058a357d1d644eca0475bd656e262c83	multilib	62927b3db3a589b0806255f3a002d5d3	multiprocessing	d7f2985a2c76c365ee20269db5261414	systemd	090342761f573a8280dd5aa6b0345f3b	toolchain-funcs	42408102d713fbad60ca21349865edb4
 _md5_=1a637cb5c46e7f854b8f5fad88fae7a8
