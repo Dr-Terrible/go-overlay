@@ -19,8 +19,9 @@ dev-go/liteide-tools 2015.04.09: Liteide Golang tools
 dev-go/raml 0.8: An implementation of a RAML parser for Go. Compliant with RAML 0.8
 dev-go/re2dfa 0.1.0_pre20150625: Transform regular expressions into finite state machines and output GoLang source code
 dev-go/statik 20150419: statik embeds static files into a GoLang executable
+dev-go/walter 1.1.0: Walter is a tiny deployment pipeline
 dev-go/wellington 0.9.0: Wellington is a CSS preprocessor with spriting and based on libsass
 net-misc/gollum 0.3.2: A n:m message multiplexer written in GoLang
-net-misc/syncthing 0.11.10: Syncthing is an application that lets you synchronize your files across multiple devices
+net-misc/syncthing 0.11.11: Syncthing is an application that lets you synchronize your files across multiple devices
 www-apps/gogs 0.6.1: Gogs is a self-hosted Git service written in Go
-www-apps/hugo 0.14 0.15_pre20150625: A fast and flexible static site generator built in GoLang
+www-apps/hugo 0.14 0.15_pre20150629: A fast and flexible static site generator built in GoLang
