@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<use>
+		<flag name="redis">
+			Adds support for storing cache in a redis DB via
+			<pkg>dev-db/redis</pkg>
+		</flag>
+		<flag name="memcached">
+			Adds support for storing cache in memory via
+			<pkg>net-misc/memcached</pkg>
+        </flag>
+	</use>
+</pkgmetadata>

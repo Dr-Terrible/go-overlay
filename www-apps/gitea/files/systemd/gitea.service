@@ -1,0 +1,22 @@
+[Unit]
+Description=Gitea (Go Git Service)
+After=network.target
+#After=mysqld.service
+#After=postgresql.service
+#After=memcached.service
+#After=redis.service
+
+[Service]
+#Type=simple
+User=git
+Group=git
+
+Environment="USER=git"
+Environment="WORK_DIR=/usr/share/gitea"
+Environment="GOGS_CUSTOM=/usr/share/gitea"
+#WorkingDirectory=/usr/share/gitea
+ExecStart=/usr/bin/gitea web -c "/usr/share/gitea/custom/conf/app.ini"
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
