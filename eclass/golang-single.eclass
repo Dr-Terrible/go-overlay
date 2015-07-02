@@ -134,7 +134,7 @@ GOLANG_PKG_INSTALLPATH="${GOLANG_PKG_INSTALLPATH:="/usr"}"
 
 # @ECLASS-VARIABLE: GOLANG_PKG_INSTALLSUFFIX
 # @DESCRIPTION:
-# TODO
+# Sets a suffix to use in the name of the package installation directory.
 # This eclass defaults to an empty install suffix.
 GOLANG_PKG_INSTALLSUFFIX="${GOLANG_PKG_INSTALLSUFFIX:-}"
 
@@ -164,6 +164,12 @@ GOLANG_PKG_DEPEND_ON_GO_SUBSLOT=${GOLANG_PKG_DEPEND_ON_GO_SUBSLOT:="no"}
 # Sets the linker arguments to pass to 5l, 6l, or 8l.
 # This eclass defaults to an empty list.
 GOLANG_PKG_LDFLAGS="${GOLANG_PKG_LDFLAGS:-}"
+
+# @ECLASS-VARIABLE: GOLANG_PKG_TAGS
+# @DESCRIPTION:
+# Sets the list of build tags during the build.
+# This eclass defaults to an empty list.
+GOLANG_PKG_TAGS="${GOLANG_PKG_TAGS:-}"
 
 # @ECLASS-VARIABLE: GOLANG_PKG_VENDOR
 # @DESCRIPTION:
@@ -307,7 +313,11 @@ golang-single_pkg_setup() {
 		/usr/bin/gofmt
 	)
 
+	# Reset GoLang environment variables
 	unset EGO
+	unset GO
+	unset GOPATH
+	unset GOBIN
 
 	# Determine is the GoLang interpreter is working
 	local IS_EXECUTABLE=1
@@ -374,6 +384,8 @@ golang-single_src_unpack() {
 
 	base_src_unpack
 
+	[[ ${EGO} ]] || die "No GoLang implementation set (pkg_setup not called?)."
+
 	einfo "Preparing GoLang build environment in ${GOPATH}/src"
 
 	# If the ebuild declares some GoLang dependencies, then they need to be
@@ -426,7 +438,7 @@ golang-single_src_unpack() {
 			#einfo "\n${GOPATH}/src/${_importpathalias}"
 
 			# Unpack the archive and move sources from WORKDIR into GOPATH
-			local _message="Moving ${_importpath}"
+			local _message="Creating ${_importpath}"
 			[[ "${_importpath}" != "${_importpathalias}/${_project_name}" ]] && _message+=" as ${_importpathalias}/${_project_name}"
 			case ${_host} in
 				github*)
@@ -447,7 +459,7 @@ golang-single_src_unpack() {
 
 	# move GoLang main package from WORKDIR into GOPATH
 	mkdir -p "${GOPATH}"/src/${GOLANG_PKG_IMPORTPATH_ALIAS} || die
-	ebegin "Moving ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}"
+	ebegin "Creating ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}"
 		mv "${GOLANG_PKG_NAME}-${GOLANG_PKG_VERSION}" "${GOPATH}"/src/${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME} || die
 	eend
 }
@@ -532,11 +544,11 @@ golang-single_src_compile() {
 		# Specifies the arguments for the linker invocation.
 		# WORKAROUND: 6l has several problems parsing certain flags when invoked
 		#             from a shell script; these bugs'll be fixed in go v1.5+
-		einfo "${EGO} build -ldflags='$GOLANG_PKG_LDFLAGS' ${EGO_BUILD_FLAGS}"
-		${EGO} build -ldflags="$GOLANG_PKG_LDFLAGS" ${EGO_BUILD_FLAGS} || die
+		einfo "${EGO} build -ldflags=\"$GOLANG_PKG_LDFLAGS\" ${EGO_BUILD_FLAGS}"
+		${EGO} build -ldflags="$GOLANG_PKG_LDFLAGS" ${EGO_TAGS} ${EGO_BUILD_FLAGS} || die
 	else
-		einfo "${EGO} build ${EGO_BUILD_FLAGS}"
-		${EGO} build ${EGO_BUILD_FLAGS} || die
+		einfo "${EGO} build -tags=\"${GOLANG_PKG_TAGS}\" ${EGO_BUILD_FLAGS}"
+		${EGO} build -tags="${GOLANG_PKG_TAGS}" ${EGO_BUILD_FLAGS} || die
 	fi
 }
 
