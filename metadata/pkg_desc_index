@@ -4,6 +4,7 @@ app-editors/lime 1.0: Open source API-compatible alternative to the text editor 
 app-editors/liteide 27.2.1: LiteIDE is a simple, open source, cross-platform Go IDE.
 app-editors/srclib 0.0.40: A hackable, multilange code analysis library for building better software tools
 app-misc/asciinema 1.1.1: A terminal session recorder for asciinema.org service
+app-shells/peco 0.3.2: Simplistic interactive filtering tool
 dev-db/bolt 1.0: Bolt is a low level key/value NoSQL database written in GoLang
 dev-db/boltd 1.0: Bolts is a introspection tool for Bolt databases.
 dev-db/cayley 0.4.1: Cayley is a graph databse written in GoLang.
