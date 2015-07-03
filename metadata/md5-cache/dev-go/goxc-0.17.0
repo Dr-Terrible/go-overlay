@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=Goxc is a build tool for GoLange, with a focus on cross-compiling and packaging
+EAPI=5
+HOMEPAGE=https://github.com/laher/goxc
+IUSE=test
+KEYWORDS=amd64 x86 arm
+LICENSE=Apache-2.0
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/laher/goxc/archive/v0.17.0.tar.gz -> goxc-0.17.0.tar.gz https://github.com/debber/debber-v0.3/archive/d0e314b3cf.tar.gz -> github.com-debber-debber-v0.3-d0e314b3cf.tar.gz https://github.com/laher/argo/archive/11d91c83cc.tar.gz -> github.com-laher-argo-11d91c83cc.tar.gz
+_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	eutils	9fb270e417e0e83d64ca52586c4a79de	golang-single	a3c02a7327b0c6eb8ea8e9cb2a5693a6	multilib	62927b3db3a589b0806255f3a002d5d3	multiprocessing	d7f2985a2c76c365ee20269db5261414	toolchain-funcs	42408102d713fbad60ca21349865edb4
+_md5_=67c4fdeb03405c3879e104165dbb09f4
