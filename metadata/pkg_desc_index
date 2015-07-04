@@ -9,6 +9,7 @@ app-shells/peco 0.3.2: Simplistic interactive filtering tool
 dev-db/bolt 1.0: Bolt is a low level key/value NoSQL database written in GoLang
 dev-db/boltd 1.0: Bolts is a introspection tool for Bolt databases.
 dev-db/cayley 0.4.1: Cayley is a graph databse written in GoLang.
+dev-db/influxdb 0.9.1: Scalable datastore for metrics, events, and real-time analytics
 dev-db/tiedot 3.2: Tiedot is a document-oriented NoSQL database written in GoLang
 dev-go/echo 1.0.0: A fast HTTP router and micro web framework written in GoLang
 dev-go/flint 0.0.4: Check your project for common sources of contributor friction
@@ -23,6 +24,7 @@ dev-go/goxc 0.17.0: Goxc is a build tool for GoLange, with a focus on cross-comp
 dev-go/gxui 0.1_pre20150615: an experimental Go cross platform UI library
 dev-go/lime-backend 2015.06.05 2015.06.18: Backend for Lime text editor.
 dev-go/liteide-tools 2015.04.09: Liteide Golang tools
+dev-go/protobuf 20150626: Protocol Buffers for Go with Gadgets
 dev-go/raml 0.8: An implementation of a RAML parser for Go. Compliant with RAML 0.8
 dev-go/re2dfa 0.1.0_pre20150625: Transform regular expressions into finite state machines and output GoLang source code
 dev-go/statik 20150419: statik embeds static files into a GoLang executable
