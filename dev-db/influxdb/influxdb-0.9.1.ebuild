@@ -45,7 +45,7 @@ KEYWORDS="~amd64 ~x86 ~arm"
 DEPEND="dev-go/protobuf"
 
 pkg_setup() {
-	ebegin "Creating git user and group"
+	ebegin "Creating ${PN} user and group"
 		enewgroup ${PN}
 		enewuser ${PN} -1 -1 "/var/lib/${PN}" ${PN}
 	eend $?
@@ -83,6 +83,7 @@ src_install() {
 
 	# Install init scripts
 	systemd_dounit "${S}"/scripts/${PN}.service
+	systemd_install_serviced "${FILESDIR}"/${PN}.service.conf
 	systemd_dotmpfilesd "${FILESDIR}/${PN}.conf"
 
 	keepdir /var/log/${PN}
