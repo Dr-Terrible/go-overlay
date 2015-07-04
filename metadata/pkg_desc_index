@@ -1,7 +1,8 @@
 app-admin/trousseau 0.3.4 0.3.4-r1 0.3.5: A networked and encrypted key-value database built in GoLang.
 app-benchmarks/boom 20141103: HTTP(S) load generator, ApacheBench (ab) replacement, written in GoLang
 app-benchmarks/vegeta 5.7.1: HTTP load testing tool and library written in GoLang.
-app-editors/lime 1.0: Open source API-compatible alternative to the text editor Sublime Text
+app-editors/lime-qml 20150428: QML frontend for Lime text editor.
+app-editors/lime-termbox 20150428: Termbox frontend for Lime text editor.
 app-editors/liteide 27.2.1: LiteIDE is a simple, open source, cross-platform Go IDE.
 app-editors/srclib 0.0.40: A hackable, multilange code analysis library for building better software tools
 app-misc/asciinema 1.1.1: A terminal session recorder for asciinema.org service
@@ -23,7 +24,6 @@ dev-go/gostatus 20150606: A command-line tool that show the status of GoLang rep
 dev-go/gox 0.3.0 0.4.0_pre20150618: A dead simple, no frills Go cross compile tool
 dev-go/goxc 0.17.0: Goxc is a build tool for GoLange, with a focus on cross-compiling and packaging
 dev-go/gxui 0.1_pre20150615: an experimental Go cross platform UI library
-dev-go/lime-backend 2015.06.05 2015.06.18: Backend for Lime text editor.
 dev-go/liteide-tools 2015.04.09: Liteide Golang tools
 dev-go/protobuf 20150626: Protocol Buffers for Go with Gadgets
 dev-go/raml 0.8: An implementation of a RAML parser for Go. Compliant with RAML 0.8

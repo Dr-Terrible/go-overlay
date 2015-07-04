@@ -2,8 +2,6 @@
 # your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using egencache *
 
-app-editors/lime:gui - Builds and installs the graphical user interface based on Qt/QML
-app-editors/lime:html - Builds and installs the graphical user interface based on HTML
 app-editors/liteide:gdb - Enables support for sys-devel/gdb
 app-editors/liteide:tools - Install additional tools such as dev-go/liteide-tools and dev-go/gotools
 www-apps/gitea:memcached - Adds support for storing cache in memory via net-misc/memcached

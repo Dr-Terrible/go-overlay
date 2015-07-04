@@ -1,0 +1,13 @@
+####################################################################
+# $Header: $
+# When you add an entry to this file, add your name, the date, and an
+# explanation of why something is getting masked
+#
+# NOTE: Please add your entry at the top!
+
+# Toffanin Mauro <toffanin.mauro@gmail.com> (10 Jun 2015)
+# These packages are marked as a work in progress by upstream.
+# Compilation failures are guarantee.
+dev-go/lime-backend
+app-editors/lime-qml
+app-editors/lime-termbox
