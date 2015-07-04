@@ -65,7 +65,7 @@
 
 inherit base multiprocessing
 
-RESTRICT+="mirror"
+RESTRICT+=" mirror"
 
 QA_FLAGS_IGNORED="usr/bin/.*
 	usr/sbin/.*"
@@ -122,13 +122,15 @@ GOLANG_PKG_OUTPUT_NAME="${GOLANG_PKG_OUTPUT_NAME:="${GOLANG_PKG_NAME}"}"
 
 # @ECLASS-VARIABLE: GOLANG_PKG_BUILDPATH
 # @DESCRIPTION:
-# TODO
-# This eclass defaults to an empty build path.
+# Specifies a go source file to be compiled as a single main package.
+# This eclass defaults to an empty value.
+# This eclass defaults to "/..." when the user declares GOLANG_PKG_IS_MULTIPLE=1
 GOLANG_PKG_BUILDPATH="${GOLANG_PKG_BUILDPATH:-}"
 
 # @ECLASS-VARIABLE: GOLANG_PKG_INSTALLPATH
 # @DESCRIPTION:
-# TODO
+# Sets the root path into which a binary, or a list of binaries, will be
+# installed (e.x.: ${GOLANG_PKG_INSTALLPATH}/bin).
 # This eclass defaults to "/usr"
 GOLANG_PKG_INSTALLPATH="${GOLANG_PKG_INSTALLPATH:="/usr"}"
 
@@ -151,6 +153,11 @@ GOLANG_PKG_INSTALLSUFFIX="${GOLANG_PKG_INSTALLSUFFIX:-}"
 # @DEFAULT_UNSET
 # @DESCRIPTION:
 # Set to enable the compilation of the package with CGO.
+
+# @ECLASS-VARIABLE: GOLANG_PKG_USE_GENERATE
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Set to run commands described by directives within existing golang files.
 
 # @ECLASS-VARIABLE: GOLANG_PKG_DEPEND_ON_GO_SUBSLOT
 # @DESCRIPTION:
@@ -177,6 +184,12 @@ GOLANG_PKG_TAGS="${GOLANG_PKG_TAGS:-}"
 # variable GOPATH, as described in http://golang.org/doc/code.html.
 # This eclass defaults to an empty list.
 GOLANG_PKG_VENDOR="${GOLANG_PKG_VENDOR:-}"
+
+# @ECLASS-VARIABLE: GOLANG_PKG_STATIK
+# @DESCRIPTION:
+# Sets the arguments to pass to dev-go/statik.
+# This eclass defaults to an empty list.
+GOLANG_PKG_STATIK="${GOLANG_PKG_STATIK:-}"
 
 
 # @ECLASS-VARIABLE: GO
@@ -225,11 +238,14 @@ DEPEND+=" ${GO_DEPEND}"
 # Adds gccgo as a compile-time dependency when GOLANG_PKG_USE_CGO is set.
 [[ -n ${GOLANG_PKG_USE_CGO} ]] && DEPEND+=" >=sys-devel/gcc-4.8.4[go]"
 
+# Adds dev-go/statik as a compile-time dependency when GOLANG_PKG_STATIK is set.
+[[ -n ${GOLANG_PKG_STATIK} ]] && DEPEND+=" dev-go/statik"
+
 
 # Validates GOLANG_PKG_IMPORTPATH
 if [[ -z ${GOLANG_PKG_IMPORTPATH} ]]; then
 	eerror "The remote import path for this package has not been declared"
-	die "Mandatary variable GOLANG_PKG_IMPORTPATH is unset"
+	die "Mandatory variable GOLANG_PKG_IMPORTPATH is unset"
 fi
 
 # Forces a multiple package build when user specifies GOLANG_PKG_IS_MULTIPLE=1
@@ -313,8 +329,12 @@ golang-single_pkg_setup() {
 		/usr/bin/gofmt
 	)
 
+	[[ -n ${GOLANG_PKG_STATIK} ]] && GOLANG_BINS+=(/usr/bin/statik)
+
 	# Reset GoLang environment variables
 	unset EGO
+	unset EGOFMT
+	unset ESTATIK
 	unset GO
 	unset GOPATH
 	unset GOBIN
@@ -334,18 +354,32 @@ golang-single_pkg_setup() {
 	[[ ${IS_EXECUTABLE} == 0 ]] && exit
 
 	# dev-lang/go is available and working.
-	# Exports EGO/GO global variables
+	# Exports GO/EGO/EGOFMT global variables
 	export GO="${GOLANG_BINS[0]}"
 	export EGO="${GOLANG_BINS[0]##*/}"
+	export EGOFMT="${GOLANG_BINS[1]}"
+
+	# dev-go/statik is available and working.
+	# Exports ESTATIK global variable
+	[[ -n ${GOLANG_PKG_STATIK} ]] && export ESTATIK="${GOLANG_BINS[2]##*/}"
 
 	debug-print "${FUNCNAME}: GO = ${GO}"
 	debug-print "${FUNCNAME}: EGO = ${EGO}"
+	debug-print "${FUNCNAME}: EGOFMT = ${EGOFMT}"
+	debug-print "${FUNCNAME}: ESTATIK = ${ESTATIK}"
 
 	# Determines go interpreter version
 	local GOLANG_VERSION="$( ${GO} version )"
 	GOLANG_VERSION="${GOLANG_VERSION/go\ version\ go}"
 	GOLANG_VERSION="${GOLANG_VERSION%\ *}"
 	einfo "Found GoLang version: ${GOLANG_VERSION}"
+
+	# Determines statik interpreter version
+	# TODO: add version detection when statik will provide a -version option.
+	if [[ -n ${GOLANG_PKG_STATIK} ]]; then
+		local STATIK_VERSION=""
+		einfo "Found statik version: ${STATIK_VERSION}"
+	fi
 
 	# Sets the build environment inside Portage's WORKDIR
 	ebegin "Setting up GoLang build environment"
@@ -438,7 +472,7 @@ golang-single_src_unpack() {
 			#einfo "\n${GOPATH}/src/${_importpathalias}"
 
 			# Unpack the archive and move sources from WORKDIR into GOPATH
-			local _message="Creating ${_importpath}"
+			local _message="Importing ${_importpath}"
 			[[ "${_importpath}" != "${_importpathalias}/${_project_name}" ]] && _message+=" as ${_importpathalias}/${_project_name}"
 			case ${_host} in
 				github*)
@@ -459,7 +493,7 @@ golang-single_src_unpack() {
 
 	# move GoLang main package from WORKDIR into GOPATH
 	mkdir -p "${GOPATH}"/src/${GOLANG_PKG_IMPORTPATH_ALIAS} || die
-	ebegin "Creating ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}"
+	ebegin "Importing ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}"
 		mv "${GOLANG_PKG_NAME}-${GOLANG_PKG_VERSION}" "${GOPATH}"/src/${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME} || die
 	eend
 }
@@ -515,6 +549,22 @@ golang-single_src_compile() {
 		done
 
 		export GOPATH
+	fi
+
+	# Executes 'go generate'.
+	if [[ -n ${GOLANG_PKG_USE_GENERATE} ]]; then
+		einfo "${EGO} generate -v -n -x ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
+		${EGO} generate \
+			-v -n -x \
+			${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH} \
+			|| die
+	fi
+
+	# Executes 'statik'
+	if [[ -n ${GOLANG_PKG_STATIK} ]]; then
+		ebegin "${ESTATIK} $GOLANG_PKG_STATIK"
+			${ESTATIK} $GOLANG_PKG_STATIK || die
+		eend
 	fi
 
 	# Define the output binary name of the package.
@@ -605,13 +655,11 @@ golang-single_src_test() {
 
 	[[ ${EGO} ]] || die "No GoLang implementation set (pkg_setup not called?)."
 
-	# Add GOBIN to the main PATH.
-	# FIX: this is necessary for the tests that need to invoke bins from GOBIN.
-	export PATH="${GOBIN}:${PATH}"
-
-	# Creates a symbolic link of GOBIN inside S.
-	# FIX: required by unit tests executing bins from $S/bin instead of $GOBIN
-	ln -s "${GOBIN}" "${S}/bin" || die
+	# Appends S and GOBIN to exported main paths.
+	# FIX: this is necessary for unit tests that need to invoke bins from GOBIN
+	#      or from within S.
+	export PATH="${S}/bin:${GOBIN}:${PATH}"
+	einfo "PATH: $PATH"
 
 	# Define the level of verbosity.
 	local EGO_VERBOSE="-v"
@@ -623,8 +671,13 @@ golang-single_src_test() {
 	# Define extra options.
 	local EGO_EXTRA_OPTIONS="-a"
 
+	# Define sub-packages.
+	local EGO_SUBPACKAGES="${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
+	[[ -n ${GOLANG_PKG_IS_MULTIPLE} ]] || EGO_SUBPACKAGES+="/..."
+
+
 	# Prepare build flags for the go toolchain.
-	local EGO_BUILD_FLAGS="${EGO_VERBOSE} ${EGO_PARALLEL} ${EGO_EXTRA_OPTIONS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}/..."
+	local EGO_BUILD_FLAGS="${EGO_VERBOSE} ${EGO_PARALLEL} ${EGO_EXTRA_OPTIONS} ${EGO_SUBPACKAGES}"
 
 	# Runs the unit tests.
 	einfo "${EGO} test ${EGO_BUILD_FLAGS}"
@@ -650,7 +703,9 @@ golang_fix_importpath_alias() {
 	local TARGET="${1}"
 	local ALIAS="${2}"
 
-	mkdir -p "${GOPATH}/src/${ALIAS%/*}" || die
+	if [[ ${ALIAS%/*} != ${ALIAS} ]]; then
+		mkdir -p "${GOPATH}/src/${ALIAS%/*}" || die
+	fi
 	ebegin "Fixing ${TARGET} as ${ALIAS}"
 		ln -sf "${GOPATH}/src/${TARGET}" \
 			"${GOPATH}/src/${ALIAS}" \
