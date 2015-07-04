@@ -1,0 +1,13 @@
+[Unit]
+Description=Telegrapf is an agent for collecting metrics into InfluxDB
+After=influxdb.target
+
+[Service]
+User=telegraf
+Group=telegraf
+LimitNOFILE=65536
+ExecStart=/usr/bin/telegraf -config /etc/telegraf/telegraf.conf $TELEGRAF_OPTS
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
