@@ -467,23 +467,42 @@ golang-single_src_unpack() {
 			#einfo "revision        = ${_revision}"
 
 
-			# Create the import path in GOPATH
-			mkdir -p "${GOPATH}"/src/${_importpathalias} || die
-			#einfo "\n${GOPATH}/src/${_importpathalias}"
-
-			# Unpack the archive and move sources from WORKDIR into GOPATH
 			local _message="Importing ${_importpath}"
-			[[ "${_importpath}" != "${_importpathalias}/${_project_name}" ]] && _message+=" as ${_importpathalias}/${_project_name}"
+			local _destdir
+
+			# Prepare GOPATH structure.
+			case ${_importpathalias} in
+				gopkg.in*)
+					_message+=" as ${_importpathalias}"
+					_destdir="${_importpathalias}"
+
+					# Create the import path in GOPATH
+					mkdir -p "${GOPATH}/src/gopkg.in" || die
+					#einfo "\n${GOPATH}/src/gopkg.in"
+					;;
+				*)
+					[[ "${_importpath}" != "${_importpathalias}/${_project_name}" ]] && _message+=" as ${_importpathalias}/${_project_name}"
+					_destdir="${_importpathalias}/${_project_name}"
+
+					# Create the import path in GOPATH
+					mkdir -p "${GOPATH}/src/${_importpathalias}" || die
+					#einfo "\n${GOPATH}/src/${_importpathalias}"
+					;;
+			esac
+
+			# Move sources from WORKDIR into GOPATH.
 			case ${_host} in
 				github*)
 					ebegin "${_message}"
-						mv ${_project_name}-${_revision}* "${GOPATH}"/src/${_importpathalias}/${_project_name} || die
+						#mv ${_project_name}-${_revision}* "${GOPATH}"/src/${_importpathalias}/${_project_name} || die
+						mv ${_project_name}-${_revision}* "${GOPATH}"/src/${_destdir} || die
 					eend
 					;;
 				bitbucket*)
 					#einfo "path: ${_author_name}-${_project_name}-${_revision}"
 					ebegin "${_message}"
-						mv ${_author_name}-${_project_name}-${_revision} "${GOPATH}"/src/${_importpathalias}/${_project_name} || die
+						#mv ${_author_name}-${_project_name}-${_revision} "${GOPATH}"/src/${_importpathalias}/${_project_name} || die
+						mv ${_author_name}-${_project_name}-${_revision} "${GOPATH}"/src/${_destdir} || die
 					eend
 					;;
 				*) die "this eclass doesn't support '${_importpath}'" ;;
