@@ -22,7 +22,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/go-mgo/mgo:3569c88678"
 	"github.com/shurcooL/sanitized_anchor_name:11a20b799b"
 
-	# use test
+	# unit tests
 	"github.com/cznic/mathutil:a804f0f2d8"
 )
 
@@ -33,7 +33,7 @@ HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm"
+KEYWORDS="amd64 x86 arm"
 IUSE+=" examples"
 
 src_prepare() {
