@@ -38,8 +38,8 @@ src_install() {
 
 	# install systemd services
 	if use systemd; then
-		systemd_newunit "${S}"/etc/linux-systemd/system/${PN}@.service  "${PN}@.service"
-		systemd_newuserunit "${S}"/etc/linux-systemd/user/${PN}.service "${PN}.service"
+		systemd_dounit "${S}"/etc/linux-systemd/system/${PN}@.service
+		systemd_douserunit "${S}"/etc/linux-systemd/user/${PN}.service
 	fi
 }
 
