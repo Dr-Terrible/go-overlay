@@ -1,4 +1,4 @@
-app-admin/trousseau 0.3.4 0.3.4-r1 0.3.5: A networked and encrypted key-value database built in GoLang.
+app-admin/trousseau 0.3.5_pre20150212: A networked and encrypted key-value database.
 app-benchmarks/boom 20141103: HTTP(S) load generator, ApacheBench (ab) replacement, written in GoLang
 app-benchmarks/vegeta 5.7.1: HTTP load testing tool and library written in GoLang.
 app-editors/lime-qml 20150428: QML frontend for Lime text editor.
