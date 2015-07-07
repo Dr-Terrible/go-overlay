@@ -20,7 +20,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/armon/go-metrics:b2d95e5291"
 	"github.com/hashicorp/go-msgpack:fa3f63826f"
 	"github.com/golang/protobuf:34a5f244f1"
-	"github.com/fatih/pool:cba550ebf9 -> gopkg.in/fatih"
+	"github.com/fatih/pool:cba550ebf9 -> gopkg.in/fatih/pool.v2"
 	"github.com/peterh/liner:1bb0d1c1a2"
 	"github.com/BurntSushi/toml:056c9bc7be"
 	"github.com/bmizerany/pat:b8a35001b7"
@@ -54,10 +54,6 @@ pkg_setup() {
 }
 
 src_prepare() {
-	golang_fix_importpath_alias \
-		"gopkg.in/fatih/pool" \
-		"gopkg.in/fatih/pool.v2"
-
 	golang_fix_importpath_alias \
 		"github.com/collectd/go-collectd" \
 		"collectd.org"

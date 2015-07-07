@@ -38,9 +38,9 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/shurcooL/sanitized_anchor_name:11a20b799b"
 	"github.com/golang/net:669b27b881 -> golang.org/x"
 	"github.com/golang/text:d611288f0d -> golang.org/x"
-	"github.com/go-ini/ini:177219109c"
-	"github.com/go-redis/redis:e617904962"
-	"github.com/go-bufio/bufio:567b2bfa51"
+	"github.com/go-ini/ini:177219109c -> gopkg.in/ini.v1"
+	"github.com/go-redis/redis:e617904962 -> gopkg.in/redis.v2"
+	"github.com/go-bufio/bufio:567b2bfa51 -> gopkg.in/bufio.v1"
 
 	# Unit testing
 	"github.com/golang/crypto:1e856cbfdf -> golang.org/x"
@@ -77,18 +77,6 @@ pkg_setup() {
 }
 
 src_prepare() {
-	golang_fix_importpath_alias \
-		"github.com/go-ini/ini" \
-		"gopkg.in/ini.v1"
-
-	golang_fix_importpath_alias \
-		"github.com/go-redis/redis" \
-		"gopkg.in/redis.v2"
-
-	golang_fix_importpath_alias \
-		"github.com/go-bufio/bufio" \
-		"gopkg.in/bufio.v1"
-
 	# FIX:
 	sed -i \
 		-e "s:^STATIC_ROOT_PATH =.*:STATIC_ROOT_PATH = ${EPREFIX}/usr/share/${PN}:" \

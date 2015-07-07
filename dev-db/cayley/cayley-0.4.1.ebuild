@@ -19,7 +19,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/robertkrimen/otto:47082f4308"
 	"github.com/russross/blackfriday:17bb7999de"
 	"github.com/syndtr/goleveldb:a06509502c"
-	"github.com/go-mgo/mgo:3569c88678"
+	"github.com/go-mgo/mgo:3569c88678 -> gopkg.in/mgo.v2"
 	"github.com/shurcooL/sanitized_anchor_name:11a20b799b"
 
 	# unit tests
@@ -44,10 +44,6 @@ src_prepare() {
 	golang_fix_importpath_alias \
 		"github.com/pborman/uuid" \
 		"code.google.com/p/go-uuid"
-
-	golang_fix_importpath_alias \
-		"github.com/go-mgo/mgo" \
-		"gopkg.in/mgo.v2"
 }
 
 src_install() {
