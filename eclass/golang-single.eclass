@@ -477,8 +477,8 @@ golang-single_src_unpack() {
 					_destdir="${_importpathalias}"
 
 					# Create the import path in GOPATH
-					mkdir -p "${GOPATH}/src/gopkg.in" || die
-					#einfo "\n${GOPATH}/src/gopkg.in"
+					mkdir -p "${GOPATH}/src/${_importpathalias%/*}" || die
+					#einfo "\n${GOPATH}/src/${_importpathalias%/*}"
 					;;
 				*)
 					[[ "${_importpath}" != "${_importpathalias}/${_project_name}" ]] && _message+=" as ${_importpathalias}/${_project_name}"
@@ -494,9 +494,19 @@ golang-single_src_unpack() {
 			case ${_host} in
 				github*)
 					ebegin "${_message}"
-						#mv ${_project_name}-${_revision}* "${GOPATH}"/src/${_importpathalias}/${_project_name} || die
 						mv ${_project_name}-${_revision}* "${GOPATH}"/src/${_destdir} || die
 					eend
+
+					# FIX: sometimes the source code inside an importpath alias
+					#      (such as gopkg.in/mylib.v1) invokes imports from
+					#      the original import path instead of using the alias,
+					#      thus we need a symbolic link between the alias and
+					#      the original import path to avoid compilation issues.
+					#      Example: gopkg.in/Shopify/sarama.v1 erroneously
+					#      invoking imports from github.com/shopify/sarama
+					if [[ ${_destdir} != ${_importpath} ]]; then
+						golang_fix_importpath_alias ${_destdir} ${_importpath}
+					fi
 					;;
 				bitbucket*)
 					#einfo "path: ${_author_name}-${_project_name}-${_revision}"
@@ -725,7 +735,7 @@ golang_fix_importpath_alias() {
 	if [[ ${ALIAS%/*} != ${ALIAS} ]]; then
 		mkdir -p "${GOPATH}/src/${ALIAS%/*}" || die
 	fi
-	ebegin "Fixing ${TARGET} as ${ALIAS}"
+	ebegin "Linking ${TARGET} as ${ALIAS}"
 		ln -sf "${GOPATH}/src/${TARGET}" \
 			"${GOPATH}/src/${ALIAS}" \
 			|| die
