@@ -11,7 +11,7 @@ dev-db/bolt 1.0: Bolt is a low level key/value NoSQL database written in GoLang
 dev-db/boltd 1.0: Bolts is a introspection tool for Bolt databases.
 dev-db/cayley 0.4.1: Cayley is a graph databse written in GoLang.
 dev-db/influxdb 0.9.1: Scalable datastore for metrics, events, and real-time analytics
-dev-db/telegraf 0.1.2: A plugin-driven server agent for reporting metrics into InfluxDB
+dev-db/telegraf 0.1.3: A plugin-driven server agent for reporting metrics into InfluxDB
 dev-db/tiedot 3.2: Tiedot is a document-oriented NoSQL database written in GoLang
 dev-go/echo 1.0.0: A fast HTTP router and micro web framework written in GoLang
 dev-go/flint 0.0.4: Check your project for common sources of contributor friction
