@@ -20,6 +20,7 @@ dev-go/gb 0.1_pre20150702: Gb is a project based build tool for the Go programmi
 dev-go/gcli 0.2.0: Gcli builds GoLang command-line applications
 dev-go/go-bindata 3.0.8_pre20150614: A small utility for embedding binary data in a GoLang program.
 dev-go/gocode 2015.03.03: An autocompletion daemon for the Go programming language
+dev-go/gom 20150527: A visual interface to work with runtime profiling data for Go
 dev-go/gostatus 20150606: A command-line tool that show the status of GoLang repositories
 dev-go/gox 0.3.0 0.4.0_pre20150618: A dead simple, no frills Go cross compile tool
 dev-go/goxc 0.17.0: Goxc is a build tool for GoLange, with a focus on cross-compiling and packaging
