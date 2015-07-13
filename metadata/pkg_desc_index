@@ -36,5 +36,6 @@ dev-go/wellington 0.9.0: Wellington is a CSS preprocessor with spriting and base
 net-misc/bat 0.0.2: Go implemented CLI cURL-like tool for humans
 net-misc/gollum 0.3.2: A n:m message multiplexer written in GoLang
 net-misc/syncthing 0.11.13: Syncthing is an application that lets you synchronize your files across multiple devices
+sys-devel/calc 20150422: A simple, fast command-line calculator written in GoLang
 www-apps/gitea 0.7.0_pre20150630: Gitea is a self-hosted Git service written in Go
 www-apps/hugo 0.14 0.15_pre20150702: A fast and flexible static site generator built in GoLang
