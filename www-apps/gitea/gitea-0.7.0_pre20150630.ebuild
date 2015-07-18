@@ -54,10 +54,10 @@ HOMEPAGE="https://gitea.io"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+sqlite3 redis memcached +ssl"
+IUSE="+sqlite redis memcached +ssl"
 
 DEPEND="dev-go/go-bindata
-	sqlite3? ( dev-db/sqlite:3 )
+	sqlite? ( dev-db/sqlite:3 )
 	redis? ( dev-db/redis )
 	memcached? ( net-misc/memcached )"
 RDEPEND="${DEPEND}
