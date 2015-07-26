@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=Go Tools
+EAPI=5
+HOMEPAGE=https://github.com/golang/go-tools
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=BSD
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/golang/tools/archive/4d49207e6bc4068d660d507e4faf40f02b603d86.tar.gz -> go-tools-20150724.tar.gz https://github.com/golang/net/archive/669b27b881.tar.gz -> github.com-golang-net-669b27b881.tar.gz
+_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	eutils	9fb270e417e0e83d64ca52586c4a79de	golang-single	2e44cd58ccace15bfd3562acb37a5c3b	multilib	62927b3db3a589b0806255f3a002d5d3	multiprocessing	d7f2985a2c76c365ee20269db5261414	toolchain-funcs	42408102d713fbad60ca21349865edb4
+_md5_=aa00f3d9b5cb7529f2ffbb4b707f370e
