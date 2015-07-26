@@ -8,6 +8,7 @@ GOLANG_PKG_IMPORTPATH="github.com/tcnksm"
 GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_HAVE_TEST=1
 
+# Declare dependencies
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/mitchellh/cli:8102d0ed5e"
 	"github.com/tcnksm/go-gitconfig:d154598bac"
@@ -18,6 +19,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/golang/crypto:1e856cbfdf -> golang.org/x"
 	"github.com/golang/net:669b27b881 -> golang.org/x"
 	"github.com/codegangsta/cli:7ad88c2740"
+	"github.com/olekukonko/tablewriter:bc39950e08"
 )
 
 inherit golang-single
@@ -29,7 +31,8 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
 
-DEPEND="dev-go/go-bindata"
+DEPEND="dev-go/go-bindata
+	test? ( dev-util/go-tools )"
 
 src_compile() {
 	cd skeleton || die
@@ -38,4 +41,9 @@ src_compile() {
 	eend
 
 	golang-single_src_compile
+}
+
+src_test() {
+	ln -sf ${GOBIN} "${S}"/bin || die
+	golang-single_src_test
 }
