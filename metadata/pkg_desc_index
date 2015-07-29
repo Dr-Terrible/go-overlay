@@ -42,4 +42,4 @@ net-misc/syncthing 0.11.17: Syncthing is an application that lets you synchroniz
 net-misc/wsd 0.0.0_pre20150722: Simple cURL-like command line utility for debugging WebSocket servers
 sys-devel/calc 20150422: A simple, fast command-line calculator written in GoLang
 www-apps/gitea 0.7.0_pre20150630: Gitea is a self-hosted Git service written in Go
-www-apps/hugo 0.14 0.15_pre20150724: A fast and flexible static site generator built in GoLang
+www-apps/hugo 0.14 0.15_pre20150729: A fast and flexible static site generator built in GoLang
