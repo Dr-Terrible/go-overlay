@@ -49,11 +49,11 @@ pkg_setup() {
 		enewgroup ${PN}
 		enewuser ${PN} -1 -1 "/var/lib/${PN}" ${PN}
 	eend $?
-
-	golang-single_pkg_setup
 }
 
 src_prepare() {
+	golang-single_src_prepare
+
 	golang_fix_importpath_alias \
 		"github.com/collectd/go-collectd" \
 		"collectd.org"

@@ -13,7 +13,7 @@ GOLANG_PKG_HAVE_TEST=1
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/go-yaml/yaml:1b9791953b"
 	"github.com/ainoya/glog:20260dceee"
-	"github.com/stretchr/testify:de7fcff264"
+	"github.com/stretchr/testify:232e856367"
 	"github.com/andybons/hipchat:08bf65eade"
 	"github.com/tbruyelle/hipchat-go:c2364b4acf"
 	"github.com/google/go-github:1e55bf6be8"

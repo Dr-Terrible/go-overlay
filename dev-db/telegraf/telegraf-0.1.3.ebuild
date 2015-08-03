@@ -62,8 +62,6 @@ pkg_setup() {
 		enewgroup ${PN}
 		enewuser ${PN} -1 -1 "/var/lib/${PN}" ${PN}
 	eend $?
-
-	golang-single_pkg_setup
 }
 
 src_install() {

@@ -65,12 +65,12 @@
 
 inherit base multiprocessing
 
-RESTRICT+=" mirror userpriv"
+RESTRICT+=" mirror "
 
 QA_FLAGS_IGNORED="usr/bin/.*
 	usr/sbin/.*"
 
-EXPORT_FUNCTIONS pkg_setup src_unpack src_configure src_compile src_install src_test
+EXPORT_FUNCTIONS src_prepare src_unpack src_configure src_compile src_install src_test
 
 
 # @ECLASS-VARIABLE: GOLANG_PKG_NAME
@@ -197,7 +197,7 @@ GOLANG_PKG_STATIK="${GOLANG_PKG_STATIK:-}"
 # @DESCRIPTION:
 # The absolute path to the current GoLang interpreter.
 #
-# This variable is set automatically after calling golang-single_pkg_setup().
+# This variable is set automatically after calling golang_setup().
 #
 # Default value:
 # @CODE
@@ -209,7 +209,7 @@ GOLANG_PKG_STATIK="${GOLANG_PKG_STATIK:-}"
 # @DESCRIPTION:
 # The executable name of the current GoLang interpreter.
 #
-# This variable is set automatically after calling golang-single_pkg_setup().
+# This variable is set automatically after calling golang_setup().
 #
 # Default value:
 # @CODE
@@ -313,13 +313,11 @@ fi
 # Define SOURCE directory
 S="${WORKDIR}/gopath/src/${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}"
 
-
-# @FUNCTION: golang-single_pkg_setup
+# @FUNCTION: golang_setup
 # @DESCRIPTION:
-# Runs pkg_setup.
 # Determines where is the GoLang implementation and then set-up the
 # GoLang build environment.
-golang-single_pkg_setup() {
+golang_setup() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	# Keep /usr/bin/go as index [0] and never overwrite it,
@@ -411,6 +409,15 @@ golang-single_pkg_setup() {
 
 
 # @FUNCTION: golang-single_src_unpack
+# @INTERNAL
+# @DESCRIPTION:
+# Prepare the source path declared by S.
+_create_sourcedir() {
+	mkdir -p "${S%/*}" || die
+}
+
+
+# @FUNCTION: golang-single_src_unpack
 # @DESCRIPTION:
 # Unpack the source archive.
 golang-single_src_unpack() {
@@ -418,114 +425,131 @@ golang-single_src_unpack() {
 
 	base_src_unpack
 
-	[[ ${EGO} ]] || die "No GoLang implementation set (pkg_setup not called?)."
-
-	einfo "Preparing GoLang build environment in ${GOPATH}/src"
-
-	# If the ebuild declares some GoLang dependencies, then they need to be
-	# correctly installed into the sand-boxed GoLang build environment which
-	# was set up automatically during pkg_setup() phase
-	if [[ ${#GOLANG_PKG_DEPENDENCIES[@]} -gt 0 ]]; then
-		# move GoLang dependencies from WORKDIR into GOPATH
-		for module in ${!GOLANG_PKG_DEPENDENCIES[@]} ; do
-
-			# Strip all the white spaces
-			local DEPENDENCY="${GOLANG_PKG_DEPENDENCIES[$module]//\ /}"
-
-			# Determine the alias of the import path
-			local _importpathalias="${DEPENDENCY##*->}"
-
-			# Strip the alias
-			DEPENDENCY="${DEPENDENCY%%->*}"
-
-			# Factorize the import path in specific tokens such as the host name,
-			# the author name, the project name, and the revision tag
-			local _importpath="${DEPENDENCY%:*}"
-			local _host="${_importpath%%/*}"
-			local _project_name="${_importpath##*/}"
-			local _author_name="${_importpath#*/}"
-			_author_name="${_author_name%/*}"
-			local _revision="${DEPENDENCY#*:}"
-
-			# When the alias is not specified, then we set the alias as equal to
-			# the import path minus the project name
-			[[ $DEPENDENCY == $_importpathalias ]] && _importpathalias="${_importpath%/*}"
-
-
-			debug-print "${FUNCNAME}: importpath      = ${_importpath}"
-			debug-print "${FUNCNAME}: importpathalias = ${_importpathalias}"
-			debug-print "${FUNCNAME}: host            = ${_host}"
-			debug-print "${FUNCNAME}: author          = ${_author_name}"
-			debug-print "${FUNCNAME}: project         = ${_project_name}"
-			debug-print "${FUNCNAME}: revision        = ${_revision}"
-
-			#einfo "importpath      = ${_importpath}"
-			#einfo "importpathalias = ${_importpathalias}"
-			#einfo "host            = ${_host}"
-			#einfo "author          = ${_author_name}"
-			#einfo "project         = ${_project_name}"
-			#einfo "revision        = ${_revision}"
-
-
-			local _message="Importing ${_importpath}"
-			local _destdir
-
-			# Prepare GOPATH structure.
-			case ${_importpathalias} in
-				gopkg.in*)
-					_message+=" as ${_importpathalias}"
-					_destdir="${_importpathalias}"
-
-					# Create the import path in GOPATH
-					mkdir -p "${GOPATH}/src/${_importpathalias%/*}" || die
-					#einfo "\n${GOPATH}/src/${_importpathalias%/*}"
-					;;
-				*)
-					[[ "${_importpath}" != "${_importpathalias}/${_project_name}" ]] && _message+=" as ${_importpathalias}/${_project_name}"
-					_destdir="${_importpathalias}/${_project_name}"
-
-					# Create the import path in GOPATH
-					mkdir -p "${GOPATH}/src/${_importpathalias}" || die
-					#einfo "\n${GOPATH}/src/${_importpathalias}"
-					;;
-			esac
-
-			# Move sources from WORKDIR into GOPATH.
-			case ${_host} in
-				github*)
-					ebegin "${_message}"
-						mv ${_project_name}-${_revision}* "${GOPATH}"/src/${_destdir} || die
-					eend
-
-					# FIX: sometimes the source code inside an importpath alias
-					#      (such as gopkg.in/mylib.v1) invokes imports from
-					#      the original import path instead of using the alias,
-					#      thus we need a symbolic link between the alias and
-					#      the original import path to avoid compilation issues.
-					#      Example: gopkg.in/Shopify/sarama.v1 erroneously
-					#      invoking imports from github.com/shopify/sarama
-					if [[ ${_destdir} != ${_importpath} ]]; then
-						golang_fix_importpath_alias ${_destdir} ${_importpath}
-					fi
-					;;
-				bitbucket*)
-					#einfo "path: ${_author_name}-${_project_name}-${_revision}"
-					ebegin "${_message}"
-						#mv ${_author_name}-${_project_name}-${_revision} "${GOPATH}"/src/${_importpathalias}/${_project_name} || die
-						mv ${_author_name}-${_project_name}-${_revision} "${GOPATH}"/src/${_destdir} || die
-					eend
-					;;
-				*) die "this eclass doesn't support '${_importpath}'" ;;
-			esac
-		done
-	fi
-
-	# move GoLang main package from WORKDIR into GOPATH
-	mkdir -p "${GOPATH}"/src/${GOLANG_PKG_IMPORTPATH_ALIAS} || die
-	ebegin "Importing ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}"
-		mv "${GOLANG_PKG_NAME}-${GOLANG_PKG_VERSION}" "${GOPATH}"/src/${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME} || die
-	eend
+	# Create S by moving main GoLang package from WORKDIR into GOPATH.
+	_create_sourcedir
+	mv "${GOLANG_PKG_NAME}-${GOLANG_PKG_VERSION}" "${S}"/ || die
 }
+
+# @FUNCTION: golang-single_src_prepare
+# @DESCRIPTION:
+# Prepare source code.
+golang-single_src_prepare() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	# Sets up GoLang build environment
+	golang_setup
+
+
+	pushd "${WORKDIR}" > /dev/null
+		einfo "Preparing GoLang build environment in ${GOPATH}/src"
+
+		# If the ebuild declares some GoLang dependencies, then they need to be
+		# correctly installed into the sand-boxed GoLang build environment which
+		# was set up automatically during pkg_setup() phase.
+		if [[ ${#GOLANG_PKG_DEPENDENCIES[@]} -gt 0 ]]; then
+
+			# move GoLang dependencies from WORKDIR into GOPATH
+			for module in ${!GOLANG_PKG_DEPENDENCIES[@]} ; do
+
+				# Strip all the white spaces.
+				local DEPENDENCY="${GOLANG_PKG_DEPENDENCIES[$module]//\ /}"
+
+				# Determine the alias of the import path.
+				local _importpathalias="${DEPENDENCY##*->}"
+
+				# Strip the alias.
+				DEPENDENCY="${DEPENDENCY%%->*}"
+
+				# Factorize the import path in specific tokens such as the host
+				# name, the author name, the project name, and the revision tag.
+				local _importpath="${DEPENDENCY%:*}"
+				local _host="${_importpath%%/*}"
+				local _project_name="${_importpath##*/}"
+				local _author_name="${_importpath#*/}"
+				_author_name="${_author_name%/*}"
+				local _revision="${DEPENDENCY#*:}"
+
+				# When the alias is not specified, then we set the alias as
+				# equal to the import path minus the project name.
+				[[ $DEPENDENCY == $_importpathalias ]] && _importpathalias="${_importpath%/*}"
+
+
+				debug-print "${FUNCNAME}: importpath      = ${_importpath}"
+				debug-print "${FUNCNAME}: importpathalias = ${_importpathalias}"
+				debug-print "${FUNCNAME}: host            = ${_host}"
+				debug-print "${FUNCNAME}: author          = ${_author_name}"
+				debug-print "${FUNCNAME}: project         = ${_project_name}"
+				debug-print "${FUNCNAME}: revision        = ${_revision}"
+
+				#einfo "importpath      = ${_importpath}"
+				#einfo "importpathalias = ${_importpathalias}"
+				#einfo "host            = ${_host}"
+				#einfo "author          = ${_author_name}"
+				#einfo "project         = ${_project_name}"
+				#einfo "revision        = ${_revision}"
+
+
+				local _message="Importing ${_importpath}"
+				local _destdir
+
+				# Prepare GOPATH structure.
+				case ${_importpathalias} in
+					gopkg.in*)
+						_message+=" as ${_importpathalias}"
+						_destdir="${_importpathalias}"
+
+						# Create the import path in GOPATH
+						mkdir -p "${GOPATH}/src/${_importpathalias%/*}" || die
+						#einfo "\n${GOPATH}/src/${_importpathalias%/*}"
+						;;
+					*)
+						[[ "${_importpath}" != "${_importpathalias}/${_project_name}" ]] && _message+=" as ${_importpathalias}/${_project_name}"
+						_destdir="${_importpathalias}/${_project_name}"
+
+						# Create the import path in GOPATH
+						mkdir -p "${GOPATH}/src/${_importpathalias}" || die
+						#einfo "\n${GOPATH}/src/${_importpathalias}"
+						;;
+				esac
+
+				# Move sources from WORKDIR into GOPATH.
+				case ${_host} in
+					github*)
+						ebegin "${_message}"
+							mv ${_project_name}-${_revision}* "${GOPATH}"/src/${_destdir} || die
+						eend
+
+						# FIX: sometimes the source code inside an importpath alias
+						#      (such as gopkg.in/mylib.v1) invokes imports from
+						#      the original import path instead of using the alias,
+						#      thus we need a symbolic link between the alias and
+						#      the original import path to avoid compilation issues.
+						#      Example: gopkg.in/Shopify/sarama.v1 erroneously
+						#      invoking imports from github.com/shopify/sarama
+						if [[ ${_destdir} != ${_importpath} ]]; then
+							golang_fix_importpath_alias ${_destdir} ${_importpath}
+						fi
+						;;
+					bitbucket*)
+						#einfo "path: ${_author_name}-${_project_name}-${_revision}"
+						ebegin "${_message}"
+							#mv ${_author_name}-${_project_name}-${_revision} "${GOPATH}"/src/${_importpathalias}/${_project_name} || die
+							mv ${_author_name}-${_project_name}-${_revision} "${GOPATH}"/src/${_destdir} || die
+						eend
+						;;
+					*) die "this eclass doesn't support '${_importpath}'" ;;
+				esac
+			done
+
+		fi
+
+	popd > /dev/null
+
+	# NOTE: base_src_prepare() must be the last function invoked by
+	#       golang-single_src_prepare() otherwise the patching phase will fail.
+	base_src_prepare
+}
+
 
 # @FUNCTION: golang-single_src_configure
 # @DESCRIPTION:
@@ -533,7 +557,7 @@ golang-single_src_unpack() {
 golang-single_src_configure() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	[[ ${EGO} ]] || die "No GoLang implementation set (pkg_setup not called?)."
+	[[ ${EGO} ]] || die "No GoLang implementation set (golang_setup not called?)."
 
 	# GoLang doesn't have a configure phase,
 	# so instead we print the output of 'go env'
@@ -558,7 +582,7 @@ golang-single_src_configure() {
 golang-single_src_compile() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	[[ ${EGO} ]] || die "No GoLang implementation set (pkg_setup not called?)."
+	[[ ${EGO} ]] || die "No GoLang implementation set (golang_setup not called?)."
 
 	# Auto-detects the presence of Godep's workspace
 	# (see github.com/tools/godep for more infos)
@@ -622,7 +646,7 @@ golang-single_src_compile() {
 	if [[ -n ${GOLANG_PKG_LDFLAGS} ]]; then
 		# Specifies the arguments for the linker invocation.
 		# WORKAROUND: 6l has several problems parsing certain flags when invoked
-		#             from a shell script; these bugs'll be fixed in go v1.5+
+		#             from a shell script; these bugs will be fixed in go v1.5+
 		einfo "${EGO} build -ldflags=\"$GOLANG_PKG_LDFLAGS\" ${EGO_BUILD_FLAGS}"
 		${EGO} build -ldflags="$GOLANG_PKG_LDFLAGS" ${EGO_TAGS} ${EGO_BUILD_FLAGS} || die
 	else
@@ -637,6 +661,8 @@ golang-single_src_compile() {
 # Installs binaries and documents from DOCS or HTML_DOCS arrays.
 golang-single_src_install() {
 	debug-print-function ${FUNCNAME} "${@}"
+
+	[[ ${EGO} ]] || die "No GoLang implementation set (golang_setup not called?)."
 
 	# Define the arguments for the linker invocation.
 	local EGO_LDFLAGS
@@ -682,13 +708,12 @@ golang-single_src_install() {
 golang-single_src_test() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	[[ ${EGO} ]] || die "No GoLang implementation set (pkg_setup not called?)."
+	[[ ${EGO} ]] || die "No GoLang implementation set (golang_setup not called?)."
 
 	# Appends S and GOBIN to exported main paths.
 	# FIX: this is necessary for unit tests that need to invoke bins from
 	#       $GOBIN or from within $S/bin.
 	export PATH="${S}/bin:${GOBIN}:${PATH}"
-	#einfo "PATH: $PATH"
 
 	# Define the level of verbosity.
 	local EGO_VERBOSE="-v"
@@ -728,6 +753,9 @@ golang_fix_importpath_alias() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	[[ ${1} ]] || die "${FUNCNAME}: no paths given"
+
+	[[ ${EGO} ]] || die "No GoLang implementation set (golang_setup not called?)."
+
 
 	local TARGET="${1}"
 	local ALIAS="${2}"

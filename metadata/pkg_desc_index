@@ -17,10 +17,11 @@ dev-db/tiedot 3.2: Tiedot is a document-oriented NoSQL database written in GoLan
 dev-go/echo 1.0.0: A fast HTTP router and micro web framework written in GoLang
 dev-go/flint 0.0.4: Check your project for common sources of contributor friction
 dev-go/forego 0.16.1: Foreman written in GoLang
-dev-go/gb 0.1_pre20150715: Gb is a project based build tool for the Go programming language
+dev-go/gb 0.1_pre20150803: Gb is a project based build tool for the Go programming language
 dev-go/gcli 0.2.1: Gcli builds GoLang command-line applications
 dev-go/ginkgo 1.2.0: BDD Testing Framework for GoLang
 dev-go/go-bindata 3.0.8_pre20150721: A small utility for embedding binary data in a GoLang program.
+dev-go/go-torch 0.5.0_pre20150729: Stochastic flame graph profiler for Go Programs
 dev-go/gocode 2015.03.03: An autocompletion daemon for the Go programming language
 dev-go/gom 20150527: A visual interface to work with runtime profiling data for Go
 dev-go/gostatus 20150606: A command-line tool that show the status of GoLang repositories
@@ -38,8 +39,8 @@ dev-go/wellington 0.9.0: Wellington is a CSS preprocessor with spriting and base
 dev-util/go-tools 20150724: Go Tools
 net-misc/bat 0.0.2: Go implemented CLI cURL-like tool for humans
 net-misc/gollum 0.3.2: A n:m message multiplexer written in GoLang
-net-misc/syncthing 0.11.17: Syncthing is an application that lets you synchronize your files across multiple devices
+net-misc/syncthing 0.11.18: Syncthing is an application that lets you synchronize your files across multiple devices
 net-misc/wsd 0.0.0_pre20150722: Simple cURL-like command line utility for debugging WebSocket servers
 sys-devel/calc 20150422: A simple, fast command-line calculator written in GoLang
 www-apps/gitea 0.7.0_pre20150630: Gitea is a self-hosted Git service written in Go
-www-apps/hugo 0.14 0.15_pre20150729: A fast and flexible static site generator built in GoLang
+www-apps/hugo 0.14 0.15_pre20150803: A fast and flexible static site generator built in GoLang

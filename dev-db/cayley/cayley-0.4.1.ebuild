@@ -37,6 +37,8 @@ KEYWORDS="amd64 x86 arm"
 IUSE+=" examples"
 
 src_prepare() {
+	golang-single_src_prepare
+
 	golang_fix_importpath_alias \
 		"github.com/golang/snappy" \
 		"github.com/google/go-snappy"

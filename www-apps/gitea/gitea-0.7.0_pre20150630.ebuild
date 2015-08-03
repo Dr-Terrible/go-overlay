@@ -72,11 +72,11 @@ pkg_setup() {
 		enewgroup git
 		enewuser git -1 /bin/sh "${GITEA_REPO_DIR}" git
 	eend $?
-
-	golang-single_pkg_setup
 }
 
 src_prepare() {
+	golang-single_src_prepare
+
 	# FIX:
 	sed -i \
 		-e "s:^STATIC_ROOT_PATH =.*:STATIC_ROOT_PATH = ${EPREFIX}/usr/share/${PN}:" \
@@ -97,7 +97,7 @@ src_compile() {
 
 	GOLANG_PKG_TAGS=""
 
-	use sqlite3 && GOLANG_PKG_TAGS+=" sqlite"
+	use sqlite && GOLANG_PKG_TAGS+=" sqlite"
 	use redis && GOLANG_PKG_TAGS+=" redis"
 	use memcached && GOLANG_PKG_TAGS+=" memcache"
 	use ssl && GOLANG_PKG_TAGS+=" cert"
