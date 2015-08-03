@@ -65,7 +65,7 @@
 
 inherit base multiprocessing
 
-RESTRICT+=" mirror"
+RESTRICT+=" mirror userpriv"
 
 QA_FLAGS_IGNORED="usr/bin/.*
 	usr/sbin/.*"
@@ -685,10 +685,10 @@ golang-single_src_test() {
 	[[ ${EGO} ]] || die "No GoLang implementation set (pkg_setup not called?)."
 
 	# Appends S and GOBIN to exported main paths.
-	# FIX: this is necessary for unit tests that need to invoke bins from GOBIN
-	#      or from within S.
+	# FIX: this is necessary for unit tests that need to invoke bins from
+	#       $GOBIN or from within $S/bin.
 	export PATH="${S}/bin:${GOBIN}:${PATH}"
-	einfo "PATH: $PATH"
+	#einfo "PATH: $PATH"
 
 	# Define the level of verbosity.
 	local EGO_VERBOSE="-v"
