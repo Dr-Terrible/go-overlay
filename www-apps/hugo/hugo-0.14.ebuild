@@ -50,6 +50,8 @@ SLOT="0"
 KEYWORDS="amd64 x86 arm"
 
 src_prepare() {
+	golang-single_src_prepare
+
 	golang_fix_importpath_alias \
 		"github.com/spf13/jWalterWeatherman" \
 		"github.com/spf13/jwalterweatherman"

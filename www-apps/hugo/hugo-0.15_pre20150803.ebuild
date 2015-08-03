@@ -5,7 +5,7 @@
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/spf13"
-GOLANG_PKG_VERSION="43891e39947ee30d6667ad4f8154b8c3d93fdd09"
+GOLANG_PKG_VERSION="4bed69629e55f7292505a74e8437a5a05ddf9a22"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
@@ -50,6 +50,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
 
 src_prepare() {
+	golang-single_src_prepare
+
 	golang_fix_importpath_alias \
 		"github.com/spf13/jWalterWeatherman" \
 		"github.com/spf13/jwalterweatherman"
