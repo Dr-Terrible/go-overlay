@@ -21,6 +21,8 @@ IUSE="systemd"
 RDEPEND="systemd? ( >=sys-apps/systemd-219 )"
 
 src_prepare() {
+	golang-single_src_prepare
+
 	# FIX: provide a version number
 	touch "${S}"/RELEASE || die
 	echo "v${PV}" > "${S}"/RELEASE || die
