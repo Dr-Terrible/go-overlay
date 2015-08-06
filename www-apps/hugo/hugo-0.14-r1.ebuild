@@ -5,7 +5,8 @@
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/spf13"
-GOLANG_PKG_VERSION="4bed69629e55f7292505a74e8437a5a05ddf9a22"
+GOLANG_PKG_ARCHIVEPREFIX="v"
+GOLANG_PKG_VERSION="${PV}"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
@@ -37,7 +38,6 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/kr/text:e373e137fa"
 	"github.com/magiconair/properties:6240095988"
 	"github.com/stretchr/testify:232e856367"
-	"github.com/golang/text:d611288f0d -> golang.org/x"
 )
 
 inherit golang-single
@@ -47,7 +47,10 @@ HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm"
+KEYWORDS="amd64 x86 arm"
+IUSE+=" pygments"
+
+RDEPEND="pygments? ( dev-python/pygments )"
 
 src_prepare() {
 	golang-single_src_prepare
