@@ -37,7 +37,7 @@ dev-go/re2dfa 0.1.0_pre20150625: Transform regular expressions into finite state
 dev-go/statik 20150419: statik embeds static files into a GoLang executable
 dev-go/walter 1.1.0: Walter is a tiny deployment pipeline
 dev-go/wellington 0.9.0: Wellington is a CSS preprocessor with spriting and based on libsass
-dev-util/go-tools 20150724: Go Tools
+dev-util/go-tools 20150606: Go Tools
 net-misc/bat 0.0.2: Go implemented CLI cURL-like tool for humans
 net-misc/gollum 0.3.2: A n:m message multiplexer written in GoLang
 net-misc/syncthing 0.11.18: Syncthing is an application that lets you synchronize your files across multiple devices
