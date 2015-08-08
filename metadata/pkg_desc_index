@@ -34,6 +34,7 @@ dev-go/minify 20150602: Go minifiers for web formats.
 dev-go/protobuf 20150626: Protocol Buffers for Go with Gadgets
 dev-go/raml 0.8: An implementation of a RAML parser for Go. Compliant with RAML 0.8
 dev-go/re2dfa 0.1.0_pre20150625: Transform regular expressions into finite state machines and output GoLang source code
+dev-go/safesql 0_pre20150617: Static analysis tool for GoLang that protects against SQL injections
 dev-go/statik 20150419: statik embeds static files into a GoLang executable
 dev-go/walter 1.1.0: Walter is a tiny deployment pipeline
 dev-go/wellington 0.9.0: Wellington is a CSS preprocessor with spriting and based on libsass
