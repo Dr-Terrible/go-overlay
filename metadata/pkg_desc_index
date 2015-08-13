@@ -41,7 +41,7 @@ dev-go/wellington 0.9.0: Wellington is a CSS preprocessor with spriting and base
 dev-util/go-tools 20150806: Go Tools
 net-misc/bat 0.0.2: Go implemented CLI cURL-like tool for humans
 net-misc/gollum 0.3.2: A n:m message multiplexer written in GoLang
-net-misc/syncthing 0.11.18: Syncthing is an application that lets you synchronize your files across multiple devices
+net-misc/syncthing 0.11.19: Syncthing is an application that lets you synchronize your files across multiple devices
 net-misc/wsd 0.0.0_pre20150722: Simple cURL-like command line utility for debugging WebSocket servers
 sys-devel/calc 20150422: A simple, fast command-line calculator written in GoLang
 sys-devel/delve 0.5.0: Delve is a debugger for the Go programming language
