@@ -1,11 +1,11 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/spf13"
-GOLANG_PKG_VERSION="4bed69629e55f7292505a74e8437a5a05ddf9a22"
+GOLANG_PKG_VERSION="5b51b3b9fb19d8d20e99d3c249c0052793abe50a"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
@@ -22,12 +22,12 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/opennota/urlesc:5fa9ff0392"
 	"github.com/shurcooL/sanitized_anchor_name:11a20b799b"
 	"github.com/spf13/afero:e54aac2c6a"
-	"github.com/spf13/cast:4d07383ffe"
-	"github.com/spf13/cobra:312092086b"
-	"github.com/spf13/fsync:1fdf08f822b"
+	"github.com/spf13/cast:ee815aaf95"
+	"github.com/spf13/cobra:c55cdf3385"
+	"github.com/spf13/fsync:1fdf08f822"
 	"github.com/spf13/nitro:24d7ef30a1"
-	"github.com/spf13/viper:be5ff3e484"
-	"github.com/spf13/pflag:5644820622"
+	"github.com/spf13/viper:2abb1bebfd"
+	"github.com/spf13/pflag:4869ec2ae0"
 	"github.com/spf13/jWalterWeatherman:3d60171a64"
 	"github.com/yosssi/ace:78e48a2f0a"
 	"github.com/go-fsnotify/fsnotify:96c060f6a6 -> gopkg.in/fsnotify.v1"
