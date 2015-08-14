@@ -727,8 +727,7 @@ golang-single_src_test() {
 
 	# Define sub-packages.
 	local EGO_SUBPACKAGES="${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
-	[[ -n ${GOLANG_PKG_IS_MULTIPLE} ]] || EGO_SUBPACKAGES+="/..."
-
+	[[ -n ${GOLANG_PKG_IS_MULTIPLE} ]] || EGO_SUBPACKAGES="./..."
 
 	# Prepare build flags for the go toolchain.
 	local EGO_BUILD_FLAGS="${EGO_VERBOSE} ${EGO_PARALLEL} ${EGO_EXTRA_OPTIONS} ${EGO_SUBPACKAGES}"
