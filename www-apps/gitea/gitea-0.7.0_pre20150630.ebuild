@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -15,7 +15,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/Unknwon/com:188d690b1a"
 	"github.com/Unknwon/i18n:7457d88830"
 	"github.com/Unknwon/macaron:93de4f3fad"
-	"github.com/codegangsta/cli:2bcd11f863"
+	"github.com/codegangsta/cli:142e6cd241"
 	"github.com/go-sql-driver/mysql:a197e5d405"
 	"github.com/go-xorm/core:be6e7ac47d"
 	"github.com/go-xorm/xorm:1f0dd9bef2"

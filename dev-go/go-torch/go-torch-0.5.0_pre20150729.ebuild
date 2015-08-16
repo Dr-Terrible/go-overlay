@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -11,7 +11,7 @@ GOLANG_PKG_HAVE_TEST=1
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/Sirupsen/logrus:5701be89e7"
 	"github.com/awalterschulze/gographviz:7c3cf72121"
-	"github.com/codegangsta/cli:7ad88c2740"
+	"github.com/codegangsta/cli:142e6cd241"
 	"github.com/stretchr/objx:cbeaeb16a0"
 
 	# unit testing

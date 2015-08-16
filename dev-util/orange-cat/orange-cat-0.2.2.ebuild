@@ -14,7 +14,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/russross/blackfriday:386ef80f18"
 	"github.com/skratchdot/open-golang:c8748311a7"
 	"github.com/shurcooL/sanitized_anchor_name:11a20b799b"
-	"github.com/codegangsta/cli:7ad88c2740"
+	"github.com/codegangsta/cli:142e6cd241"
 
 	# unit testing
 	"github.com/onsi/ginkgo:462326b162"

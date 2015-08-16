@@ -18,7 +18,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/hashicorp/go-version:999359b6b7"
 	"github.com/golang/crypto:1e856cbfdf -> golang.org/x"
 	"github.com/golang/net:669b27b881 -> golang.org/x"
-	"github.com/codegangsta/cli:7ad88c2740"
+	"github.com/codegangsta/cli:142e6cd241"
 	"github.com/olekukonko/tablewriter:bc39950e08"
 )
 
