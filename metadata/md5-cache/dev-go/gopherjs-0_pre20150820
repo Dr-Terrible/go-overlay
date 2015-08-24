@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=GopherJS compils GoLang code to pure JavaScript code
+EAPI=5
+HOMEPAGE=https://github.com/gopherjs/gopherjs
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=BSD
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/gopherjs/gopherjs/archive/04973f3c02c570eadc0fb3d366861ffd978fb76e.tar.gz -> gopherjs-0_pre20150820.tar.gz https://github.com/kardianos/osext/archive/6e7f843663.tar.gz -> github.com-kardianos-osext-6e7f843663.tar.gz https://github.com/neelance/sourcemap/archive/8994456d80.tar.gz -> github.com-neelance-sourcemap-8994456d80.tar.gz https://github.com/spf13/cobra/archive/312092086b.tar.gz -> github.com-spf13-cobra-312092086b.tar.gz https://github.com/spf13/pflag/archive/5644820622.tar.gz -> github.com-spf13-pflag-5644820622.tar.gz https://github.com/golang/crypto/archive/1e856cbfdf.tar.gz -> github.com-golang-crypto-1e856cbfdf.tar.gz https://github.com/golang/tools/archive/4f50f44d7a.tar.gz -> github.com-golang-tools-4f50f44d7a.tar.gz https://github.com/go-fsnotify/fsnotify/archive/96c060f6a6.tar.gz -> github.com-go-fsnotify-fsnotify-96c060f6a6.tar.gz https://github.com/inconshreveable/mousetrap/archive/76626ae9c9.tar.gz -> github.com-inconshreveable-mousetrap-76626ae9c9.tar.gz
+_eclasses_=base	84d9f879f57a8316ff02be0373a3d6f9	eutils	351a78113be5b393c09a2c948701ad36	golang-single	e3a8e330b2962cf3eb41290c63c92989	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	multiprocessing	d769539d9bace6eaca30af23bc2b4dde	toolchain-funcs	4b8d3388c0a6e798504e20ba30b49361
+_md5_=51ea957c77fc9eba21fcbea29dc19606

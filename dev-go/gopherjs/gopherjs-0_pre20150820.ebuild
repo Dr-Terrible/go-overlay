@@ -1,11 +1,11 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/gopherjs"
-GOLANG_PKG_VERSION="e0189ad6cb0a75ca87915b04c21f21af8a3a483d"
+GOLANG_PKG_VERSION="04973f3c02c570eadc0fb3d366861ffd978fb76e"
 GOLANG_PKG_HAVE_TEST=1
 
 # Declare dependencies
