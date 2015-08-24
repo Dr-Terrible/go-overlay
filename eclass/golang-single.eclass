@@ -545,6 +545,27 @@ golang-single_src_prepare() {
 
 	popd > /dev/null
 
+
+	# Auto-detects the presence of Godep's workspace
+	# (see github.com/tools/godep for more infos)
+	if [[ -d "${S}"/Godeps/_workspace/src ]]; then
+		GOLANG_PKG_VENDOR+="${S}/Godeps/_workspace"
+
+		# Before to compile Godep's dependencies is wise to wipe out
+		# all pre-built libraries and executables.
+		if [[ -d "${S}"/Godeps/_workspace/pkg ]]; then
+			ebegin "Cleaning up pre-built packages in Godep workspace"
+				rm -r "${S}"/Godeps/_workspace/pkg || die
+			eend
+		fi
+		if [[ -d "${S}"/Godeps/_workspace/bin ]]; then
+			ebegin "Cleaning up executables in Godep workspace"
+				rm -r "${S}"/Godeps/_workspace/bin || die
+			eend
+		fi
+	fi
+
+
 	# NOTE: base_src_prepare() must be the last function invoked by
 	#       golang-single_src_prepare() otherwise the patching phase will fail.
 	base_src_prepare
@@ -584,11 +605,7 @@ golang-single_src_compile() {
 
 	[[ ${EGO} ]] || die "No GoLang implementation set (golang_setup not called?)."
 
-	# Auto-detects the presence of Godep's workspace
-	# (see github.com/tools/godep for more infos)
-	[[ -d "${S}"/Godeps/_workspace/src ]] && GOLANG_PKG_VENDOR+="${S}/Godeps/_workspace"
-
-	# Populates global env variable GOPATH
+	# Populates env variable GOPATH with vendored workspaces (if present).
 	if [[ -n ${GOLANG_PKG_VENDOR} ]]; then
 		einfo "Using bundled packages from:"
 
@@ -613,46 +630,40 @@ golang-single_src_compile() {
 			|| die
 	fi
 
-	# Executes 'statik'
+	# Executes 'statik'.
 	if [[ -n ${GOLANG_PKG_STATIK} ]]; then
 		ebegin "${ESTATIK} $GOLANG_PKG_STATIK"
 			${ESTATIK} $GOLANG_PKG_STATIK || die
 		eend
 	fi
 
-	# Define the output binary name of the package.
+	# Defines the output binary name of the package.
 	# If the package is a multiple package then we don't specify the output
 	local EGO_OUTPUT
 	[[ -z ${GOLANG_PKG_IS_MULTIPLE} ]] && EGO_OUTPUT="-o ${GOBIN}/${GOLANG_PKG_OUTPUT_NAME}"
 
-	# Define the install suffix.
+	# Defines the install suffix.
 	local EGO_INSTALLSUFFIX
 	[[ -z ${GOLANG_PKG_INSTALLSUFFIX} ]] || EGO_INSTALLSUFFIX="-installsuffix=${GOLANG_PKG_INSTALLSUFFIX}"
 
-	# Define the level of verbosity.
+	# Defines the level of verbosity.
 	local EGO_VERBOSE="-v"
 	[[ -z ${PORTAGE_VERBOSE} ]] || EGO_VERBOSE+=" -x"
 
-	# Define the number of builds that can be run in parallel.
+	# Defines the number of builds that can be run in parallel.
 	local EGO_PARALLEL="-p $(makeopts_jobs)"
 
-	# Define extra options.
+	# Defines extra options.
 	local EGO_EXTRA_OPTIONS="-a"
 
-	# Prepare build flags for the go toolchain.
+	# Prepares build flags for the go toolchain.
 	local EGO_BUILD_FLAGS="${EGO_INSTALLSUFFIX} ${EGO_OUTPUT} ${EGO_VERBOSE} ${EGO_PARALLEL} ${EGO_EXTRA_OPTIONS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
 
-	# Build the package.
-	if [[ -n ${GOLANG_PKG_LDFLAGS} ]]; then
-		# Specifies the arguments for the linker invocation.
-		# WORKAROUND: 6l has several problems parsing certain flags when invoked
-		#             from a shell script; these bugs will be fixed in go v1.5+
-		einfo "${EGO} build -ldflags=\"$GOLANG_PKG_LDFLAGS\" ${EGO_BUILD_FLAGS}"
-		${EGO} build -ldflags="$GOLANG_PKG_LDFLAGS" ${EGO_TAGS} ${EGO_BUILD_FLAGS} || die
-	else
-		einfo "${EGO} build -tags=\"${GOLANG_PKG_TAGS}\" ${EGO_BUILD_FLAGS}"
-		${EGO} build -tags="${GOLANG_PKG_TAGS}" ${EGO_BUILD_FLAGS} || die
-	fi
+	# Builds the package.
+	# WORKAROUND: 6l has several problems parsing certain flags when invoked
+	#             from a shell script; these bugs will be fixed in go v1.5+
+	einfo "${EGO} build -ldflags=\"$GOLANG_PKG_LDFLAGS\" -tags=\"$GOLANG_PKG_TAGS\" ${EGO_BUILD_FLAGS}"
+	${EGO} build -ldflags="$GOLANG_PKG_LDFLAGS" -tags="$GOLANG_PKG_TAGS" ${EGO_BUILD_FLAGS} || die
 }
 
 
@@ -664,40 +675,40 @@ golang-single_src_install() {
 
 	[[ ${EGO} ]] || die "No GoLang implementation set (golang_setup not called?)."
 
-	# Define the arguments for the linker invocation.
+	# Defines the arguments for the linker invocation.
 	local EGO_LDFLAGS
 	#[[ -z ${GOLANG_PKG_LDFLAGS} ]] || EGO_LDFLAGS="-ldflags '${GOLANG_PKG_LDFLAGS}'"
 
-	# Define the install suffix.
+	# Defines the install suffix.
 	local EGO_INSTALLSUFFIX
 	[[ -z ${GOLANG_PKG_INSTALLSUFFIX} ]] || EGO_INSTALLSUFFIX="-installsuffix=${GOLANG_PKG_INSTALLSUFFIX}"
 
-	# Define the level of verbosity.
+	# Defines the level of verbosity.
 	local EGO_VERBOSE="-v"
 	[[ -z ${PORTAGE_VERBOSE} ]] || EGO_VERBOSE+=" -x"
 
-	# Define the number of builds that can be run in parallel.
+	# Defines the number of builds that can be run in parallel.
 	local EGO_PARALLEL="-p $(makeopts_jobs)"
 
-	# Define extra options.
+	# Defines extra options.
 	local EGO_EXTRA_OPTIONS=""
 
-	# Prepare build flags for the go toolchain.
+	# Prepares build flags for the go toolchain.
 	local EGO_BUILD_FLAGS="${EGO_LDFLAGS} ${EGO_INSTALLSUFFIX} ${EGO_VERBOSE} ${EGO_PARALLEL} ${EGO_EXTRA_OPTIONS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
 
-	# Execute the pre-install phase (go install).
+	# Executes the pre-install phase (go install).
 	if [[ -n ${GOLANG_PKG_IS_MULTIPLE} ]]; then
 		einfo "${EGO} install ${EGO_BUILD_FLAGS}"
 		${EGO} install ${EGO_BUILD_FLAGS} || die
 	fi
 
-	# Install binaries.
+	# Installs binaries.
 	into ${GOLANG_PKG_INSTALLPATH}
 	for bin in "${GOBIN}"/* ; do
 		dobin ${bin}
 	done
 
-	# Install documentation.
+	# Installs documentation.
 	base_src_install_docs
 }
 
@@ -715,21 +726,21 @@ golang-single_src_test() {
 	#       $GOBIN or from within $S/bin.
 	export PATH="${S}/bin:${GOBIN}:${PATH}"
 
-	# Define the level of verbosity.
+	# Defines the level of verbosity.
 	local EGO_VERBOSE="-v"
 	[[ -z ${PORTAGE_VERBOSE} ]] || EGO_VERBOSE+=" -x"
 
-	# Define the number of builds that can be run in parallel.
+	# Defines the number of builds that can be run in parallel.
 	local EGO_PARALLEL="-p $(makeopts_jobs)"
 
-	# Define extra options.
+	# Defines extra options.
 	local EGO_EXTRA_OPTIONS="-a"
 
-	# Define sub-packages.
+	# Defines sub-packages.
 	local EGO_SUBPACKAGES="${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
 	[[ -n ${GOLANG_PKG_IS_MULTIPLE} ]] || EGO_SUBPACKAGES="./..."
 
-	# Prepare build flags for the go toolchain.
+	# Prepares build flags for the go toolchain.
 	local EGO_BUILD_FLAGS="${EGO_VERBOSE} ${EGO_PARALLEL} ${EGO_EXTRA_OPTIONS} ${EGO_SUBPACKAGES}"
 
 	# Runs the unit tests.
