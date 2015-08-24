@@ -9,5 +9,5 @@ LICENSE=BSD
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/uber/go-torch/archive/37a3b317cfc518b45321350f00547f366e1e3604.tar.gz -> go-torch-0.5.0_pre20150729.tar.gz https://github.com/Sirupsen/logrus/archive/5701be89e7.tar.gz -> github.com-Sirupsen-logrus-5701be89e7.tar.gz https://github.com/awalterschulze/gographviz/archive/7c3cf72121.tar.gz -> github.com-awalterschulze-gographviz-7c3cf72121.tar.gz https://github.com/codegangsta/cli/archive/142e6cd241.tar.gz -> github.com-codegangsta-cli-142e6cd241.tar.gz https://github.com/stretchr/objx/archive/cbeaeb16a0.tar.gz -> github.com-stretchr-objx-cbeaeb16a0.tar.gz https://github.com/stretchr/testify/archive/232e856367.tar.gz -> github.com-stretchr-testify-232e856367.tar.gz
-_eclasses_=base	84d9f879f57a8316ff02be0373a3d6f9	eutils	351a78113be5b393c09a2c948701ad36	golang-single	4af48e6ae21c0d5f383f80ab072f6ad9	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	multiprocessing	d769539d9bace6eaca30af23bc2b4dde	toolchain-funcs	4b8d3388c0a6e798504e20ba30b49361
+_eclasses_=base	84d9f879f57a8316ff02be0373a3d6f9	eutils	351a78113be5b393c09a2c948701ad36	golang-single	e3a8e330b2962cf3eb41290c63c92989	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	multiprocessing	d769539d9bace6eaca30af23bc2b4dde	toolchain-funcs	4b8d3388c0a6e798504e20ba30b49361
 _md5_=30b37e104f10db6fc7dd42c4de7fb74f

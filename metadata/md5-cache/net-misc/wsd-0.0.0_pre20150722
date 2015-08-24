@@ -9,5 +9,5 @@ LICENSE=MIT
 RESTRICT=mirror
 SLOT=0
 SRC_URI=https://github.com/alexanderGugel/wsd/archive/21c610ac23687c7d5dca9a2b7c149f7c8e23f091.tar.gz -> wsd-0.0.0_pre20150722.tar.gz https://github.com/fatih/color/archive/1b35f289c4.tar.gz -> github.com-fatih-color-1b35f289c4.tar.gz https://github.com/golang/net/archive/669b27b881.tar.gz -> github.com-golang-net-669b27b881.tar.gz https://github.com/shiena/ansicolor/archive/264b056680.tar.gz -> github.com-shiena-ansicolor-264b056680.tar.gz
-_eclasses_=base	84d9f879f57a8316ff02be0373a3d6f9	eutils	351a78113be5b393c09a2c948701ad36	golang-single	4af48e6ae21c0d5f383f80ab072f6ad9	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	multiprocessing	d769539d9bace6eaca30af23bc2b4dde	toolchain-funcs	4b8d3388c0a6e798504e20ba30b49361
+_eclasses_=base	84d9f879f57a8316ff02be0373a3d6f9	eutils	351a78113be5b393c09a2c948701ad36	golang-single	e3a8e330b2962cf3eb41290c63c92989	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	multiprocessing	d769539d9bace6eaca30af23bc2b4dde	toolchain-funcs	4b8d3388c0a6e798504e20ba30b49361
 _md5_=fe04280122ce64f76cbdd341a255463c
