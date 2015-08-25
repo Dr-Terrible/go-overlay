@@ -33,11 +33,3 @@ HOMEPAGE="http://revel.github.io"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64 x86 arm"
-
-#src_unpack() {
-#	base_src_unpack
-#
-#	# Create S by moving main GoLang package from WORKDIR into GOPATH.
-#	_create_sourcedir
-#	mv "${PN//-cli}-${GOLANG_PKG_VERSION}" "${S}"/ || die
-#}
