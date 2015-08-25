@@ -33,7 +33,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/mattn/go-sqlite3:e28cd440fa"
 	"github.com/microcosm-cc/bluemonday:fcd0f5074e"
 	"github.com/nfnt/resize:53e9ca890b"
-	"github.com/russross/blackfriday:6928e11ecd"
+	"github.com/russross/blackfriday:8cec3a854e"
 	"github.com/shurcooL/go:bc30a0bd33"
 	"github.com/shurcooL/sanitized_anchor_name:11a20b799b"
 	"github.com/golang/net:669b27b881 -> golang.org/x"
@@ -63,6 +63,8 @@ DEPEND="dev-go/go-bindata
 RDEPEND="${DEPEND}
 	ssl? ( net-misc/openssh )
 	dev-vcs/git[curl,threads]"
+
+use test && RESTRICT="sandbox"
 
 GITEA_REPO_DIR="/var/lib/${PN}"
 GITEA_APP_DIR="/usr/share/${PN}"

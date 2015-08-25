@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -17,7 +17,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/julienschmidt/httprouter:8c199fb625"
 	"github.com/peterh/liner:1bb0d1c1a2"
 	"github.com/robertkrimen/otto:47082f4308"
-	"github.com/russross/blackfriday:17bb7999de"
+	"github.com/russross/blackfriday:8cec3a854e"
 	"github.com/syndtr/goleveldb:a06509502c"
 	"github.com/go-mgo/mgo:3569c88678 -> gopkg.in/mgo.v2"
 	"github.com/shurcooL/sanitized_anchor_name:11a20b799b"

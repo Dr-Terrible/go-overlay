@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=A Markdown previewer written in GoLang
+EAPI=5
+HOMEPAGE=https://github.com/noraesae/orange-cat
+KEYWORDS=amd64 x86 arm
+LICENSE=MIT
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/noraesae/orange-cat/archive/v0.2.2.tar.gz -> orange-cat-0.2.2.tar.gz https://github.com/gorilla/websocket/archive/a3ec486e6a.tar.gz -> github.com-gorilla-websocket-a3ec486e6a.tar.gz https://github.com/russross/blackfriday/archive/8cec3a854e.tar.gz -> github.com-russross-blackfriday-8cec3a854e.tar.gz https://github.com/skratchdot/open-golang/archive/c8748311a7.tar.gz -> github.com-skratchdot-open-golang-c8748311a7.tar.gz https://github.com/shurcooL/sanitized_anchor_name/archive/11a20b799b.tar.gz -> github.com-shurcooL-sanitized_anchor_name-11a20b799b.tar.gz https://github.com/codegangsta/cli/archive/142e6cd241.tar.gz -> github.com-codegangsta-cli-142e6cd241.tar.gz https://github.com/onsi/ginkgo/archive/462326b162.tar.gz -> github.com-onsi-ginkgo-462326b162.tar.gz https://github.com/onsi/gomega/archive/d6c945f9fd.tar.gz -> github.com-onsi-gomega-d6c945f9fd.tar.gz
+_eclasses_=base	84d9f879f57a8316ff02be0373a3d6f9	eutils	351a78113be5b393c09a2c948701ad36	golang-single	e3a8e330b2962cf3eb41290c63c92989	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	multiprocessing	d769539d9bace6eaca30af23bc2b4dde	toolchain-funcs	4b8d3388c0a6e798504e20ba30b49361
+_md5_=4d954042fcd74782753719f327d889d7

@@ -11,7 +11,7 @@ GOLANG_PKG_BUILDPATH="/cmd/${PN//-cat}"
 # Declare dependencies
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/gorilla/websocket:a3ec486e6a"
-	"github.com/russross/blackfriday:386ef80f18"
+	"github.com/russross/blackfriday:8cec3a854e"
 	"github.com/skratchdot/open-golang:c8748311a7"
 	"github.com/shurcooL/sanitized_anchor_name:11a20b799b"
 	"github.com/codegangsta/cli:142e6cd241"
