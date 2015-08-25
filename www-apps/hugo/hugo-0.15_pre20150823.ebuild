@@ -5,8 +5,7 @@
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/spf13"
-GOLANG_PKG_ARCHIVEPREFIX="v"
-GOLANG_PKG_VERSION="${PV}"
+GOLANG_PKG_VERSION="fd2fc1d3cef3f8085ccbb364918597b7f0e9623e"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
@@ -19,16 +18,16 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/kardianos/osext:6e7f843663"
 	"github.com/miekg/mmark:3554509431"
 	"github.com/mitchellh/mapstructure:bb4fbaf540"
-	"github.com/russross/blackfriday:386ef80f18"
+	"github.com/russross/blackfriday:8cec3a854e"
 	"github.com/opennota/urlesc:5fa9ff0392"
 	"github.com/shurcooL/sanitized_anchor_name:11a20b799b"
 	"github.com/spf13/afero:e54aac2c6a"
-	"github.com/spf13/cast:4d07383ffe"
-	"github.com/spf13/cobra:312092086b"
-	"github.com/spf13/fsync:1fdf08f822b"
+	"github.com/spf13/cast:ee815aaf95"
+	"github.com/spf13/cobra:c55cdf3385"
+	"github.com/spf13/fsync:1fdf08f822"
 	"github.com/spf13/nitro:24d7ef30a1"
-	"github.com/spf13/viper:be5ff3e484"
-	"github.com/spf13/pflag:5644820622"
+	"github.com/spf13/viper:2abb1bebfd"
+	"github.com/spf13/pflag:4869ec2ae0"
 	"github.com/spf13/jWalterWeatherman:3d60171a64"
 	"github.com/yosssi/ace:78e48a2f0a"
 	"github.com/go-fsnotify/fsnotify:96c060f6a6 -> gopkg.in/fsnotify.v1"
@@ -38,6 +37,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/kr/text:e373e137fa"
 	"github.com/magiconair/properties:6240095988"
 	"github.com/stretchr/testify:232e856367"
+	"github.com/golang/text:d611288f0d -> golang.org/x"
 )
 
 inherit golang-single
@@ -47,10 +47,12 @@ HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86 arm"
+KEYWORDS="~amd64 ~x86 ~arm"
 IUSE+=" pygments"
 
 RDEPEND="pygments? ( dev-python/pygments )"
+
+use test && RESTRICT="sandbox"
 
 src_prepare() {
 	golang-single_src_prepare
