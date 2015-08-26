@@ -42,10 +42,11 @@ dev-go/safesql 0_pre20150617: Static analysis tool for GoLang that protects agai
 dev-go/statik 20150419: statik embeds static files into a GoLang executable
 dev-go/walter 1.1.0: Walter is a tiny deployment pipeline
 dev-go/wellington 0.9.0: Wellington is a CSS preprocessor with spriting and based on libsass
-dev-util/go-tools 20150806: Go Tools
+dev-util/go-tools 20150825: Go Tools
 dev-util/orange-cat 0.2.2-r1: A Markdown previewer written in GoLang
 net-misc/bat 0.0.2: Go implemented CLI cURL-like tool for humans
 net-misc/gollum 0.3.2: A n:m message multiplexer written in GoLang
+net-misc/nsq 0.3.5: A real-time distributed messaging platform, written in GoLang
 net-misc/syncthing 0.11.21: Syncthing is an application that lets you synchronize your files across multiple devices
 net-misc/wsd 0.0.0_pre20150722: Simple cURL-like command line utility for debugging WebSocket servers
 sys-devel/calc 20150422: A simple, fast command-line calculator written in GoLang
