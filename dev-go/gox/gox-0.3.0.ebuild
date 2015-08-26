@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -8,6 +8,7 @@ GOLANG_PKG_IMPORTPATH="github.com/mitchellh"
 GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_HAVE_TEST=1
 
+# Declare dependencies
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/mitchellh/iochan:87b45ffd0e"
 )
