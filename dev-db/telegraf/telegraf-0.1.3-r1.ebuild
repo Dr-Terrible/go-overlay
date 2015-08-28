@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -25,18 +25,18 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/stretchr/objx:cbeaeb16a0"
 	"github.com/golang/crypto:1e856cbfdf -> golang.org/x"
 	"github.com/golang/protobuf:34a5f244f1"
-	"github.com/golang/snappy:eaa750b9bf"
+	"github.com/golang/snappy:723cc1e459"
 	"github.com/armon/go-metrics:b2d95e5291"
 	"github.com/prometheus/client_golang:e319516b0f"
 	"github.com/prometheus/client_model:fa8ad6fec3"
 	"github.com/wvanbergen/kafka:e236a65a9c"
 	"github.com/wvanbergen/kazoo-go:15e8d60fd2"
-	"github.com/shopify/sarama:d546818f24 -> gopkg.in/Shopify/sarama.v1"
+	"github.com/Shopify/sarama:16b518acd0 -> gopkg.in/Shopify/sarama.v1" # sarama v1.5.0
 	"github.com/dancannon/gorethink:8aca6ba2cc -> gopkg.in/dancannon/gorethink.v1"
 	"github.com/eapache/go-resiliency:ed0319b32e"
 	"github.com/eapache/queue:ded5959c0d"
 	"github.com/matttproud/golang_protobuf_extensions:fc2b8d3a73"
-	"github.com/Sirupsen/logrus:cd321ca94d"
+	"github.com/Sirupsen/logrus:5701be89e7" # logrus v0.8.6
 	"github.com/cenkalti/backoff:6c45d6bc1e"
 	"github.com/samuel/go-zookeeper:5bb5cfc093"
 
@@ -56,6 +56,8 @@ HOMEPAGE="http://influxdb.com"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
+
+RESTRICT="test"
 
 pkg_setup() {
 	ebegin "Creating ${PN} user and group"
