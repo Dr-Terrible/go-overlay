@@ -11,7 +11,7 @@ GOLANG_PKG_HAVE_TEST=1
 
 # Declare dependencies
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/BurntSushi/toml:2dff11163e"
+	"github.com/BurntSushi/toml:056c9bc7be"
 	"github.com/bitly/go-hostpool:58b95b10d6"
 	"github.com/bitly/go-nsq:0f97a46d80"
 	"github.com/bitly/go-simplejson:18db6e68d8"
@@ -31,3 +31,5 @@ HOMEPAGE="http://nsq.io"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="amd64 x86 arm"
+
+DEPEND="dev-libs/protobuf"
