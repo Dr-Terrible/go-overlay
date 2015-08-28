@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -10,6 +10,7 @@ GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_USE_CGO=1
 GOLANG_PKG_HAVE_TEST=1
 
+# Declares dependencies
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/araddon/gou:101410571b"
 )
