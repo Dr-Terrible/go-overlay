@@ -9,7 +9,7 @@ GOLANG_PKG_VERSION="37a3b317cfc518b45321350f00547f366e1e3604"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/Sirupsen/logrus:5701be89e7"
+	"github.com/Sirupsen/logrus:5701be89e7" # logrus v0.8.6
 	"github.com/awalterschulze/gographviz:7c3cf72121"
 	"github.com/codegangsta/cli:142e6cd241"
 	"github.com/stretchr/objx:cbeaeb16a0"
