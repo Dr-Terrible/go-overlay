@@ -9,6 +9,7 @@ app-misc/asciinema 1.1.1: A terminal session recorder for asciinema.org service
 app-misc/thymer 0.1.0: Consolo Pomodoro Timer written in GoLang
 app-shells/peco 0.3.2: Simplistic interactive filtering tool
 app-text/go-md2man 1.0.3: Command-line tool to convert Markdown into UNIX man pages
+app-text/gopaste 0_pre20130108: A service and client written in GoLang for easily sending command output and files
 dev-db/bolt 1.0: Bolt is a low level key/value NoSQL database written in GoLang
 dev-db/boltd 1.0: Bolts is a introspection tool for Bolt databases.
 dev-db/cayley 0.4.1-r1: Cayley is a graph databse written in GoLang.
@@ -49,7 +50,7 @@ dev-util/orange-cat 0.2.2-r1: A Markdown previewer written in GoLang
 net-misc/bat 0.0.2: Go implemented CLI cURL-like tool for humans
 net-misc/gollum 0.3.2: A n:m message multiplexer written in GoLang
 net-misc/nsq 0.3.5: A real-time distributed messaging platform, written in GoLang
-net-misc/syncthing 0.11.21: Syncthing is an application that lets you synchronize your files across multiple devices
+net-misc/syncthing 0.11.22: Syncthing is an application that lets you synchronize your files across multiple devices
 net-misc/wsd 0.0.0_pre20150722: Simple cURL-like command line utility for debugging WebSocket servers
 sys-devel/calc 20150422: A simple, fast command-line calculator written in GoLang
 sys-devel/delve 0.5.0 0.7.0_pre20150814: Delve is a debugger for the Go programming language
