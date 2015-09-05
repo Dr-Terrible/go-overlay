@@ -118,7 +118,7 @@ GOLANG_PKG_ARCHIVESUFFIX="${GOLANG_PKG_ARCHIVESUFFIX:=".tar.gz"}"
 # Specifies the output file name of the package.
 # If not set, it derives from the name of the package, such as $GOLANG_PKG_NAME.
 # This eclass defaults to $PN.
-GOLANG_PKG_OUTPUT_NAME="${GOLANG_PKG_OUTPUT_NAME:="${GOLANG_PKG_NAME}"}"
+GOLANG_PKG_OUTPUT_NAME="${GOLANG_PKG_OUTPUT_NAME:="${PN}"}"
 
 # @ECLASS-VARIABLE: GOLANG_PKG_BUILDPATH
 # @DESCRIPTION:
@@ -148,6 +148,12 @@ GOLANG_PKG_INSTALLSUFFIX="${GOLANG_PKG_INSTALLSUFFIX:-}"
 # @DEFAULT_UNSET
 # @DESCRIPTION:
 # Set to enable the execution of automated testing.
+
+# @ECLASS-VARIABLE: GOLANG_PKG_HAVE_TEST_RACE
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Set to enable the execution of automated testing with support for
+# data race detection.
 
 # @ECLASS-VARIABLE: GOLANG_PKG_USE_CGO
 # @DEFAULT_UNSET
@@ -217,6 +223,67 @@ GOLANG_PKG_STATIK="${GOLANG_PKG_STATIK:-}"
 # @CODE
 
 
+# @FUNCTION: create_sourcedir
+# @INTERNAL
+# @DESCRIPTION:
+# Prepares the source path declared by S.
+_create_sourcedir() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	mkdir -p "${S%/*}" || die
+}
+
+
+# @FUNCTION: _factorize_dependency_entities
+# @INTERNAL
+# @DESCRIPTION:
+# Factorizes the dependency declaration in specific tokens such as the import
+# path, the import path alias, the host name, the author name, the project name,
+# and the revision tag.
+_factorize_dependency_entities() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	local -A dependency=()
+	local key_list=(importpathalias importpath host project_name author_name revision)
+
+	# Strips all the white spaces from the supplied argument.
+	local raw_dependency="${1//\ /}"
+
+	# Determines the alias of the import path (if present).
+	dependency[importpathalias]="${raw_dependency##*->}"
+
+	# Strips the import path alias from the supplied argument.
+	raw_dependency="${raw_dependency%%->*}"
+
+	# Determines the import path.
+	dependency[importpath]="${raw_dependency%:*}"
+
+	# When the importpath alias is not specified, then this eclass sets the
+	# alias as equal to the import path minus the project name.
+	if [[ "${raw_dependency}" == "${dependency[importpathalias]}" ]]; then
+		dependency[importpathalias]="${dependency[importpath]%/*}"
+	fi
+
+	# Determines the host.
+	dependency[host]="${dependency[importpath]%%/*}"
+
+	# Determines the project name.
+	dependency[project_name]="${dependency[importpath]##*/}"
+
+	# Determines the author name.
+	dependency[author_name]="${dependency[importpath]#*/}"
+	dependency[author_name]="${dependency[author_name]%/*}"
+
+	# Determines the revision.
+	dependency[revision]="${raw_dependency#*:}"
+
+	# Exports all the dependency tokens as an associated list.
+	for key in ${key_list[@]}; do
+		echo "${key} ${dependency[${key}]}"
+	done
+}
+
+
 # Silences repoman warnings.
 case "${EAPI:-0}" in
 	5)
@@ -241,20 +308,19 @@ DEPEND+=" ${GO_DEPEND}"
 # Adds dev-go/statik as a compile-time dependency when GOLANG_PKG_STATIK is set.
 [[ -n ${GOLANG_PKG_STATIK} ]] && DEPEND+=" dev-go/statik"
 
-
-# Validates GOLANG_PKG_IMPORTPATH
+# Validates GOLANG_PKG_IMPORTPATH.
 if [[ -z ${GOLANG_PKG_IMPORTPATH} ]]; then
 	eerror "The remote import path for this package has not been declared"
 	die "Mandatory variable GOLANG_PKG_IMPORTPATH is unset"
 fi
 
-# Forces a multiple package build when user specifies GOLANG_PKG_IS_MULTIPLE=1
+# Forces a multiple package build when user specifies GOLANG_PKG_IS_MULTIPLE=1.
 if [[ -n ${GOLANG_PKG_IS_MULTIPLE} && -z ${GOLANG_PKG_BUILDPATH} ]]; then
 	GOLANG_PKG_BUILDPATH="/..."
 fi
 
 # Validates use of GOLANG_PKG_BUILDPATH combined with GOLANG_PKG_IS_MULTIPLE
-# FIX: makes sure user isn't overriding GOLANG_PKG_BUILDPATH with inane values
+# FIX: makes sure user isn't overriding GOLANG_PKG_BUILDPATH with inane values.
 if [[ -n ${GOLANG_PKG_IS_MULTIPLE} && ${GOLANG_PKG_BUILDPATH##*/} != "..." ]]; then
 	ewarn "Ebuild ${CATEGORY}/${PF} specifies GOLANG_PKG_IS_MULTIPLE=1,"
 	ewarn "but then GOLANG_PKG_BUILDPATH is overridden with \"${GOLANG_PKG_BUILDPATH}\"."
@@ -268,50 +334,52 @@ if [[ ${GOLANG_PKG_ARCHIVESUFFIX/.*} == "xz" ]]; then
 	DEPEND+=" app-arch/xz-utils"
 fi
 
+# Enables USE 'test' when required by GOLANG_PKG_HAVE_TEST.
 if [[ -n ${GOLANG_PKG_HAVE_TEST} ]]; then
 	IUSE+=" test"
 fi
 
-# We use GOLANG_PKG_IMPORTPATH to populate SRC_URI
+# This eclass uses GOLANG_PKG_IMPORTPATH to populate SRC_URI.
 SRC_URI="https://${GOLANG_PKG_IMPORTPATH}/${GOLANG_PKG_NAME}/archive/${GOLANG_PKG_ARCHIVEPREFIX}${GOLANG_PKG_VERSION}${GOLANG_PKG_ARCHIVESUFFIX} -> ${P}${GOLANG_PKG_ARCHIVESUFFIX}"
 
-# We use GOLANG_PKG_IMPORTPATH associative array to populate SRC_URI with
-# the snapshots of the required GoLang dependencies
+# This eclass uses GOLANG_PKG_IMPORTPATH associative array to populate SRC_URI
+# with the required snapshots of the supplied GoLang dependencies.
 if [[ ${#GOLANG_PKG_DEPENDENCIES[@]} -gt 0 ]]; then
 
-	for module in ${!GOLANG_PKG_DEPENDENCIES[@]} ; do
+	for i in ${!GOLANG_PKG_DEPENDENCIES[@]} ; do
 
-		# Strip all the white spaces
-		local DEPENDENCY="${GOLANG_PKG_DEPENDENCIES[$module]//\ /}"
+		# Collects all the tokens of the dependency.
+		local -A DEPENDENCY=()
+		while read -d $'\n' key value; do
+			[[ -z ${key} ]] && continue
+			DEPENDENCY[$key]="${value}"
+		done <<-EOF
+			$( _factorize_dependency_entities "${GOLANG_PKG_DEPENDENCIES[$i]}" )
+		EOF
 
-		# Strip the alias
-		DEPENDENCY="${DEPENDENCY%%->*}"
+		# Debug
+		debug-print "${FUNCNAME}: DEPENDENCY = ${GOLANG_PKG_DEPENDENCIES[$i]}"
+		debug-print "${FUNCNAME}: importpath = ${DEPENDENCY[importpath]}"
+		debug-print "${FUNCNAME}: revision   = ${DEPENDENCY[revision]}"
 
-		# Determine the import path and revision tag
-		local _importpath="${DEPENDENCY%:*}"
-		local _revision="${DEPENDENCY#*:}"
-
-		debug-print "${FUNCNAME}: DEPENDENCY = {DEPENDENCY}"
-		debug-print "${FUNCNAME}: importpath = ${_importpath}"
-		debug-print "${FUNCNAME}: revision = ${_revision}"
-
-		# Download the archive
-		case ${_importpath} in
+		# Downloads the archive.
+		case ${DEPENDENCY[importpath]} in
 			github*)
-				SRC_URI+=" https://${_importpath}/archive/${_revision}${GOLANG_PKG_ARCHIVESUFFIX} -> ${_importpath//\//-}-${_revision}${GOLANG_PKG_ARCHIVESUFFIX}"
+				SRC_URI+=" https://${DEPENDENCY[importpath]}/archive/${DEPENDENCY[revision]}${GOLANG_PKG_ARCHIVESUFFIX} -> ${DEPENDENCY[importpath]//\//-}-${DEPENDENCY[revision]}${GOLANG_PKG_ARCHIVESUFFIX}"
 				;;
 			bitbucket*)
-				SRC_URI+=" https://${_importpath}/get/${_revision}.zip -> ${_importpath//\//-}-${_revision}.zip"
+				SRC_URI+=" https://${DEPENDENCY[importpath]}/get/${DEPENDENCY[revision]}.zip -> ${DEPENDENCY[importpath]//\//-}-${DEPENDENCY[revision]}.zip"
 				;;
-			*) die "this eclass doesn't support '${_importpath}'" ;;
+			*) die "This eclass doesn't support '${DEPENDENCY[importpath]}'" ;;
 		esac
 
 	done
 fi
 
 
-# Define SOURCE directory
+# Defines SOURCE directory.
 S="${WORKDIR}/gopath/src/${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}"
+
 
 # @FUNCTION: golang_setup
 # @DESCRIPTION:
@@ -320,8 +388,8 @@ S="${WORKDIR}/gopath/src/${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}"
 golang_setup() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	# Keep /usr/bin/go as index [0] and never overwrite it,
-	# always append other binary paths after the index [0]
+	# NOTE: Keep /usr/bin/go as index [0] and never overwrite it,
+	#       always append other binary paths after the index [0]
 	local GOLANG_BINS=(
 		/usr/bin/go
 		/usr/bin/gofmt
@@ -352,13 +420,13 @@ golang_setup() {
 	[[ ${IS_EXECUTABLE} == 0 ]] && exit
 
 	# dev-lang/go is available and working.
-	# Exports GO/EGO/EGOFMT global variables
+	# Exports GO/EGO/EGOFMT global variables.
 	export GO="${GOLANG_BINS[0]}"
 	export EGO="${GOLANG_BINS[0]##*/}"
 	export EGOFMT="${GOLANG_BINS[1]}"
 
 	# dev-go/statik is available and working.
-	# Exports ESTATIK global variable
+	# Exports ESTATIK global variable.
 	[[ -n ${GOLANG_PKG_STATIK} ]] && export ESTATIK="${GOLANG_BINS[2]##*/}"
 
 	debug-print "${FUNCNAME}: GO = ${GO}"
@@ -366,36 +434,36 @@ golang_setup() {
 	debug-print "${FUNCNAME}: EGOFMT = ${EGOFMT}"
 	debug-print "${FUNCNAME}: ESTATIK = ${ESTATIK}"
 
-	# Determines go interpreter version
+	# Determines go interpreter version.
 	local GOLANG_VERSION="$( ${GO} version )"
 	GOLANG_VERSION="${GOLANG_VERSION/go\ version\ go}"
 	GOLANG_VERSION="${GOLANG_VERSION%\ *}"
 	einfo "Found GoLang version: ${GOLANG_VERSION}"
 
-	# Determines statik interpreter version
+	# Determines statik interpreter version.
 	# TODO: add version detection when statik will provide a -version option.
 	if [[ -n ${GOLANG_PKG_STATIK} ]]; then
 		local STATIK_VERSION=""
 		einfo "Found statik version: ${STATIK_VERSION}"
 	fi
 
-	# Sets the build environment inside Portage's WORKDIR
+	# Sets the build environment inside Portage's WORKDIR.
 	ebegin "Setting up GoLang build environment"
 
-		# Prepares CGO_ENABLED
+		# Prepares CGO_ENABLED.
 		CGO_ENABLED=0
 		[[ -z ${GOLANG_PKG_USE_CGO} ]] || CGO_ENABLED=1
 
-		# Prepares gopath / gobin directories inside WORKDIR
+		# Prepares gopath / gobin directories inside WORKDIR.
 		local _GOPATH="${WORKDIR}/gopath"
 		local _GOBIN="${WORKDIR}/gobin"
 		mkdir -p "${_GOBIN}" || die
 		mkdir -p "${_GOPATH}"/src || die
 
-		# Exports special env variable EGO_SRC
+		# Exports special env variable EGO_SRC.
 		export EGO_SRC="${_GOPATH}/src"
 
-		# Exports GoLang env variables
+		# Exports GoLang env variables.
 		export GOPATH="$_GOPATH"
 		export GOBIN="$_GOBIN"
 		export CGO_ENABLED
@@ -405,15 +473,6 @@ golang_setup() {
 		debug-print "${FUNCNAME}: EGO_SRC = ${EGO_SRC}"
 		debug-print "${FUNCNAME}: CGO_ENABLED = ${CGO_ENABLED}"
 	eend
-}
-
-
-# @FUNCTION: golang-single_src_unpack
-# @INTERNAL
-# @DESCRIPTION:
-# Prepare the source path declared by S.
-_create_sourcedir() {
-	mkdir -p "${S%/*}" || die
 }
 
 
@@ -436,7 +495,7 @@ golang-single_src_unpack() {
 golang-single_src_prepare() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	# Sets up GoLang build environment
+	# Sets up GoLang build environment.
 	golang_setup
 
 
@@ -448,75 +507,54 @@ golang-single_src_prepare() {
 		# was set up automatically during pkg_setup() phase.
 		if [[ ${#GOLANG_PKG_DEPENDENCIES[@]} -gt 0 ]]; then
 
-			# move GoLang dependencies from WORKDIR into GOPATH
-			for module in ${!GOLANG_PKG_DEPENDENCIES[@]} ; do
+			for i in ${!GOLANG_PKG_DEPENDENCIES[@]} ; do
 
-				# Strip all the white spaces.
-				local DEPENDENCY="${GOLANG_PKG_DEPENDENCIES[$module]//\ /}"
+				# Collects all the tokens of the dependency.
+				local -A DEPENDENCY=()
+				while read -d $'\n' key value; do
+					[[ -z ${key} ]] && continue
+					DEPENDENCY[$key]="${value}"
+				done <<-EOF
+					$( _factorize_dependency_entities "${GOLANG_PKG_DEPENDENCIES[$i]}" )
+				EOF
 
-				# Determine the alias of the import path.
-				local _importpathalias="${DEPENDENCY##*->}"
+				# Debug
+				debug-print "${FUNCNAME}: DEPENDENCY      = ${GOLANG_PKG_DEPENDENCIES[$i]}"
+				debug-print "${FUNCNAME}: importpath      = ${DEPENDENCY[importpath]}"
+				debug-print "${FUNCNAME}: importpathalias = ${DEPENDENCY[importpathalias]}"
+				debug-print "${FUNCNAME}: host            = ${DEPENDENCY[host]}"
+				debug-print "${FUNCNAME}: author          = ${DEPENDENCY[author_name]}"
+				debug-print "${FUNCNAME}: project         = ${DEPENDENCY[project_name]}"
+				debug-print "${FUNCNAME}: revision        = ${DEPENDENCY[revision]}"
 
-				# Strip the alias.
-				DEPENDENCY="${DEPENDENCY%%->*}"
+				local message="Importing ${DEPENDENCY[importpath]}"
+				local destdir
 
-				# Factorize the import path in specific tokens such as the host
-				# name, the author name, the project name, and the revision tag.
-				local _importpath="${DEPENDENCY%:*}"
-				local _host="${_importpath%%/*}"
-				local _project_name="${_importpath##*/}"
-				local _author_name="${_importpath#*/}"
-				_author_name="${_author_name%/*}"
-				local _revision="${DEPENDENCY#*:}"
-
-				# When the alias is not specified, then we set the alias as
-				# equal to the import path minus the project name.
-				[[ $DEPENDENCY == $_importpathalias ]] && _importpathalias="${_importpath%/*}"
-
-
-				debug-print "${FUNCNAME}: importpath      = ${_importpath}"
-				debug-print "${FUNCNAME}: importpathalias = ${_importpathalias}"
-				debug-print "${FUNCNAME}: host            = ${_host}"
-				debug-print "${FUNCNAME}: author          = ${_author_name}"
-				debug-print "${FUNCNAME}: project         = ${_project_name}"
-				debug-print "${FUNCNAME}: revision        = ${_revision}"
-
-				#einfo "importpath      = ${_importpath}"
-				#einfo "importpathalias = ${_importpathalias}"
-				#einfo "host            = ${_host}"
-				#einfo "author          = ${_author_name}"
-				#einfo "project         = ${_project_name}"
-				#einfo "revision        = ${_revision}"
-
-
-				local _message="Importing ${_importpath}"
-				local _destdir
-
-				# Prepare GOPATH structure.
-				case ${_importpathalias} in
+				# Prepares GOPATH structure.
+				case ${DEPENDENCY[importpathalias]} in
 					gopkg.in*)
-						_message+=" as ${_importpathalias}"
-						_destdir="${_importpathalias}"
+						message+=" as ${DEPENDENCY[importpathalias]}"
+						destdir="${DEPENDENCY[importpathalias]}"
 
-						# Create the import path in GOPATH
-						mkdir -p "${GOPATH}/src/${_importpathalias%/*}" || die
-						#einfo "\n${GOPATH}/src/${_importpathalias%/*}"
+						# Creates the import path in GOPATH.
+						mkdir -p "${GOPATH}/src/${DEPENDENCY[importpathalias]%/*}" || die
+						#einfo "\n${GOPATH}/src/${DEPENDENCY[importpathalias]%/*}"
 						;;
 					*)
-						[[ "${_importpath}" != "${_importpathalias}/${_project_name}" ]] && _message+=" as ${_importpathalias}/${_project_name}"
-						_destdir="${_importpathalias}/${_project_name}"
+						[[ "${DEPENDENCY[importpath]}" != "${DEPENDENCY[importpathalias]}/${DEPENDENCY[project_name]}" ]] && message+=" as ${DEPENDENCY[importpathalias]}/${DEPENDENCY[project_name]}"
+						destdir="${DEPENDENCY[importpathalias]}/${DEPENDENCY[project_name]}"
 
-						# Create the import path in GOPATH
-						mkdir -p "${GOPATH}/src/${_importpathalias}" || die
-						#einfo "\n${GOPATH}/src/${_importpathalias}"
+						# Creates the import path in GOPATH.
+						mkdir -p "${GOPATH}/src/${DEPENDENCY[importpathalias]}" || die
+						#einfo "\n${GOPATH}/src/${DEPENDENCY[importpathalias]}"
 						;;
 				esac
 
-				# Move sources from WORKDIR into GOPATH.
-				case ${_host} in
+				# Moves sources from WORKDIR into GOPATH.
+				case ${DEPENDENCY[host]} in
 					github*)
-						ebegin "${_message}"
-							mv ${_project_name}-${_revision}* "${GOPATH}"/src/${_destdir} || die
+						ebegin "${message}"
+							mv ${DEPENDENCY[project_name]}-${DEPENDENCY[revision]}* "${GOPATH}"/src/${destdir} || die
 						eend
 
 						# FIX: sometimes the source code inside an importpath alias
@@ -526,18 +564,18 @@ golang-single_src_prepare() {
 						#      the original import path to avoid compilation issues.
 						#      Example: gopkg.in/Shopify/sarama.v1 erroneously
 						#      invoking imports from github.com/shopify/sarama
-						if [[ ${_destdir} != ${_importpath} ]]; then
-							golang_fix_importpath_alias ${_destdir} ${_importpath}
+						if [[ ${destdir} != ${DEPENDENCY[importpath]} ]]; then
+							golang_fix_importpath_alias ${destdir} ${DEPENDENCY[importpath]}
 						fi
 						;;
 					bitbucket*)
-						#einfo "path: ${_author_name}-${_project_name}-${_revision}"
-						ebegin "${_message}"
-							#mv ${_author_name}-${_project_name}-${_revision} "${GOPATH}"/src/${_importpathalias}/${_project_name} || die
-							mv ${_author_name}-${_project_name}-${_revision} "${GOPATH}"/src/${_destdir} || die
+						#einfo "path: ${DEPENDENCY[author_name]}-${DEPENDENCY[project_name]}-${DEPENDENCY[revision]}"
+						ebegin "${message}"
+							#mv ${DEPENDENCY[author_name]}-${DEPENDENCY[project_name]}-${DEPENDENCY[revision]} "${GOPATH}"/src/${DEPENDENCY[importpathalias]}/${DEPENDENCY[project_name]} || die
+							mv ${DEPENDENCY[author_name]}-${DEPENDENCY[project_name]}-${DEPENDENCY[revision]} "${GOPATH}"/src/${destdir} || die
 						eend
 						;;
-					*) die "this eclass doesn't support '${_importpath}'" ;;
+					*) die "This eclass doesn't support '${DEPENDENCY[importpath]}'" ;;
 				esac
 			done
 
@@ -547,22 +585,9 @@ golang-single_src_prepare() {
 
 
 	# Auto-detects the presence of Godep's workspace
-	# (see github.com/tools/godep for more infos)
+	# (see github.com/tools/godep for more infos).
 	if [[ -d "${S}"/Godeps/_workspace/src ]]; then
 		GOLANG_PKG_VENDOR+="${S}/Godeps/_workspace"
-
-		# Before to compile Godep's dependencies is wise to wipe out
-		# all pre-built libraries and executables.
-		if [[ -d "${S}"/Godeps/_workspace/pkg ]]; then
-			ebegin "Cleaning up pre-built packages in Godep workspace"
-				rm -r "${S}"/Godeps/_workspace/pkg || die
-			eend
-		fi
-		if [[ -d "${S}"/Godeps/_workspace/bin ]]; then
-			ebegin "Cleaning up executables in Godep workspace"
-				rm -r "${S}"/Godeps/_workspace/bin || die
-			eend
-		fi
 	fi
 
 
@@ -580,20 +605,104 @@ golang-single_src_configure() {
 
 	[[ ${EGO} ]] || die "No GoLang implementation set (golang_setup not called?)."
 
+	local EGO_VERBOSE="-v"
+	[[ -z ${PORTAGE_VERBOSE} ]] || EGO_VERBOSE+=" -x"
+
 	# GoLang doesn't have a configure phase,
-	# so instead we print the output of 'go env'
-	oldifs="$IFS"
-	IFS=$'\n'
-	local -a GOLANG_ENV=( $( ${GO} env ) )
-	IFS="$oldifs"
+	# so instead this eclass prints the output of 'go env'.
+	local -a GOLANG_ENV=()
+	while read line; do
+		GOLANG_ENV+=("${line}")
+	done <<-EOF
+		$( ${GO} env )
+	EOF
+
+	# Prints an error when 'go env' output is missing.
 	if [[ ${#GOLANG_ENV[@]} -eq 1 ]]; then
 		eerror "Your GoLang environment should be more verbose"
 	fi
 
-	# Prints build environment summary
+	# Prints GoLang environment summary.
+	einfo " ${EGO} env"
 	for env in "${GOLANG_ENV[@]}"; do
 		einfo " - ${env}"
 	done
+
+
+	# Removes GoLang object files from package source directories (pkg/)
+	# and temporary directories (_obj/ _test*/).
+	if [[ -n ${GOLANG_PKG_BUILDPATH} && ${GOLANG_PKG_BUILDPATH##*/} != "..." ]]; then
+
+		# FIX:
+		# This eclass appends a white space as a delimiter, otherwise the last
+		# element will always be ignored by the subsequent 'while read' statement.
+		GOLANG_PKG_BUILDPATH+=" "
+
+		while read -d $' ' cmd; do
+			einfo "${EGO} clean -i ${EGO_VERBOSE} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}"
+			${EGO} clean -i ${EGO_VERBOSE} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd} || die
+		done <<< "${GOLANG_PKG_BUILDPATH}"
+	else
+		einfo "${EGO} clean -i ${EGO_VERBOSE} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
+		${EGO} clean -i ${EGO_VERBOSE} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH} || die
+	fi
+
+	# Removes GoLang objects files from all the dependencies too.
+	if [[ ${#GOLANG_PKG_DEPENDENCIES[@]} -gt 0 ]]; then
+
+		for i in ${!GOLANG_PKG_DEPENDENCIES[@]} ; do
+
+			# Collects all the tokens of the dependency.
+			local -A DEPENDENCY=()
+			while read -d $'\n' key value; do
+				[[ -z ${key} ]] && continue
+				DEPENDENCY[$key]="${value}"
+			done <<-EOF
+				$( _factorize_dependency_entities "${GOLANG_PKG_DEPENDENCIES[$i]}" )
+			EOF
+
+			# Debug
+			debug-print "${FUNCNAME}: DEPENDENCY = ${GOLANG_PKG_DEPENDENCIES[$i]}"
+			debug-print "${FUNCNAME}: importpath = ${DEPENDENCY[importpath]}"
+
+			# Cleans object files of the dependency.
+			einfo "${EGO} clean -i ${EGO_VERBOSE} ${DEPENDENCY[importpath]}"
+			${EGO} clean -i ${EGO_VERBOSE} ${DEPENDENCY[importpath]} || die
+		done
+	fi
+
+
+	# Before to compile Godep's dependencies it's wise to wipe out
+	# all pre-built object files from Godep's package source directories.
+	if [[ -d "${S}"/Godeps/_workspace/pkg ]]; then
+		ebegin "Cleaning up pre-built object files in Godep workspace"
+			rm -r "${S}"/Godeps/_workspace/pkg || die
+		eend
+	fi
+	if [[ -d "${S}"/Godeps/_workspace/bin ]]; then
+		ebegin "Cleaning up executables in Godep workspace"
+			rm -r "${S}"/Godeps/_workspace/bin || die
+		eend
+	fi
+
+
+	# Executes 'go generate'.
+	# NOTE: generate should never run automatically. It must be run explicitly.
+	if [[ -n ${GOLANG_PKG_USE_GENERATE} ]]; then
+		einfo "${EGO} generate ${EGO_VERBOSE} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
+		${EGO} generate \
+			${EGO_VERBOSE} \
+			${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH} \
+			|| die
+	fi
+
+
+	# Executes 'statik' when explicitly asked.
+	if [[ -n ${GOLANG_PKG_STATIK} ]]; then
+		ebegin "${ESTATIK} $GOLANG_PKG_STATIK"
+			${ESTATIK} $GOLANG_PKG_STATIK || die
+		eend
+	fi
 }
 
 
@@ -621,26 +730,12 @@ golang-single_src_compile() {
 		export GOPATH
 	fi
 
-	# Executes 'go generate'.
-	if [[ -n ${GOLANG_PKG_USE_GENERATE} ]]; then
-		einfo "${EGO} generate -v -n -x ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
-		${EGO} generate \
-			-v -n -x \
-			${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH} \
-			|| die
-	fi
-
-	# Executes 'statik'.
-	if [[ -n ${GOLANG_PKG_STATIK} ]]; then
-		ebegin "${ESTATIK} $GOLANG_PKG_STATIK"
-			${ESTATIK} $GOLANG_PKG_STATIK || die
-		eend
-	fi
 
 	# Defines the output binary name of the package.
-	# If the package is a multiple package then we don't specify the output
+	# If the package is a multiple package then this eclass doesn't specify
+	# the output name.
 	local EGO_OUTPUT
-	[[ -z ${GOLANG_PKG_IS_MULTIPLE} ]] && EGO_OUTPUT="-o ${GOBIN}/${GOLANG_PKG_OUTPUT_NAME}"
+	[[ -z ${GOLANG_PKG_BUILDPATH} ]] && EGO_OUTPUT="-o ${GOBIN}/${GOLANG_PKG_OUTPUT_NAME}"
 
 	# Defines the install suffix.
 	local EGO_INSTALLSUFFIX
@@ -657,13 +752,21 @@ golang-single_src_compile() {
 	local EGO_EXTRA_OPTIONS="-a"
 
 	# Prepares build flags for the go toolchain.
-	local EGO_BUILD_FLAGS="${EGO_INSTALLSUFFIX} ${EGO_OUTPUT} ${EGO_VERBOSE} ${EGO_PARALLEL} ${EGO_EXTRA_OPTIONS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
+	local EGO_BUILD_FLAGS="${EGO_INSTALLSUFFIX} ${EGO_OUTPUT} ${EGO_VERBOSE} ${EGO_PARALLEL} ${EGO_EXTRA_OPTIONS}"
+	EGO_BUILD_FLAGS="${EGO_BUILD_FLAGS//\ \ /\ }"
 
 	# Builds the package.
 	# WORKAROUND: 6l has several problems parsing certain flags when invoked
 	#             from a shell script; these bugs will be fixed in go v1.5+
-	einfo "${EGO} build -ldflags=\"$GOLANG_PKG_LDFLAGS\" -tags=\"$GOLANG_PKG_TAGS\" ${EGO_BUILD_FLAGS}"
-	${EGO} build -ldflags="$GOLANG_PKG_LDFLAGS" -tags="$GOLANG_PKG_TAGS" ${EGO_BUILD_FLAGS} || die
+	if [[ -n ${GOLANG_PKG_BUILDPATH} && ${GOLANG_PKG_BUILDPATH##*/} != "..." ]]; then
+		while read -d $' ' cmd; do
+			einfo "${EGO} build -ldflags=\"$GOLANG_PKG_LDFLAGS\" -tags=\"$GOLANG_PKG_TAGS\" ${EGO_BUILD_FLAGS} -o ${GOBIN}/${cmd##*/} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}"
+			${EGO} build -ldflags="$GOLANG_PKG_LDFLAGS" -tags="$GOLANG_PKG_TAGS" ${EGO_BUILD_FLAGS} -o ${GOBIN}/${cmd##*/} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}|| die
+		done <<< "${GOLANG_PKG_BUILDPATH}"
+	else
+		einfo "${EGO} build -ldflags=\"$GOLANG_PKG_LDFLAGS\" -tags=\"$GOLANG_PKG_TAGS\" ${EGO_BUILD_FLAGS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
+		${EGO} build -ldflags="$GOLANG_PKG_LDFLAGS" -tags="$GOLANG_PKG_TAGS" ${EGO_BUILD_FLAGS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH} || die
+	fi
 }
 
 
@@ -695,6 +798,7 @@ golang-single_src_install() {
 
 	# Prepares build flags for the go toolchain.
 	local EGO_BUILD_FLAGS="${EGO_LDFLAGS} ${EGO_INSTALLSUFFIX} ${EGO_VERBOSE} ${EGO_PARALLEL} ${EGO_EXTRA_OPTIONS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
+	EGO_BUILD_FLAGS="${EGO_BUILD_FLAGS//\ \ /\ }"
 
 	# Executes the pre-install phase (go install).
 	if [[ -n ${GOLANG_PKG_IS_MULTIPLE} ]]; then
@@ -740,8 +844,13 @@ golang-single_src_test() {
 	local EGO_SUBPACKAGES="${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
 	[[ -n ${GOLANG_PKG_IS_MULTIPLE} ]] || EGO_SUBPACKAGES="./..."
 
+	# Enables data race detection.
+	local EGO_RACE=""
+	[[ -n ${GOLANG_PKG_HAVE_TEST_RACE} ]] && EGO_RACE=" -race"
+
 	# Prepares build flags for the go toolchain.
-	local EGO_BUILD_FLAGS="${EGO_VERBOSE} ${EGO_PARALLEL} ${EGO_EXTRA_OPTIONS} ${EGO_SUBPACKAGES}"
+	local EGO_BUILD_FLAGS="${EGO_VERBOSE} ${EGO_PARALLEL} ${EGO_EXTRA_OPTIONS} ${EGO_RACE} ${EGO_SUBPACKAGES}"
+	EGO_BUILD_FLAGS="${EGO_BUILD_FLAGS//\ \ /\ }"
 
 	# Runs the unit tests.
 	einfo "${EGO} test ${EGO_BUILD_FLAGS}"
