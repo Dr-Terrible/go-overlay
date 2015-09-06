@@ -52,7 +52,7 @@ IUSE+=" pygments"
 
 RDEPEND="pygments? ( dev-python/pygments )"
 
-use test && RESTRICT="sandbox"
+use test && RESTRICT+=" sandbox"
 
 src_prepare() {
 	golang-single_src_prepare

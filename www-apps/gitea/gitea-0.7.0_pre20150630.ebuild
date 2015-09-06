@@ -64,7 +64,7 @@ RDEPEND="${DEPEND}
 	ssl? ( net-misc/openssh )
 	dev-vcs/git[curl,threads]"
 
-use test && RESTRICT="sandbox"
+use test && RESTRICT+=" sandbox"
 
 GITEA_REPO_DIR="/var/lib/${PN}"
 GITEA_APP_DIR="/usr/share/${PN}"

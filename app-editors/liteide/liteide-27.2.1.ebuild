@@ -25,7 +25,7 @@ RDEPEND="${DEPEND}
 
 S="${WORKDIR}/${PN}-x${PV}"
 
-RESTRICT="mirror"
+RESTRICT+=" mirror"
 
 DOCS=(
 	"${S}"/liteidex/LICENSE.LGPL

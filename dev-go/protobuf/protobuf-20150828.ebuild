@@ -20,6 +20,6 @@ KEYWORDS="~amd64 ~x86 ~arm"
 
 # Tests must be executed AFTER the src_install() phase,
 # which is not supported by emerge.
-RESTRICT="test"
+RESTRICT+=" test"
 
 DEPEND="dev-libs/protobuf"
