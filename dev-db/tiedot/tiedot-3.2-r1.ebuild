@@ -19,7 +19,7 @@ HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm"
+KEYWORDS="amd64 x86 arm"
 IUSE+=" systemd"
 
 RDEPEND="net-misc/curl"
