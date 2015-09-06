@@ -18,12 +18,10 @@ HOMEPAGE="http://syncthing.net"
 
 LICENSE="MPL-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm"
+KEYWORDS="amd64 x86 arm"
 IUSE="systemd"
 
-use test && RESTRICT="sandbox"
-
-RDEPEND="systemd? ( >=sys-apps/systemd-219 )"
+RDEPEND="systemd? ( sys-apps/systemd )"
 
 src_install() {
 	# install the package
