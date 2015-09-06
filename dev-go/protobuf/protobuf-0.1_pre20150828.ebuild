@@ -22,4 +22,4 @@ KEYWORDS="~amd64 ~x86 ~arm"
 # which is not supported by emerge.
 RESTRICT+=" test"
 
-DEPEND="dev-libs/protobuf"
+DEPEND="dev-libs/protobuf:0/8"
