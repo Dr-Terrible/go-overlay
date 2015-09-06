@@ -692,7 +692,7 @@ golang-single_src_configure() {
 		einfo "${EGO} generate ${EGO_VERBOSE} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
 		${EGO} generate \
 			${EGO_VERBOSE} \
-			${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH} \
+			./... \
 			|| die
 	fi
 
