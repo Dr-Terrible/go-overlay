@@ -5,7 +5,7 @@
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/tcnksm"
-GOLANG_PKG_VERSION="3ff629e13bfeddaf584010017d72e5784c442bda"
+GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_HAVE_TEST=1
 
 # Declare dependencies
@@ -20,6 +20,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/golang/net:669b27b881 -> golang.org/x"
 	"github.com/codegangsta/cli:142e6cd241"
 	"github.com/olekukonko/tablewriter:bc39950e08"
+	"github.com/BurntSushi/toml:056c9bc7be"
 )
 
 inherit golang-single
