@@ -1,33 +1,36 @@
+app-admin/restic 0.1.0: Restic is a program that does backups
+app-admin/terraform 0.6.3: Terraform is a tool for building, changing, and combining infrastructure safely and efficiently
 app-admin/trousseau 0.3.5_pre20150212: A networked and encrypted key-value database.
 app-benchmarks/boom 20150819: HTTP(S) load generator, ApacheBench (ab) replacement, written in GoLang
-app-benchmarks/vegeta 5.7.1: HTTP load testing tool and library written in GoLang.
+app-benchmarks/vegeta 5.8.1: HTTP load testing tool and library written in GoLang.
 app-editors/lime-qml 20150428: QML frontend for Lime text editor.
 app-editors/lime-termbox 20150428: Termbox frontend for Lime text editor.
 app-editors/liteide 27.2.1: LiteIDE is a simple, open source, cross-platform Go IDE.
 app-editors/srclib 0.0.40: A hackable, multilange code analysis library for building better software tools
 app-misc/asciinema 1.1.1: A terminal session recorder for asciinema.org service
 app-misc/thymer 0.1.0: Consolo Pomodoro Timer written in GoLang
-app-shells/peco 0.3.2: Simplistic interactive filtering tool
+app-shells/peco 0.3.3: Simplistic interactive filtering tool
 app-text/go-md2man 1.0.3: Command-line tool to convert Markdown into UNIX man pages
 app-text/gopaste 0_pre20130108: A service and client written in GoLang for easily sending command output and files
 dev-db/bolt 1.0: Bolt is a low level key/value NoSQL database written in GoLang
 dev-db/boltd 1.0: Bolts is a introspection tool for Bolt databases.
 dev-db/cayley 0.4.1-r1: Cayley is a graph databse written in GoLang.
-dev-db/influxdb 0.9.1 0.9.2: Scalable datastore for metrics, events, and real-time analytics
-dev-db/pgfutter 0.3.1: Command-line tool to import CSV and JSON into PostgreSQL
-dev-db/telegraf 0.1.3: A plugin-driven server agent for reporting metrics into InfluxDB
-dev-db/tiedot 3.2: Tiedot is a document-oriented NoSQL database written in GoLang
+dev-db/influxdb 0.9.3: Scalable datastore for metrics, events, and real-time analytics
+dev-db/pgfutter 0.3.2: Command-line tool to import CSV and JSON into PostgreSQL
+dev-db/telegraf 0.1.3-r2: A plugin-driven server agent for reporting metrics into InfluxDB
+dev-db/tiedot 3.2-r1: Tiedot is a document-oriented NoSQL database written in GoLang
+dev-go/dex 0.1.0: Dex is a Federated Indentity Provider written in GoLang
 dev-go/echo 1.0.0: A fast HTTP router and micro web framework written in GoLang
-dev-go/flint 0.0.4: Check your project for common sources of contributor friction
+dev-go/flint 0.0.4 0.0.5_pre20150607: Check your project for common sources of contributor friction
 dev-go/forego 0.16.1: Foreman written in GoLang
-dev-go/gb 0.1_pre20150803: Gb is a project based build tool for the Go programming language
-dev-go/gcli 0.2.1 0.2.2_pre20150808: Gcli builds GoLang command-line applications
+dev-go/gb 0.1.0: Gb is a project based build tool for the Go programming language
+dev-go/gcli 0.2.1 0.2.2: Gcli builds GoLang command-line applications
 dev-go/ginkgo 1.2.0: BDD Testing Framework for GoLang
-dev-go/glide 0.5.0: Glide is a simplified GoLang project management, dependency management, and vendoring
-dev-go/go-bindata 3.0.8_pre20150721: A small utility for embedding binary data in a GoLang program.
+dev-go/glide 0.5.1: Glide is a simplified GoLang project management, dependency management, and vendoring
+dev-go/go-bindata 3.0.7 3.0.8_pre20150721: A small utility for embedding binary data in a GoLang program.
 dev-go/go-torch 0.5.0_pre20150729: Stochastic flame graph profiler for Go Programs
 dev-go/gocode 2015.03.03: An autocompletion daemon for the Go programming language
-dev-go/gom 20150527: A visual interface to work with runtime profiling data for Go
+dev-go/gom 20150905: A visual interface to work with runtime profiling data for Go
 dev-go/gopherjs 0_pre20150820: GopherJS compils GoLang code to pure JavaScript code
 dev-go/gostatus 20150606: A command-line tool that show the status of GoLang repositories
 dev-go/gox 0.3.0 0.4.0_pre20150819: A dead simple, no frills Go cross compile tool
@@ -35,26 +38,28 @@ dev-go/goxc 0.17.0: Goxc is a build tool for GoLange, with a focus on cross-comp
 dev-go/grind 0.1.0_pre20150302: Grind rewrites the source files written in GoLang.
 dev-go/gxui 0.1_pre20150615: an experimental Go cross platform UI library
 dev-go/liteide-tools 2015.04.09: Liteide Golang tools
-dev-go/minify 20150602: Go minifiers for web formats.
-dev-go/protobuf 20150626: Protocol Buffers for Go with Gadgets
+dev-go/minify 20150814: Go minifiers for web formats.
+dev-go/protobuf 0.1: Protocol Buffers for Go with Gadgets
 dev-go/raml 0.8: An implementation of a RAML parser for Go. Compliant with RAML 0.8
-dev-go/re2dfa 0.1.0_pre20150625: Transform regular expressions into finite state machines and output GoLang source code
+dev-go/re2dfa 0.1.0_pre20150627: Transform regular expressions into finite state machines and output GoLang source code
 dev-go/revel 0.12.0: Revel is a high-productivity web framework for the Go language
 dev-go/revel-cli 0.12.0: Command-line tool for Revel framework
 dev-go/safesql 0_pre20150617: Static analysis tool for GoLang that protects against SQL injections
 dev-go/statik 20150419: statik embeds static files into a GoLang executable
-dev-go/walter 1.1.0: Walter is a tiny deployment pipeline
-dev-go/wellington 0.9.0: Wellington is a CSS preprocessor with spriting and based on libsass
+dev-go/tomlv 0.2.0_pre20150501: A TOML validator written in GoLang
+dev-go/walter 1.2.0: Walter is a tiny deployment pipeline
+dev-go/wellington 0.9.3: Wellington is a CSS preprocessor with spriting and based on libsass
 dev-util/go-tools 20150825: Go Tools
 dev-util/orange-cat 0.2.2-r1: A Markdown previewer written in GoLang
 net-misc/bat 0.0.2: Go implemented CLI cURL-like tool for humans
 net-misc/gollum 0.4.0: A n:m message multiplexer written in GoLang
-net-misc/nsq 0.3.5: A real-time distributed messaging platform, written in GoLang
-net-misc/syncthing 0.11.22: Syncthing is an application that lets you synchronize your files across multiple devices
+net-misc/heka 0.10.0_p1: Heka ia a tool for collecting and collating data from a number of different sources.
+net-misc/nsq 0.3.5-r2: A real-time distributed messaging platform, written in GoLang
+net-misc/syncthing 0.11.23: Syncthing is an application that lets you synchronize your files across multiple devices
 net-misc/wsd 0.0.0_pre20150722: Simple cURL-like command line utility for debugging WebSocket servers
 sys-devel/calc 20150422: A simple, fast command-line calculator written in GoLang
-sys-devel/delve 0.5.0 0.7.0_pre20150814: Delve is a debugger for the Go programming language
+sys-devel/delve 0.5.0 0.8.0: Delve is a debugger for the Go programming language
 sys-devel/gcvis 0.1.0_pre20150714: Visualise Go program Garbage Collector trace data in real-time.
 www-apps/gitea 0.7.0_pre20150630: Gitea is a self-hosted Git service written in Go
-www-apps/gotty 0.0.3: GoTTY is a simple command-line tool that turns your CLI tools into web applications
+www-apps/gotty 0.0.10: GoTTY is a simple command-line tool that turns your CLI tools into web applications
 www-apps/hugo 0.14-r2 0.15_pre20150823: A fast and flexible static site generator built in GoLang

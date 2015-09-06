@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-libs/protobuf:0/9 dev-lang/go:* >=sys-devel/gcc-4.8.4[go]
+DESCRIPTION=A service and client written in GoLang for easily sending command output and files
+EAPI=5
+HOMEPAGE=https://github.com/kylelemons/gopaste
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=Apache-2.0
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/kylelemons/gopaste/archive/d51ff5ede41635120bd4e105cd0a1869fe474eff.tar.gz -> gopaste-0_pre20130108.tar.gz https://github.com/kylelemons/go-rpcgen/archive/40eb5ad0d4.tar.gz -> github.com-kylelemons-go-rpcgen-40eb5ad0d4.tar.gz https://github.com/kylelemons/gaechannel/archive/a9b47f015f.tar.gz -> github.com-kylelemons-gaechannel-a9b47f015f.tar.gz https://github.com/golang/protobuf/archive/1dceb1a265.tar.gz -> github.com-golang-protobuf-1dceb1a265.tar.gz https://github.com/golang/appengine/archive/d2b1961e34.tar.gz -> github.com-golang-appengine-d2b1961e34.tar.gz https://github.com/golang/net/archive/669b27b881.tar.gz -> github.com-golang-net-669b27b881.tar.gz
+_eclasses_=base	84d9f879f57a8316ff02be0373a3d6f9	eutils	351a78113be5b393c09a2c948701ad36	golang-single	000f4046fa8feb8204aeac91fed75b4e	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	multiprocessing	d769539d9bace6eaca30af23bc2b4dde	toolchain-funcs	4b8d3388c0a6e798504e20ba30b49361
+_md5_=fbe345a7db9e8b74644ca4ba0508e7db

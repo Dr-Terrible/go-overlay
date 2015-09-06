@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:* >=sys-devel/gcc-4.8.4[go]
+DESCRIPTION=Heka ia a tool for collecting and collating data from a number of different sources.
+EAPI=5
+HOMEPAGE=http://hekad.readthedocs.org
+IUSE=test
+KEYWORDS=amd64 x86 arm
+LICENSE=MPL-2.0
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/mozilla-services/heka/archive/v0.10.0b1.tar.gz -> heka-0.10.0_p1.tar.gz https://github.com/gogo/protobuf/archive/6cab0cc9f.tar.gz -> github.com-gogo-protobuf-6cab0cc9f.tar.gz https://github.com/BurntSushi/toml/archive/056c9bc7be.tar.gz -> github.com-BurntSushi-toml-056c9bc7be.tar.gz https://github.com/pborman/uuid/archive/cccd189d45.tar.gz -> github.com-pborman-uuid-cccd189d45.tar.gz https://github.com/cactus/gostrftime/archive/4544856e3a.tar.gz -> github.com-cactus-gostrftime-4544856e3a.tar.gz https://github.com/crankycoder/xmlpath/archive/670b185b68.tar.gz -> github.com-crankycoder-xmlpath-670b185b68.tar.gz https://github.com/Shopify/sarama/archive/16b518acd0.tar.gz -> github.com-Shopify-sarama-16b518acd0.tar.gz https://github.com/kisielk/whisper-go/archive/82e8091afd.tar.gz -> github.com-kisielk-whisper-go-82e8091afd.tar.gz https://github.com/golang/snappy/archive/723cc1e459.tar.gz -> github.com-golang-snappy-723cc1e459.tar.gz https://github.com/golang/mock/archive/06883d979f.tar.gz -> github.com-golang-mock-06883d979f.tar.gz https://github.com/bitly/go-notify/archive/0a148b8111.tar.gz -> github.com-bitly-go-notify-0a148b8111.tar.gz https://github.com/rafrombrc/gospec/archive/2e46585948.tar.gz -> github.com-rafrombrc-gospec-2e46585948.tar.gz https://github.com/streadway/amqp/archive/f4879ba28f.tar.gz -> github.com-streadway-amqp-f4879ba28f.tar.gz https://github.com/thoj/go-ircevent/archive/172717c0c5.tar.gz -> github.com-thoj-go-ircevent-172717c0c5.tar.gz https://github.com/carlanton/go-dockerclient/archive/0758f407f2.tar.gz -> github.com-carlanton-go-dockerclient-0758f407f2.tar.gz https://github.com/eapache/go-resiliency/archive/6800482f2c.tar.gz -> github.com-eapache-go-resiliency-6800482f2c.tar.gz https://github.com/eapache/queue/archive/ded5959c0d.tar.gz -> github.com-eapache-queue-ded5959c0d.tar.gz https://github.com/docker/docker/archive/d12ea79c9d.tar.gz -> github.com-docker-docker-d12ea79c9d.tar.gz https://github.com/Sirupsen/logrus/archive/5701be89e7.tar.gz -> github.com-Sirupsen-logrus-5701be89e7.tar.gz
+_eclasses_=base	84d9f879f57a8316ff02be0373a3d6f9	eutils	351a78113be5b393c09a2c948701ad36	golang-single	000f4046fa8feb8204aeac91fed75b4e	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	multiprocessing	d769539d9bace6eaca30af23bc2b4dde	toolchain-funcs	4b8d3388c0a6e798504e20ba30b49361
+_md5_=fa33586b9023fb027821447a7671471c

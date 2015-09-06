@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=Revel is a high-productivity web framework for the Go language
+EAPI=5
+HOMEPAGE=http://revel.github.io
+IUSE=test
+KEYWORDS=amd64 x86 arm
+LICENSE=MIT
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/revel/revel/archive/v0.12.0.tar.gz -> revel-0.12.0.tar.gz https://github.com/agtorre/gocolorize/archive/f42b554bf7.tar.gz -> github.com-agtorre-gocolorize-f42b554bf7.tar.gz https://github.com/robfig/config/archive/0f78529c8c.tar.gz -> github.com-robfig-config-0f78529c8c.tar.gz https://github.com/robfig/pathtree/archive/41257a1839.tar.gz -> github.com-robfig-pathtree-41257a1839.tar.gz https://github.com/robfig/go-cache/archive/9fc39e0dbf.tar.gz -> github.com-robfig-go-cache-9fc39e0dbf.tar.gz https://github.com/golang/net/archive/669b27b881.tar.gz -> github.com-golang-net-669b27b881.tar.gz https://github.com/go-fsnotify/fsnotify/archive/96c060f6a6.tar.gz -> github.com-go-fsnotify-fsnotify-96c060f6a6.tar.gz https://github.com/bradfitz/gomemcache/archive/72a68649ba.tar.gz -> github.com-bradfitz-gomemcache-72a68649ba.tar.gz https://github.com/garyburd/redigo/archive/9d4db5d1db.tar.gz -> github.com-garyburd-redigo-9d4db5d1db.tar.gz
+_eclasses_=base	84d9f879f57a8316ff02be0373a3d6f9	eutils	351a78113be5b393c09a2c948701ad36	golang-single	000f4046fa8feb8204aeac91fed75b4e	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	multiprocessing	d769539d9bace6eaca30af23bc2b4dde	toolchain-funcs	4b8d3388c0a6e798504e20ba30b49361
+_md5_=62da64e08639c84fb6d2c9b3d6a3b54f
