@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=A TOML validator written in GoLang
+EAPI=5
+HOMEPAGE=https://github.com/BurntSushi/tomlv
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=public-domain
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/BurntSushi/toml/archive/056c9bc7be7190eaa7715723883caffa5f8fa3e4.tar.gz -> tomlv-0.2.0_pre20150501.tar.gz
+_eclasses_=base	84d9f879f57a8316ff02be0373a3d6f9	eutils	351a78113be5b393c09a2c948701ad36	golang-single	000f4046fa8feb8204aeac91fed75b4e	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	multiprocessing	d769539d9bace6eaca30af23bc2b4dde	toolchain-funcs	4b8d3388c0a6e798504e20ba30b49361
+_md5_=ad52966e2ee0e62c594165f48cf8fa22
