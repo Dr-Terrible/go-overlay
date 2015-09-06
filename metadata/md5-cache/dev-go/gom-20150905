@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=A visual interface to work with runtime profiling data for Go
+EAPI=5
+HOMEPAGE=https://github.com/rakyll/gom
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=Apache-2.0
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/rakyll/gom/archive/f98e63f1c164c5499e79ec5503c02ca3483c5003.tar.gz -> gom-20150905.tar.gz https://github.com/rakyll/statik/archive/274df120e9.tar.gz -> github.com-rakyll-statik-274df120e9.tar.gz
+_eclasses_=base	84d9f879f57a8316ff02be0373a3d6f9	eutils	351a78113be5b393c09a2c948701ad36	golang-single	000f4046fa8feb8204aeac91fed75b4e	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	multiprocessing	d769539d9bace6eaca30af23bc2b4dde	toolchain-funcs	4b8d3388c0a6e798504e20ba30b49361
+_md5_=1af565224c3668d2f34a0053d0230bae
