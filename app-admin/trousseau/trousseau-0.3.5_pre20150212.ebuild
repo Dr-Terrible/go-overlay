@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -23,6 +23,8 @@ DEPEND="doc? ( dev-python/sphinx )
 	bash-completion? ( >=app-shells/bash-completion-2.0 )
 	zsh-completion? ( app-shells/gentoo-zsh-completions )
 	fish-completion? ( app-shells/fish )"
+
+RESTRICT+=" test"
 
 src_install() {
 	golang-single_src_install

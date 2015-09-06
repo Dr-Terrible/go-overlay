@@ -1,10 +1,10 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
-GOLANG_PKG_IMPORTPATH="github.com/wellington"
+GOLANG_PKG_IMPORTPATH="github.com/${PN}"
 GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_OUTPUT_NAME="wt"
 GOLANG_PKG_BUILDPATH="/wt"
