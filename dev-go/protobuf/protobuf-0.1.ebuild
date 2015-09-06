@@ -17,13 +17,9 @@ HOMEPAGE="http://gogo.github.io"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 x86 arm"
+KEYWORDS="~amd64 ~x86 ~arm"
 
-# Tests must be executed AFTER the src_install() phase,
-# which is not supported by emerge.
-#RESTRICT+=" test"
-
-DEPEND="dev-libs/protobuf:0/8"
+DEPEND="dev-libs/protobuf:0/9"
 
 src_compile() {
 	# First pass

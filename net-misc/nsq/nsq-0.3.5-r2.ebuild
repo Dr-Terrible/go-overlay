@@ -30,6 +30,14 @@ HOMEPAGE="http://nsq.io"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 x86 arm"
+KEYWORDS="~amd64 ~x86 ~arm"
 
-DEPEND="dev-libs/protobuf"
+DEPEND="dev-libs/protobuf:0/9"
+
+src_test() {
+	if has sandbox $FEATURES && has usersandbox $FEATURES; then
+		eerror "Tests require sandbox, and usersandbox to be disabled in FEATURES."
+	fi
+
+	golang-single_src_test
+}

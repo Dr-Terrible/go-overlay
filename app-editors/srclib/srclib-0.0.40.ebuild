@@ -18,7 +18,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/alecthomas/unsafeslice:a2ace32dbd"
 	"github.com/aybabtme/color:28ad4cc941"
 	"github.com/fsouza/go-dockerclient:7b927cb79b"
-	"github.com/gogo/protobuf:b9e369e8ff"
+	"github.com/gogo/protobuf:6cab0cc9f" # v0.1
 	"github.com/inconshreveable/go-update:68f5725818"
 	"github.com/kr/fs:2788f0dbd1"
 	"github.com/kr/binarydist:9955b0ab87"
@@ -41,9 +41,13 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/sqs/fileset:4317e899aa"
 	"github.com/google/go-querystring:547ef5ac97"
 	"github.com/golang/tools:cc54cd6553 -> golang.org/x"
-	"github.com/golang/protobuf:34a5f244f1"
+	"github.com/golang/protobuf:1dceb1a265"
 	"github.com/gorilla/context:215affda49"
 	"github.com/rogpeppe/rog-go:f57ad5e24a -> code.google.com/p"
+
+	# Unit Testing
+	"github.com/russross/blackfriday:8cec3a854e"
+	"github.com/shurcooL/sanitized_anchor_name:11a20b799b"
 )
 
 inherit golang-single

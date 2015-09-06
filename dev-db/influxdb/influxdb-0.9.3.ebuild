@@ -1,25 +1,29 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/${PN}"
 GOLANG_PKG_ARCHIVEPREFIX="v"
-GOLANG_PKG_LDFLAGS="-X main.version ${PV} -X main.commit 8b3219e74f"
+GOLANG_PKG_LDFLAGS="-X main.version ${PV} -X main.branch=${PV} -X main.commit=5d42b21"
 GOLANG_PKG_HAVE_TEST=1
+GOLANG_PKG_HAVE_TEST_RACE=1
 GOLANG_PKG_IS_MULTIPLE=1
 GOLANG_PKG_USE_GENERATE=1
+GOLANG_PKG_INSTALLSUFFIX="cgo"
 GOLANG_PKG_STATIK="-src=./shared/admin"
 
+# Declares dependencies
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/gogo/protobuf:64f27bf06e"
+	"github.com/gogo/protobuf:6cab0cc9f" # v0.1
 	"github.com/hashicorp/raft:4165b47aca"
 	"github.com/hashicorp/raft-boltdb:d1e82c1ec3"
-	"github.com/golang/crypto:1e856cbfdf -> golang.org/x"
-	"github.com/armon/go-metrics:b2d95e5291"
 	"github.com/hashicorp/go-msgpack:fa3f63826f"
-	"github.com/golang/protobuf:34a5f244f1"
+	"github.com/golang/crypto:1e856cbfdf -> golang.org/x"
+	"github.com/golang/protobuf:1dceb1a265"
+	"github.com/golang/snappy:723cc1e459"
+	"github.com/armon/go-metrics:b2d95e5291"
 	"github.com/fatih/pool:cba550ebf9 -> gopkg.in/fatih/pool.v2"
 	"github.com/peterh/liner:1bb0d1c1a2"
 	"github.com/BurntSushi/toml:056c9bc7be"
@@ -31,6 +35,9 @@ GOLANG_PKG_DEPENDENCIES=(
 	# NOTE: stable release (v1.0) of boltdb is not supported,
 	#       HEAD version is required.
 	"github.com/boltdb/bolt:04a3e85793"
+
+	# Unit Testing
+	"github.com/davecgh/go-spew:2df174808e"
 )
 
 inherit user systemd golang-single
@@ -42,7 +49,9 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
 
-DEPEND="dev-go/protobuf"
+DEPEND="dev-libs/protobuf:0/9"
+
+RESTRICT+=" test"
 
 pkg_setup() {
 	ebegin "Creating ${PN} user and group"
@@ -62,12 +71,14 @@ src_prepare() {
 	sed -i \
 		-e "s:/opt/${PN}/influxd:/usr/bin/influxd:" \
 		-e "s:/etc/opt/${PN}:/etc/${PN}:" \
-		scripts/${PN}.service || die
+		scripts/${PN}.service \
+		|| die
 
 	# FIX: paths in configuration file
 	sed -i \
 		"s:/var/opt:/var/lib:" \
-		etc/config.sample.toml
+		etc/config.sample.toml \
+		|| die
 }
 
 src_install() {
