@@ -9,6 +9,7 @@ app-editors/liteide 27.2.1: LiteIDE is a simple, open source, cross-platform Go 
 app-editors/srclib 0.0.40: A hackable, multilange code analysis library for building better software tools
 app-misc/asciinema 1.1.1: A terminal session recorder for asciinema.org service
 app-misc/thymer 0.1.0: Consolo Pomodoro Timer written in GoLang
+app-misc/weather 0.2.0 0.3.0_pre20150913: Weather via the command line.
 app-shells/peco 0.3.3: Simplistic interactive filtering tool
 app-text/go-md2man 1.0.3: Command-line tool to convert Markdown into UNIX man pages
 app-text/gopaste 0_pre20130108: A service and client written in GoLang for easily sending command output and files
