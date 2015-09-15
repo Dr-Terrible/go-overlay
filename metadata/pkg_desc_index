@@ -65,4 +65,4 @@ sys-devel/delve 0.5.0 0.8.0: Delve is a debugger for the Go programming language
 sys-devel/gcvis 0.1.0_pre20150714: Visualise Go program Garbage Collector trace data in real-time.
 www-apps/gitea 0.7.0_pre20150630: Gitea is a self-hosted Git service written in Go
 www-apps/gotty 0.0.10: GoTTY is a simple command-line tool that turns your CLI tools into web applications
-www-apps/hugo 0.14-r2 0.15_pre20150823: A fast and flexible static site generator built in GoLang
+www-apps/hugo 0.14-r2 0.15_pre20150914: A fast and flexible static site generator built in GoLang
