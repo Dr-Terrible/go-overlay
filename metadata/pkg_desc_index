@@ -53,6 +53,7 @@ dev-go/wellington 0.9.3: Wellington is a CSS preprocessor with spriting and base
 dev-util/go-tools 20150825: Go Tools
 dev-util/orange-cat 0.2.2-r1: A Markdown previewer written in GoLang
 net-misc/bat 0.0.2: Go implemented CLI cURL-like tool for humans
+net-misc/gnatsd 0.6.6: A high Performance NATS Server written in GoLang
 net-misc/gollum 0.4.0: A n:m message multiplexer written in GoLang
 net-misc/heka 0.10.0_p1: Heka ia a tool for collecting and collating data from a number of different sources.
 net-misc/nsq 0.3.5-r2: A real-time distributed messaging platform, written in GoLang
