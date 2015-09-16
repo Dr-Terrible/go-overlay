@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=PXE booting for people in a hurry
+EAPI=5
+HOMEPAGE=https://github.com/danderson/pixiecore
+IUSE=test
+KEYWORDS=amd64 x86 arm
+LICENSE=GPL-2
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/danderson/pixiecore/archive/36a01778df3498f3cb60d8f457a3809db6b38575.tar.gz -> pixiecore-0.1.0_pre20150915.tar.gz https://github.com/golang/net/archive/669b27b881.tar.gz -> github.com-golang-net-669b27b881.tar.gz
+_eclasses_=base	84d9f879f57a8316ff02be0373a3d6f9	eutils	351a78113be5b393c09a2c948701ad36	golang-single	000f4046fa8feb8204aeac91fed75b4e	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	multiprocessing	d769539d9bace6eaca30af23bc2b4dde	toolchain-funcs	4b8d3388c0a6e798504e20ba30b49361
+_md5_=294421fdec2e94f80ae6ab451d2ed526
