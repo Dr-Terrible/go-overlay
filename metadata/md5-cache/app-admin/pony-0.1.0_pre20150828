@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=Local File-Based Password, API Key, Secret, Recovery Code Store Backed vy GPG
+EAPI=5
+HOMEPAGE=https://github.com/jfrazelle/pony
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=MIT
+RDEPEND=|| ( x11-misc/xsel x11-misc/xclip )
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/jfrazelle/pony/archive/af449a86c631cdc795e80b089d620a4f685d2d52.tar.gz -> pony-0.1.0_pre20150828.tar.gz https://github.com/Sirupsen/logrus/archive/5701be89e7.tar.gz -> github.com-Sirupsen-logrus-5701be89e7.tar.gz https://github.com/atotto/clipboard/archive/dfde2702d6.tar.gz -> github.com-atotto-clipboard-dfde2702d6.tar.gz https://github.com/codegangsta/cli/archive/142e6cd241.tar.gz -> github.com-codegangsta-cli-142e6cd241.tar.gz https://github.com/docker/docker/archive/0a8c2e3717.tar.gz -> github.com-docker-docker-0a8c2e3717.tar.gz https://github.com/golang/crypto/archive/1e856cbfdf.tar.gz -> github.com-golang-crypto-1e856cbfdf.tar.gz https://github.com/opencontainers/runc/archive/b0fd9fb75a.tar.gz -> github.com-opencontainers-runc-b0fd9fb75a.tar.gz
+_eclasses_=base	84d9f879f57a8316ff02be0373a3d6f9	eutils	351a78113be5b393c09a2c948701ad36	golang-single	000f4046fa8feb8204aeac91fed75b4e	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	multiprocessing	d769539d9bace6eaca30af23bc2b4dde	toolchain-funcs	4b8d3388c0a6e798504e20ba30b49361
+_md5_=64ed58c68c805a5f4210a3c0b3532349
