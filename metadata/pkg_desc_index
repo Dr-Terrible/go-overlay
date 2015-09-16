@@ -43,6 +43,7 @@ dev-go/grind 0.1.0_pre20150302: Grind rewrites the source files written in GoLan
 dev-go/gxui 0.1_pre20150615: an experimental Go cross platform UI library
 dev-go/liteide-tools 2015.04.09: Liteide Golang tools
 dev-go/minify 20150814: Go minifiers for web formats.
+dev-go/mock 0.1.0_pre20150821: GoMock is a mocking framework for the Go programming language
 dev-go/protobuf 0.1: Protocol Buffers for Go with Gadgets
 dev-go/raml 0.8: An implementation of a RAML parser for Go. Compliant with RAML 0.8
 dev-go/re2dfa 0.1.0_pre20150627: Transform regular expressions into finite state machines and output GoLang source code
