@@ -11,6 +11,7 @@ GOLANG_PKG_HAVE_TEST=1
 GOLANG_PKG_HAVE_TEST_RACE=1
 GOLANG_PKG_IS_MULTIPLE=1
 GOLANG_PKG_USE_GENERATE=1
+GOLANG_PKG_USE_CGO=1
 GOLANG_PKG_INSTALLSUFFIX="cgo"
 GOLANG_PKG_STATIK="-src=./shared/admin"
 
@@ -49,9 +50,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
 
-DEPEND="dev-libs/protobuf:0/9"
-
-RESTRICT+=" test"
+DEPEND="dev-go/protobuf"
 
 pkg_setup() {
 	ebegin "Creating ${PN} user and group"
@@ -84,6 +83,9 @@ src_prepare() {
 src_install() {
 	golang-single_src_install
 
+	# FIX: /usr/bin/inspect conflicts with dev-libs/boost
+	mv "${ED}"/usr/bin/inspect "${ED}"/usr/bin/${PN}-inspect || die
+
 	# Install configuration files
 	insinto /etc/${PN}
 	newins etc/config.sample.toml ${PN}.conf
@@ -95,6 +97,14 @@ src_install() {
 
 	keepdir /var/log/${PN}
 	fowners -R ${PN}:${PN} /var/log/${PN}
+}
+
+src_test() {
+	if has sandbox $FEATURES && has network-sandox $FEATURES; then
+		eerror "Some tests require 'sandbox', and 'network-sandox' to be disabled in FEATURES."
+	fi
+
+	golang-single_src_test
 }
 
 pkg_postinst() {

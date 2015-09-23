@@ -18,9 +18,9 @@ app-text/gopaste 0_pre20130108: A service and client written in GoLang for easil
 dev-db/bolt 1.0: Bolt is a low level key/value NoSQL database written in GoLang
 dev-db/boltd 1.0: Bolts is a introspection tool for Bolt databases.
 dev-db/cayley 0.4.1-r1: Cayley is a graph databse written in GoLang.
-dev-db/influxdb 0.9.3: Scalable datastore for metrics, events, and real-time analytics
+dev-db/influxdb 0.9.4.1: Scalable datastore for metrics, events, and real-time analytics
 dev-db/pgfutter 0.3.2: Command-line tool to import CSV and JSON into PostgreSQL
-dev-db/telegraf 0.1.3-r2: A plugin-driven server agent for reporting metrics into InfluxDB
+dev-db/telegraf 0.1.3-r2 0.1.9: A plugin-driven server agent for reporting metrics into InfluxDB
 dev-db/tidb 0.1.0_pre20151916: TiDB is a distributed SQL database compatible with MySQL protocol
 dev-db/tiedot 3.2-r1: Tiedot is a document-oriented NoSQL database written in GoLang
 dev-go/dex 0.1.0: Dex is a Federated Indentity Provider written in GoLang
