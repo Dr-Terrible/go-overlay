@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=A small utility for embedding binary data in a GoLang program.
+EAPI=5
+HOMEPAGE=https://github.com/elazarl/go-bindata-assetfs
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=BSD
+RDEPEND=dev-go/go-bindata
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/elazarl/go-bindata-assetfs/archive/d5cac425555ca5cf00694df246e04f05e6a55150.tar.gz -> go-bindata-assetfs-0.1.0_pre20150813.tar.gz
+_eclasses_=base	84d9f879f57a8316ff02be0373a3d6f9	eutils	351a78113be5b393c09a2c948701ad36	golang-single	0fbba0acd2bdfa573885267c8e9ca800	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	multiprocessing	d769539d9bace6eaca30af23bc2b4dde	toolchain-funcs	4b8d3388c0a6e798504e20ba30b49361
+_md5_=9dfcdcf154d5dad866941f67ae120697
