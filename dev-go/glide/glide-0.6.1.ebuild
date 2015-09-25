@@ -27,7 +27,7 @@ KEYWORDS="amd64 x86 arm"
 
 src_test() {
 	if has sandbox $FEATURES && has usersandbox $FEATURES; then
-		eerror "Tests require sandbox, and usersandbox to be disabled in FEATURES."
+		eerror "Tests require 'network-sandbox' to be disabled in FEATURES."
 	fi
 
 	golang-single_src_test

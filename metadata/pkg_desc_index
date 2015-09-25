@@ -30,7 +30,7 @@ dev-go/forego 0.16.1: Foreman written in GoLang
 dev-go/gb 0.1.0: Gb is a project based build tool for the Go programming language
 dev-go/gcli 0.2.1 0.2.2: Gcli builds GoLang command-line applications
 dev-go/ginkgo 1.2.0: BDD Testing Framework for GoLang
-dev-go/glide 0.5.1: Glide is a simplified GoLang project management, dependency management, and vendoring
+dev-go/glide 0.6.1: Glide is a simplified GoLang project management, dependency management, and vendoring
 dev-go/go-bindata 3.0.7 3.0.8_pre20150721: A small utility for embedding binary data in a GoLang program.
 dev-go/go-torch 0.5.0_pre20150729: Stochastic flame graph profiler for Go Programs
 dev-go/gocode 2015.03.03: An autocompletion daemon for the Go programming language
