@@ -12,12 +12,10 @@
 		<bugs-to>https://github.com/syncthing/syncthing/issues</bugs-to>
 	</upstream>
 	<longdescription lang="en">
-		Syncthing is an application that lets you synchronize your files across
-		multiple devices. This means the creation, modification or deletion of
-		files on one machine will automatically be replicated to your other
-		devices.
+		Syncthing (core) uses a rescan interval to detect changes in folders.
+		This application (syncthing-inotify) uses OS primitives to detect
+		changes as soon as they happen. Therefore, if you save a file,
+		syncthing-inotify will know about it and pass this information to
+		Syncthing such that near real-time synchronisation can be achieved.
 	</longdescription>
-	<use>
-		<flag name="cli">Install the official Syncthing Command-Line Interface</flag>
-	</use>
 </pkgmetadata>

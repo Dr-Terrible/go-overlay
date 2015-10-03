@@ -11,13 +11,4 @@
 		<doc>http://docs.syncthing.net</doc>
 		<bugs-to>https://github.com/syncthing/syncthing/issues</bugs-to>
 	</upstream>
-	<longdescription lang="en">
-		Syncthing is an application that lets you synchronize your files across
-		multiple devices. This means the creation, modification or deletion of
-		files on one machine will automatically be replicated to your other
-		devices.
-	</longdescription>
-	<use>
-		<flag name="cli">Install the official Syncthing Command-Line Interface</flag>
-	</use>
 </pkgmetadata>
