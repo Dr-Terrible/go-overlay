@@ -2,15 +2,15 @@
 
 [![Build Status](https://travis-ci.org/Dr-Terrible/go-overlay.png)](https://travis-ci.org/Dr-Terrible/go-overlay)
 
-The _Golang Overlay_ is intended as a Portage overlay for [Golang](https://golang.org)
+The _Golang Overlay_ is intended as a Portage collection of [Golang](https://golang.org)
 related ebuilds — mainly applications and tools written in Golang. This
-repository offers Go packages that can be compiled in a reproducible way,
+repository offers Go packages that can be compiled in a **reproducible way**,
 without the need of recompiling wacky and obscure Go dependencies, or placing
-weird Go libraries inside the system GOROOT, and ending up with a polluted and
-screwed up Go environment.
+weird Go libraries inside your system GOROOT, and then ending up with a polluted
+and screwed up [Go environment](https://golang.org/doc/code.html#Workspaces).
 
 The primary reason why Go packages cannot be reproducibly built is because the
-`import statement`(which drivers `go get`) does not contain sufficient
+`import statement`(which drives `go get`) does not contain sufficient
 information to identify which revision of a Go package it should fetch.
 Additionally, if the source code of a Go package changes in an incompatible way,
 there is no way for ebuild that consumes that import path to indicate that it
@@ -28,7 +28,7 @@ well as wide configuration options that users of Gentoo have come to expect.
 ### Installing The Overlay
 
 In order to [manage overlays](https://wiki.gentoo.org/wiki/Overlay), the
-package [**app-portage/layman**]](https://wiki.gentoo.org/wiki/Layman) must be
+package [**app-portage/layman**](https://wiki.gentoo.org/wiki/Layman) must be
 installed into your Gentoo environment:
 
 ```
@@ -113,12 +113,12 @@ for the following:
 
    If you have questions about how to write the short / long descriptions, please
    read these blog articles: [How to Write a Commit Message](http://chris.beams.io/posts/git-commit),
-   [5 Useful Tips For A Better Commit Message](https://robot.thoughtbot.com/5-useful-tips-for-a-better-commit-message). Both of them are excellent resources for learning how to write a
+   [5 Useful Tips For A Better Commit Message](https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message). Both of them are excellent resources for learning how to write a
    well-crafted git commit message. If your commit references one or more GitHub
    issues, always end your commit message body with _See #1234_ or _Fixes #1234_
    (replace 1234 with the desired GitHub issue ID).
 5. GPG signing your changes is a good idea, but not mandatory.
-6. Push your changes to your branch in your fork and then submit a
+6. Push your changes to your branch in your fork, and then submit a
    [pull request](https://help.github.com/send-pull-requests) agains this
    repository.
 7. Comment in the pull request when you are ready for the changes to be
