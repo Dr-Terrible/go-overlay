@@ -15,6 +15,7 @@ GOLANG_PKG_DEPENDENCIES=(
 
 	# unit testing
 	"github.com/stretchr/testify:232e856367" #v1.0
+	"github.com/tdewolff/test:9107f3d"
 )
 
 inherit golang-single
