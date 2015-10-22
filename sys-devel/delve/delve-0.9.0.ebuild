@@ -19,6 +19,9 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/spf13/pflag:08b1a58"
 	"github.com/inconshreveable/mousetrap:76626ae9c9"
 	"github.com/go-yaml/yaml:53feefa -> gopkg.in/yaml.v2"
+	"github.com/cpuguy83/go-md2man:71acacd" #v1.0.4
+	"github.com/russross/blackfriday:8cec3a854e" #v1.3
+	"github.com/shurcooL/sanitized_anchor_name:244f5ac"
 
 	# Unit testing
 	"github.com/davecheney/profile:c29d1a1565"
