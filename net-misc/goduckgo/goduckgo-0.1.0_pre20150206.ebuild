@@ -8,10 +8,6 @@ GOLANG_PKG_IMPORTPATH="github.com/ajanicij"
 GOLANG_PKG_VERSION="61f9a275272fdda937276765b8bc69f5e2310a8f"
 GOLANG_PKG_HAVE_TEST=1
 
-# Declares dependencies
-GOLANG_PKG_DEPENDENCIES=(
-)
-
 inherit golang-single
 
 DESCRIPTION="Command-line tool for DuckDuckGo API"
