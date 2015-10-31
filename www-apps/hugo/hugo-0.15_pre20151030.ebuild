@@ -5,9 +5,10 @@
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/spf13"
-GOLANG_PKG_VERSION="6b34a4e4e8a18e1f78a5727e583638a6bb247f4f"
+GOLANG_PKG_VERSION="50c819cedee34c09d21f46def8a16d435d7271d1"
 GOLANG_PKG_HAVE_TEST=1
 
+# Declares dependencies
 GOLANG_PKG_DEPENDENCIES=(
 	"bitbucket.org/pkg/inflect:8961c3750a47"
 	"github.com/BurntSushi/toml:056c9bc7be"
@@ -18,7 +19,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/kardianos/osext:6e7f843663"
 	"github.com/miekg/mmark:3079af4"
 	"github.com/mitchellh/mapstructure:281073e"
-	"github.com/russross/blackfriday:8cec3a854e" #v1.3
+	"github.com/russross/blackfriday:ceb8293" #v1.3
 	"github.com/opennota/urlesc:5fa9ff0392"
 	"github.com/shurcooL/sanitized_anchor_name:244f5ac"
 	"github.com/spf13/afero:6ced24d"

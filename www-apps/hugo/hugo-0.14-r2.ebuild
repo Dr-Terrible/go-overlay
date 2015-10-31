@@ -9,6 +9,7 @@ GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_VERSION="${PV}"
 GOLANG_PKG_HAVE_TEST=1
 
+# Declares dependencies
 GOLANG_PKG_DEPENDENCIES=(
 	"bitbucket.org/pkg/inflect:8961c3750a47"
 	"github.com/BurntSushi/toml:056c9bc7be"
