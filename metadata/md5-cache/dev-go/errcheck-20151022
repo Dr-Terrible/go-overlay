@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=Errcheck checks that you checked errors
+EAPI=5
+HOMEPAGE=https://github.com/kisielk/errcheck
+IUSE=test
+KEYWORDS=amd64 x86 arm
+LICENSE=BSD
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/kisielk/errcheck/archive/12fd1ab9811e54c55207f3e83134ff59829fbf21.tar.gz -> errcheck-20151022.tar.gz https://github.com/kisielk/gotool/archive/58a7a19.tar.gz -> github.com-kisielk-gotool-58a7a19.tar.gz https://github.com/golang/tools/archive/b6b32a4.tar.gz -> github.com-golang-tools-b6b32a4.tar.gz
+_eclasses_=base	9fc6743731ec1d8d8a5eb88ccd5944b6	eutils	43da5163ba106e87d22d2e7d6d67537f	golang-single	e87f8f8ec7ccb2af43e9f6a379ddb8e7	golang-utils	f9d531aec50543b6c6b521b5347c22b1	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	multiprocessing	d769539d9bace6eaca30af23bc2b4dde	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_md5_=fa9b60c178eb0c97436b1d050a54c5ae
