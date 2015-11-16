@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=Concurrently run Go lint tools and normalise their output
+EAPI=5
+HOMEPAGE=https://github.com/alecthomas/gometalinter
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=BSD
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/alecthomas/gometalinter/archive/0f186b3844682d56e4f30e45820fccb8225552f5.tar.gz -> gometalinter-0.1_pre20151104.tar.gz https://github.com/alecthomas/kingpin/archive/6e0b900.tar.gz -> github.com-alecthomas-kingpin-6e0b900.tar.gz https://github.com/alecthomas/template/archive/b867cc6.tar.gz -> github.com-alecthomas-template-b867cc6.tar.gz https://github.com/alecthomas/units/archive/2efee85.tar.gz -> github.com-alecthomas-units-2efee85.tar.gz https://github.com/stretchr/testify/archive/232e856367.tar.gz -> github.com-stretchr-testify-232e856367.tar.gz
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	f813d23e417656bf3917483643165d5a	golang-single	e87f8f8ec7ccb2af43e9f6a379ddb8e7	golang-utils	f9d531aec50543b6c6b521b5347c22b1	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	d769539d9bace6eaca30af23bc2b4dde	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_md5_=2379cf7c72b172dc24df31555a5b8346
