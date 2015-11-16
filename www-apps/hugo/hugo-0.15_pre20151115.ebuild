@@ -5,7 +5,7 @@
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/spf13"
-GOLANG_PKG_VERSION="ca55ea505a2b87fe7c89a56d9f3f6b835f68aefc"
+GOLANG_PKG_VERSION="2843605963fdd5b4f56d95d81e5e930df48c6f0f"
 GOLANG_PKG_HAVE_TEST=1
 
 # Declares dependencies
@@ -22,14 +22,14 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/russross/blackfriday:ceb8293" #v1.3
 	"github.com/opennota/urlesc:5fa9ff0392"
 	"github.com/shurcooL/sanitized_anchor_name:244f5ac"
-	"github.com/spf13/afero:6ced24d"
+	"github.com/spf13/afero:19b2cf0"
 	"github.com/spf13/cast:ee815aaf95"
-	"github.com/spf13/cobra:8b2293c"
-	"github.com/spf13/fsync:1fdf08f822"
+	"github.com/spf13/cobra:f06ae19"
+	"github.com/spf13/fsync:a187c34"
 	"github.com/spf13/nitro:24d7ef30a1"
-	"github.com/spf13/viper:1967d93db7"
+	"github.com/spf13/viper:e37b56e"
 	"github.com/spf13/pflag:08b1a58"
-	"github.com/spf13/jWalterWeatherman:3d60171a64"
+	"github.com/spf13/jWalterWeatherman:c2aa07d"
 	"github.com/cpuguy83/go-md2man:71acacd42f"
 	"github.com/yosssi/ace:a264e9d"
 	"github.com/go-fsnotify/fsnotify:7be5420 -> gopkg.in/fsnotify.v1" #v1.2.1
