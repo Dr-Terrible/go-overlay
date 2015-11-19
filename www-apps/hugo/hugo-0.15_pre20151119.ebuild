@@ -5,7 +5,7 @@
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/spf13"
-GOLANG_PKG_VERSION="2843605963fdd5b4f56d95d81e5e930df48c6f0f"
+GOLANG_PKG_VERSION="91e0c2b1feb2a7a1b074784a41249139b2fae975"
 GOLANG_PKG_HAVE_TEST=1
 
 # Declares dependencies
@@ -19,12 +19,12 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/kardianos/osext:6e7f843663"
 	"github.com/miekg/mmark:3079af4"
 	"github.com/mitchellh/mapstructure:281073e"
-	"github.com/russross/blackfriday:ceb8293" #v1.3
+	"github.com/russross/blackfriday:0b647d0" #v1.4
 	"github.com/opennota/urlesc:5fa9ff0392"
 	"github.com/shurcooL/sanitized_anchor_name:244f5ac"
-	"github.com/spf13/afero:19b2cf0"
+	"github.com/spf13/afero:3f6f746"
 	"github.com/spf13/cast:ee815aaf95"
-	"github.com/spf13/cobra:f06ae19"
+	"github.com/spf13/cobra:cb63a06"
 	"github.com/spf13/fsync:a187c34"
 	"github.com/spf13/nitro:24d7ef30a1"
 	"github.com/spf13/viper:e37b56e"
