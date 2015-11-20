@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=Go minifiers for web formats.
+EAPI=5
+HOMEPAGE=https://github.com/tdewolff/minify
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=BSD
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/tdewolff/minify/archive/v1.1.0.tar.gz -> minify-1.1.0.tar.gz https://github.com/tdewolff/buffer/archive/43cef5b.tar.gz -> github.com-tdewolff-buffer-43cef5b.tar.gz https://github.com/tdewolff/parse/archive/e8cb1a5.tar.gz -> github.com-tdewolff-parse-e8cb1a5.tar.gz https://github.com/stretchr/testify/archive/232e856367.tar.gz -> github.com-stretchr-testify-232e856367.tar.gz https://github.com/tdewolff/test/archive/9107f3d.tar.gz -> github.com-tdewolff-test-9107f3d.tar.gz
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	f813d23e417656bf3917483643165d5a	golang-single	e87f8f8ec7ccb2af43e9f6a379ddb8e7	golang-utils	f9d531aec50543b6c6b521b5347c22b1	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	d769539d9bace6eaca30af23bc2b4dde	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_md5_=3775cb5dad5f74486f7b36dee349fb64

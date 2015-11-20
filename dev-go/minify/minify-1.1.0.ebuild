@@ -5,13 +5,13 @@
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/tdewolff"
-GOLANG_PKG_VERSION="cb0614e6b7e11ee9be4f6d069e8ed4905a7ef84f"
+GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_BUILDPATH="/cmd/${PN}"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/tdewolff/buffer:7d7d71b"
-	"github.com/tdewolff/parse:79bdf70"
+	"github.com/tdewolff/buffer:43cef5b"
+	"github.com/tdewolff/parse:e8cb1a5"
 
 	# unit testing
 	"github.com/stretchr/testify:232e856367" #v1.0
