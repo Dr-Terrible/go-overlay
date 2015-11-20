@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=Kar is a simple utility that helps you run Kargar builds from CLI
+EAPI=5
+HOMEPAGE=https://github.com/omeid/kar
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=MIT
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/omeid/kar/archive/529ce46c548ef50018da6a07ae866a2717c0fa4f.tar.gz -> kar-0.1_pre20151007.tar.gz https://github.com/omeid/gonzo/archive/10af7dd.tar.gz -> github.com-omeid-gonzo-10af7dd.tar.gz https://github.com/Sirupsen/logrus/archive/418b41d.tar.gz -> github.com-Sirupsen-logrus-418b41d.tar.gz https://github.com/golang/net/archive/4a71d18255.tar.gz -> github.com-golang-net-4a71d18255.tar.gz https://github.com/omeid/kargar/archive/b37bb10.tar.gz -> github.com-omeid-kargar-b37bb10.tar.gz
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	f813d23e417656bf3917483643165d5a	golang-single	e87f8f8ec7ccb2af43e9f6a379ddb8e7	golang-utils	f9d531aec50543b6c6b521b5347c22b1	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	d769539d9bace6eaca30af23bc2b4dde	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_md5_=fb8ee2ed530f68b5370192b64e75e746
