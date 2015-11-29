@@ -5,7 +5,7 @@
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/spf13"
-GOLANG_PKG_VERSION="311307c9e4740bd5ee24a09157012b7d12076681"
+GOLANG_PKG_VERSION="50b5d0af29698f8866d55b8dac4da60276784d14"
 GOLANG_PKG_HAVE_TEST=1
 
 # Declares dependencies
@@ -44,11 +44,8 @@ GOLANG_PKG_DEPENDENCIES=(
 
 inherit golang-single
 
-#EDOC_COMMIT="1d82be4bec7e4258050cf4aba50d0c32d7c22cbb"
-
 DESCRIPTION="A fast and flexible static site generator built in GoLang"
 HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
-#SRC_URI+=" doc? ( https://${GOLANG_PKG_IMPORTPATH}/${PN}/archive/${EDOC_COMMIT}.tar.gz -> ${P}-docs.tar.gz )"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -70,8 +67,9 @@ src_prepare() {
 src_install() {
 	golang-single_src_install
 
-#	${GOBIN}/${PN} gen doc || die
-#	${GOBIN}/${PN} gen man || die
+	# Install man pages
+	${GOBIN}/${PN} gen man --dir="${T}"/man || die
+	doman "${T}"/man/*
 
 	# Install documentation
 	if use doc; then
