@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=!dev-go/go-tools !<dev-lang/go-1.5 dev-lang/go:*
+DESCRIPTION=Various packages and tools that support the Go programming language
+EAPI=5
+HOMEPAGE=https://github.com/golang/go-tools
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=BSD
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/golang/tools/archive/b6b32a4fbfbe1d75f52bc8e702425259b5406b2a.tar.gz -> go-tools-20151125.tar.gz https://github.com/golang/net/archive/2cba614.tar.gz -> github.com-golang-net-2cba614.tar.gz https://github.com/golang/protobuf/archive/5baca1b.tar.gz -> github.com-golang-protobuf-5baca1b.tar.gz https://github.com/golang/appengine/archive/75a29a6.tar.gz -> github.com-golang-appengine-75a29a6.tar.gz https://github.com/GoogleCloudPlatform/gcloud-golang/archive/137f428.tar.gz -> github.com-GoogleCloudPlatform-gcloud-golang-137f428.tar.gz
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	f20548a2f7b0128068388cd2ec26708a	golang-single	e87f8f8ec7ccb2af43e9f6a379ddb8e7	golang-utils	f9d531aec50543b6c6b521b5347c22b1	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_md5_=c4817d9689ddbbc8f638721ac386d00e

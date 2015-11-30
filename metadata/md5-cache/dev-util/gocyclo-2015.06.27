@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=Calculate cyclomatic complexities of functions in Go source code
+EAPI=5
+HOMEPAGE=https://github.com/fzipp/gocyclo
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=BSD
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/fzipp/gocyclo/archive/6acd4345c835499920e8426c7e4e8d7a34f1bb83.tar.gz -> gocyclo-2015.06.27.tar.gz
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	f20548a2f7b0128068388cd2ec26708a	golang-single	e87f8f8ec7ccb2af43e9f6a379ddb8e7	golang-utils	f9d531aec50543b6c6b521b5347c22b1	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_md5_=c5033c3467bd59d3848a80380803b58d

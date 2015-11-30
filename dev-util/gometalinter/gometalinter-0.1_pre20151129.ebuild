@@ -5,7 +5,7 @@
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/alecthomas"
-GOLANG_PKG_VERSION="0f186b3844682d56e4f30e45820fccb8225552f5"
+GOLANG_PKG_VERSION="c091e0a4c38d2ab6bece06f76c8f10f4c4ddd5b7"
 GOLANG_PKG_HAVE_TEST=1
 
 # Declares dependencies
@@ -24,3 +24,8 @@ HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
+
+# TODO: add all the supported linters as RDEPENDS
+RDEPEND="dev-util/go-tools
+	dev-util/gocyclo
+	dev-util/golint"
