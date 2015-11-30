@@ -65,6 +65,11 @@ src_prepare() {
 src_install() {
 	golang-single_src_install
 
+	# Install man pages
+	mkdir man || die
+	${GOBIN}/${PN} gen man || die
+	doman man/*
+
 	# Install documentation
 	if use doc; then
 		pushd docs
