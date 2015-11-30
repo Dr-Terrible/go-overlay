@@ -87,3 +87,11 @@ src_install() {
 		popd
 	fi
 }
+
+src_test() {
+	if has sandbox $FEATURES && has network-sandox $FEATURES; then
+		eerror "Some tests require 'sandbox', and 'network-sandox' to be disabled in FEATURES."
+	fi
+
+	golang-single_src_test
+}
