@@ -16,7 +16,7 @@ inherit systemd golang-single
 
 EDOC_COMMIT="6e4828ff9640a1383f21a0919205233ddb633199"
 
-DESCRIPTION="Syncthing is an application that lets you synchronize your files across multiple devices"
+DESCRIPTION="Syncthing is an app that lets you synchronize your files across multiple devices"
 HOMEPAGE="http://syncthing.net"
 SRC_URI+=" doc? ( https://github.com/${PN}/docs/archive/${EDOC_COMMIT}.tar.gz -> ${PN}-docs-${PV}.tar.gz )"
 
