@@ -5,7 +5,7 @@
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/spf13"
-GOLANG_PKG_VERSION="50b5d0af29698f8866d55b8dac4da60276784d14"
+GOLANG_PKG_VERSION="fc627d55537316831a3109087ec03cc6ec5407c4"
 GOLANG_PKG_HAVE_TEST=1
 
 # Declares dependencies
@@ -22,13 +22,13 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/russross/blackfriday:0b647d0" #v1.4
 	"github.com/opennota/urlesc:5fa9ff0392"
 	"github.com/shurcooL/sanitized_anchor_name:10ef21a"
-	"github.com/spf13/afero:0ad3406"
-	"github.com/spf13/cast:ee815aaf95"
-	"github.com/spf13/cobra:b167d9b"
-	"github.com/spf13/fsync:1a03b59"
-	"github.com/spf13/nitro:24d7ef30a1"
-	"github.com/spf13/viper:e37b56e"
-	"github.com/spf13/pflag:08b1a58"
+	"github.com/spf13/afero:e7cb826"
+	"github.com/spf13/cast:ee7b3e0"
+	"github.com/spf13/cobra:b3f29e9"
+	"github.com/spf13/fsync:c2544e7"
+	"github.com/spf13/nitro:24d7ef3"
+	"github.com/spf13/viper:110492b"
+	"github.com/spf13/pflag:7f60f83"
 	"github.com/spf13/jWalterWeatherman:c2aa07d"
 	"github.com/cpuguy83/go-md2man:71acacd42f"
 	"github.com/yosssi/ace:8e090bf"
@@ -40,6 +40,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/magiconair/properties:6ac0b95"
 	"github.com/stretchr/testify:d797d25"
 	"github.com/golang/text:4838fa4 -> golang.org/x"
+	"github.com/hashicorp/hcl:197e8d3"
 )
 
 inherit golang-single
