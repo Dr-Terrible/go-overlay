@@ -22,11 +22,17 @@ GOLANG_PKG_DEPENDENCIES=(
 inherit systemd golang-single
 
 DESCRIPTION="Simple secure free software VPN daemon"
-HOMEPAGE="http://www.cypherpunks.ru/govpn/"
+HOMEPAGE="http://www.cypherpunks.ru/govpn"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm"
+KEYWORDS="~amd64 ~x86"
+IUSE+=" doc"
+
+DEPEND="doc? (
+	sys-apps/texinfo
+	media-gfx/plantuml
+)"
 
 GOLANG_PKG_VENDOR=(
 	"${S}"
@@ -37,13 +43,20 @@ src_prepare() {
 
 	sed -i \
 			-e "s@\$(dirname \$0)/storekey.sh@\$(dirname \$0)/${PN}-storekey.sh@" \
-			"${S}"/utils/newclient.sh \
+			utils/newclient.sh \
 			|| die
 }
 
 src_install() {
 	golang-single_src_install
 
+	# install documentation
+	if use doc; then
+		emake -C doc/
+		dohtml -r doc/${PN}.html/*
+	fi
+
+	# install utils
 	newbin "${S}"/utils/newclient.sh ${PN}-newclient.sh
 	newbin "${S}"/utils/storekey.sh ${PN}-storekey.sh
 }
