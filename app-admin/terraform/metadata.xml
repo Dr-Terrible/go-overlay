@@ -7,4 +7,109 @@
 		<name>Mauro Toffanin</name>
 		<description>Maintainer. Assign bugs to him</description>
 	</maintainer>
+	<use>
+		<flag name="atlas">
+			Builds the provider that interacts with resources, configuration,
+			artifacts, and metadata managed by Atlas https://atlas.hashicorp.com
+		</flag>
+		<flag name="aws">
+			Builds the provider that interacts with the many resources supported
+			by Amazon Web Services https://aws.amazon.com
+		</flag>
+		<flag name="azure">
+			Builds the provider that interacts with the many resources supported
+			by Microsoft Azure https://azure.microsoft.com
+		</flag>
+		<flag name="cloudflare">
+			Builds the provider that interact with the DNS resources supported
+			by CloudFlare https://www.cloudflare.com
+		</flag>
+		<flag name="cloudstack">
+			Builds the provider that interact with the many resources supported
+			by Apache CloudStack https://cloudstack.apache.org
+		</flag>
+		<flag name="consul">
+			Builds the provider that exposes resources used to interact with a
+			Consul cluster <pkg>app-admin/consul</pkg>
+		</flag>
+		<flag name="digitalocean">
+			Builds the provider that interacts with the resources supported by
+			DigitalOcean https://www.digitalocean.com
+		</flag>
+		<flag name="dnsimple">
+			Builds the provider that interacts with the resources supported by
+			DNSimple https://dnsimple.com
+		</flag>
+		<flag name="docker">
+			Builds the provider that interacts with Docker <pkg>app-emulation/docker</pkg>
+			containers and images, by using Docker API
+		</flag>
+		<flag name="dyn">
+			Builds the provider that interacts with the resources supported by
+			Dyn http://dyn.com
+		</flag>
+		<flag name="google">
+			Builds the provider that interacts with Google Cloud services
+			https://cloud.google.com
+		</flag>
+		<flag name="heroku">
+			Builds the provider that interacts with the resources supported by
+			Heroku https://www.heroku.com
+		</flag>
+		<flag name="mailgun">
+			Builds the provider that interacts with the resources supported by
+			Mailgun http://www.mailgun.com
+		</flag>
+		<flag name="null">
+			Builds the provider that allows you to configure provisioners that
+			are not directly associated with a single existing resource
+		</flag>
+		<flag name="openstack">
+			Builds the provider that interacts with the many resources supported
+			by OpenStack <pkg>sys-cluster/openstack-meta</pkg>
+		</flag>
+		<flag name="packet">
+			Builds the provider that interacts with the resources supported by
+			Packet https://www.packet.net
+		</flag>
+		<flag name="rundeck">
+			Builds the provider that creates and configures Projects, Jobs and
+			Keys in Rundeck http://rundeck.org
+		</flag>
+		<flag name="statuscake">
+			Builds the provider that creates and configures tests in StatusCake
+			https://www.statuscake.com
+		</flag>
+		<flag name="template">
+			Builds a provider that exposes resources to use templates to
+			generate strings for other Terraform resources or outputs.
+		</flag>
+		<flag name="tls">
+			Builds the provider that provides utilities for working with
+			Transport Layer Security keys and certificates
+		</flag>
+		<flag name="vsphere">
+			Builds the provider that interacts with the resources supported by
+			VMware vSphere http://www.vmware.com/products/vsphere
+		</flag>
+		<flag name="dme">
+			Builds the provider that interacts with the resources supported by
+			DNSMadeEasy http://www.dnsmadeeasy.com
+		</flag>
+		<flag name="chef">
+			Builds the provisioner that invokes a Chef Client https://www.chef.io
+		</flag>
+		<flag name="file">
+			Builds the provisioner that copies files or directories from the
+			machine executing Terraform to the newly created resource
+		</flag>
+		<flag name="local-exec">
+			Builds the provisioner that invokes a local executable after a
+			resource is created
+		</flag>
+		<flag name="remote-exec">
+			Builds the provisioner that invokes a script on a remote resource
+			after it is created
+		</flag>
+	</use>
 </pkgmetadata>
