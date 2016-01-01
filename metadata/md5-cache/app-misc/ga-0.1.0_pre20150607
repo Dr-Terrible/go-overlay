@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=Google Analytics via the Command Line
+EAPI=5
+HOMEPAGE=https://github.com/jfrazelle/ga
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=MIT
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/jfrazelle/ga/archive/01a1948f088a0f0664cf6b313a113c2327c8ac0c.tar.gz -> ga-0.1.0_pre20150607.tar.gz https://github.com/mitchellh/colorstring/archive/61164e4994.tar.gz -> github.com-mitchellh-colorstring-61164e4994.tar.gz https://github.com/udhos/goauth2/archive/cb9484d494.tar.gz -> github.com-udhos-goauth2-cb9484d494.tar.gz https://github.com/google/google-api-go-client/archive/8cbf97d5e9.tar.gz -> github.com-google-google-api-go-client-8cbf97d5e9.tar.gz https://github.com/codegangsta/cli/archive/142e6cd241.tar.gz -> github.com-codegangsta-cli-142e6cd241.tar.gz https://github.com/docker/docker/archive/0a8c2e3717.tar.gz -> github.com-docker-docker-0a8c2e3717.tar.gz https://github.com/golang/net/archive/669b27b881.tar.gz -> github.com-golang-net-669b27b881.tar.gz
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	d9bd2ddd85a58e470b49ca997e255a4c	golang-single	0cc8466e04340b24343e72a67eb301e2	golang-utils	1584f071e4e7e3a9177f57583bee64b7	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_md5_=3907340534282127bb69ee69b94f57fc

@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:* >=sys-devel/gcc-4.8.4[go]
+DESCRIPTION=A repository for plotting and visualizing data
+EAPI=5
+HOMEPAGE=https://github.com/gonum/plot
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=BSD
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/gonum/plot/archive/cb4c4878aac96ea53a4f94d29ea99a2f5376a639.tar.gz -> plot-0.1.0_pre20150914.tar.gz https://bitbucket.org/zombiezen/gopdf/get/1c63dc6975.zip -> bitbucket.org-zombiezen-gopdf-1c63dc6975.zip https://github.com/ajstarks/svgo/archive/77292617dc.tar.gz -> github.com-ajstarks-svgo-77292617dc.tar.gz https://github.com/golang/freetype/archive/f29eb116de.tar.gz -> github.com-golang-freetype-f29eb116de.tar.gz https://github.com/golang/image/archive/baddd3465a.tar.gz -> github.com-golang-image-baddd3465a.tar.gz https://github.com/kkzliu/freetype-go/archive/160e1d6137.tar.gz -> github.com-kkzliu-freetype-go-160e1d6137.tar.gz https://github.com/robfig/graphics-go/archive/05ad18ff57.tar.gz -> github.com-robfig-graphics-go-05ad18ff57.tar.gz https://jamslam-freetype-go.googlecode.com/archive/88153758681b.tar.gz -> code.google.com-p-jamslam-freetype-go-88153758681b.tar.gz https://github.com/BurntSushi/xgbutil/archive/23a8699ff5.tar.gz -> github.com-BurntSushi-xgbutil-23a8699ff5.tar.gz https://github.com/BurntSushi/xgb/archive/3ac861bb07.tar.gz -> github.com-BurntSushi-xgb-3ac861bb07.tar.gz https://github.com/llgcode/draw2d/archive/d6d74f19f9.tar.gz -> github.com-llgcode-draw2d-d6d74f19f9.tar.gz https://github.com/gonum/floats/archive/e2a0ed9640.tar.gz -> github.com-gonum-floats-e2a0ed9640.tar.gz https://github.com/gonum/internal/archive/266f56a1bd.tar.gz -> github.com-gonum-internal-266f56a1bd.tar.gz https://github.com/gonum/matrix/archive/46dd0b4a82.tar.gz -> github.com-gonum-matrix-46dd0b4a82.tar.gz https://github.com/gonum/blas/archive/11931630eb.tar.gz -> github.com-gonum-blas-11931630eb.tar.gz https://github.com/gonum/lapack/archive/68261830a0.tar.gz -> github.com-gonum-lapack-68261830a0.tar.gz
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	d9bd2ddd85a58e470b49ca997e255a4c	golang-single	0cc8466e04340b24343e72a67eb301e2	golang-utils	1584f071e4e7e3a9177f57583bee64b7	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_md5_=eaaec449e1722c8a2fffc8ea1417bdb0
