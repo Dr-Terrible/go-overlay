@@ -31,7 +31,7 @@ dev-go/echo 1.0.0: A fast HTTP router and micro web framework written in GoLang
 dev-go/errcheck 20151022: Errcheck checks that you checked errors
 dev-go/flint 0.0.4 0.0.5_pre20150607: Check your project for common sources of contributor friction
 dev-go/forego 0.16.1: Foreman written in GoLang
-dev-go/gb 0.2.0: Gb is a project based build tool for the Go programming language
+dev-go/gb 0.2.0 0.3.5: Gb is a project based build tool for the Go programming language
 dev-go/gcli 0.2.1 0.2.3: Gcli builds GoLang command-line applications
 dev-go/ginkgo 1.2.0: BDD Testing Framework for GoLang
 dev-go/glide 0.6.1: Glide is a simplified GoLang project management, dependency management, and vendoring
