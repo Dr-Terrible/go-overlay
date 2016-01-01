@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 # @ECLASS: golang-single.eclass
 # @MAINTAINER:
@@ -63,7 +63,7 @@
 # @CODE
 
 
-inherit base multiprocessing
+inherit base multiprocessing golang-utils
 
 RESTRICT+=" mirror "
 
@@ -370,6 +370,9 @@ if [[ ${#GOLANG_PKG_DEPENDENCIES[@]} -gt 0 ]]; then
 			bitbucket*)
 				SRC_URI+=" https://${DEPENDENCY[importpath]}/get/${DEPENDENCY[revision]}.zip -> ${DEPENDENCY[importpath]//\//-}-${DEPENDENCY[revision]}.zip"
 				;;
+			code.google*)
+				SRC_URI+=" https://${DEPENDENCY[project_name]}.googlecode.com/archive/${DEPENDENCY[revision]}.tar.gz -> ${DEPENDENCY[importpath]//\//-}-${DEPENDENCY[revision]}.tar.gz"
+				;;
 			*) die "This eclass doesn't support '${DEPENDENCY[importpath]}'" ;;
 		esac
 
@@ -572,10 +575,15 @@ golang-single_src_prepare() {
 						#einfo "path: ${DEPENDENCY[author_name]}-${DEPENDENCY[project_name]}-${DEPENDENCY[revision]}"
 						ebegin "${message}"
 							#mv ${DEPENDENCY[author_name]}-${DEPENDENCY[project_name]}-${DEPENDENCY[revision]} "${GOPATH}"/src/${DEPENDENCY[importpathalias]}/${DEPENDENCY[project_name]} || die
-							mv ${DEPENDENCY[author_name]}-${DEPENDENCY[project_name]}-${DEPENDENCY[revision]} "${GOPATH}"/src/${destdir} || die
+							mv ${DEPENDENCY[author_name]}-${DEPENDENCY[project_name]}-${DEPENDENCY[revision]}* "${GOPATH}"/src/${destdir} || die
 						eend
 						;;
-					*) die "This eclass doesn't support '${DEPENDENCY[importpath]}'" ;;
+					code.google*)
+						ebegin "${message}"
+							mv ${DEPENDENCY[project_name]}-${DEPENDENCY[revision]}* "${GOPATH}"/src/${destdir} || die
+						eend
+						;;
+					*) die "Function 'golang-single_src_prepare' doesn't support '${DEPENDENCY[importpath]}'" ;;
 				esac
 			done
 
@@ -633,15 +641,15 @@ golang-single_src_configure() {
 	# and temporary directories (_obj/ _test*/).
 	if [[ -n ${GOLANG_PKG_BUILDPATH} && ${GOLANG_PKG_BUILDPATH##*/} != "..." ]]; then
 
-		# FIX:
-		# This eclass appends a white space as a delimiter, otherwise the last
-		# element will always be ignored by the subsequent 'while read' statement.
-		GOLANG_PKG_BUILDPATH+=" "
-
+		# NOTE: This eclass trims all leading and trailing white spaces from the
+		#       input of the following 'while read' loop, then appends an extra
+		#       trailing space; this is necessary to avoid undefined behaviours
+		#       within the loop when GOLANG_PKG_BUILDPATH is populated with only
+		#       a single element.
 		while read -d $' ' cmd; do
 			einfo "${EGO} clean -i ${EGO_VERBOSE} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}"
 			${EGO} clean -i ${EGO_VERBOSE} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd} || die
-		done <<< "${GOLANG_PKG_BUILDPATH}"
+		done <<< "$( echo ${GOLANG_PKG_BUILDPATH} ) "
 	else
 		einfo "${EGO} clean -i ${EGO_VERBOSE} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
 		${EGO} clean -i ${EGO_VERBOSE} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH} || die
@@ -756,16 +764,26 @@ golang-single_src_compile() {
 	EGO_BUILD_FLAGS="${EGO_BUILD_FLAGS//\ \ /\ }"
 
 	# Builds the package.
-	# WORKAROUND: 6l has several problems parsing certain flags when invoked
-	#             from a shell script; these bugs will be fixed in go v1.5+
 	if [[ -n ${GOLANG_PKG_BUILDPATH} && ${GOLANG_PKG_BUILDPATH##*/} != "..." ]]; then
+
+		# NOTE: This eclass trims all leading and trailing white spaces from the
+		#       input of the following 'while read' loop, then appends an extra
+		#       trailing space; this is necessary to avoid undefined behaviours
+		#       within the loop when GOLANG_PKG_BUILDPATH is populated with only
+		#       a single element.
 		while read -d $' ' cmd; do
-			einfo "${EGO} build -ldflags=\"$GOLANG_PKG_LDFLAGS\" -tags=\"$GOLANG_PKG_TAGS\" ${EGO_BUILD_FLAGS} -o ${GOBIN}/${cmd##*/} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}"
-			${EGO} build -ldflags="$GOLANG_PKG_LDFLAGS" -tags="$GOLANG_PKG_TAGS" ${EGO_BUILD_FLAGS} -o ${GOBIN}/${cmd##*/} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}|| die
-		done <<< "${GOLANG_PKG_BUILDPATH}"
+			# Ignores $cmd when it's empty or a string of white spaces
+			#einfo "cmd: |$cmd| cmd: |${cmd##*/}|"
+			[[ -n $cmd ]] || continue
+
+			#einfo "${EGO} build -ldflags=\"$GOLANG_PKG_LDFLAGS\" -tags=\"$GOLANG_PKG_TAGS\" ${EGO_BUILD_FLAGS} -o ${GOBIN}/${cmd##*/} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}"
+			#${EGO} build -ldflags="$GOLANG_PKG_LDFLAGS" -tags="$GOLANG_PKG_TAGS" ${EGO_BUILD_FLAGS} -o ${GOBIN}/${cmd##*/} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}|| die
+			golang-single_do_build_ ${EGO_BUILD_FLAGS} -o ${GOBIN}/${cmd##*/} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}
+		done <<< "$( echo ${GOLANG_PKG_BUILDPATH}) "
 	else
-		einfo "${EGO} build -ldflags=\"$GOLANG_PKG_LDFLAGS\" -tags=\"$GOLANG_PKG_TAGS\" ${EGO_BUILD_FLAGS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
-		${EGO} build -ldflags="$GOLANG_PKG_LDFLAGS" -tags="$GOLANG_PKG_TAGS" ${EGO_BUILD_FLAGS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH} || die
+		#einfo "${EGO} build -ldflags=\"$GOLANG_PKG_LDFLAGS\" -tags=\"$GOLANG_PKG_TAGS\" ${EGO_BUILD_FLAGS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
+		#${EGO} build -ldflags="$GOLANG_PKG_LDFLAGS" -tags="$GOLANG_PKG_TAGS" ${EGO_BUILD_FLAGS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH} || die
+		golang-single_do_build_ ${EGO_BUILD_FLAGS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}
 	fi
 }
 
@@ -802,8 +820,8 @@ golang-single_src_install() {
 
 	# Executes the pre-install phase (go install).
 	if [[ -n ${GOLANG_PKG_IS_MULTIPLE} ]]; then
-		einfo "${EGO} install ${EGO_BUILD_FLAGS}"
-		${EGO} install ${EGO_BUILD_FLAGS} || die
+		einfo "${EGO} install -ldflags '$GOLANG_PKG_LDFLAGS' -tags '$GOLANG_PKG_TAGS' ${EGO_BUILD_FLAGS}"
+		${EGO} install -ldflags "${GOLANG_PKG_LDFLAGS}" -tags "${GOLANG_PKG_TAGS}" ${EGO_BUILD_FLAGS} || die
 	fi
 
 	# Installs binaries.
