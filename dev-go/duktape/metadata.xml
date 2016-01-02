@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<upstream>
+		<doc>http://duktape.org/guide.html</doc>
+		<bugs-to>https://github.com/olebedev/go-duktape/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		Duktape is an embeddable Javascript engine, with a focus
+		on portability and compact footprint.
+	</longdescription>
+</pkgmetadata>
