@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -14,7 +14,7 @@ GOLANG_PKG_HAVE_TEST=1
 
 inherit systemd golang-single
 
-EDOC_COMMIT="bf2eb524f4af3f29f504a9acdbb78995c0b15ad5"
+EDOC_COMMIT="bb87d0f18c1abd3397a1c1ee335605f84d3f07e9"
 
 DESCRIPTION="Syncthing is an app that lets you synchronize your files across multiple devices"
 HOMEPAGE="http://syncthing.net"
