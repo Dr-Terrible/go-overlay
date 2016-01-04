@@ -1,0 +1,40 @@
+[Unit]
+Description=Gogs service
+Documentation=https://gogs.io
+
+AssertPathIsDirectory=/var/lib/gogs
+AssertPathIsReadWrite=/var/lib/gogs
+AssertPathIsDirectory=/var/log/gogs
+AssertPathIsReadWrite=/var/log/gogs
+
+After=network.target
+Requires=network.target
+
+# Uncomment to enable MemCache service as a dependency
+#After=memcached.service
+#Requires=memcached.service
+
+# Uncomment to enable Redis service as a dependency
+#After=redis.service
+#Requires=redis.service
+
+# Uncomment to enable MySQL service as a dependency
+#After=mysqld.service
+#Requires=mysqld.service
+
+# Uncomment to enable PostGRES service as a dependency
+#After=postgresql.service
+#Requires=postgresql.service
+
+[Service]
+User=gogs
+Group=gogs
+
+Environment="GOGS_WORK_DIR=/var/lib/gogs"
+Environment="GOGS_CUSTOM=/etc/gogs"
+WorkingDirectory=/var/lib/gogs
+ExecStart=/usr/bin/gogs web -c /etc/gogs/conf/app.ini
+
+Restart=always
+PrivateTmp=true
+Nice=5
