@@ -80,7 +80,7 @@ net-misc/gollum 0.4.0: A n:m message multiplexer written in GoLang
 net-misc/govpn 4.2: Simple secure free software VPN daemon
 net-misc/heka 0.10.0_p1: Heka ia a tool for collecting and collating data from a number of different sources.
 net-misc/nsq 0.3.6: A real-time distributed messaging platform, written in GoLang
-net-misc/syncthing 0.11.26 0.12.10: Syncthing is an app that lets you synchronize your files across multiple devices
+net-misc/syncthing 0.11.26 0.12.11: Syncthing is an app that lets you synchronize your files across multiple devices
 net-misc/syncthing-cli 0.1.0_pre20150922: SyncThing command-line interface
 net-misc/syncthing-inotify 0.6.7: File watcher intended for use with Syncthing (Linux, BSD, Windows, OSX)
 net-misc/wsd 0.0.0_pre20150722: Simple cURL-like command line utility for debugging WebSocket servers
@@ -93,4 +93,4 @@ sys-devel/gcvis 0.1.0_pre20150714: Visualise Go program Garbage Collector trace 
 www-apps/gitea 0.7.0_pre20150630: Gitea is a self-hosted Git service written in Go
 www-apps/gogs 0.7.22: Gogs is a self-hosted Git service written in Go
 www-apps/gotty 0.0.10: GoTTY is a simple command-line tool that turns your CLI tools into web applications
-www-apps/hugo 0.14-r2 0.15-r1 0.16_pre20151227: A fast and flexible static site generator built in GoLang
+www-apps/hugo 0.14-r2 0.15-r1 0.16_pre20160104: A fast and flexible static site generator built in GoLang

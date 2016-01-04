@@ -1,11 +1,11 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/spf13"
-GOLANG_PKG_VERSION="fc627d55537316831a3109087ec03cc6ec5407c4"
+GOLANG_PKG_VERSION="f310492cb01b4c78aa3f47276bbe026a81496ebe"
 GOLANG_PKG_HAVE_TEST=1
 
 # Declares dependencies
@@ -41,6 +41,10 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/stretchr/testify:d797d25"
 	"github.com/golang/text:4838fa4 -> golang.org/x"
 	"github.com/hashicorp/hcl:197e8d3"
+
+	# unit testing
+	"github.com/davecgh/go-spew:5215b55"
+	"github.com/pmezard/go-difflib:e8554b8"
 )
 
 inherit golang-single
