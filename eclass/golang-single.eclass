@@ -566,7 +566,7 @@ golang-single_src_prepare() {
 						#      thus we need a symbolic link between the alias and
 						#      the original import path to avoid compilation issues.
 						#      Example: gopkg.in/Shopify/sarama.v1 erroneously
-						#      invoking imports from github.com/shopify/sarama
+						#      invokes imports from github.com/shopify/sarama
 						if [[ ${destdir} != ${DEPENDENCY[importpath]} ]]; then
 							golang_fix_importpath_alias ${destdir} ${DEPENDENCY[importpath]}
 						fi
@@ -574,7 +574,6 @@ golang-single_src_prepare() {
 					bitbucket*)
 						#einfo "path: ${DEPENDENCY[author_name]}-${DEPENDENCY[project_name]}-${DEPENDENCY[revision]}"
 						ebegin "${message}"
-							#mv ${DEPENDENCY[author_name]}-${DEPENDENCY[project_name]}-${DEPENDENCY[revision]} "${GOPATH}"/src/${DEPENDENCY[importpathalias]}/${DEPENDENCY[project_name]} || die
 							mv ${DEPENDENCY[author_name]}-${DEPENDENCY[project_name]}-${DEPENDENCY[revision]}* "${GOPATH}"/src/${destdir} || die
 						eend
 						;;
@@ -613,6 +612,7 @@ golang-single_src_configure() {
 
 	[[ ${EGO} ]] || die "No GoLang implementation set (golang_setup not called?)."
 
+	# Defines the level of verbosity.
 	local EGO_VERBOSE="-v"
 	[[ -z ${PORTAGE_VERBOSE} ]] || EGO_VERBOSE+=" -x"
 
@@ -648,11 +648,17 @@ golang-single_src_configure() {
 		#       a single element.
 		while read -d $' ' cmd; do
 			einfo "${EGO} clean -i ${EGO_VERBOSE} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}"
-			${EGO} clean -i ${EGO_VERBOSE} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd} || die
+			${EGO} clean -i \
+				${EGO_VERBOSE} \
+				"${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}" \
+				|| die
 		done <<< "$( echo ${GOLANG_PKG_BUILDPATH} ) "
 	else
 		einfo "${EGO} clean -i ${EGO_VERBOSE} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
-		${EGO} clean -i ${EGO_VERBOSE} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH} || die
+		${EGO} clean -i \
+			${EGO_VERBOSE} \
+			"${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}" \
+			|| die
 	fi
 
 	# Removes GoLang objects files from all the dependencies too.
@@ -675,7 +681,7 @@ golang-single_src_configure() {
 
 			# Cleans object files of the dependency.
 			einfo "${EGO} clean -i ${EGO_VERBOSE} ${DEPENDENCY[importpath]}"
-			${EGO} clean -i ${EGO_VERBOSE} ${DEPENDENCY[importpath]} || die
+			${EGO} clean -i ${EGO_VERBOSE} "${DEPENDENCY[importpath]}" || die
 		done
 	fi
 
@@ -697,7 +703,7 @@ golang-single_src_configure() {
 	# Executes 'go generate'.
 	# NOTE: generate should never run automatically. It must be run explicitly.
 	if [[ -n ${GOLANG_PKG_USE_GENERATE} ]]; then
-		einfo "${EGO} generate ${EGO_VERBOSE} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
+		einfo "${EGO} generate ${EGO_VERBOSE} ./..."
 		${EGO} generate \
 			${EGO_VERBOSE} \
 			./... \
@@ -738,13 +744,6 @@ golang-single_src_compile() {
 		export GOPATH
 	fi
 
-
-	# Defines the output binary name of the package.
-	# If the package is a multiple package then this eclass doesn't specify
-	# the output name.
-	local EGO_OUTPUT
-	[[ -z ${GOLANG_PKG_BUILDPATH} ]] && EGO_OUTPUT="-o ${GOBIN}/${GOLANG_PKG_OUTPUT_NAME}"
-
 	# Defines the install suffix.
 	local EGO_INSTALLSUFFIX
 	[[ -z ${GOLANG_PKG_INSTALLSUFFIX} ]] || EGO_INSTALLSUFFIX="-installsuffix=${GOLANG_PKG_INSTALLSUFFIX}"
@@ -760,8 +759,13 @@ golang-single_src_compile() {
 	local EGO_EXTRA_OPTIONS="-a"
 
 	# Prepares build flags for the go toolchain.
-	local EGO_BUILD_FLAGS="${EGO_INSTALLSUFFIX} ${EGO_OUTPUT} ${EGO_VERBOSE} ${EGO_PARALLEL} ${EGO_EXTRA_OPTIONS}"
-	EGO_BUILD_FLAGS="${EGO_BUILD_FLAGS//\ \ /\ }"
+	local EGO_BUILD_FLAGS="$( echo ${EGO_VERBOSE} ) $( echo ${EGO_PARALLEL} ) $( echo ${EGO_EXTRA_OPTIONS} )"
+	[[ -n ${EGO_INSTALLSUFFIX} ]] && EGO_BUILD_FLAGS+=" $( echo ${EGO_INSTALLSUFFIX} )"
+
+	# Defines the output binary name of the package.
+	# If the package is a multiple package then this eclass doesn't specify
+	# the output name.
+	[[ -z ${GOLANG_PKG_BUILDPATH} ]] && EGO_BUILD_FLAGS+=" -o ${GOBIN}/${GOLANG_PKG_OUTPUT_NAME}"
 
 	# Builds the package.
 	if [[ -n ${GOLANG_PKG_BUILDPATH} && ${GOLANG_PKG_BUILDPATH##*/} != "..." ]]; then
@@ -777,13 +781,16 @@ golang-single_src_compile() {
 			[[ -n $cmd ]] || continue
 
 			#einfo "${EGO} build -ldflags=\"$GOLANG_PKG_LDFLAGS\" -tags=\"$GOLANG_PKG_TAGS\" ${EGO_BUILD_FLAGS} -o ${GOBIN}/${cmd##*/} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}"
-			#${EGO} build -ldflags="$GOLANG_PKG_LDFLAGS" -tags="$GOLANG_PKG_TAGS" ${EGO_BUILD_FLAGS} -o ${GOBIN}/${cmd##*/} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}|| die
-			golang-single_do_build_ ${EGO_BUILD_FLAGS} -o ${GOBIN}/${cmd##*/} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}
+			golang-single_do_build_ \
+				${EGO_BUILD_FLAGS} \
+				-o "${GOBIN}/${cmd##*/}" \
+				"${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}"
 		done <<< "$( echo ${GOLANG_PKG_BUILDPATH}) "
 	else
 		#einfo "${EGO} build -ldflags=\"$GOLANG_PKG_LDFLAGS\" -tags=\"$GOLANG_PKG_TAGS\" ${EGO_BUILD_FLAGS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
-		#${EGO} build -ldflags="$GOLANG_PKG_LDFLAGS" -tags="$GOLANG_PKG_TAGS" ${EGO_BUILD_FLAGS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH} || die
-		golang-single_do_build_ ${EGO_BUILD_FLAGS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}
+		golang-single_do_build_ \
+			${EGO_BUILD_FLAGS} \
+			"${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
 	fi
 }
 
@@ -795,10 +802,6 @@ golang-single_src_install() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	[[ ${EGO} ]] || die "No GoLang implementation set (golang_setup not called?)."
-
-	# Defines the arguments for the linker invocation.
-	local EGO_LDFLAGS
-	#[[ -z ${GOLANG_PKG_LDFLAGS} ]] || EGO_LDFLAGS="-ldflags '${GOLANG_PKG_LDFLAGS}'"
 
 	# Defines the install suffix.
 	local EGO_INSTALLSUFFIX
@@ -812,16 +815,24 @@ golang-single_src_install() {
 	local EGO_PARALLEL="-p $(makeopts_jobs)"
 
 	# Defines extra options.
-	local EGO_EXTRA_OPTIONS=""
+	local EGO_EXTRA_OPTIONS
 
 	# Prepares build flags for the go toolchain.
-	local EGO_BUILD_FLAGS="${EGO_LDFLAGS} ${EGO_INSTALLSUFFIX} ${EGO_VERBOSE} ${EGO_PARALLEL} ${EGO_EXTRA_OPTIONS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
-	EGO_BUILD_FLAGS="${EGO_BUILD_FLAGS//\ \ /\ }"
+	local EGO_BUILD_FLAGS="$( echo ${EGO_VERBOSE} ) $( echo ${EGO_PARALLEL} ) $( echo ${EGO_EXTRA_OPTIONS} )"
+	[[ -n ${EGO_INSTALLSUFFIX} ]] && EGO_BUILD_FLAGS+=" $( echo ${EGO_INSTALLSUFFIX} )"
+
+	# Defines sub-packages.
+	local EGO_SUBPACKAGES="${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
 
 	# Executes the pre-install phase (go install).
 	if [[ -n ${GOLANG_PKG_IS_MULTIPLE} ]]; then
 		einfo "${EGO} install -ldflags '$GOLANG_PKG_LDFLAGS' -tags '$GOLANG_PKG_TAGS' ${EGO_BUILD_FLAGS}"
-		${EGO} install -ldflags "${GOLANG_PKG_LDFLAGS}" -tags "${GOLANG_PKG_TAGS}" ${EGO_BUILD_FLAGS} || die
+		${EGO} install \
+			-ldflags "$( echo ${GOLANG_PKG_LDFLAGS} )" \
+			-tags "$( echo ${GOLANG_PKG_TAGS} )" \
+			${EGO_BUILD_FLAGS} \
+			"${EGO_SUBPACKAGES}" \
+			|| die
 	fi
 
 	# Installs binaries.
@@ -858,21 +869,24 @@ golang-single_src_test() {
 	# Defines extra options.
 	local EGO_EXTRA_OPTIONS="-a"
 
+	# Enables data race detection.
+	local EGO_RACE
+	[[ -n ${GOLANG_PKG_HAVE_TEST_RACE} ]] && EGO_RACE=" -race"
+
+	# Prepares build flags for the go toolchain.
+	local EGO_BUILD_FLAGS="$( echo ${EGO_VERBOSE} ) $( echo ${EGO_PARALLEL} ) $( echo ${EGO_EXTRA_OPTIONS} )"
+	[[ -n ${EGO_RACE} ]] && EGO_BUILD_FLAGS+=" $( echo ${EGO_RACE} )"
+
 	# Defines sub-packages.
 	local EGO_SUBPACKAGES="${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
 	[[ -n ${GOLANG_PKG_IS_MULTIPLE} ]] || EGO_SUBPACKAGES="./..."
 
-	# Enables data race detection.
-	local EGO_RACE=""
-	[[ -n ${GOLANG_PKG_HAVE_TEST_RACE} ]] && EGO_RACE=" -race"
-
-	# Prepares build flags for the go toolchain.
-	local EGO_BUILD_FLAGS="${EGO_VERBOSE} ${EGO_PARALLEL} ${EGO_EXTRA_OPTIONS} ${EGO_RACE} ${EGO_SUBPACKAGES}"
-	EGO_BUILD_FLAGS="${EGO_BUILD_FLAGS//\ \ /\ }"
-
 	# Runs the unit tests.
-	einfo "${EGO} test ${EGO_BUILD_FLAGS}"
-	${EGO} test ${EGO_BUILD_FLAGS} || die
+	einfo "${EGO} test ${EGO_BUILD_FLAGS} ${EGO_SUBPACKAGES}"
+	${EGO} test \
+		${EGO_BUILD_FLAGS} \
+		"${EGO_SUBPACKAGES}" \
+		|| die
 }
 
 
