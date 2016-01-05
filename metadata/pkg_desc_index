@@ -73,6 +73,7 @@ dev-util/gometalinter 0.1_pre20151129: Concurrently run Go lint tools and normal
 dev-util/goyacc 0.1.0_pre20150906: Goyacc is a version of yacc generating Go parsers.
 dev-util/hub 2.2.2: Hub is a command-line tool that wraps git in order to extend it with extra features and commands
 dev-util/orange-cat 0.2.2-r1: A Markdown previewer written in GoLang
+dev-util/pipecat 0.2: Pipecat allows you to scale any program using traditional UNIX pipes and AMQP
 net-ftp/pixiecore 0.1.0_pre20150915: PXE booting for people in a hurry
 net-misc/bat 0.0.2: Go implemented CLI cURL-like tool for humans
 net-misc/gnatsd 0.6.6: A high Performance NATS Server written in GoLang
