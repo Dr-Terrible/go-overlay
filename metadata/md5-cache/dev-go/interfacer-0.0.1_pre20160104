@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=A linter for GoLang that suggests interface types
+EAPI=5
+HOMEPAGE=https://github.com/mvdan/interfacer
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=BSD
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/mvdan/interfacer/archive/97d35fd15135c5fd778663d8b4bb2de7e03ca8b1.tar.gz -> interfacer-0.0.1_pre20160104.tar.gz https://github.com/golang/tools/archive/a8498a7.tar.gz -> github.com-golang-tools-a8498a7.tar.gz
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	d9bd2ddd85a58e470b49ca997e255a4c	golang-single	7c6fbb21fb2bf4a0aa56fafacdc5de62	golang-utils	1584f071e4e7e3a9177f57583bee64b7	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_md5_=c4f1234aeab69d97b2c802ab517c26c3
