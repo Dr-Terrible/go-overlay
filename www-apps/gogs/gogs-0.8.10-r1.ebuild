@@ -13,6 +13,7 @@ GOLANG_PKG_HAVE_TEST=1
 
 # Dependencies
 GOLANG_PKG_DEPENDENCIES=(
+	"github.com/alexcesaro/quotedprintable:2caba25 -> gopkg.in/alexcesaro/quotedprintable.v3"
 	"github.com/bradfitz/gomemcache:72a6864"
 	"github.com/Unknwon/cae:7f5e046"
 	"github.com/Unknwon/com:28b053d"
