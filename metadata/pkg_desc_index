@@ -37,7 +37,7 @@ dev-go/gb 0.2.0 0.3.5: Gb is a project based build tool for the Go programming l
 dev-go/gcli 0.2.1 0.2.3: Gcli builds GoLang command-line applications
 dev-go/ginkgo 1.2.0: BDD Testing Framework for GoLang
 dev-go/glide 0.6.1: Glide is a simplified GoLang project management, dependency management, and vendoring
-dev-go/go-bindata 3.0.7 3.0.8_pre20150814: A small utility for embedding binary data in a GoLang program.
+dev-go/go-bindata 3.0.7 3.0.8_pre20151023: A small utility for embedding binary data in a GoLang program.
 dev-go/go-bindata-assetfs 0.1.0_pre20150813: A small utility for embedding binary data in a GoLang program.
 dev-go/go-torch 0.5.0_pre20150729: Stochastic flame graph profiler for Go Programs
 dev-go/goa 0.0.1_pre20160107: Goa is a framework for building RESTful microservices in Go
@@ -95,6 +95,6 @@ sys-devel/calc 20150422: A simple, fast command-line calculator written in GoLan
 sys-devel/delve 0.5.0 0.9.0: Delve is a debugger for the Go programming language
 sys-devel/gcvis 0.1.0_pre20150714: Visualise Go program Garbage Collector trace data in real-time.
 www-apps/gitea 0.7.0_pre20150630: Gitea is a self-hosted Git service written in Go
-www-apps/gogs 0.7.22 0.8.10: Gogs is a self-hosted Git service written in Go
+www-apps/gogs 0.7.22 0.8.10-r1: Gogs is a self-hosted Git service written in Go
 www-apps/gotty 0.0.10: GoTTY is a simple command-line tool that turns your CLI tools into web applications
 www-apps/hugo 0.14-r2 0.15-r1 0.16_pre20160104: A fast and flexible static site generator built in GoLang
