@@ -1,11 +1,11 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/jteeuwen"
-GOLANG_PKG_VERSION="bfe36d3254337b7cc18024805dfab2106613abdf"
+GOLANG_PKG_VERSION="a0ff2567cfb70903282db057e799fd826784d41d"
 GOLANG_PKG_IS_MULTIPLE=1
 GOLANG_PKG_HAVE_TEST=1
 
