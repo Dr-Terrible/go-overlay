@@ -8,7 +8,7 @@ GOLANG_PKG_IMPORTPATH="github.com/${PN}"
 GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_BUILDPATH="/cmd/${PN}"
 GOLANG_PKG_TAGS="noupgrade"
-GOLANG_PKG_LDFLAGS="-X main.Version=v${PV} -X main.BuildUser=portage -X main.BuildHost=gentoo"
+GOLANG_PKG_LDFLAGS="-w -X main.Version=v${PV} -X main.BuildUser=portage -X main.BuildHost=gentoo -X main.BuildStamp=$( date +%s )"
 GOLANG_PKG_USE_GENERATE=1
 GOLANG_PKG_HAVE_TEST=1
 
