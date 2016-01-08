@@ -22,3 +22,5 @@ HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
+
+DEPEND=">=dev-lang/go-1.5.0"

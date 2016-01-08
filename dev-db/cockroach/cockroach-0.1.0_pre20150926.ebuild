@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -47,3 +47,7 @@ HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
+
+# <go1.4 is not supported
+# see github.com/cockcroach/issues/3278
+DEPEND=">=dev-lang/go-1.5.1"
