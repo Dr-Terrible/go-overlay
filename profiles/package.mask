@@ -5,6 +5,11 @@
 #
 # NOTE: Please add your entry at the top!
 
+# Toffanin Mauro <toffanin.mauro@gmail.com> (09 Gen 2016)
+# Gitea is no longer developed by upstram. For reference
+# see https://github.com/go-gitea/gitea/issues/227
+www-apps/gitea
+
 # Toffanin Mauro <toffanin.mauro@gmail.com> (10 Jun 2015)
 # These packages are marked as a work in progress by upstream.
 # Compilation failures are guarantee.
