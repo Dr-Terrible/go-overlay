@@ -39,6 +39,8 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
 
+DEPEND=">=dev-lang/go-1.5.0"
+
 src_prepare() {
 	golang-single_src_prepare
 
