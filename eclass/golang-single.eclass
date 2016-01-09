@@ -438,9 +438,9 @@ golang_setup() {
 	debug-print "${FUNCNAME}: ESTATIK = ${ESTATIK}"
 
 	# Determines go interpreter version.
-	local GOLANG_VERSION="$( ${GO} version )"
+	GOLANG_VERSION="$( ${GO} version )"
 	GOLANG_VERSION="${GOLANG_VERSION/go\ version\ go}"
-	GOLANG_VERSION="${GOLANG_VERSION%\ *}"
+	export GOLANG_VERSION="${GOLANG_VERSION%\ *}"
 	einfo "Found GoLang version: ${GOLANG_VERSION}"
 
 	# Determines statik interpreter version.
@@ -639,27 +639,27 @@ golang-single_src_configure() {
 
 	# Removes GoLang object files from package source directories (pkg/)
 	# and temporary directories (_obj/ _test*/).
-	if [[ -n ${GOLANG_PKG_BUILDPATH} && ${GOLANG_PKG_BUILDPATH##*/} != "..." ]]; then
-
-		# NOTE: This eclass trims all leading and trailing white spaces from the
-		#       input of the following 'while read' loop, then appends an extra
-		#       trailing space; this is necessary to avoid undefined behaviours
-		#       within the loop when GOLANG_PKG_BUILDPATH is populated with only
-		#       a single element.
-		while read -d $' ' cmd; do
-			einfo "${EGO} clean -i ${EGO_VERBOSE} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}"
-			${EGO} clean -i \
-				${EGO_VERBOSE} \
-				"${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}" \
-				|| die
-		done <<< "$( echo ${GOLANG_PKG_BUILDPATH} ) "
-	else
-		einfo "${EGO} clean -i ${EGO_VERBOSE} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
+#	if [[ -n ${GOLANG_PKG_BUILDPATH} && ${GOLANG_PKG_BUILDPATH##*/} != "..." ]]; then
+#
+#		# NOTE: This eclass trims all leading and trailing white spaces from the
+#		#       input of the following 'while read' loop, then appends an extra
+#		#       trailing space; this is necessary to avoid undefined behaviours
+#		#       within the loop when GOLANG_PKG_BUILDPATH is populated with only
+#		#       a single element.
+#		while read -d $' ' cmd; do
+#			einfo "${EGO} clean -i ${EGO_VERBOSE} ${GOLANG_PKG_IMPORTPATH}/${GOLANG_PKG_NAME}${cmd}"
+#			${EGO} clean -i \
+#				${EGO_VERBOSE} \
+#				"${GOLANG_PKG_IMPORTPATH}/${GOLANG_PKG_NAME}${cmd}" \
+#				|| die
+#		done <<< "$( echo ${GOLANG_PKG_BUILDPATH} ) "
+#	else
+		einfo "${EGO} clean -i ${EGO_VERBOSE} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}"
 		${EGO} clean -i \
 			${EGO_VERBOSE} \
-			"${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}" \
+			"${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}/..." \
 			|| die
-	fi
+#	fi
 
 	# Removes GoLang objects files from all the dependencies too.
 	if [[ ${#GOLANG_PKG_DEPENDENCIES[@]} -gt 0 ]]; then
@@ -681,7 +681,10 @@ golang-single_src_configure() {
 
 			# Cleans object files of the dependency.
 			einfo "${EGO} clean -i ${EGO_VERBOSE} ${DEPENDENCY[importpath]}"
-			${EGO} clean -i ${EGO_VERBOSE} "${DEPENDENCY[importpath]}" || die
+			${EGO} clean \
+				-i ${EGO_VERBOSE} \
+				"${DEPENDENCY[importpath]}" \
+				|| die
 		done
 	fi
 
@@ -768,6 +771,7 @@ golang-single_src_compile() {
 	[[ -z ${GOLANG_PKG_BUILDPATH} ]] && EGO_BUILD_FLAGS+=" -o ${GOBIN}/${GOLANG_PKG_OUTPUT_NAME}"
 
 	# Builds the package.
+	einfo "Compiling package(s):"
 	if [[ -n ${GOLANG_PKG_BUILDPATH} && ${GOLANG_PKG_BUILDPATH##*/} != "..." ]]; then
 
 		# NOTE: This eclass trims all leading and trailing white spaces from the
@@ -780,14 +784,12 @@ golang-single_src_compile() {
 			#einfo "cmd: |$cmd| cmd: |${cmd##*/}|"
 			[[ -n $cmd ]] || continue
 
-			#einfo "${EGO} build -ldflags=\"$GOLANG_PKG_LDFLAGS\" -tags=\"$GOLANG_PKG_TAGS\" ${EGO_BUILD_FLAGS} -o ${GOBIN}/${cmd##*/} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}"
 			golang-single_do_build_ \
 				${EGO_BUILD_FLAGS} \
 				-o "${GOBIN}/${cmd##*/}" \
 				"${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}"
 		done <<< "$( echo ${GOLANG_PKG_BUILDPATH}) "
 	else
-		#einfo "${EGO} build -ldflags=\"$GOLANG_PKG_LDFLAGS\" -tags=\"$GOLANG_PKG_TAGS\" ${EGO_BUILD_FLAGS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
 		golang-single_do_build_ \
 			${EGO_BUILD_FLAGS} \
 			"${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"

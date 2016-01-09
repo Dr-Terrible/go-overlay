@@ -8,5 +8,5 @@ LICENSE=MIT
 RESTRICT=mirror
 SLOT=0
 SRC_URI=https://github.com/stripe/safesql/archive/9fcb7be12dfcbef68bd78acd116e2065cd0b3482.tar.gz -> safesql-0_pre20150617.tar.gz https://github.com/golang/tools/archive/cc54cd6553.tar.gz -> github.com-golang-tools-cc54cd6553.tar.gz
-_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	d9bd2ddd85a58e470b49ca997e255a4c	golang-single	7c6fbb21fb2bf4a0aa56fafacdc5de62	golang-utils	1584f071e4e7e3a9177f57583bee64b7	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	d9bd2ddd85a58e470b49ca997e255a4c	golang-single	33568ebcfcf7e5f9d361ab096102256f	golang-utils	977dab65252d06522d0a5027e8a8c8bb	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
 _md5_=ce2e72431c6c8a67e98fa936cb774300

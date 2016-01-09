@@ -15,6 +15,8 @@
 # This eclass should not be inherited directly from an ebuild.
 # Instead, you should inherit golang-single for GoLang packages.
 
+inherit versionator
+
 
 # @FUNCTION: golang-single_do_build_
 # @INTERNAL
@@ -31,6 +33,19 @@
 golang-single_do_build_() {
 	debug-print-function ${FUNCNAME} $*
 
+	[[ ${GOLANG_VERSION} ]] || die "No GoLang implementation set (golang_setup not called?)."
+
+	# Filters "=" chars from ldflags declaration
+	# NOTE: from go1.5+ linker syntax is no more compatible with <go1.4; this hack
+	#       ensures that the old behaviour is honoured.
+	if [[ $( get_version_component_range 1-2 ${GOLANG_VERSION} ) == "1.4" ]]; then
+		GOLANG_PKG_LDFLAGS="${GOLANG_PKG_LDFLAGS//=/ }"
+	fi
+
 	einfo "${EGO} build -ldflags '$GOLANG_PKG_LDFLAGS' -tags '$GOLANG_PKG_TAGS' $*"
-	${EGO} build -ldflags "${GOLANG_PKG_LDFLAGS}" -tags "${GOLANG_PKG_TAGS}" $* || die
+	${EGO} build \
+		-ldflags "$( echo ${GOLANG_PKG_LDFLAGS} )" \
+		-tags "$( echo ${GOLANG_PKG_TAGS} )" \
+		$* \
+		|| die
 }
