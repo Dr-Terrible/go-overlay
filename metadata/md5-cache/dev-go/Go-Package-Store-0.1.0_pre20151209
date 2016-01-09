@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=>=dev-lang/go-1.5.0 dev-lang/go:*
+DESCRIPTION=An app that displays updates for the Go packages in your GOPATH
+EAPI=5
+HOMEPAGE=https://github.com/shurcooL/Go-Package-Store
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=MIT
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/shurcooL/Go-Package-Store/archive/55bf53ffb3e85129e9f296abd67e465095d66e49.tar.gz -> Go-Package-Store-0.1.0_pre20151209.tar.gz https://github.com/shurcooL/go/archive/8087d7ae25.tar.gz -> github.com-shurcooL-go-8087d7ae25.tar.gz https://github.com/shurcooL/gopherjslib/archive/d8eec8734d.tar.gz -> github.com-shurcooL-gopherjslib-d8eec8734d.tar.gz https://github.com/shurcooL/httpfs/archive/88fa6f82a8.tar.gz -> github.com-shurcooL-httpfs-88fa6f82a8.tar.gz https://github.com/shurcooL/gostatus/archive/133f6c678a.tar.gz -> github.com-shurcooL-gostatus-133f6c678a.tar.gz https://github.com/shurcooL/vfsgen/archive/9467ba831f.tar.gz -> github.com-shurcooL-vfsgen-9467ba831f.tar.gz https://github.com/gopherjs/gopherjs/archive/52a9b31eab.tar.gz -> github.com-gopherjs-gopherjs-52a9b31eab.tar.gz https://github.com/golang/net/archive/669b27b881.tar.gz -> github.com-golang-net-669b27b881.tar.gz https://github.com/golang/tools/archive/4f50f44d7a.tar.gz -> github.com-golang-tools-4f50f44d7a.tar.gz https://github.com/kardianos/osext/archive/6e7f843663.tar.gz -> github.com-kardianos-osext-6e7f843663.tar.gz https://github.com/kardianos/govendor/archive/7d7bdd9.tar.gz -> github.com-kardianos-govendor-7d7bdd9.tar.gz https://github.com/neelance/sourcemap/archive/8994456d80.tar.gz -> github.com-neelance-sourcemap-8994456d80.tar.gz https://github.com/go-fsnotify/fsnotify/archive/96c060f6a6.tar.gz -> github.com-go-fsnotify-fsnotify-96c060f6a6.tar.gz https://github.com/dominikh/go-js-dom/archive/5f25eefafd.tar.gz -> github.com-dominikh-go-js-dom-5f25eefafd.tar.gz https://github.com/dominikh/go-js-xhr/archive/00e3346113.tar.gz -> github.com-dominikh-go-js-xhr-00e3346113.tar.gz https://github.com/dominikh/go-js-util/archive/96b8dd9d16.tar.gz -> github.com-dominikh-go-js-util-96b8dd9d16.tar.gz https://github.com/google/go-github/archive/0d67682ce8.tar.gz -> github.com-google-go-github-0d67682ce8.tar.gz https://github.com/google/go-querystring/archive/547ef5ac97.tar.gz -> github.com-google-go-querystring-547ef5ac97.tar.gz
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	d9bd2ddd85a58e470b49ca997e255a4c	golang-single	82cf51a556f20f051a276f2d4e03a9ab	golang-utils	977dab65252d06522d0a5027e8a8c8bb	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=914c4a76dc1132c38462da48c042a2ad

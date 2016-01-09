@@ -1,11 +1,11 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/shurcooL"
-GOLANG_PKG_VERSION="2e0d1eeea888947f677fc9092434b2bceea4b61d"
+GOLANG_PKG_VERSION="55bf53ffb3e85129e9f296abd67e465095d66e49"
 GOLANG_PKG_IS_MULTIPLE=1
 GOLANG_PKG_USE_GENERATE=1
 GOLANG_PKG_HAVE_TEST=1
@@ -21,6 +21,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/golang/net:669b27b881 -> golang.org/x"
 	"github.com/golang/tools:4f50f44d7a -> golang.org/x"
 	"github.com/kardianos/osext:6e7f843663"
+	"github.com/kardianos/govendor:7d7bdd9"
 	"github.com/neelance/sourcemap:8994456d80"
 	"github.com/go-fsnotify/fsnotify:96c060f6a6 -> gopkg.in/fsnotify.v1"
 	"github.com/dominikh/go-js-dom:5f25eefafd"
