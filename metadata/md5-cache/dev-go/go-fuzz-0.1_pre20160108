@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=>=dev-lang/go-1.5.1 dev-lang/go:*
+DESCRIPTION=Go-fuzz is a coverage-guided fuzzing solution for testing of Go packages
+EAPI=5
+HOMEPAGE=https://github.com/dvyukov/go-fuzz
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=Apache-2.0
+RESTRICT=mirror test
+SLOT=0
+SRC_URI=https://github.com/dvyukov/go-fuzz/archive/241d86511f9b4bf8f01815b07d2f969ec52619b2.tar.gz -> go-fuzz-0.1_pre20160108.tar.gz https://github.com/elazarl/go-bindata-assetfs/archive/57eb5e1.tar.gz -> github.com-elazarl-go-bindata-assetfs-57eb5e1.tar.gz https://github.com/golang/tools/archive/4ad5335.tar.gz -> github.com-golang-tools-4ad5335.tar.gz
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	d9bd2ddd85a58e470b49ca997e255a4c	golang-single	82cf51a556f20f051a276f2d4e03a9ab	golang-utils	977dab65252d06522d0a5027e8a8c8bb	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=ee23b7f95600c844570cea231a70ff1a
