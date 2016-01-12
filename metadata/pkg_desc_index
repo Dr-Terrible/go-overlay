@@ -84,6 +84,7 @@ dev-util/orange-cat 0.2.2-r1: A Markdown previewer written in GoLang
 dev-util/pipecat 0.2: Pipecat allows you to scale any program using traditional UNIX pipes and AMQP
 net-ftp/pixiecore 0.1.0_pre20150915: PXE booting for people in a hurry
 net-misc/bat 0.0.2: Go implemented CLI cURL-like tool for humans
+net-misc/drive 0.3.4: Google Drive client for the commandline
 net-misc/gnatsd 0.6.6: A high Performance NATS Server written in GoLang
 net-misc/goduckgo 0.1.0_pre20150206: Command-line tool for DuckDuckGo API
 net-misc/gollum 0.4.0: A n:m message multiplexer written in GoLang
