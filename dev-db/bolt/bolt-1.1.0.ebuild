@@ -10,7 +10,7 @@ GOLANG_PKG_BUILDPATH="/cmd/${PN}"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/codegangsta/cli:565493f" #v1.2.0
+	"github.com/codegangsta/cli:c31a797"
 )
 
 inherit golang-single
