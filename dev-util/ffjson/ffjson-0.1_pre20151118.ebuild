@@ -25,10 +25,10 @@ KEYWORDS="~amd64 ~x86 ~arm"
 src_test() {
 
 	einfo "Generating tests ..."
-		${GOBIN}/ffjson tests/ff.go || die
-		${GOBIN}/ffjson tests/goser/ff/goser.go || die
-		${GOBIN}/ffjson tests/go.stripe/ff/customer.go || die
-		${GOBIN}/ffjson tests/types/ff/everything.go || die
+		${GOBIN}/${PN} tests/ff.go || die
+		${GOBIN}/${PN} tests/goser/ff/goser.go || die
+		${GOBIN}/${PN} tests/go.stripe/ff/customer.go || die
+		${GOBIN}/${PN} tests/types/ff/everything.go || die
 
 	einfo "${EGO} test -v ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}/tests/..."
 		${EGO} test -v \
