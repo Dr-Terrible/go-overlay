@@ -55,7 +55,7 @@ dev-go/interfacer 0.0.1_pre20160104: A linter for GoLang that suggests interface
 dev-go/kar 0.1_pre20151007: Kar is a simple utility that helps you run Kargar builds from CLI
 dev-go/liteide-tools 2015.04.09: Liteide Golang tools
 dev-go/minify 1.0.0 1.1.0: Go minifiers for web formats.
-dev-go/mock 0.1.0_pre20150821: GoMock is a mocking framework for the Go programming language
+dev-go/mock 0.1.0_pre20150821 0.1.0_pre20151213: GoMock is a mocking framework for the Go programming language
 dev-go/protobuf 0.1: Protocol Buffers for Go with Gadgets
 dev-go/raml 0.8: An implementation of a RAML parser for Go. Compliant with RAML 0.8
 dev-go/re2dfa 0.1.0_pre20150627: Transform regular expressions into finite state machines and output GoLang source code
