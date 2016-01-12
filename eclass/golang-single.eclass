@@ -591,6 +591,16 @@ golang-single_src_prepare() {
 	popd > /dev/null
 
 
+	# Auto-detects the presence of Go's vendored dependencies.
+	case $( get_version_component_range 1-2 ${GOLANG_VERSION} ) in
+		1.4*) ;;
+		*)
+			if [[ -r "${S}"/vendor/manifest ]]; then
+				export GO15VENDOREXPERIMENT=1
+			fi
+			;;
+	esac
+
 	# Auto-detects the presence of Godep's workspace
 	# (see github.com/tools/godep for more infos).
 	if [[ -d "${S}"/Godeps/_workspace/src ]]; then
@@ -639,27 +649,18 @@ golang-single_src_configure() {
 
 	# Removes GoLang object files from package source directories (pkg/)
 	# and temporary directories (_obj/ _test*/).
-#	if [[ -n ${GOLANG_PKG_BUILDPATH} && ${GOLANG_PKG_BUILDPATH##*/} != "..." ]]; then
-#
-#		# NOTE: This eclass trims all leading and trailing white spaces from the
-#		#       input of the following 'while read' loop, then appends an extra
-#		#       trailing space; this is necessary to avoid undefined behaviours
-#		#       within the loop when GOLANG_PKG_BUILDPATH is populated with only
-#		#       a single element.
-#		while read -d $' ' cmd; do
-#			einfo "${EGO} clean -i ${EGO_VERBOSE} ${GOLANG_PKG_IMPORTPATH}/${GOLANG_PKG_NAME}${cmd}"
-#			${EGO} clean -i \
-#				${EGO_VERBOSE} \
-#				"${GOLANG_PKG_IMPORTPATH}/${GOLANG_PKG_NAME}${cmd}" \
-#				|| die
-#		done <<< "$( echo ${GOLANG_PKG_BUILDPATH} ) "
-#	else
-		einfo "${EGO} clean -i ${EGO_VERBOSE} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}"
-		${EGO} clean -i \
-			${EGO_VERBOSE} \
-			"${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}/..." \
-			|| die
-#	fi
+	local EGO_SUBPACKAGES="${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}"
+	case $( get_version_component_range 1-2 ${GOLANG_VERSION} ) in
+		1.4*) ;;
+		*)
+			EGO_SUBPACKAGES+="/..."
+			;;
+	esac
+	einfo "${EGO} clean -i ${EGO_VERBOSE} ${EGO_SUBPACKAGES}"
+	${EGO} clean -i \
+		${EGO_VERBOSE} \
+		"${EGO_SUBPACKAGES}" \
+		|| die
 
 	# Removes GoLang objects files from all the dependencies too.
 	if [[ ${#GOLANG_PKG_DEPENDENCIES[@]} -gt 0 ]]; then
@@ -687,7 +688,6 @@ golang-single_src_configure() {
 				|| die
 		done
 	fi
-
 
 	# Before to compile Godep's dependencies it's wise to wipe out
 	# all pre-built object files from Godep's package source directories.
@@ -732,15 +732,23 @@ golang-single_src_compile() {
 	[[ ${EGO} ]] || die "No GoLang implementation set (golang_setup not called?)."
 
 	# Populates env variable GOPATH with vendored workspaces (if present).
+	if [[ -n ${GOLANG_PKG_VENDOR} || "1" == ${GO15VENDOREXPERIMENT} ]]; then
+		einfo "Using vendored dependencies from:"
+
+		# Prints Go's vendored directory.
+		if [[ "1" == ${GO15VENDOREXPERIMENT} ]]; then
+			einfo "- vendor"
+		fi
+	fi
+
+	# Prints user defined vendored directories.
 	if [[ -n ${GOLANG_PKG_VENDOR} ]]; then
-		einfo "Using bundled packages from:"
+		for path in "${GOLANG_PKG_VENDOR[@]}"; do
+			[ -d ${path} ] || continue
 
-		for x in "${GOLANG_PKG_VENDOR[@]}"; do
-			[ -d ${x} ] || continue
-
-			debug-print "$FUNCNAME: GOPATH: Adding vendor path ${x}"
-			ebegin "- ${x//${WORKDIR}\//}"
-				GOPATH="${GOPATH}:${x}"
+			debug-print "$FUNCNAME: GOPATH: Adding vendor path ${path}"
+			ebegin "- ${path//${WORKDIR}\//}"
+				GOPATH="${GOPATH}:${path}"
 			eend
 		done
 
