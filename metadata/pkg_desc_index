@@ -68,7 +68,7 @@ dev-go/wago 1.0: Wago automates the actions you do after saving code.
 dev-go/walter 1.2.0: Walter is a tiny deployment pipeline
 dev-go/wellington 0.9.3: Wellington is a CSS preprocessor with spriting and based on libsass
 dev-go/xj2s 20151106: A small tool for Golang to generate Golang strunc from xml/json file
-dev-util/github-release 0.6.2: Gb is a project based build tool for the Go programming language
+dev-util/github-release 0.6.2: CLI to create and edit releases on Github
 dev-util/go-swagger 0.2.0 0.3.0_pre20160111: Swagger 2.0 implementation for GoLang
 dev-util/go-tools 20151125 20151230: Various packages and tools that support the Go programming language
 dev-util/gocyclo 2015.06.27: Calculate cyclomatic complexities of functions in Go source code
