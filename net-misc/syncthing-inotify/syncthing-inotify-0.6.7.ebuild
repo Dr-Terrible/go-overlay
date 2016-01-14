@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -22,17 +22,12 @@ HOMEPAGE="http://syncthing.net"
 LICENSE="MPL-2.0"
 SLOT="0"
 KEYWORDS="amd64 x86 arm"
-IUSE+=" systemd"
-
-RDEPEND="systemd? ( sys-apps/systemd )"
 
 src_install() {
 	# install the package
 	golang-single_src_install
 
 	# install systemd services
-	if use systemd; then
-		systemd_dounit "${S}"/etc/linux-systemd/system/${PN}@.service
-		systemd_douserunit "${S}"/etc/linux-systemd/user/${PN}.service
-	fi
+	systemd_dounit "${S}"/etc/linux-systemd/system/${PN}@.service
+	systemd_douserunit "${S}"/etc/linux-systemd/user/${PN}.service
 }
