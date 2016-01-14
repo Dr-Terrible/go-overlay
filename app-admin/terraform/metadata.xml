@@ -111,5 +111,17 @@
 			Builds the provisioner that invokes a script on a remote resource
 			after it is created
 		</flag>
+		<flag name="vcd">
+			Builds the provider that is used to interact with the resources
+			supported by VMware vCloud Director http://www.vmware.com/products/vcloud-director/
+		</flag>
+		<flag name="azurerm">
+			Builds the provider is used to interact with the many resources
+			supported by Azure, via the Azure Resource Manager API.
+		</flag>
+		<flag name="postgresql">
+			Builds the provider that gives the ability to deploy and configure
+			resources in a PostgreSQL server.
+		</flag>
 	</use>
 </pkgmetadata>
