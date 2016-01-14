@@ -1,0 +1,20 @@
+#!/sbin/runscript
+
+# Copyright 1999-2016 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+SYNCTHING_USER=${SYNCTHING_USER:-syncthing}
+SYNCTHING_GROUP=${SYNCTHING_GROUP:-nogroup}
+
+name="Syncthing"
+description="Open Source Continuous File Synchronization"
+
+command="/usr/bin/syncthing"
+command_args="-no-browser -logflags=0 $SYNCTHING_OPTS"
+
+start_stop_daemon_args="--user ${SYNCTING_USER} --group ${SYNCTHING_GROUP}"
+pidfile="/var/run/syncthing/syncthing.pid"
+
+depend() {
+		 need localmount net
+}
