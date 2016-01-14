@@ -6,7 +6,7 @@ env: PORTAGE_GRPNAME=$USER PORTAGE_USERNAME=$USER
 
 before_install:
   # Install development portage (it should have the latest suggestions)
-  - "git clone git://anongit.gentoo.org/proj/portage.git $HOME/portage"
+  - "git clone --depth=1 git://anongit.gentoo.org/proj/portage.git $HOME/portage"
 
   # Set default config
   - "sudo mkdir /usr/share/portage"
