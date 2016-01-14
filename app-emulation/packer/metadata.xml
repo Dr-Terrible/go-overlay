@@ -5,5 +5,17 @@
 	<maintainer>
 		<email>reto.gantenbein@linuxmonk.ch</email>
 		<name>Reto Gantenbein</name>
+		<description>Maintainer. Assign bugs to him</description>
 	</maintainer>
+	<upstream>
+		<doc>https://www.packer.io/docs</doc>
+		<bugs-to>https://github.com/mitchellh/packer/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		Packer is an automation utility to create any type of virtual machine
+		image on a wide range of virtualization and cloud platforms such as
+		QEMU, VirtualBox, VMware, Google Compute Engine, Amazon EC2 and more
+		and supports provisioning tools such as Ansible, Puppet, Salt and
+		others.
+	</longdescription>
 </pkgmetadata>

@@ -6,6 +6,7 @@ EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/mitchellh"
 GOLANG_PKG_ARCHIVEPREFIX="v"
+GOLANG_PKG_IS_MULTIPLE=1
 GOLANG_PKG_HAVE_TEST=1
 
 # Declare dependencies
@@ -62,9 +63,6 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/vaughan0/go-ini:a98ad7e"
 )
 
-DEPEND="dev-go/go-tools
-		dev-go/gox"
-
 inherit golang-single
 
 DESCRIPTION="Packer is a tool for creating identical machine images for multiple platforms"
@@ -72,7 +70,7 @@ HOMEPAGE="http://www.packer.io"
 
 LICENSE="MPL-2.0"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 
 DOCS=( CHANGELOG.md CONTRIBUTING.md README.md )
 
@@ -107,19 +105,16 @@ src_prepare() {
 		|| die
 }
 
-src_compile() {
-	# imitate upstream build procedure from scripts/build.sh to get the
-	# correct output file names
-	gox \
-		-parallel=$(makeopts_jobs) \
-		-os="$(go env GOOS)" \
-		-arch="$(go env GOARCH)" \
-		-output "${GOBIN}/packer-{{.Dir}}" \
-		./... || die
+src_install() {
+	golang-single_src_install
 
-	mv "${GOBIN}/packer-packer" "${GOBIN}/packer" || die
-}
+	# prefixing all the binaries
+	for pkg in "${ED}"/usr/bin/*; do
+		[[ "${PN}" == ${pkg##*/} ]] && continue
+		mv "${pkg}" "${ED}"/usr/bin/${PN}-${pkg##*/} || die
+	done
 
-src_test() {
-	${EGO} test -p $(makeopts_jobs) ./... || die "Test failed"
+	# install zsh-completion
+	insinto /usr/share/zsh/site-functions
+	doins contrib/zsh-completion/_packer
 }
