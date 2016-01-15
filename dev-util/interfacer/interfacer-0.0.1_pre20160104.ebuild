@@ -23,4 +23,5 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
 
-DEPEND=">=dev-lang/go-1.5.0"
+DEPEND=">=dev-lang/go-1.5.0
+	!dev-go/${PN}"
