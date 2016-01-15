@@ -30,7 +30,6 @@ dev-go/direnv 2.7.0: Direnv is an environment switcher for the shell.
 dev-go/discover 0.1_pre20160301: Discover is a utility to aid in conceptualizing large Go code bases
 dev-go/duktape 2.0.0_pre20151125: CLI for Duktape JavaScript engine written in GoLang
 dev-go/echo 1.0.0: A fast HTTP router and micro web framework written in GoLang
-dev-go/errcheck 20151022: Errcheck checks that you checked errors
 dev-go/flint 0.0.4 0.0.5_pre20150607: Check your project for common sources of contributor friction
 dev-go/forego 0.16.1: Foreman written in GoLang
 dev-go/gb 0.2.0 0.3.5: Gb is a project based build tool for the Go programming language
@@ -51,7 +50,6 @@ dev-go/gox 0.3.0 0.4.0_pre20150819: A dead simple, no frills Go cross compile to
 dev-go/goxc 0.17.0: Goxc is a build tool for GoLange, with a focus on cross-compiling and packaging
 dev-go/grind 0.1.0_pre20150302: Grind rewrites the source files written in GoLang.
 dev-go/gxui 0.1_pre20150615: an experimental Go cross platform UI library
-dev-go/interfacer 0.0.1_pre20160104: A linter for GoLang that suggests interface types
 dev-go/kar 0.1_pre20151007: Kar is a simple utility that helps you run Kargar builds from CLI
 dev-go/liteide-tools 2015.04.09: Liteide Golang tools
 dev-go/minify 1.0.0 1.1.0: Go minifiers for web formats.
@@ -69,6 +67,10 @@ dev-go/walter 1.2.0: Walter is a tiny deployment pipeline
 dev-go/wellington 0.9.3: Wellington is a CSS preprocessor with spriting and based on libsass
 dev-go/xj2s 20151106: A small tool for Golang to generate Golang strunc from xml/json file
 dev-util/anderson 0.1_pre20150328: Checks your Go dependencies for contraband licenses
+dev-util/check 0.1_pre20160108: A set of utilities for checking Go sources
+dev-util/deadcode 2012.02.28: Deadcode finds unused Go source code
+dev-util/dupl 0.1_pre20151118: A tool for Go code clone detection
+dev-util/errcheck 0.1_pre20160115: Errcheck checks that you checked errors
 dev-util/ffjson 0.1_pre20151118: Ffjson is a faster JSON serialization for Go
 dev-util/github-release 0.6.2: CLI to create and edit releases on Github
 dev-util/go-swagger 0.2.0 0.3.0_pre20160111: Swagger 2.0 implementation for GoLang
@@ -77,9 +79,12 @@ dev-util/gocyclo 2015.06.27: Calculate cyclomatic complexities of functions in G
 dev-util/godef 0.1_pre20150731: Godef prints where symbols are defined in Go source code
 dev-util/golex 0.1.0_pre20150906: A lex/flex like (not fully POSIX lex compatible) utility
 dev-util/golint 2015.10.19: This is a linter for Go source code.
-dev-util/gometalinter 0.1_pre20151129: Concurrently run Go lint tools and normalise their output
+dev-util/gometalinter 0.1_pre20160109: Concurrently run Go lint tools and normalise their output
 dev-util/goyacc 0.1.0_pre20150906: Goyacc is a version of yacc generating Go parsers.
 dev-util/hub 2.2.2: Hub is a command-line tool that wraps git in order to extend it with extra features and commands
+dev-util/ineffassign 0.1_pre20151029: Detects ineffectual assignments in Go code.
+dev-util/interfacer 0.0.1_pre20160104: A linter for GoLang that suggests interface types
+dev-util/maligned 0.1_pre20151009: Detects Go structs that would take less memory if their fields were sorted
 dev-util/orange-cat 0.2.2-r1: A Markdown previewer written in GoLang
 dev-util/pipecat 0.2: Pipecat allows you to scale any program using traditional UNIX pipes and AMQP
 net-ftp/pixiecore 0.1.0_pre20150915: PXE booting for people in a hurry
@@ -91,7 +96,7 @@ net-misc/gollum 0.4.0: A n:m message multiplexer written in GoLang
 net-misc/govpn 4.2: Simple secure free software VPN daemon
 net-misc/heka 0.10.0_p1: Heka ia a tool for collecting and collating data from a number of different sources.
 net-misc/nsq 0.3.6: A real-time distributed messaging platform, written in GoLang
-net-misc/syncthing 0.11.26 0.12.11-r1 0.12.12 0.12.12-r1: Syncthing is an app that lets you synchronize your files across multiple devices
+net-misc/syncthing 0.11.26 0.12.12-r1 0.12.14: Syncthing is an app that lets you synchronize your files across multiple devices
 net-misc/syncthing-cli 0.1.0_pre20150922: SyncThing command-line interface
 net-misc/syncthing-inotify 0.6.7: File watcher intended for use with Syncthing (Linux, BSD, Windows, OSX)
 net-misc/wsd 0.0.0_pre20150722: Simple cURL-like command line utility for debugging WebSocket servers

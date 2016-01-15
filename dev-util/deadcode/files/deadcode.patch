@@ -1,0 +1,10 @@
+--- deadcode/deadcode.go
++++ deadcode/deadcode.go
+@@ -98,6 +98,7 @@
+ 	}
+ 	// init() is always used
+ 	p.used["init"] = true
++	p.used["_"] = true
+ 	if pkg.Name != "main" {
+ 		// exported names are marked used for non-main packages.
+ 		for name := range p.decl {

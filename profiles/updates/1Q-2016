@@ -1,0 +1,2 @@
+move dev-go/errcheck dev-util/errcheck
+move dev-go/interfacer dev-util/interfacer

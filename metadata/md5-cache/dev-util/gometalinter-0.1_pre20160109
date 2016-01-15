@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=Concurrently run Go lint tools and normalise their output
+EAPI=5
+HOMEPAGE=https://github.com/alecthomas/gometalinter
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=BSD
+RDEPEND=dev-util/go-tools dev-util/deadcode dev-util/gocyclo dev-util/golint dev-util/check dev-util/errcheck dev-util/dupl dev-util/ineffassign dev-util/interfacer
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/alecthomas/gometalinter/archive/5c707a04219a3e97ead1681ee79e4f54f5e4b1e0.tar.gz -> gometalinter-0.1_pre20160109.tar.gz https://github.com/alecthomas/kingpin/archive/8852570.tar.gz -> github.com-alecthomas-kingpin-8852570.tar.gz https://github.com/alecthomas/template/archive/14fd436.tar.gz -> github.com-alecthomas-template-14fd436.tar.gz https://github.com/alecthomas/units/archive/2efee85.tar.gz -> github.com-alecthomas-units-2efee85.tar.gz https://github.com/stretchr/testify/archive/f390dcf.tar.gz -> github.com-stretchr-testify-f390dcf.tar.gz https://github.com/google/shlex/archive/6f45313.tar.gz -> github.com-google-shlex-6f45313.tar.gz https://github.com/davecgh/go-spew/archive/5215b55.tar.gz -> github.com-davecgh-go-spew-5215b55.tar.gz https://github.com/pmezard/go-difflib/archive/792786c.tar.gz -> github.com-pmezard-go-difflib-792786c.tar.gz
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	d9bd2ddd85a58e470b49ca997e255a4c	golang-single	6489ee177c467bc48e476d1efba81f3d	golang-utils	977dab65252d06522d0a5027e8a8c8bb	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=99a0a4d2217e945b10f99ab478524494
