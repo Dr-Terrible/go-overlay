@@ -12,7 +12,7 @@ GOLANG_PKG_LDFLAGS="-w -X main.Version=v${PV} -X main.BuildUser=portage -X main.
 GOLANG_PKG_USE_GENERATE=1
 GOLANG_PKG_HAVE_TEST=1
 
-inherit systemd golang-single
+inherit user systemd golang-single
 
 EDOC_COMMIT="bb87d0f18c1abd3397a1c1ee335605f84d3f07e9"
 
@@ -28,6 +28,12 @@ IUSE+=" cli doc inotify"
 DEPEND="doc? ( dev-python/sphinx )"
 RDEPEND="cli? ( net-misc/syncthing-cli )
 	inotify? ( net-misc/syncthing-inotify )"
+
+SYNCTHING_HOME="/var/lib/${PN}"
+
+pkg_setup() {
+	enewuser ${PN} -1 -1 "${SYNCTHING_HOME}"
+}
 
 src_compile() {
 	golang-single_src_compile
@@ -50,4 +56,9 @@ src_install() {
 	# install systemd services
 	systemd_dounit "${S}"/etc/linux-systemd/system/${PN}@.service
 	systemd_douserunit "${S}"/etc/linux-systemd/user/${PN}.service
+
+	dodir "${SYNCTHING_HOME}"
+	fowners $PN "${SYNCTHING_HOME}"
+	fperms 700 "${SYNCTHING_HOME}"
+
 }
