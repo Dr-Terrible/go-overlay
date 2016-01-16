@@ -6,6 +6,7 @@ EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/mitchellh"
 GOLANG_PKG_ARCHIVEPREFIX="v"
+GOLANG_PKG_USE_GENERATE=1
 GOLANG_PKG_IS_MULTIPLE=1
 GOLANG_PKG_HAVE_TEST=1
 
@@ -71,6 +72,9 @@ HOMEPAGE="http://www.packer.io"
 LICENSE="MPL-2.0"
 SLOT="0"
 KEYWORDS="amd64"
+
+# go-tools is required by "go:generate stringer" directive
+DEPEND="dev-util/go-tools"
 
 DOCS=( CHANGELOG.md CONTRIBUTING.md README.md )
 
