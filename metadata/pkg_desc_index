@@ -9,12 +9,10 @@ app-editors/lime-termbox 20150428: Termbox frontend for Lime text editor.
 app-editors/liteide 27.2.1: LiteIDE is a simple, open source, cross-platform Go IDE.
 app-editors/srclib 0.0.40: A hackable, multilange code analysis library for building better software tools
 app-misc/asciinema 1.1.1: A terminal session recorder for asciinema.org service
-app-misc/ga 0.1.0_pre20150607: Google Analytics via the Command Line
 app-misc/thymer 0.1.0: Consolo Pomodoro Timer written in GoLang
 app-misc/weather 0.2.0 0.3.0_pre20150913: Weather via the command line.
 app-shells/peco 0.3.5: Simplistic interactive filtering tool
 app-text/go-md2man 1.0.4: Command-line tool to convert Markdown into UNIX man pages
-app-text/gopaste 0_pre20130108: A service and client written in GoLang for easily sending command output and files
 dev-db/bolt 1.0 1.1.0: Bolt is a low level key/value NoSQL database written in GoLang
 dev-db/boltd 1.0-r1: Bolts is a introspection tool for Bolt databases.
 dev-db/cayley 0.4.1-r1: Cayley is a graph databse written in GoLang.
@@ -29,7 +27,6 @@ dev-go/dex 0.1.0 0.2.2: Dex is a Federated Indentity Provider written in GoLang
 dev-go/direnv 2.7.0: Direnv is an environment switcher for the shell.
 dev-go/discover 0.1_pre20160301: Discover is a utility to aid in conceptualizing large Go code bases
 dev-go/duktape 2.0.0_pre20151125: CLI for Duktape JavaScript engine written in GoLang
-dev-go/echo 1.0.0: A fast HTTP router and micro web framework written in GoLang
 dev-go/flint 0.0.4 0.0.5_pre20150607: Check your project for common sources of contributor friction
 dev-go/forego 0.16.1: Foreman written in GoLang
 dev-go/gb 0.2.0 0.3.5: Gb is a project based build tool for the Go programming language
@@ -49,15 +46,12 @@ dev-go/gostatus 20150606: A command-line tool that show the status of GoLang rep
 dev-go/gox 0.3.0 0.4.0_pre20150819: A dead simple, no frills Go cross compile tool
 dev-go/goxc 0.17.0: Goxc is a build tool for GoLange, with a focus on cross-compiling and packaging
 dev-go/grind 0.1.0_pre20150302: Grind rewrites the source files written in GoLang.
-dev-go/gxui 0.1_pre20150615: an experimental Go cross platform UI library
 dev-go/kar 0.1_pre20151007: Kar is a simple utility that helps you run Kargar builds from CLI
 dev-go/liteide-tools 2015.04.09: Liteide Golang tools
 dev-go/minify 1.0.0 1.1.0: Go minifiers for web formats.
 dev-go/mock 0.1.0_pre20150821 0.1.0_pre20151213: GoMock is a mocking framework for the Go programming language
 dev-go/protobuf 0.1: Protocol Buffers for Go with Gadgets
-dev-go/raml 0.8: An implementation of a RAML parser for Go. Compliant with RAML 0.8
 dev-go/re2dfa 0.1.0_pre20150627: Transform regular expressions into finite state machines and output GoLang source code
-dev-go/revel 0.12.0: Revel is a high-productivity web framework for the Go language
 dev-go/revel-cli 0.12.0: Command-line tool for Revel framework
 dev-go/safesql 0_pre20150617: Static analysis tool for GoLang that protects against SQL injections
 dev-go/statik 20150419: statik embeds static files into a GoLang executable
@@ -94,14 +88,12 @@ net-misc/gnatsd 0.6.6: A high Performance NATS Server written in GoLang
 net-misc/goduckgo 0.1.0_pre20150206: Command-line tool for DuckDuckGo API
 net-misc/gollum 0.4.0: A n:m message multiplexer written in GoLang
 net-misc/govpn 4.2: Simple secure free software VPN daemon
-net-misc/heka 0.10.0_p1: Heka ia a tool for collecting and collating data from a number of different sources.
 net-misc/nsq 0.3.6: A real-time distributed messaging platform, written in GoLang
 net-misc/syncthing 0.11.26 0.12.12-r1 0.12.14: Syncthing is an app that lets you synchronize your files across multiple devices
 net-misc/syncthing-cli 0.1.0_pre20150922: SyncThing command-line interface
 net-misc/syncthing-inotify 0.6.7: File watcher intended for use with Syncthing (Linux, BSD, Windows, OSX)
 net-misc/wsd 0.0.0_pre20150722: Simple cURL-like command line utility for debugging WebSocket servers
 net-p2p/cloud-torrent 0.8.1: Cloud Torrent is a self-hosted remote torrent client, written in GoLang
-sci-visualization/plot 0.1.0_pre20150914: A repository for plotting and visualizing data
 sys-apps/sift 0.4.1: A fast and powerful open source alternative to grep
 sys-devel/calc 20150422: A simple, fast command-line calculator written in GoLang
 sys-devel/delve 0.5.0 0.9.0: Delve is a debugger for the Go programming language
