@@ -7,7 +7,7 @@ EAPI=5
 GOLANG_PKG_IMPORTPATH="github.com/golang"
 GOLANG_PKG_IMPORTPATH_ALIAS="golang.org/x"
 GOLANG_PKG_NAME="${PN/go-}"
-GOLANG_PKG_VERSION="fff8fd7b194011cfedeafda246f0bfc275abb904"
+GOLANG_PKG_VERSION="2dff1e88eb92a374a989dd38e3402481f498ffa2"
 GOLANG_PKG_IS_MULTIPLE=1
 GOLANG_PKG_USE_GENERATE=1
 GOLANG_PKG_HAVE_TEST=1
@@ -31,6 +31,11 @@ KEYWORDS="amd64 x86 arm"
 
 DEPEND="!dev-go/go-tools"
 
+# FIX for unit testing
+GOLANG_PKG_VENDOR=(
+	"${S}"
+)
+
 src_prepare() {
 	golang-single_src_prepare
 
@@ -41,4 +46,12 @@ src_prepare() {
 	golang_fix_importpath_alias \
 		"github.com/GoogleCloudPlatform/gcloud-golang" \
 		"google.golang.org/cloud"
+}
+
+src_install() {
+	golang-single_src_install
+
+	# Fixes a file collision with dev-ruby/bundler
+	# (see github.com/Dr-Terrible/go-overlay/issues/22)
+	mv "${ED}"/usr/bin/bundle "${ED}"/usr/bin/gobundle || die
 }

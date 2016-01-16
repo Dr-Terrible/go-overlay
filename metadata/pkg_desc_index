@@ -74,7 +74,7 @@ dev-util/errcheck 0.1_pre20160115: Errcheck checks that you checked errors
 dev-util/ffjson 0.1_pre20151118: Ffjson is a faster JSON serialization for Go
 dev-util/github-release 0.6.2: CLI to create and edit releases on Github
 dev-util/go-swagger 0.2.0 0.3.0_pre20160111: Swagger 2.0 implementation for GoLang
-dev-util/go-tools 20151125 20151230: Various packages and tools that support the Go programming language
+dev-util/go-tools 20151230-r1: Various packages and tools that support the Go programming language
 dev-util/gocyclo 2015.06.27: Calculate cyclomatic complexities of functions in Go source code
 dev-util/godef 0.1_pre20150731: Godef prints where symbols are defined in Go source code
 dev-util/golex 0.1.0_pre20150906: A lex/flex like (not fully POSIX lex compatible) utility
