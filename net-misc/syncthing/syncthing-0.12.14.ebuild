@@ -25,7 +25,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
 IUSE+=" cli doc inotify"
 
-DEPEND="doc? ( dev-python/sphinx )"
+DEPEND=">=dev-lang/go-1.5.3
+	doc? ( dev-python/sphinx )"
 RDEPEND="cli? ( net-misc/syncthing-cli )
 	inotify? ( net-misc/syncthing-inotify )"
 
@@ -43,6 +44,7 @@ src_compile() {
 		emake singlehtml -C "${WORKDIR}"/docs-${EDOC_COMMIT} || die
 	fi
 }
+
 src_install() {
 	# install the package
 	golang-single_src_install
