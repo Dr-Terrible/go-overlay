@@ -22,7 +22,7 @@ dev-db/influxdb 0.9.4.1 0.9.4.2: Scalable datastore for metrics, events, and rea
 dev-db/pgfutter 0.3.2: Command-line tool to import CSV and JSON into PostgreSQL
 dev-db/telegraf 0.1.3-r2 0.1.9: A plugin-driven server agent for reporting metrics into InfluxDB
 dev-db/tidb 0.1.0_pre20151916: TiDB is a distributed SQL database compatible with MySQL protocol
-dev-db/tiedot 3.2-r1: Tiedot is a document-oriented NoSQL database written in GoLang
+dev-db/tiedot 3.2-r2 3.3_pre20160117: Tiedot is a document-oriented NoSQL database written in GoLang
 dev-go/Go-Package-Store 0.1.0_pre20151209: An app that displays updates for the Go packages in your GOPATH
 dev-go/dex 0.1.0 0.2.2: Dex is a Federated Indentity Provider written in GoLang
 dev-go/direnv 2.7.0: Direnv is an environment switcher for the shell.

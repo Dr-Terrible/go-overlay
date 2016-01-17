@@ -1,11 +1,10 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/HouzuoGuo"
-#GOLANG_PKG_VERSION="24351c58bedea72e4e113e2d2e5753a32ce2a0e3"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
@@ -19,8 +18,7 @@ HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 x86 arm"
-IUSE+=" systemd"
+KEYWORDS="amd64 x86 ~arm"
 
 RDEPEND="net-misc/curl"
 
@@ -40,9 +38,7 @@ src_install() {
 	golang-single_src_install
 
 	# Install init scripts
-	if use systemd; then
-		systemd_dounit "${S}"/distributable/${PN}.service
-	fi
+	systemd_dounit "${S}"/distributable/${PN}.service
 
 	insinto /etc
 	doins "${S}"/distributable/etc/${PN}
