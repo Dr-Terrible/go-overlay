@@ -1,2 +1,3 @@
 move dev-go/errcheck dev-util/errcheck
 move dev-go/interfacer dev-util/interfacer
+move dev-go/wellington dev-util/wellington

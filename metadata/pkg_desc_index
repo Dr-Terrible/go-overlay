@@ -59,7 +59,6 @@ dev-go/statik 20150419: statik embeds static files into a GoLang executable
 dev-go/tomlv 0.2.0_pre20150501: A TOML validator written in GoLang
 dev-go/wago 1.0: Wago automates the actions you do after saving code.
 dev-go/walter 1.2.0: Walter is a tiny deployment pipeline
-dev-go/wellington 0.9.3: Wellington is a CSS preprocessor with spriting and based on libsass
 dev-go/xj2s 20151106: A small tool for Golang to generate Golang strunc from xml/json file
 dev-util/anderson 0.1_pre20150328: Checks your Go dependencies for contraband licenses
 dev-util/check 0.1_pre20160108: A set of utilities for checking Go sources
@@ -82,6 +81,7 @@ dev-util/interfacer 0.0.1_pre20160104: A linter for GoLang that suggests interfa
 dev-util/maligned 0.1_pre20151009: Detects Go structs that would take less memory if their fields were sorted
 dev-util/orange-cat 0.2.2-r1: A Markdown previewer written in GoLang
 dev-util/pipecat 0.2: Pipecat allows you to scale any program using traditional UNIX pipes and AMQP
+dev-util/wellington 0.9.3 1.0.2: Wellington is a CSS preprocessor with spriting and based on libsass
 net-ftp/pixiecore 0.1.0_pre20150915: PXE booting for people in a hurry
 net-misc/bat 0.0.2: Go implemented CLI cURL-like tool for humans
 net-misc/drive 0.3.4: Google Drive client for the commandline
