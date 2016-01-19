@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:0=
+DESCRIPTION=Hub wraps git in order to extend it with extra features and commands
+EAPI=5
+HOMEPAGE=http://hub.github.com
+IUSE=test
+KEYWORDS=amd64 x86 arm
+LICENSE=BSD
+RDEPEND=!dev-util/hub >=dev-vcs/git-1.7.3
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/github/hub/archive/2.2.2.tar.gz -> hub-2.2.2.tar.gz
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	bash-completion-r1	acf715fa09463f043fbfdc1640f3fb85	eutils	d9bd2ddd85a58e470b49ca997e255a4c	golang-single	6489ee177c467bc48e476d1efba81f3d	golang-utils	977dab65252d06522d0a5027e8a8c8bb	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=bbb1b3b74ffe850ba0addd8ba689661a

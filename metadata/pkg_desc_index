@@ -75,13 +75,13 @@ dev-util/golex 0.1.0_pre20150906: A lex/flex like (not fully POSIX lex compatibl
 dev-util/golint 2015.10.19: This is a linter for Go source code.
 dev-util/gometalinter 0.1_pre20160109: Concurrently run Go lint tools and normalise their output
 dev-util/goyacc 0.1.0_pre20150906: Goyacc is a version of yacc generating Go parsers.
-dev-util/hub 2.2.2: Hub is a command-line tool that wraps git in order to extend it with extra features and commands
 dev-util/ineffassign 0.1_pre20151029: Detects ineffectual assignments in Go code.
 dev-util/interfacer 0.0.1_pre20160104: A linter for GoLang that suggests interface types
 dev-util/maligned 0.1_pre20151009: Detects Go structs that would take less memory if their fields were sorted
 dev-util/orange-cat 0.2.2-r1: A Markdown previewer written in GoLang
 dev-util/pipecat 0.2: Pipecat allows you to scale any program using traditional UNIX pipes and AMQP
 dev-util/wellington 0.9.3 1.0.2: Wellington is a CSS preprocessor with spriting and based on libsass
+dev-vcs/hub 2.2.2-r1 2.2.3_pre20160119: Hub wraps git in order to extend it with extra features and commands
 net-ftp/pixiecore 0.1.0_pre20150915: PXE booting for people in a hurry
 net-misc/bat 0.0.2: Go implemented CLI cURL-like tool for humans
 net-misc/drive 0.3.4: Google Drive client for the commandline

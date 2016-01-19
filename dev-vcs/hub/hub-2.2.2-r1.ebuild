@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -12,26 +12,25 @@ GOLANG_PKG_HAVE_TEST=1
 
 inherit golang-single bash-completion-r1
 
-DESCRIPTION="Hub is a command-line tool that wraps git in order to extend it with extra features and commands"
+DESCRIPTION="Hub wraps git in order to extend it with extra features and commands"
 HOMEPAGE="http://hub.github.com"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="amd64 x86 arm"
 
-RDEPEND="!dev-vcs/hub
->=dev-vcs/git-1.7.3"
+RDEPEND="!dev-util/hub
+	>=dev-vcs/git-1.7.3"
 
-DOC=(README.md)
+DOC=( README.md )
 
 src_install(){
 	golang-single_src_install
 
-	# https://github.com/github/hub/issues/977
+	# see ttps://github.com/github/hub/issues/977
 	cp man/${PN}.1 man/git${PN}.1 || die
 	doman man/*.1
 
 	insinto /usr/share/zsh/site-functions
 	newins etc/hub.zsh_completion _${PN}
-
 }
