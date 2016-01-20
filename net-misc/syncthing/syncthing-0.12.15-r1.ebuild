@@ -59,8 +59,10 @@ src_install() {
 	systemd_dounit "${S}"/etc/linux-systemd/system/${PN}@.service
 	systemd_douserunit "${S}"/etc/linux-systemd/user/${PN}.service
 
-	dodir "${SYNCTHING_HOME}"
-	fowners $PN "${SYNCTHING_HOME}"
-	fperms 700 "${SYNCTHING_HOME}"
+	# Install OpenRC init.d and conf.d files.
+	newinitd "${FILESDIR}/${PN}.initd" ${PN}
+	newconfd "${FILESDIR}/${PN}.confd" ${PN}
 
+	diropts "-m0700 -o${PN}"
+	dodir "${SYNCTHING_HOME}"
 }
