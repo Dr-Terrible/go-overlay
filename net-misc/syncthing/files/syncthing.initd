@@ -21,7 +21,7 @@ start_stop_daemon_args="--user ${SYNCTHING_USER} \
 	--ionice ${SYNCTHING_IONICE} \
 	--nicelevel ${SYNCTHING_NICE}"
 
-pidfile="/var/run/syncthing/syncthing.pid"
+pidfile="/var/run/syncthing.pid"
 
 depend() {
 		 need localmount net
