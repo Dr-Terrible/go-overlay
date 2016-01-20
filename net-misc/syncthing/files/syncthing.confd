@@ -4,4 +4,4 @@
 #SYNCTHING_GROUP="nogroup"
 
 # Any options you want you can set them here
-SYNCTHING_OPTS=""
+SYNCTHING_OPTS="-logfile=/dev/null"

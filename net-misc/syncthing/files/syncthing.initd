@@ -10,9 +10,9 @@ name="Syncthing"
 description="Open Source Continuous File Synchronization"
 
 command="/usr/bin/syncthing"
-command_args="-no-browser -logflags=0 $SYNCTHING_OPTS"
+command_args="-no-browser $SYNCTHING_OPTS"
 
-start_stop_daemon_args="--user ${SYNCTING_USER} --group ${SYNCTHING_GROUP}"
+start_stop_daemon_args="--user ${SYNCTHING_USER} --group ${SYNCTHING_GROUP} --background"
 pidfile="/var/run/syncthing/syncthing.pid"
 
 depend() {
