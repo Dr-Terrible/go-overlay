@@ -91,7 +91,7 @@ net-misc/goduckgo 0.1.0_pre20150206: Command-line tool for DuckDuckGo API
 net-misc/gollum 0.4.0: A n:m message multiplexer written in GoLang
 net-misc/govpn 4.2: Simple secure free software VPN daemon
 net-misc/nsq 0.3.6: A real-time distributed messaging platform, written in GoLang
-net-misc/syncthing 0.11.26 0.12.12-r1 0.12.15: Syncthing is an app that lets you synchronize your files across multiple devices
+net-misc/syncthing 0.11.26 0.12.12-r1 0.12.15 0.12.15-r1: Syncthing is an app that lets you synchronize your files across multiple devices
 net-misc/syncthing-cli 0.1.0_pre20150922: SyncThing command-line interface
 net-misc/syncthing-inotify 0.6.7 0.6.8: File watcher intended for use with Syncthing (Linux, BSD, Windows, OSX)
 net-misc/wsd 0.0.0_pre20150722: Simple cURL-like command line utility for debugging WebSocket servers
