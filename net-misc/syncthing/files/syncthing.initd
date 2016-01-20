@@ -1,18 +1,26 @@
-#!/sbin/runscript
+#!/sbin/openrc-run
 
 # Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 SYNCTHING_USER=${SYNCTHING_USER:-syncthing}
 SYNCTHING_GROUP=${SYNCTHING_GROUP:-nogroup}
+SYNCTHING_IONICE=${SYNCTHING_IONICE:-0}
+SYNCTHING_NICE=${SYNCTHING_NICE:-0}
 
 name="Syncthing"
 description="Open Source Continuous File Synchronization"
 
 command="/usr/bin/syncthing"
 command_args="-no-browser $SYNCTHING_OPTS"
+command_background="true"
 
-start_stop_daemon_args="--user ${SYNCTHING_USER} --group ${SYNCTHING_GROUP} --background"
+start_stop_daemon_args="--user ${SYNCTHING_USER} \
+	--group ${SYNCTHING_GROUP} \
+	--make-pidfile \
+	--ionice ${SYNCTHING_IONICE} \
+	--nicelevel ${SYNCTHING_NICE}"
+
 pidfile="/var/run/syncthing/syncthing.pid"
 
 depend() {
