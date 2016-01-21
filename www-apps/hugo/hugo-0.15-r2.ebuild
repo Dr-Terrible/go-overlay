@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -32,14 +32,18 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/spf13/jWalterWeatherman:c2aa07d"
 	"github.com/cpuguy83/go-md2man:71acacd42f"
 	"github.com/yosssi/ace:8e090bf"
-	"github.com/go-fsnotify/fsnotify:2cdd39b -> gopkg.in/fsnotify.v1" #v1.2.5
-	"github.com/go-yaml/yaml:53feefa -> gopkg.in/yaml.v2"
+	"github.com/go-fsnotify/fsnotify:8611c35 -> gopkg.in/fsnotify.v1" #v1.2.9
+	"github.com/go-yaml/yaml:f7716cb -> gopkg.in/yaml.v2"
 	"github.com/inconshreveable/mousetrap:76626ae9c9"
 	"github.com/kr/pretty:e6ac2fc51e"
 	"github.com/kr/text:bb797dc"
 	"github.com/magiconair/properties:6ac0b95"
 	"github.com/stretchr/testify:d797d25"
 	"github.com/golang/text:4838fa4 -> golang.org/x"
+
+	# Unit testing
+	"github.com/pmezard/go-difflib:792786c"
+	"github.com/davecgh/go-spew:5215b55"
 )
 
 inherit golang-single

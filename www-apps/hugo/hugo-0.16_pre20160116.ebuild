@@ -5,7 +5,7 @@
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/spf13"
-GOLANG_PKG_VERSION="f310492cb01b4c78aa3f47276bbe026a81496ebe"
+GOLANG_PKG_VERSION="3526afc7730ce5bd853ea4a8edd6cce7a8dc8a5f"
 GOLANG_PKG_HAVE_TEST=1
 
 # Declares dependencies
@@ -19,7 +19,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/kardianos/osext:345163f"
 	"github.com/miekg/mmark:9dca01c"
 	"github.com/mitchellh/mapstructure:281073e"
-	"github.com/russross/blackfriday:0b647d0" #v1.4
+	"github.com/russross/blackfriday:c8875c0"
 	"github.com/opennota/urlesc:5fa9ff0392"
 	"github.com/shurcooL/sanitized_anchor_name:10ef21a"
 	"github.com/spf13/afero:e7cb826"
@@ -32,8 +32,8 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/spf13/jWalterWeatherman:c2aa07d"
 	"github.com/cpuguy83/go-md2man:71acacd42f"
 	"github.com/yosssi/ace:8e090bf"
-	"github.com/go-fsnotify/fsnotify:2cdd39b -> gopkg.in/fsnotify.v1" #v1.2.5
-	"github.com/go-yaml/yaml:53feefa -> gopkg.in/yaml.v2"
+	"github.com/go-fsnotify/fsnotify:8611c35 -> gopkg.in/fsnotify.v1" #v1.2.9
+	"github.com/go-yaml/yaml:f7716cb -> gopkg.in/yaml.v2"
 	"github.com/inconshreveable/mousetrap:76626ae9c9"
 	"github.com/kr/pretty:e6ac2fc51e"
 	"github.com/kr/text:bb797dc"
