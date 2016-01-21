@@ -8,7 +8,7 @@ app-editors/lime-qml 20150428: QML frontend for Lime text editor.
 app-editors/lime-termbox 20150428: Termbox frontend for Lime text editor.
 app-editors/liteide 27.2.1: LiteIDE is a simple, open source, cross-platform Go IDE.
 app-editors/srclib 0.0.40: A hackable, multilange code analysis library for building better software tools
-app-emulation/packer 0.8.6: Packer is a tool for creating identical machine images for multiple platforms
+app-emulation/packer 0.8.6 0.8.6-r1: Packer is a tool for creating identical machine images for multiple platforms
 app-misc/asciinema 1.1.1: A terminal session recorder for asciinema.org service
 app-misc/thymer 0.1.0: Consolo Pomodoro Timer written in GoLang
 app-misc/weather 0.2.0 0.3.0_pre20150913: Weather via the command line.
@@ -53,7 +53,7 @@ dev-go/minify 1.0.0 1.1.0: Go minifiers for web formats.
 dev-go/mock 0.1.0_pre20150821 0.1.0_pre20151213: GoMock is a mocking framework for the Go programming language
 dev-go/protobuf 0.1: Protocol Buffers for Go with Gadgets
 dev-go/re2dfa 0.1.0_pre20150627: Transform regular expressions into finite state machines and output GoLang source code
-dev-go/revel-cli 0.12.0: Command-line tool for Revel framework
+dev-go/revel-cli 0.12.0-r1: Command-line tool for Revel framework
 dev-go/safesql 0_pre20150617: Static analysis tool for GoLang that protects against SQL injections
 dev-go/statik 20150419: statik embeds static files into a GoLang executable
 dev-go/tomlv 0.2.0_pre20150501: A TOML validator written in GoLang
@@ -76,6 +76,7 @@ dev-util/golex 0.1.0_pre20150906: A lex/flex like (not fully POSIX lex compatibl
 dev-util/golint 2015.10.19: This is a linter for Go source code.
 dev-util/gometalinter 0.1_pre20160109: Concurrently run Go lint tools and normalise their output
 dev-util/goyacc 0.1.0_pre20150906: Goyacc is a version of yacc generating Go parsers.
+dev-util/hulk 0.1.0_pre20160121: Ultimate job/build runner
 dev-util/ineffassign 0.1_pre20151029: Detects ineffectual assignments in Go code.
 dev-util/interfacer 0.0.1_pre20160104: A linter for GoLang that suggests interface types
 dev-util/maligned 0.1_pre20151009: Detects Go structs that would take less memory if their fields were sorted
@@ -91,7 +92,7 @@ net-misc/goduckgo 0.1.0_pre20150206: Command-line tool for DuckDuckGo API
 net-misc/gollum 0.4.0: A n:m message multiplexer written in GoLang
 net-misc/govpn 4.2: Simple secure free software VPN daemon
 net-misc/nsq 0.3.6: A real-time distributed messaging platform, written in GoLang
-net-misc/syncthing 0.11.26 0.12.12-r1 0.12.15 0.12.15-r1: Syncthing is an app that lets you synchronize your files across multiple devices
+net-misc/syncthing 0.11.26 0.12.12-r1 0.12.15-r1: Syncthing is an app that lets you synchronize your files across multiple devices
 net-misc/syncthing-cli 0.1.0_pre20150922: SyncThing command-line interface
 net-misc/syncthing-inotify 0.6.7 0.6.8: File watcher intended for use with Syncthing (Linux, BSD, Windows, OSX)
 net-misc/wsd 0.0.0_pre20150722: Simple cURL-like command line utility for debugging WebSocket servers
@@ -103,4 +104,4 @@ sys-devel/gcvis 0.1.0_pre20150714: Visualise Go program Garbage Collector trace 
 www-apps/gitea 0.7.0_pre20150630: Gitea is a self-hosted Git service written in Go
 www-apps/gogs 0.7.22 0.8.10-r1: Gogs is a self-hosted Git service written in Go
 www-apps/gotty 0.0.10: GoTTY is a simple command-line tool that turns your CLI tools into web applications
-www-apps/hugo 0.14-r2 0.15-r1 0.16_pre20160104: A fast and flexible static site generator built in GoLang
+www-apps/hugo 0.14-r3 0.15-r2 0.16_pre20160116: A fast and flexible static site generator built in GoLang

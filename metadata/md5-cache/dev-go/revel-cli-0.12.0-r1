@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=Command-line tool for Revel framework
+EAPI=5
+HOMEPAGE=http://revel.github.io
+IUSE=test
+KEYWORDS=amd64 x86 arm
+LICENSE=MIT
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/revel/cmd/archive/v0.12.0.tar.gz -> revel-cli-0.12.0.tar.gz https://github.com/agtorre/gocolorize/archive/f42b554bf7.tar.gz -> github.com-agtorre-gocolorize-f42b554bf7.tar.gz https://github.com/revel/revel/archive/67891f91e7.tar.gz -> github.com-revel-revel-67891f91e7.tar.gz https://github.com/revel/modules/archive/3589d5bf1d.tar.gz -> github.com-revel-modules-3589d5bf1d.tar.gz https://github.com/robfig/config/archive/0f78529c8c.tar.gz -> github.com-robfig-config-0f78529c8c.tar.gz https://github.com/robfig/pathtree/archive/41257a1839.tar.gz -> github.com-robfig-pathtree-41257a1839.tar.gz https://github.com/golang/net/archive/669b27b881.tar.gz -> github.com-golang-net-669b27b881.tar.gz https://github.com/go-fsnotify/fsnotify/archive/8611c35.tar.gz -> github.com-go-fsnotify-fsnotify-8611c35.tar.gz https://github.com/revel/samples/archive/6ecb5d88a4.tar.gz -> github.com-revel-samples-6ecb5d88a4.tar.gz
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	7332d4dd366dcd51c0014dde21f21897	golang-single	6489ee177c467bc48e476d1efba81f3d	golang-utils	977dab65252d06522d0a5027e8a8c8bb	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=5644c3a738037894f07cf2d9ed6942da

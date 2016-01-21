@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -19,7 +19,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/robfig/config:0f78529c8c"
 	"github.com/robfig/pathtree:41257a1839"
 	"github.com/golang/net:669b27b881 -> golang.org/x"
-	"github.com/go-fsnotify/fsnotify:96c060f6a6 -> gopkg.in/fsnotify.v1"
+	"github.com/go-fsnotify/fsnotify:8611c35 -> gopkg.in/fsnotify.v1" #v 1.2.9
 
 	# Unit testing
 	"github.com/revel/samples:6ecb5d88a4"
