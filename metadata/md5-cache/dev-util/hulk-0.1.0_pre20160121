@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:* >=sys-devel/gcc-4.8.4[go]
+DESCRIPTION=Ultimate job/build runner
+EAPI=5
+HOMEPAGE=https://github.com/jfrazelle/hulk
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=MIT
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/jfrazelle/hulk/archive/861338342b85c96acbdf6edf1029e917ce949030.tar.gz -> hulk-0.1.0_pre20160121.tar.gz https://github.com/Sirupsen/logrus/archive/418b41d.tar.gz -> github.com-Sirupsen-logrus-418b41d.tar.gz https://github.com/boltdb/bolt/archive/ee716d1.tar.gz -> github.com-boltdb-bolt-ee716d1.tar.gz https://github.com/codegangsta/cli/archive/c31a797.tar.gz -> github.com-codegangsta-cli-c31a797.tar.gz https://github.com/golang/protobuf/archive/2402d76.tar.gz -> github.com-golang-protobuf-2402d76.tar.gz https://github.com/hpcloud/tail/archive/1a0242e.tar.gz -> github.com-hpcloud-tail-1a0242e.tar.gz https://github.com/golang/net/archive/c93a9b4.tar.gz -> github.com-golang-net-c93a9b4.tar.gz https://github.com/grpc/grpc-go/archive/5da22b9.tar.gz -> github.com-grpc-grpc-go-5da22b9.tar.gz https://github.com/go-fsnotify/fsnotify/archive/8611c35.tar.gz -> github.com-go-fsnotify-fsnotify-8611c35.tar.gz https://github.com/go-tomb/tomb/archive/dd63297.tar.gz -> github.com-go-tomb-tomb-dd63297.tar.gz
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	7332d4dd366dcd51c0014dde21f21897	golang-single	6489ee177c467bc48e476d1efba81f3d	golang-utils	977dab65252d06522d0a5027e8a8c8bb	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=7df238ec04deb49d605594ad006e6e42
