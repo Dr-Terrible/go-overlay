@@ -8,11 +8,11 @@ SYNCTHING_GROUP=${SYNCTHING_GROUP:-nogroup}
 SYNCTHING_IONICE=${SYNCTHING_IONICE:-0}
 SYNCTHING_NICE=${SYNCTHING_NICE:-0}
 
-name="Syncthing"
-description="Open Source Continuous File Synchronization"
+name="Syncthing Inotify"
+description="Syncthing Inotify File Watcher"
 
-command="/usr/bin/syncthing"
-command_args="-no-browser $SYNCTHING_OPTS"
+command="/usr/bin/syncthing-inotify"
+command_args="$SYNCTHING_INOTIFY_OPTS"
 command_background="true"
 
 start_stop_daemon_args="--user ${SYNCTHING_USER} \
@@ -21,9 +21,8 @@ start_stop_daemon_args="--user ${SYNCTHING_USER} \
 	--ionice ${SYNCTHING_IONICE} \
 	--nicelevel ${SYNCTHING_NICE}"
 
-pidfile="/run/syncthing.pid"
+pidfile="/run/syncthing-inotify.pid"
 
 depend() {
-	need localmount net
-	want syncthing.inotify
+		 need localmount
 }
