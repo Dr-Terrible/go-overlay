@@ -12,11 +12,7 @@ GOLANG_PKG_HAVE_TEST=1
 
 # Declare dependencies
 GOLANG_PKG_DEPENDENCIES=(
-#	"github.com/aws/aws-sdk-go:f096b7d" # v0.9.5
-#	"github.com/aws/aws-sdk-go:9ec7da8" # v0.9.10
-#	"github.com/aws/aws-sdk-go:7ab6754" # v0.9.15
-#	"github.com/aws/aws-sdk-go:fd136b7" # v0.10.0
-	"github.com/aws/aws-sdk-go:9e78164" # v0.10.5
+	"github.com/aws/aws-sdk-go:f096b7d" # v0.9.5
 	"github.com/digitalocean/godo:2a0d64a" # v0.9.0
 	"github.com/dylanmei/iso8601:2075bf1"
 	"github.com/dylanmei/winrmtest:0256178"
