@@ -22,7 +22,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/russross/blackfriday:c8875c0"
 	"github.com/opennota/urlesc:5fa9ff0392"
 	"github.com/shurcooL/sanitized_anchor_name:10ef21a"
-	"github.com/spf13/afero:e7cb826"
+	"github.com/spf13/afero:2ec8b79"
 	"github.com/spf13/cast:ee7b3e0"
 	"github.com/spf13/cobra:b3f29e9"
 	"github.com/spf13/fsync:c2544e7"
@@ -37,9 +37,12 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/inconshreveable/mousetrap:76626ae9c9"
 	"github.com/kr/pretty:e6ac2fc51e"
 	"github.com/kr/text:bb797dc"
+	"github.com/kr/fs:2788f0d"
+	"github.com/pkg/sftp:e84cc8c"
 	"github.com/magiconair/properties:6ac0b95"
 	"github.com/stretchr/testify:d797d25"
 	"github.com/golang/text:4838fa4 -> golang.org/x"
+	"github.com/golang/crypto:3760e01 -> golang.org/x"
 	"github.com/hashicorp/hcl:197e8d3"
 
 	# unit testing
