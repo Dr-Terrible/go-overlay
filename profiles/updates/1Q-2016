@@ -2,3 +2,4 @@ move dev-go/errcheck dev-util/errcheck
 move dev-go/interfacer dev-util/interfacer
 move dev-go/wellington dev-util/wellington
 move dev-util/hub dev-vcs/hub
+move dev-go/direnv dev-util/direnv
