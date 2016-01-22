@@ -83,7 +83,7 @@ dev-util/maligned 0.1_pre20151009: Detects Go structs that would take less memor
 dev-util/orange-cat 0.2.2-r1: A Markdown previewer written in GoLang
 dev-util/pipecat 0.2: Pipecat allows you to scale any program using traditional UNIX pipes and AMQP
 dev-util/wellington 0.9.3 1.0.2: Wellington is a CSS preprocessor with spriting and based on libsass
-dev-vcs/hub 2.2.2-r1 2.2.3_pre20160119 2.2.3: Hub wraps git in order to extend it with extra features and commands
+dev-vcs/hub 2.2.2-r1 2.2.3: Hub wraps git in order to extend it with extra features and commands
 net-ftp/pixiecore 0.1.0_pre20150915: PXE booting for people in a hurry
 net-misc/bat 0.0.2: Go implemented CLI cURL-like tool for humans
 net-misc/drive 0.3.4: Google Drive client for the commandline
