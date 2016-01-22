@@ -592,19 +592,27 @@ golang-single_src_prepare() {
 
 
 	# Auto-detects the presence of Go's vendored dependencies.
-	case $( get_version_component_range 1-2 ${GOLANG_VERSION} ) in
-		1.4*) ;;
-		*)
-			if [[ -r "${S}"/vendor/manifest ]]; then
+	if [[ -d "${S}"/vendor ]]; then
+		case $( get_version_component_range 1-2 ${GOLANG_VERSION} ) in
+			1.4*)
+				# TODO: traverse "vendor" and expose to GOLANG_PKG_VENDOR
+				#       all the bundled vendor sub-directory
+				if [[ ! -d "${S}/vendor/src" ]]; then
+					ln -sf "${S}"/vendor "${S}"/vendor/src || die
+				fi
+
+				GOLANG_PKG_VENDOR+=" ${S}/vendor"
+				;;
+			1.5*)
 				export GO15VENDOREXPERIMENT=1
-			fi
-			;;
-	esac
+				;;
+		esac
+	fi
 
 	# Auto-detects the presence of Godep's workspace
 	# (see github.com/tools/godep for more infos).
 	if [[ -d "${S}"/Godeps/_workspace/src ]]; then
-		GOLANG_PKG_VENDOR+="${S}/Godeps/_workspace"
+		GOLANG_PKG_VENDOR+=" ${S}/Godeps/_workspace"
 	fi
 
 
@@ -748,7 +756,7 @@ golang-single_src_compile() {
 
 			debug-print "$FUNCNAME: GOPATH: Adding vendor path ${path}"
 			ebegin "- ${path//${WORKDIR}\//}"
-				GOPATH="${GOPATH}:${path}"
+				GOPATH="${GOPATH}:$( echo ${path} )"
 			eend
 		done
 
