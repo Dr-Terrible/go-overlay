@@ -25,7 +25,6 @@ dev-db/tidb 0.1.0_pre20151916: TiDB is a distributed SQL database compatible wit
 dev-db/tiedot 3.2-r2 3.3_pre20160117: Tiedot is a document-oriented NoSQL database written in GoLang
 dev-go/Go-Package-Store 0.1.0_pre20151209: An app that displays updates for the Go packages in your GOPATH
 dev-go/dex 0.1.0 0.2.2: Dex is a Federated Indentity Provider written in GoLang
-dev-go/direnv 2.7.0: Direnv is an environment switcher for the shell.
 dev-go/discover 0.1_pre20160301: Discover is a utility to aid in conceptualizing large Go code bases
 dev-go/duktape 2.0.0_pre20151125: CLI for Duktape JavaScript engine written in GoLang
 dev-go/flint 0.0.4 0.0.5_pre20150607: Check your project for common sources of contributor friction
@@ -63,6 +62,7 @@ dev-go/xj2s 20151106: A small tool for Golang to generate Golang strunc from xml
 dev-util/anderson 0.1_pre20150328: Checks your Go dependencies for contraband licenses
 dev-util/check 0.1_pre20160108: A set of utilities for checking Go sources
 dev-util/deadcode 2012.02.28: Deadcode finds unused Go source code
+dev-util/direnv 2.7.0 2.7.0-r1: Direnv is an environment switcher for the shell.
 dev-util/dupl 0.1_pre20151118: A tool for Go code clone detection
 dev-util/errcheck 0.1_pre20160115: Errcheck checks that you checked errors
 dev-util/ffjson 0.1_pre20151118: Ffjson is a faster JSON serialization for Go
@@ -83,7 +83,7 @@ dev-util/maligned 0.1_pre20151009: Detects Go structs that would take less memor
 dev-util/orange-cat 0.2.2-r1: A Markdown previewer written in GoLang
 dev-util/pipecat 0.2: Pipecat allows you to scale any program using traditional UNIX pipes and AMQP
 dev-util/wellington 0.9.3 1.0.2: Wellington is a CSS preprocessor with spriting and based on libsass
-dev-vcs/hub 2.2.2-r1 2.2.3_pre20160119: Hub wraps git in order to extend it with extra features and commands
+dev-vcs/hub 2.2.2-r1 2.2.3_pre20160119 2.2.3: Hub wraps git in order to extend it with extra features and commands
 net-ftp/pixiecore 0.1.0_pre20150915: PXE booting for people in a hurry
 net-misc/bat 0.0.2: Go implemented CLI cURL-like tool for humans
 net-misc/drive 0.3.4: Google Drive client for the commandline
