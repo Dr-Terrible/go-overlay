@@ -2,7 +2,7 @@ app-admin/pony 0.1.0_pre20160104: Local File-Based Password, API Key, Secret, Re
 app-admin/restic 0.1.0: Restic is a program that does backups
 app-admin/terraform 0.6.8 0.6.9: Terraform builds, changes, and combines infrastructure safely and efficiently
 app-admin/trousseau 0.3.5_pre20150212: A networked and encrypted key-value database.
-app-benchmarks/boom 20150819: HTTP(S) load generator, ApacheBench (ab) replacement, written in GoLang
+app-benchmarks/boom 20151223: HTTP(S) load generator, ApacheBench (ab) replacement, written in GoLang
 app-benchmarks/vegeta 5.8.1: HTTP load testing tool and library written in GoLang.
 app-editors/lime-qml 20150428: QML frontend for Lime text editor.
 app-editors/lime-termbox 20150428: Termbox frontend for Lime text editor.

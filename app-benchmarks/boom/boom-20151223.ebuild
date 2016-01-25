@@ -1,15 +1,15 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/rakyll"
-GOLANG_PKG_VERSION="79153762c259a71f2febd651a619c8b20d0f5178"
+GOLANG_PKG_VERSION="758f4140140923a4d17561f0c52e8a6cee60a0e6"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/rakyll/pb:dc507ad06b"
+	"github.com/rakyll/pb:8d46b8b"
 )
 
 inherit golang-single
