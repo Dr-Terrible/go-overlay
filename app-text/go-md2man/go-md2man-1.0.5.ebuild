@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -10,8 +10,8 @@ GOLANG_PKG_HAVE_TEST=1
 
 # Declare dependencies
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/russross/blackfriday:8cec3a854e"
-	"github.com/shurcooL/sanitized_anchor_name:11a20b799b"
+	"github.com/russross/blackfriday:006144a"
+	"github.com/shurcooL/sanitized_anchor_name:10ef21a"
 )
 
 inherit golang-single
