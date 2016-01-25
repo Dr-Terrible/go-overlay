@@ -100,7 +100,7 @@ net-misc/wsd 0.0.0_pre20150722: Simple cURL-like command line utility for debugg
 net-p2p/cloud-torrent 0.8.1: Cloud Torrent is a self-hosted remote torrent client, written in GoLang
 sys-apps/sift 0.4.1: A fast and powerful open source alternative to grep
 sys-devel/calc 20150422: A simple, fast command-line calculator written in GoLang
-sys-devel/delve 0.5.0 0.9.0: Delve is a debugger for the Go programming language
+sys-devel/delve 0.9.0 1.0_pre20160124: Delve is a debugger for the Go programming language
 sys-devel/gcvis 0.1.0_pre20150714: Visualise Go program Garbage Collector trace data in real-time.
 www-apps/gitea 0.7.0_pre20150630: Gitea is a self-hosted Git service written in Go
 www-apps/gogs 0.7.22 0.8.10-r1: Gogs is a self-hosted Git service written in Go
