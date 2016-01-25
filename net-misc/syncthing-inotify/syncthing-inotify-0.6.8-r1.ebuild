@@ -16,7 +16,7 @@ GOLANG_PKG_DEPENDENCIES=(
 
 inherit systemd golang-single
 
-DESCRIPTION="File watcher intended for use with Syncthing (Linux, BSD, Windows, OSX)"
+DESCRIPTION="File watcher intended for use with Syncthing"
 HOMEPAGE="http://syncthing.net"
 
 LICENSE="MPL-2.0"
@@ -24,10 +24,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
 
 src_install() {
-	# install the package
+	# Install the package
 	golang-single_src_install
 
-	# install systemd services
+	# Install systemd services
 	systemd_dounit "${S}"/etc/linux-systemd/system/${PN}@.service
 	systemd_douserunit "${S}"/etc/linux-systemd/user/${PN}.service
 
