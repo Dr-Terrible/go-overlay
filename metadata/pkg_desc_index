@@ -47,7 +47,7 @@ dev-go/gostatus 20150606: A command-line tool that show the status of GoLang rep
 dev-go/gox 0.3.0 0.4.0_pre20150819: A dead simple, no frills Go cross compile tool
 dev-go/goxc 0.17.0: Goxc is a build tool for GoLange, with a focus on cross-compiling and packaging
 dev-go/grind 0.1.0_pre20150302: Grind rewrites the source files written in GoLang.
-dev-go/kar 0.1_pre20151007: Kar is a simple utility that helps you run Kargar builds from CLI
+dev-go/kar 0.1_pre20151213: Kar is a simple utility that helps you run Kargar builds from CLI
 dev-go/liteide-tools 2015.04.09: Liteide Golang tools
 dev-go/minify 1.0.0 1.1.0: Go minifiers for web formats.
 dev-go/mock 0.1.0_pre20150821 0.1.0_pre20151213: GoMock is a mocking framework for the Go programming language
