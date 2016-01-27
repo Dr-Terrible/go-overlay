@@ -7,12 +7,12 @@ EAPI=5
 GOLANG_PKG_IMPORTPATH="github.com/gogits"
 GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_LDFLAGS="-X github.com/gogits/gogs/modules/setting.BuildTime=$(date -u '+%Y-%m-%d')"
-#GOLANG_PKG_LDFLAGS+=" -X github.com/gogits/gogs/modules/setting.BuildGitHash="
 GOLANG_PKG_USE_CGO=1
 GOLANG_PKG_HAVE_TEST=1
 
 # Dependencies
 GOLANG_PKG_DEPENDENCIES=(
+	"github.com/alexcesaro/quotedprintable:2caba25 -> gopkg.in/alexcesaro/quotedprintable.v3"
 	"github.com/bradfitz/gomemcache:72a6864"
 	"github.com/Unknwon/cae:7f5e046"
 	"github.com/Unknwon/com:28b053d"
@@ -93,7 +93,7 @@ IUSE="$IUSE_DATABASE_ADAPTER $IUSE_CACHE_ADAPTER pam +ssl"
 
 REQUIRED_USE="|| ( sqlite tidb mysql postgres )"
 
-DEPEND="dev-go/go-bindata
+DEPEND=">dev-go/go-bindata-3.0.7
 	sqlite? ( dev-db/sqlite:3 )
 	redis? ( dev-db/redis )
 	tidb? ( dev-db/tidb )
