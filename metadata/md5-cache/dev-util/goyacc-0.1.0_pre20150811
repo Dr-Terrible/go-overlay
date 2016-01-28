@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=Goyacc is a version of yacc generating Go parsers.
+EAPI=5
+HOMEPAGE=https://github.com/cznic/goyacc
+IUSE=test
+KEYWORDS=amd64 x86 arm
+LICENSE=BSD
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/cznic/goyacc/archive/980542a2d456ec78fc73a405f5f4063849ae8028.tar.gz -> goyacc-0.1.0_pre20150811.tar.gz https://github.com/cznic/golex/archive/a799639.tar.gz -> github.com-cznic-golex-a799639.tar.gz https://github.com/cznic/mathutil/archive/1dc7462.tar.gz -> github.com-cznic-mathutil-1dc7462.tar.gz https://github.com/cznic/parser/archive/0229b9c.tar.gz -> github.com-cznic-parser-0229b9c.tar.gz https://github.com/cznic/sortutil/archive/e14776c.tar.gz -> github.com-cznic-sortutil-e14776c.tar.gz https://github.com/cznic/strutil/archive/1eb03e3.tar.gz -> github.com-cznic-strutil-1eb03e3.tar.gz https://github.com/cznic/y/archive/14e7b5d.tar.gz -> github.com-cznic-y-14e7b5d.tar.gz
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	8982475656ba7ade9b3201397efbd612	golang-single	42a420267fee614775b89a228a37384b	golang-utils	3af8b10b81dd8f163f5f3975b4003187	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=922cf668f1d91cc5e2e3169d8360823f
