@@ -4,6 +4,7 @@ app-admin/terraform 0.6.8 0.6.9: Terraform builds, changes, and combines infrast
 app-admin/trousseau 0.3.5_pre20150212: A networked and encrypted key-value database.
 app-benchmarks/boom 20151223: HTTP(S) load generator, ApacheBench (ab) replacement, written in GoLang
 app-benchmarks/vegeta 5.8.1: HTTP load testing tool and library written in GoLang.
+app-crypt/keybase 1.0.9.1: Client for keybase.io
 app-editors/lime-qml 20150428: QML frontend for Lime text editor.
 app-editors/lime-termbox 20150428: Termbox frontend for Lime text editor.
 app-editors/liteide 27.2.1: LiteIDE is a simple, open source, cross-platform Go IDE.
@@ -23,7 +24,7 @@ dev-db/cockroach 0.1.0_pre20150926: A scalable, geo-replicanted, transactional d
 dev-db/influxdb 0.9.4.1 0.9.4.2: Scalable datastore for metrics, events, and real-time analytics
 dev-db/pgfutter 0.3.2: Command-line tool to import CSV and JSON into PostgreSQL
 dev-db/telegraf 0.1.3-r2 0.1.9: A plugin-driven server agent for reporting metrics into InfluxDB
-dev-db/tidb 0.1.0_pre20151916: TiDB is a distributed SQL database compatible with MySQL protocol
+dev-db/tidb 0.1.0_pre20151916 0.5: TiDB is a distributed SQL database compatible with MySQL protocol
 dev-db/tiedot 3.2-r2 3.3_pre20160117: Tiedot is a document-oriented NoSQL database written in GoLang
 dev-go/Go-Package-Store 0.1.0_pre20151209: An app that displays updates for the Go packages in your GOPATH
 dev-go/dex 0.1.0 0.2.2: Dex is a Federated Indentity Provider written in GoLang
@@ -32,7 +33,7 @@ dev-go/duktape 2.0.0_pre20151125: CLI for Duktape JavaScript engine written in G
 dev-go/flint 0.0.4 0.0.5_pre20150607: Check your project for common sources of contributor friction
 dev-go/forego 0.16.1: Foreman written in GoLang
 dev-go/gb 0.2.0 0.3.5: Gb is a project based build tool for the Go programming language
-dev-go/gcli 0.2.1 0.2.3: Gcli builds GoLang command-line applications
+dev-go/gcli 0.2.3: Gcli builds GoLang command-line applications
 dev-go/ginkgo 1.2.0: BDD Testing Framework for GoLang
 dev-go/glide 0.6.1: Glide is a simplified GoLang project management, dependency management, and vendoring
 dev-go/go-bindata 3.0.7 3.0.8_pre20151023: A small utility for embedding binary data in a GoLang program.
@@ -74,10 +75,10 @@ dev-util/go-swagger 0.2.0 0.3.0_pre20160111: Swagger 2.0 implementation for GoLa
 dev-util/go-tools 20151230-r1: Various packages and tools that support the Go programming language
 dev-util/gocyclo 2015.06.27: Calculate cyclomatic complexities of functions in Go source code
 dev-util/godef 0.1_pre20150731: Godef prints where symbols are defined in Go source code
-dev-util/golex 0.1.0_pre20150906: A lex/flex like (not fully POSIX lex compatible) utility
+dev-util/golex 0.1.0_pre20150807: A lex/flex like (not fully POSIX lex compatible) utility
 dev-util/golint 2015.10.19: This is a linter for Go source code.
 dev-util/gometalinter 0.1_pre20160109: Concurrently run Go lint tools and normalise their output
-dev-util/goyacc 0.1.0_pre20150906: Goyacc is a version of yacc generating Go parsers.
+dev-util/goyacc 0.1.0_pre20150811: Goyacc is a version of yacc generating Go parsers.
 dev-util/hulk 0.1.0_pre20160121: Ultimate job/build runner
 dev-util/ineffassign 0.1_pre20151029: Detects ineffectual assignments in Go code.
 dev-util/interfacer 0.0.1_pre20160104: A linter for GoLang that suggests interface types
@@ -91,7 +92,7 @@ net-misc/bat 0.0.2: Go implemented CLI cURL-like tool for humans
 net-misc/drive 0.3.4: Google Drive client for the commandline
 net-misc/gnatsd 0.6.6: A high Performance NATS Server written in GoLang
 net-misc/goduckgo 0.1.0_pre20150206: Command-line tool for DuckDuckGo API
-net-misc/gollum 0.4.0: A n:m message multiplexer written in GoLang
+net-misc/gollum 0.4.1: A n:m message multiplexer written in GoLang
 net-misc/govpn 4.2: Simple secure free software VPN daemon
 net-misc/nsq 0.3.6: A real-time distributed messaging platform, written in GoLang
 net-misc/syncthing 0.11.26 0.12.12-r1 0.12.15-r1 0.12.16: Syncthing is an app that lets you synchronize your files across multiple devices
