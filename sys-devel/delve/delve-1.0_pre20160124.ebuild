@@ -34,4 +34,4 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND=">=dev-lang/go-1.5.3"
+DEPEND=">=dev-lang/go-1.5.3"
