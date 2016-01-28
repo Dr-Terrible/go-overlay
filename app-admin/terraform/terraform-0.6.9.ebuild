@@ -98,7 +98,7 @@ IUSE_PROVIDERS="atlas aws azure azurerm cloudflare cloudstack consul digitalocea
 IUSE_PROVISIONERS="+file +local-exec +remote-exec"
 IUSE+=" $IUSE_PROVIDERS $IUSE_PROVISIONERS $COMMON_IUSE"
 
-DEPEND=">=dev-lang/g0-1.5.1"
+DEPEND=">=dev-lang/go-1.5.1"
 
 # go-tools is required by "go:generate stringer" directive
 DEPEND="dev-util/go-tools"
