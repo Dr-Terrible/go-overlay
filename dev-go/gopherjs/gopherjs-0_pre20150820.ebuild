@@ -16,7 +16,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/spf13/pflag:5644820622"
 	"github.com/golang/crypto:1e856cbfdf -> golang.org/x"
 	"github.com/golang/tools:4f50f44d7a -> golang.org/x"
-	"github.com/go-fsnotify/fsnotify:96c060f6a6 -> gopkg.in/fsnotify.v1"
+	"github.com/go-fsnotify/fsnotify:8611c35 -> gopkg.in/fsnotify.v1" # # v1.2.9
 	"github.com/inconshreveable/mousetrap:76626ae9c9"
 )
 
