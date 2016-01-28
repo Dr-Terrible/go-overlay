@@ -21,7 +21,7 @@ HOMEPAGE="http://syncthing.net"
 
 LICENSE="MPL-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm"
+KEYWORDS="amd64 x86 arm"
 
 src_install() {
 	# Install the package
