@@ -591,28 +591,39 @@ golang-single_src_prepare() {
 	popd > /dev/null
 
 
-	# Auto-detects the presence of Go's vendored dependencies.
-	if [[ -d "${S}"/vendor ]]; then
-		case $( get_version_component_range 1-2 ${GOLANG_VERSION} ) in
-			1.4*)
-				# TODO: traverse "vendor" and expose to GOLANG_PKG_VENDOR
-				#       all the bundled vendor sub-directory
-				if [[ ! -d "${S}/vendor/src" ]]; then
-					ln -sf "${S}"/vendor "${S}"/vendor/src || die
-				fi
-
-				GOLANG_PKG_VENDOR+=" ${S}/vendor"
-				;;
-			1.5*)
-				export GO15VENDOREXPERIMENT=1
-				;;
-		esac
+	# Auto-detects the presence of Go's vendored
+	# dependencies inside $S/vendor.
+	local VENDOR="${S}/vendor"
+	if [[ -d "${VENDOR}" ]]; then
+		golang_add_vendor "${VENDOR}"
 	fi
+
+	# Auto-detects the presence of Go's vendored
+	# dependencies inside $S/*/vendor
+	if [[ -n ${GOLANG_PKG_BUILDPATH} && ${GOLANG_PKG_BUILDPATH##*/} != "..." ]]; then
+		while read -d $' ' path; do
+			# Trims leading slash (if any).
+			path="${path/\//}"
+
+			# Extracts the root path.
+			path="${path%%/*}"
+
+			# Ignores $path when it's empty or a string of white spaces.
+			[[ -n $path ]] || continue
+
+			local vendor="${S}/${path}/vendor"
+			if [[ -d "${vendor}" ]]; then
+				golang_add_vendor "${vendor}"
+			fi
+		done <<< "$( echo ${GOLANG_PKG_BUILDPATH}) "
+	fi
+
 
 	# Auto-detects the presence of Godep's workspace
 	# (see github.com/tools/godep for more infos).
-	if [[ -d "${S}"/Godeps/_workspace/src ]]; then
-		GOLANG_PKG_VENDOR+=" ${S}/Godeps/_workspace"
+	VENDOR="${S}/Godeps/_workspace"
+	if [[ -d "${VENDOR}" ]]; then
+		GOLANG_PKG_VENDOR+=" ${VENDOR}"
 	fi
 
 
@@ -800,13 +811,13 @@ golang-single_src_compile() {
 			#einfo "cmd: |$cmd| cmd: |${cmd##*/}|"
 			[[ -n $cmd ]] || continue
 
-			golang-single_do_build_ \
+			golang_do_build \
 				${EGO_BUILD_FLAGS} \
 				-o "${GOBIN}/${cmd##*/}" \
 				"${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}"
 		done <<< "$( echo ${GOLANG_PKG_BUILDPATH}) "
 	else
-		golang-single_do_build_ \
+		golang_do_build \
 			${EGO_BUILD_FLAGS} \
 			"${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
 	fi
@@ -905,36 +916,4 @@ golang-single_src_test() {
 		${EGO_BUILD_FLAGS} \
 		"${EGO_SUBPACKAGES}" \
 		|| die
-}
-
-
-# @FUNCTION: golang_fix_importpath_alias
-# @USAGE: <target> <alias>
-# @DESCRIPTION:
-# Helper functions for generating a symbolic link for import path <target> as
-# <alias>.
-#
-# WARNING: Use this function only if GOLANG_PKG_DEPENDENCIES declaration of
-# import path aliases doesn't work (e.g.: the package name differs from both the
-# import path and the alias, or if the package name is case sensitive but the
-# import path is not).
-golang_fix_importpath_alias() {
-	debug-print-function ${FUNCNAME} "${@}"
-
-	[[ ${1} ]] || die "${FUNCNAME}: no paths given"
-
-	[[ ${EGO} ]] || die "No GoLang implementation set (golang_setup not called?)."
-
-
-	local TARGET="${1}"
-	local ALIAS="${2}"
-
-	if [[ ${ALIAS%/*} != ${ALIAS} ]]; then
-		mkdir -p "${GOPATH}/src/${ALIAS%/*}" || die
-	fi
-	ebegin "Linking ${TARGET} as ${ALIAS}"
-		ln -sf "${GOPATH}/src/${TARGET}" \
-			"${GOPATH}/src/${ALIAS}" \
-			|| die
-	eend
 }
