@@ -28,7 +28,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/go-swagger/go-swagger:67c4493" #v0.2.0
 	"github.com/PuerkitoBio/purell:d69616f"
 	"github.com/opennota/urlesc:5fa9ff0"
-	"github.com/go-yaml/yaml:53feefa -> gopkg.in/yaml.v2"
+	"github.com/go-yaml/yaml:f7716cb -> gopkg.in/yaml.v2"
 )
 
 inherit golang-single
