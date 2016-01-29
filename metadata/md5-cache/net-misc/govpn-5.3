@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=doc? ( sys-apps/texinfo media-gfx/plantuml ) virtual/pkgconfig dev-lang/go:*
+DESCRIPTION=Simple secure free software VPN daemon
+EAPI=5
+HOMEPAGE=http://www.cypherpunks.ru/govpn
+IUSE=doc test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/stargrave/govpn/archive/5.3.tar.gz -> govpn-5.3.tar.gz https://github.com/agl/ed25519/archive/278e1ec.tar.gz -> github.com-agl-ed25519-278e1ec.tar.gz https://github.com/songgao/water/archive/dd043ef.tar.gz -> github.com-songgao-water-dd043ef.tar.gz https://github.com/dchest/blake2b/archive/3c8c640.tar.gz -> github.com-dchest-blake2b-3c8c640.tar.gz https://github.com/magical/argon2/archive/82d59eb.tar.gz -> github.com-magical-argon2-82d59eb.tar.gz https://github.com/golang/crypto/archive/1f22c01.tar.gz -> github.com-golang-crypto-1f22c01.tar.gz https://github.com/go-yaml/yaml/archive/f7716cb.tar.gz -> github.com-go-yaml-yaml-f7716cb.tar.gz
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	8982475656ba7ade9b3201397efbd612	golang-single	42a420267fee614775b89a228a37384b	golang-utils	3af8b10b81dd8f163f5f3975b4003187	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	systemd	3165c885f3c71ffae7a867d931fb0e07	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=7f6cdb33d0de9b78b1ad48de17ced737
