@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=DevTodo is a small command line application for maintaining lists of tasks.
+EAPI=5
+HOMEPAGE=http://swapoff.org/devtodo.html
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=BSD
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/alecthomas/devtodo2/archive/d59df692a0080f3e45a760982a901aae4385a205.tar.gz -> devtodo-2.2_pre20150904.tar.gz https://github.com/droundy/goopt/archive/e5c9ab1.tar.gz -> github.com-droundy-goopt-e5c9ab1.tar.gz
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	8982475656ba7ade9b3201397efbd612	golang-single	42a420267fee614775b89a228a37384b	golang-utils	3af8b10b81dd8f163f5f3975b4003187	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=3d26f2a953fb77af5af8cec1c457504b
