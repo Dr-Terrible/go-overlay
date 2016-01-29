@@ -33,7 +33,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/spf13/jWalterWeatherman:3d60171a64"
 	"github.com/yosssi/ace:78e48a2f0a"
 	"github.com/go-fsnotify/fsnotify:96c060f6a6 -> gopkg.in/fsnotify.v1"
-	"github.com/go-yaml/yaml:c1cd2254a6 -> gopkg.in/yaml.v2"
+	"github.com/go-yaml/yaml:f7716cb -> gopkg.in/yaml.v2"
 	"github.com/inconshreveable/mousetrap:76626ae9c9"
 	"github.com/kr/pretty:e6ac2fc51e"
 	"github.com/kr/text:e373e137fa"
