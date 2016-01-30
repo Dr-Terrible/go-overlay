@@ -85,7 +85,6 @@ src_prepare() {
 		docs/layouts/section/commands.html \
 		docs/layouts/partials/header.html \
 		|| die
-
 }
 
 src_install() {

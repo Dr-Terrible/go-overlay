@@ -64,6 +64,21 @@ src_prepare() {
 	golang_fix_importpath_alias \
 		"github.com/spf13/jWalterWeatherman" \
 		"github.com/spf13/jwalterweatherman"
+
+	# Fix for hardcoded URIs within docs
+	sed -i \
+		-e "s:introduction\/:introduction.html:" \
+		-e "s:showcase\/:showcase.html:" \
+		-e "s:press\/:press.html:" \
+		-e "s:tools\/:tools/index.html:" \
+		-e "s:commands\/:commands.html:" \
+		-e "s:{{ .URL }}:{{ .URL }}/index.html:" \
+		-e "s:href=\"/\" class=\"logo\":href=\"/index.html\" class=\"logo\":" \
+		docs/layouts/index.html \
+		docs/config.toml \
+		docs/layouts/section/commands.html \
+		docs/layouts/partials/header.html \
+		|| die
 }
 
 src_install() {
