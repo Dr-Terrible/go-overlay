@@ -44,7 +44,7 @@ GOLANG_PKG_DEPENDENCIES=(
 inherit golang-single
 
 DESCRIPTION="A fast and flexible static site generator built in GoLang"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
+HOMEPAGE="http://gohugo.io"
 
 LICENSE="GPL-2"
 SLOT="0"

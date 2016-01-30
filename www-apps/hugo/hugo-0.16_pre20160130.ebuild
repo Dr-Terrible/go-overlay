@@ -5,7 +5,7 @@
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/spf13"
-GOLANG_PKG_VERSION="5def6d9aee659160d921bcbc1c9d98007a428d54"
+GOLANG_PKG_VERSION="9b8d2ce52bd30ac891a537caaa9207f5105362b8"
 GOLANG_PKG_HAVE_TEST=1
 
 # Declares dependencies
@@ -53,7 +53,7 @@ GOLANG_PKG_DEPENDENCIES=(
 inherit golang-single
 
 DESCRIPTION="A fast and flexible static site generator built in GoLang"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
+HOMEPAGE="http://gohugo.io"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -70,6 +70,22 @@ src_prepare() {
 	golang_fix_importpath_alias \
 		"github.com/spf13/jWalterWeatherman" \
 		"github.com/spf13/jwalterweatherman"
+
+	# Fix for hardcoded URIs within docs
+	sed -i \
+		-e "s:introduction\/:introduction.html:" \
+		-e "s:showcase\/:showcase.html:" \
+		-e "s:press\/:press.html:" \
+		-e "s:tools\/:tools/index.html:" \
+		-e "s:commands\/:commands.html:" \
+		-e "s:{{ .URL }}:{{ .URL }}/index.html:" \
+		-e "s:href=\"/\" class=\"logo\":href=\"/index.html\" class=\"logo\":" \
+		docs/layouts/index.html \
+		docs/config.toml \
+		docs/layouts/section/commands.html \
+		docs/layouts/partials/header.html \
+		|| die
+
 }
 
 src_install() {
@@ -91,7 +107,7 @@ src_install() {
 				--disableSitemap=true \
 				--noTimes=true \
 				|| die
-			dohtml -r "${T}"/docs/*
+			dohtml -A eot,ttf,woff,woff2,svg -r "${T}"/docs/*
 		popd
 	fi
 }
