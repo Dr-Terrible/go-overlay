@@ -5,14 +5,16 @@
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/shurcooL"
-GOLANG_PKG_VERSION="55bf53ffb3e85129e9f296abd67e465095d66e49"
+GOLANG_PKG_VERSION="89335514008340b9d50749ae3e4bc215b10b1ca9"
 GOLANG_PKG_IS_MULTIPLE=1
 GOLANG_PKG_USE_GENERATE=1
 GOLANG_PKG_HAVE_TEST=1
 
 # Declares dependencies
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/shurcooL/go:8087d7ae25"
+	"github.com/bradfitz/iter:454541e"
+	"github.com/shurcooL/vcsstate:20a6595"
+	"github.com/shurcooL/go:4d829e4"
 	"github.com/shurcooL/gopherjslib:d8eec8734d"
 	"github.com/shurcooL/httpfs:88fa6f82a8"
 	"github.com/shurcooL/gostatus:133f6c678a"
