@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=doc? ( dev-python/sphinx ) virtual/pkgconfig dev-lang/go:*
+DEPEND=>=dev-lang/go-1.5.3 doc? ( dev-python/sphinx ) virtual/pkgconfig dev-lang/go:*
 DESCRIPTION=Syncthing is an app that lets you synchronize your files across multiple devices
 EAPI=5
 HOMEPAGE=http://syncthing.net
@@ -9,6 +9,6 @@ LICENSE=MPL-2.0
 RDEPEND=cli? ( net-misc/syncthing-cli ) inotify? ( net-misc/syncthing-inotify )
 RESTRICT=mirror
 SLOT=0
-SRC_URI=https://github.com/syncthing/syncthing/archive/v0.12.12.tar.gz -> syncthing-0.12.12.tar.gz doc? ( https://github.com/syncthing/docs/archive/bb87d0f18c1abd3397a1c1ee335605f84d3f07e9.tar.gz -> syncthing-docs-bb87d0f18c1abd3397a1c1ee335605f84d3f07e9.tar.gz )
+SRC_URI=https://github.com/syncthing/syncthing/archive/v0.12.17.tar.gz -> syncthing-0.12.17.tar.gz doc? ( https://github.com/syncthing/docs/archive/bb87d0f18c1abd3397a1c1ee335605f84d3f07e9.tar.gz -> syncthing-docs-bb87d0f18c1abd3397a1c1ee335605f84d3f07e9.tar.gz )
 _eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	28fb3e5852485af1c348d446b0b98389	golang-single	42a420267fee614775b89a228a37384b	golang-utils	3af8b10b81dd8f163f5f3975b4003187	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	systemd	3165c885f3c71ffae7a867d931fb0e07	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	user	906f3c8eb3a2350a4f1191a89baa3e46	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
-_md5_=a5d2137c6c4bc6c2c9921d5daf5db433
+_md5_=62bb72cb8018738f91eb498b065e23a2
