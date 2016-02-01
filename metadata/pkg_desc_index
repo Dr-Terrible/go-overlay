@@ -51,7 +51,6 @@ dev-go/goxc 0.17.0: Goxc is a build tool for GoLange, with a focus on cross-comp
 dev-go/grind 0.1.0_pre20150302: Grind rewrites the source files written in GoLang.
 dev-go/kar 0.1_pre20151213: Kar is a simple utility that helps you run Kargar builds from CLI
 dev-go/liteide-tools 2015.04.09: Liteide Golang tools
-dev-go/minify 1.0.0 1.1.0: Go minifiers for web formats.
 dev-go/mock 0.1.0_pre20150821 0.1.0_pre20151213: GoMock is a mocking framework for the Go programming language
 dev-go/protobuf 0.1: Protocol Buffers for Go with Gadgets
 dev-go/re2dfa 0.1.0_pre20150627: Transform regular expressions into finite state machines and output GoLang source code
@@ -83,6 +82,7 @@ dev-util/hulk 0.1.0_pre20160121: Ultimate job/build runner
 dev-util/ineffassign 0.1_pre20151029: Detects ineffectual assignments in Go code.
 dev-util/interfacer 0.0.1_pre20160104: A linter for GoLang that suggests interface types
 dev-util/maligned 0.1_pre20151009: Detects Go structs that would take less memory if their fields were sorted
+dev-util/minify 1.0.0 1.1.0-r1 1.2.0_pre20160128: Go minifiers for web formats.
 dev-util/orange-cat 0.2.2-r1: A Markdown previewer written in GoLang
 dev-util/pcstat 0.1_pre20160126: Page Cache stat: get page cache stats for files on Linux
 dev-util/pipecat 0.2: Pipecat allows you to scale any program using traditional UNIX pipes and AMQP

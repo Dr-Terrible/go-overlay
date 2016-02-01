@@ -4,3 +4,4 @@ move dev-go/wellington dev-util/wellington
 move dev-util/hub dev-vcs/hub
 move dev-go/direnv dev-util/direnv
 move dev-go/dex net-nds/dex
+move dev-go/minify dev-util/minify
