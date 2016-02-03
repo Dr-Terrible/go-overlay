@@ -17,7 +17,7 @@ app-misc/thymer 0.1.0: Consolo Pomodoro Timer written in GoLang
 app-misc/weather 0.2.0 0.3.0_pre20150913: Weather via the command line.
 app-shells/antibody 0.4.0: A faster and simpler antigen written in Golang
 app-shells/peco 0.3.5: Simplistic interactive filtering tool
-app-text/go-md2man 1.0.5: Command-line tool to convert Markdown into UNIX man pages
+app-text/go-md2man 1.0.5 1.0.5-r1: Command-line tool to convert Markdown into UNIX man pages
 dev-db/bolt 1.0 1.1.0: Bolt is a low level key/value NoSQL database written in GoLang
 dev-db/boltd 1.0-r1: Bolts is a introspection tool for Bolt databases.
 dev-db/cayley 0.4.1-r1: Cayley is a graph databse written in GoLang.
