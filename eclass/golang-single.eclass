@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -63,7 +63,7 @@
 # @CODE
 
 
-inherit base multiprocessing golang-utils
+inherit eutils multiprocessing golang-utils
 
 RESTRICT+=" mirror "
 
@@ -222,6 +222,20 @@ GOLANG_PKG_STATIK="${GOLANG_PKG_STATIK:-}"
 # go
 # @CODE
 
+# @ECLASS-VARIABLE: PATCHES
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Array variable containing all the patches to be applied. This variable
+# is expected to be defined in the global scope of ebuilds. Make sure to
+# specify the full path. This variable is used in src_prepare phase.
+#
+# Example:
+# @CODE
+#	PATCHES=(
+#		"${FILESDIR}/mypatch.patch"
+#		"${FILESDIR}/mypatch2.patch"
+#	)
+# @CODE
 
 # @FUNCTION: create_sourcedir
 # @INTERNAL
@@ -485,7 +499,7 @@ golang_setup() {
 golang-single_src_unpack() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	base_src_unpack
+	default
 
 	# Create S by moving main GoLang package from WORKDIR into GOPATH.
 	_create_sourcedir
@@ -627,9 +641,9 @@ golang-single_src_prepare() {
 	fi
 
 
-	# NOTE: base_src_prepare() must be the last function invoked by
-	#       golang-single_src_prepare() otherwise the patching phase will fail.
-	base_src_prepare
+	# Evaluates PATCHES array and allows user defined patches.
+	[[ ${PATCHES[@]} ]] && epatch "${PATCHES[@]}"
+	epatch_user
 }
 
 
@@ -871,7 +885,7 @@ golang-single_src_install() {
 	done
 
 	# Installs documentation.
-	base_src_install_docs
+	einstalldocs
 }
 
 
