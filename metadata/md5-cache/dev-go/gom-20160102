@@ -9,5 +9,5 @@ LICENSE=Apache-2.0
 RESTRICT=mirror
 SLOT=0
 SRC_URI=https://github.com/rakyll/gom/archive/db2aa4d390a187cd917d665eade44ad340fe68c1.tar.gz -> gom-20160102.tar.gz https://github.com/gizak/termui/archive/551f2e7.tar.gz -> github.com-gizak-termui-551f2e7.tar.gz https://github.com/mattn/go-runewidth/archive/d96d1bd.tar.gz -> github.com-mattn-go-runewidth-d96d1bd.tar.gz https://github.com/nsf/termbox-go/archive/9554a56.tar.gz -> github.com-nsf-termbox-go-9554a56.tar.gz https://github.com/rakyll/statik/archive/274df120e9.tar.gz -> github.com-rakyll-statik-274df120e9.tar.gz
-_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	8982475656ba7ade9b3201397efbd612	golang-single	42a420267fee614775b89a228a37384b	golang-utils	3af8b10b81dd8f163f5f3975b4003187	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	28fb3e5852485af1c348d446b0b98389	golang-single	42a420267fee614775b89a228a37384b	golang-utils	3af8b10b81dd8f163f5f3975b4003187	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
 _md5_=b6ebd33da93901baabff0306445b1424
