@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:* >=sys-devel/gcc-4.8.4[go]
+DESCRIPTION=Google Cloud Print CUPS Connector
+EAPI=5
+HOMEPAGE=https://github.com/google/cups-connector
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/google/cups-connector/archive/2016.01.02.tar.gz -> cups-connector-2016.01.02.tar.gz https://github.com/coreos/go-systemd/archive/master.tar.gz -> github.com-coreos-go-systemd-master.tar.gz https://github.com/codegangsta/cli/archive/master.tar.gz -> github.com-codegangsta-cli-master.tar.gz https://github.com/golang/oauth2/archive/master.tar.gz -> github.com-golang-oauth2-master.tar.gz https://github.com/golang/net/archive/master.tar.gz -> github.com-golang-net-master.tar.gz https://bazaar.launchpad.net/~chipaca/go-xdg/v0/tarball/10 -> go-xdg.tar.gz
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	42a420267fee614775b89a228a37384b	golang-utils	3af8b10b81dd8f163f5f3975b4003187	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=5961de9b7349dc063342e8fdb0e90fc3
