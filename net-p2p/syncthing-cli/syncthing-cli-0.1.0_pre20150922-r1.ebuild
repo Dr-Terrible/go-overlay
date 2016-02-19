@@ -16,3 +16,5 @@ HOMEPAGE="http://syncthing.net"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="amd64 x86 arm"
+
+RDEPEND="!net-misc/${PN}"
