@@ -1,0 +1,13 @@
+[Unit]
+Description=Google Cloud Print CUPS Connector
+Documentation="https://github.com/google/cups-connector/wiki/Systemd"
+After=printer.target network.target multi-user.target
+
+[Service]
+ExecStart=/usr/bin/gcp-cups-connector -config-filename /etc/gcp_cups_connector/cups-connector.config.json
+Restart=on-abort
+User=gcp
+Group=gcp
+
+[Install]
+WantedBy=multi-user.target
