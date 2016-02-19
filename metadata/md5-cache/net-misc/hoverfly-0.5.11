@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=>=dev-lang/go-1.5.3 dev-lang/go:*
+DESCRIPTION=Hoverfly is a lightweight, open source service virtualization tool.
+EAPI=5
+HOMEPAGE=http://hoverfly.io
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=Apache-2.0
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/SpectoLabs/hoverfly/archive/v0.5.11.tar.gz -> hoverfly-0.5.11.tar.gz https://github.com/Sirupsen/logrus/archive/be52937.tar.gz -> github.com-Sirupsen-logrus-be52937.tar.gz https://github.com/elazarl/goproxy/archive/bee2110.tar.gz -> github.com-elazarl-goproxy-bee2110.tar.gz https://github.com/meatballhat/negroni-logrus/archive/0456e76.tar.gz -> github.com-meatballhat-negroni-logrus-0456e76.tar.gz https://github.com/codegangsta/negroni/archive/c7477ad.tar.gz -> github.com-codegangsta-negroni-c7477ad.tar.gz https://github.com/go-zoo/bone/archive/7e65666.tar.gz -> github.com-go-zoo-bone-7e65666.tar.gz https://github.com/boltdb/bolt/archive/ee716d1.tar.gz -> github.com-boltdb-bolt-ee716d1.tar.gz https://github.com/rakyll/statik/archive/274df12.tar.gz -> github.com-rakyll-statik-274df12.tar.gz https://github.com/rcrowley/go-metrics/archive/51425a2.tar.gz -> github.com-rcrowley-go-metrics-51425a2.tar.gz https://github.com/gorilla/websocket/archive/4935ba3.tar.gz -> github.com-gorilla-websocket-4935ba3.tar.gz
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	62bb7c35f841142773ec9128e24ac6dc	golang-utils	f804a0bd700d9a2c87ca43604a0bed9b	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=fc05fbb5d6b8a15e4442b377e9d27e49
