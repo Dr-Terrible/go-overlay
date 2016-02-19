@@ -77,7 +77,7 @@ dev-util/gocyclo 2015.06.27: Calculate cyclomatic complexities of functions in G
 dev-util/godef 0.1_pre20150731: Godef prints where symbols are defined in Go source code
 dev-util/golex 0.1.0_pre20150807: A lex/flex like (not fully POSIX lex compatible) utility
 dev-util/golint 2015.10.19: This is a linter for Go source code.
-dev-util/gometalinter 0.1_pre20160109: Concurrently run Go lint tools and normalise their output
+dev-util/gometalinter 0.1_pre20160109 0.1_pre20160207: Concurrently run Go lint tools and normalise their output
 dev-util/goyacc 0.1.0_pre20150811: Goyacc is a version of yacc generating Go parsers.
 dev-util/hulk 0.1.0_pre20160121: Ultimate job/build runner
 dev-util/ineffassign 0.1_pre20151029: Detects ineffectual assignments in Go code.
