@@ -33,7 +33,7 @@ dev-go/duktape 2.0.0_pre20151125: CLI for Duktape JavaScript engine written in G
 dev-go/flint 0.0.4 0.0.5_pre20150607: Check your project for common sources of contributor friction
 dev-go/forego 0.16.1: Foreman written in GoLang
 dev-go/gb 0.2.0 0.3.5: Gb is a project based build tool for the Go programming language
-dev-go/gcli 0.2.3: Gcli builds GoLang command-line applications
+dev-go/gcli 0.2.3 0.2.3-r1: Gcli builds GoLang command-line applications
 dev-go/ginkgo 1.2.0: BDD Testing Framework for GoLang
 dev-go/glide 0.6.1: Glide is a simplified GoLang project management, dependency management, and vendoring
 dev-go/go-bindata 3.0.7 3.0.8_pre20151023: A small utility for embedding binary data in a GoLang program.
@@ -96,7 +96,7 @@ net-misc/goduckgo 0.1.0_pre20150206: Command-line tool for DuckDuckGo API
 net-misc/gollum 0.4.1: A n:m message multiplexer written in GoLang
 net-misc/govpn 4.2 5.3: Simple secure free software VPN daemon
 net-misc/nsq 0.3.6: A real-time distributed messaging platform, written in GoLang
-net-misc/syncthing 0.11.26 0.12.12-r1 0.12.15-r1 0.12.16 0.12.17: Syncthing is an app that lets you synchronize your files across multiple devices
+net-misc/syncthing 0.11.26 0.12.12-r1 0.12.15-r1 0.12.16 0.12.17 0.12.18: Syncthing is an app that lets you synchronize your files across multiple devices
 net-misc/syncthing-cli 0.1.0_pre20150922: SyncThing command-line interface
 net-misc/syncthing-inotify 0.6.8-r1: File watcher intended for use with Syncthing
 net-misc/wsd 0.0.0_pre20150722: Simple cURL-like command line utility for debugging WebSocket servers
