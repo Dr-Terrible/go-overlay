@@ -1,0 +1,16 @@
+--- command/apply.go
++++ command/apply.go
+@@ -87,11 +87,11 @@
+ 	}
+ 
+ 	output := executable.Name
+-	if _, err := os.Stat(output); !os.IsNotExist(err) {
++/*	if _, err := os.Stat(output); !os.IsNotExist(err) {
+ 		msg := fmt.Sprintf("Cannot create directory %s: file exists", output)
+ 		c.UI.Error(msg)
+ 		return 1
+-	}
++	}*/
+ 
+ 	// Check option input first and if it's specified use it
+ 	if len(frameworkStr) == 0 {

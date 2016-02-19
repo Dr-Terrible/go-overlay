@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd></herd>
 	<maintainer>
 		<email>toffanin.mauro@gmail.com</email>
 		<name>Mauro Toffanin</name>
 		<description>Maintainer. Assign bugs to him</description>
 	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/tcnksm/gcli/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		gcli generates a skeleton (codes and its directory structure)
+		you need to start building Command Line Interface (CLI) tool
+		by Golang right out of the box. 
+	</longdescription>
 </pkgmetadata>

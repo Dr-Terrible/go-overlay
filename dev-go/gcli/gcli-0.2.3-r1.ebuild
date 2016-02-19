@@ -36,6 +36,10 @@ KEYWORDS="amd64 x86 arm"
 DEPEND="dev-go/go-bindata
 	test? ( dev-util/go-tools )"
 
+PATCHES=(
+	"${FILESDIR}/${PN}.patch"
+)
+
 src_compile() {
 	pushd skeleton &> /dev/null
 	ebegin "Building binary data"
