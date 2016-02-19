@@ -72,7 +72,7 @@ dev-util/ffjson 0.1_pre20151118: Ffjson is a faster JSON serialization for Go
 dev-util/ghfs 0.1_pre20150217: Ghfs is a user space filesystem that overlays the GitHub API
 dev-util/github-release 0.6.2: CLI to create and edit releases on Github
 dev-util/go-swagger 0.2.0 0.3.0_pre20160111: Swagger 2.0 implementation for GoLang
-dev-util/go-tools 20151230-r1: Various packages and tools that support the Go programming language
+dev-util/go-tools 20151230-r1 20160219: Various packages and tools that support the Go programming language
 dev-util/gocyclo 2015.06.27: Calculate cyclomatic complexities of functions in Go source code
 dev-util/godef 0.1_pre20150731: Godef prints where symbols are defined in Go source code
 dev-util/golex 0.1.0_pre20150807: A lex/flex like (not fully POSIX lex compatible) utility
