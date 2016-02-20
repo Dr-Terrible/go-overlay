@@ -5,17 +5,12 @@
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/dvyukov"
-GOLANG_PKG_VERSION="241d86511f9b4bf8f01815b07d2f969ec52619b2"
+GOLANG_PKG_VERSION="7076fcda38ec4a894e08ae5558cfa84288f60a25"
 GOLANG_PKG_BUILDPATH="/${PN} /${PN}-build"
 
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/elazarl/go-bindata-assetfs:57eb5e1"
-	"github.com/golang/tools:4ad5335 -> golang.org/x"
-
-	# Unit Testing
-#	"github.com/golang/image:7c49269 -> golang.org/x"
-#	"github.com/go-mgo/mgo:f402e3a -> gopkg.in/mgo.v2"
-#	"github.com/google/flatbuffers:40b0351"
+	"github.com/golang/tools:a17fa84 -> golang.org/x"
 )
 
 inherit golang-single
