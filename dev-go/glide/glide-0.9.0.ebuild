@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -10,15 +10,15 @@ GOLANG_PKG_HAVE_TEST=1
 
 # Declares dependencies
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/Masterminds/cookoo:623f8762b2"
-	"github.com/Masterminds/vcs:5eb2d6a132"
-	"github.com/codegangsta/cli:142e6cd241"
-	"github.com/kylelemons/go-gypsy:42fc2c7ee9"
+	"github.com/go-yaml/yaml:f7716cb -> gopkg.in/yaml.v2"
+	"github.com/Masterminds/semver:513f3dc" # v1.0.1
+	"github.com/Masterminds/vcs:9c0db65" # v1.4.0
+	"github.com/codegangsta/cli:5db7419"
 )
 
 inherit golang-single
 
-DESCRIPTION="Glide is a simplified GoLang project management, dependency management, and vendoring"
+DESCRIPTION="Glide is a vendor Package Management for Golang"
 HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="BSD"
