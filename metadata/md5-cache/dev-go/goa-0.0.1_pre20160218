@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=Goa is a framework for building RESTful microservices in Go
+EAPI=5
+HOMEPAGE=http://goa.design
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=MIT
+RDEPEND=dev-util/go-tools
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/goadesign/goa/archive/de9986a748f957c94c26af68218fb1f4a4c3b0b8.tar.gz -> goa-0.0.1_pre20160218.tar.gz https://github.com/julienschmidt/httprouter/archive/8c199fb.tar.gz -> github.com-julienschmidt-httprouter-8c199fb.tar.gz https://github.com/manveru/faker/archive/46ac366.tar.gz -> github.com-manveru-faker-46ac366.tar.gz https://github.com/zach-klippenstein/goregen/archive/a55a25e.tar.gz -> github.com-zach-klippenstein-goregen-a55a25e.tar.gz https://github.com/alecthomas/kingpin/archive/8852570.tar.gz -> github.com-alecthomas-kingpin-8852570.tar.gz https://github.com/alecthomas/template/archive/14fd436.tar.gz -> github.com-alecthomas-template-14fd436.tar.gz https://github.com/alecthomas/units/archive/2efee85.tar.gz -> github.com-alecthomas-units-2efee85.tar.gz https://github.com/spf13/cobra/archive/65a708c.tar.gz -> github.com-spf13-cobra-65a708c.tar.gz https://github.com/spf13/pflag/archive/7f60f83.tar.gz -> github.com-spf13-pflag-7f60f83.tar.gz https://github.com/golang/tools/archive/a17fa84.tar.gz -> github.com-golang-tools-a17fa84.tar.gz https://github.com/inconshreveable/log15/archive/b105bd3.tar.gz -> github.com-inconshreveable-log15-b105bd3.tar.gz https://github.com/tylerb/graceful/archive/48afeb2.tar.gz -> github.com-tylerb-graceful-48afeb2.tar.gz https://bitbucket.org/pkg/inflect/get/8961c3750a47.zip -> bitbucket.org-pkg-inflect-8961c3750a47.zip https://github.com/mattn/go-colorable/archive/3dac7b4.tar.gz -> github.com-mattn-go-colorable-3dac7b4.tar.gz https://github.com/golang/net/archive/4a71d18255.tar.gz -> github.com-golang-net-4a71d18255.tar.gz https://github.com/onsi/ginkgo/archive/462326b.tar.gz -> github.com-onsi-ginkgo-462326b.tar.gz https://github.com/onsi/gomega/archive/0fe2044.tar.gz -> github.com-onsi-gomega-0fe2044.tar.gz https://github.com/go-swagger/go-swagger/archive/a10c3e8.tar.gz -> github.com-go-swagger-go-swagger-a10c3e8.tar.gz https://github.com/PuerkitoBio/purell/archive/d69616f.tar.gz -> github.com-PuerkitoBio-purell-d69616f.tar.gz https://github.com/opennota/urlesc/archive/5fa9ff0.tar.gz -> github.com-opennota-urlesc-5fa9ff0.tar.gz https://github.com/go-yaml/yaml/archive/f7716cb.tar.gz -> github.com-go-yaml-yaml-f7716cb.tar.gz
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	62bb7c35f841142773ec9128e24ac6dc	golang-utils	f804a0bd700d9a2c87ca43604a0bed9b	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=9c579881e83807b448daf58013537909

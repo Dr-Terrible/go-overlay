@@ -4,8 +4,8 @@
 
 EAPI=5
 
-GOLANG_PKG_IMPORTPATH="github.com/raphael"
-GOLANG_PKG_VERSION="7e07db4b12d988038e4558b0bafaae259473024e"
+GOLANG_PKG_IMPORTPATH="github.com/goadesign"
+GOLANG_PKG_VERSION="de9986a748f957c94c26af68218fb1f4a4c3b0b8"
 GOLANG_PKG_BUILDPATH="/${PN}gen"
 GOLANG_PKG_HAVE_TEST=1
 
@@ -16,6 +16,9 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/alecthomas/kingpin:8852570 -> gopkg.in/alecthomas/kingpin.v2" #v2.1.18
 	"github.com/alecthomas/template:14fd436"
 	"github.com/alecthomas/units:2efee85"
+	"github.com/spf13/cobra:65a708c"
+	"github.com/spf13/pflag:7f60f83"
+	"github.com/golang/tools:a17fa84  -> golang.org/x"
 
 	# unit testing
 	"github.com/inconshreveable/log15:b105bd3 -> gopkg.in/inconshreveable/log15.v2" #v2.11
@@ -25,7 +28,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/golang/net:4a71d18255 -> golang.org/x"
 	"github.com/onsi/ginkgo:462326b" #v1.2.0
 	"github.com/onsi/gomega:0fe2044"
-	"github.com/go-swagger/go-swagger:67c4493" #v0.2.0
+	"github.com/go-swagger/go-swagger:a10c3e8" #v0.3.0
 	"github.com/PuerkitoBio/purell:d69616f"
 	"github.com/opennota/urlesc:5fa9ff0"
 	"github.com/go-yaml/yaml:f7716cb -> gopkg.in/yaml.v2"
