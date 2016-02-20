@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -12,16 +12,18 @@ GOLANG_PKG_HAVE_TEST=1
 
 # Declares dependencies
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/go-yaml/yaml:1b9791953b"
-	"github.com/ainoya/glog:20260dceee"
-	"github.com/andybons/hipchat:3d3573e918"
-	"github.com/tbruyelle/hipchat-go:3692079af7" # v1.1
-	"github.com/google/go-github:1e55bf6be8"
+	"github.com/golang/net:972f0c5 -> golang/x"
 	"github.com/udhos/goauth2:cb9484d494 -> code.google.com/p"
-	"github.com/google/go-querystring:547ef5ac97"
-
-	# Unit Testing
-	"github.com/stretchr/testify:232e856367"
+	"github.com/ainoya/glog:20260dc"
+	"github.com/andybons/hipchat:08bf65e"
+	"github.com/go-yaml/yaml:1b97919"
+	"github.com/google/go-github:1e55bf6"
+	"github.com/google/go-querystring:2a60fc2"
+	"github.com/stretchr/objx:1a9d0bb"
+	"github.com/stretchr/testify:de7fcff"
+	"github.com/tbruyelle/hipchat-go:7fdd5b2"
+	"github.com/go-check/check:11d3bc7 -> gopkg.in/check.v1"
+	"github.com/go-yaml/yaml:9f9df34 -> gopkg.in/yaml.v1"
 )
 
 inherit golang-single

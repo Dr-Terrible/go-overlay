@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=Walter is a tiny deployment pipeline
+EAPI=5
+HOMEPAGE=http://ainoya.io/walter
+IUSE=test
+KEYWORDS=amd64 x86 arm
+LICENSE=Apache-2.0
+RESTRICT=mirror test
+SLOT=0
+SRC_URI=https://github.com/walter-cd/walter/archive/v1.3.0.tar.gz -> walter-1.3.0.tar.gz https://github.com/golang/net/archive/972f0c5.tar.gz -> github.com-golang-net-972f0c5.tar.gz https://github.com/udhos/goauth2/archive/cb9484d494.tar.gz -> github.com-udhos-goauth2-cb9484d494.tar.gz https://github.com/ainoya/glog/archive/20260dc.tar.gz -> github.com-ainoya-glog-20260dc.tar.gz https://github.com/andybons/hipchat/archive/08bf65e.tar.gz -> github.com-andybons-hipchat-08bf65e.tar.gz https://github.com/go-yaml/yaml/archive/1b97919.tar.gz -> github.com-go-yaml-yaml-1b97919.tar.gz https://github.com/google/go-github/archive/1e55bf6.tar.gz -> github.com-google-go-github-1e55bf6.tar.gz https://github.com/google/go-querystring/archive/2a60fc2.tar.gz -> github.com-google-go-querystring-2a60fc2.tar.gz https://github.com/stretchr/objx/archive/1a9d0bb.tar.gz -> github.com-stretchr-objx-1a9d0bb.tar.gz https://github.com/stretchr/testify/archive/de7fcff.tar.gz -> github.com-stretchr-testify-de7fcff.tar.gz https://github.com/tbruyelle/hipchat-go/archive/7fdd5b2.tar.gz -> github.com-tbruyelle-hipchat-go-7fdd5b2.tar.gz https://github.com/go-check/check/archive/11d3bc7.tar.gz -> github.com-go-check-check-11d3bc7.tar.gz https://github.com/go-yaml/yaml/archive/9f9df34.tar.gz -> github.com-go-yaml-yaml-9f9df34.tar.gz
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	62bb7c35f841142773ec9128e24ac6dc	golang-utils	f804a0bd700d9a2c87ca43604a0bed9b	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=fe0ca4917845b9c8196937b9cce313ec
