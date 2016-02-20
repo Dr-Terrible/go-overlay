@@ -41,10 +41,10 @@ dev-go/go-fuzz 0.1_pre20160204: Go-fuzz is a coverage-guided fuzzing solution fo
 dev-go/go-torch 0.5.0_pre20150729 0.5.0_pre20160107: Stochastic flame graph profiler for Go Programs
 dev-go/goa 0.0.1_pre20160218: Goa is a framework for building RESTful microservices in Go
 dev-go/gocode 2015.03.03: An autocompletion daemon for the Go programming language
-dev-go/gom 20160102: A visual interface to work with runtime profiling data for Go
+dev-go/gom 20160119: A visual interface to work with runtime profiling data for Go
 dev-go/gopherjs 0_pre20150820 0_pre20160130: GopherJS compils GoLang code to pure JavaScript code
 dev-go/gore 0.2.5: A REPL for Golang
-dev-go/gostatus 20150606: A command-line tool that show the status of GoLang repositories
+dev-go/gostatus 20160119: A command-line tool that show the status of GoLang repositories
 dev-go/gox 0.3.0 0.4.0_pre20150819: A dead simple, no frills Go cross compile tool
 dev-go/goxc 0.17.0: Goxc is a build tool for GoLange, with a focus on cross-compiling and packaging
 dev-go/grind 0.1.0_pre20150302: Grind rewrites the source files written in GoLang.
