@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=Wago automates the actions you do after saving code.
+EAPI=5
+HOMEPAGE=https://github.com/JonahBraun/wago
+IUSE=test
+KEYWORDS=amd64 x86 arm
+LICENSE=BSD
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/JonahBraun/wago/archive/v1.2.0.tar.gz -> wago-1.2.0.tar.gz https://github.com/JonahBraun/dog/archive/1f68a79.tar.gz -> github.com-JonahBraun-dog-1f68a79.tar.gz https://github.com/howeyc/fsnotify/archive/f0c08ee.tar.gz -> github.com-howeyc-fsnotify-f0c08ee.tar.gz https://github.com/golang/net/archive/b6d7b13.tar.gz -> github.com-golang-net-b6d7b13.tar.gz
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	62bb7c35f841142773ec9128e24ac6dc	golang-utils	f804a0bd700d9a2c87ca43604a0bed9b	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=6ca99c93a93102415d88b0c40970f855

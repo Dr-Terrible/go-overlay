@@ -57,7 +57,7 @@ dev-go/revel-cli 0.12.0-r1: Command-line tool for Revel framework
 dev-go/safesql 0_pre20150617: Static analysis tool for GoLang that protects against SQL injections
 dev-go/statik 20150419: statik embeds static files into a GoLang executable
 dev-go/tomlv 0.2.0_pre20160219: A TOML validator written in GoLang
-dev-go/wago 1.0: Wago automates the actions you do after saving code.
+dev-go/wago 1.0 1.2.0: Wago automates the actions you do after saving code.
 dev-go/walter 1.2.0: Walter is a tiny deployment pipeline
 dev-go/xj2s 20151106: A small tool for Golang to generate Golang strunc from xml/json file
 dev-util/anderson 0.1_pre20150328: Checks your Go dependencies for contraband licenses
