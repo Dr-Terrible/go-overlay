@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=Stochastic flame graph profiler for Go Programs
+EAPI=5
+HOMEPAGE=https://github.com/uber/go-torch
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=BSD
+RESTRICT=mirror test
+SLOT=0
+SRC_URI=https://github.com/uber/go-torch/archive/7fb644a0cef57991ac4277320bafed6bb72bab31.tar.gz -> go-torch-0.5.0_pre20160107.tar.gz https://github.com/davecgh/go-spew/archive/5215b55.tar.gz -> github.com-davecgh-go-spew-5215b55.tar.gz https://github.com/fatih/color/archive/9aae6aa.tar.gz -> github.com-fatih-color-9aae6aa.tar.gz https://github.com/jessevdk/go-flags/archive/1b89bf7.tar.gz -> github.com-jessevdk-go-flags-1b89bf7.tar.gz https://github.com/pmezard/go-difflib/archive/e8554b8.tar.gz -> github.com-pmezard-go-difflib-e8554b8.tar.gz https://github.com/stretchr/testify/archive/e3a8ff8.tar.gz -> github.com-stretchr-testify-e3a8ff8.tar.gz https://github.com/mattn/go-colorable/archive/3dac7b4.tar.gz -> github.com-mattn-go-colorable-3dac7b4.tar.gz https://github.com/mattn/go-isatty/archive/56b76bd.tar.gz -> github.com-mattn-go-isatty-56b76bd.tar.gz https://github.com/golang/sys/archive/833a04a.tar.gz -> github.com-golang-sys-833a04a.tar.gz
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	62bb7c35f841142773ec9128e24ac6dc	golang-utils	f804a0bd700d9a2c87ca43604a0bed9b	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=792f8f29a3b9621804f6f82ab53c3807
