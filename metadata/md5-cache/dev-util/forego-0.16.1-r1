@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=dev-lang/go:*
+DEPEND=!dev-go/forego dev-lang/go:*
 DESCRIPTION=Foreman written in GoLang
 EAPI=5
 HOMEPAGE=https://github.com/ddollar/forego
@@ -10,4 +10,4 @@ RESTRICT=mirror
 SLOT=0
 SRC_URI=https://github.com/ddollar/forego/archive/v0.16.1.tar.gz -> forego-0.16.1.tar.gz
 _eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	62bb7c35f841142773ec9128e24ac6dc	golang-utils	f804a0bd700d9a2c87ca43604a0bed9b	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
-_md5_=c238a3439c5bbebe5ba640d6b6d11c2d
+_md5_=f3f2037d25ecfc72b37e134947692b0f
