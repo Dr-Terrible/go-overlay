@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:* >=sys-devel/gcc-4.8.4[go]
+DESCRIPTION=Gb is a project based build tool for the Go programming language
+EAPI=5
+HOMEPAGE=http://getgb.io
+IUSE=test
+KEYWORDS=amd64 x86
+LICENSE=MIT
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/constabulary/gb/archive/v0.4.0.tar.gz -> gb-0.4.0.tar.gz
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	62bb7c35f841142773ec9128e24ac6dc	golang-utils	f804a0bd700d9a2c87ca43604a0bed9b	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=3ee49fb177e63a03da5eeae3b483323d
