@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd></herd>
 	<maintainer>
 		<email>toffanin.mauro@gmail.com</email>
 		<name>Mauro Toffanin</name>
@@ -71,6 +70,10 @@
 		<flag name="packet">
 			Builds the provider that interacts with the resources supported by
 			Packet https://www.packet.net
+		</flag>
+		<flag name="powerdns">
+			Build the provider that manipulates DNS records supported by
+			PowerDNS server http://powerdns.com
 		</flag>
 		<flag name="rundeck">
 			Builds the provider that creates and configures Projects, Jobs and
