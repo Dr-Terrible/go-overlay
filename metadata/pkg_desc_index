@@ -64,7 +64,7 @@ dev-go/xj2s 20151106: A small tool for Golang to generate Golang strunc from xml
 dev-util/check 0.1_pre20160108: A set of utilities for checking Go sources
 dev-util/deadcode 2012.02.28: Deadcode finds unused Go source code
 dev-util/direnv 2.7.0-r1: Direnv is an environment switcher for the shell.
-dev-util/dupl 0.1_pre20151118: A tool for Go code clone detection
+dev-util/dupl 0.1_pre20160125: A tool for Go code clone detection
 dev-util/errcheck 0.1_pre20160115: Errcheck checks that you checked errors
 dev-util/ffjson 0.1_pre20151118: Ffjson is a faster JSON serialization for Go
 dev-util/flint 0.0.4 0.0.5_pre20160207: Check your project for common sources of contributor friction
