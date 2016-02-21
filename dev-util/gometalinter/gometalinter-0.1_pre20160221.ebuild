@@ -5,12 +5,12 @@
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/alecthomas"
-GOLANG_PKG_VERSION="5c707a04219a3e97ead1681ee79e4f54f5e4b1e0"
+GOLANG_PKG_VERSION="494118e679c0b23182e4b076e9a935e10064f82e"
 GOLANG_PKG_HAVE_TEST=1
 
 # Declares dependencies
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/alecthomas/kingpin:8852570 -> gopkg.in/alecthomas/kingpin.v2" #v2.1.8
+	"github.com/alecthomas/kingpin:8cccfa8 -> gopkg.in/alecthomas/kingpin.v2" #v2.1.11
 	"github.com/alecthomas/template:14fd436"
 	"github.com/alecthomas/units:2efee85"
 	"github.com/stretchr/testify:f390dcf" #v1.1.3
@@ -38,4 +38,5 @@ RDEPEND="dev-util/go-tools
 	dev-util/errcheck
 	dev-util/dupl
 	dev-util/ineffassign
-	dev-util/interfacer"
+	dev-util/interfacer
+	dev-util/unconvert"
