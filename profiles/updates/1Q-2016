@@ -11,3 +11,4 @@ move net-misc/syncthing-inotify net-p2p/syncthing-inotify
 move net-misc/syncthing-cli net-p2p/syncthing-cli
 move dev-go/flint dev-util/flint
 move dev-go/forego dev-util/forego
+move dev-util/anderson dev-go/anderson

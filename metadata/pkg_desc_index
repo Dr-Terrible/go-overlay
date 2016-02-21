@@ -29,6 +29,7 @@ dev-db/telegraf 0.1.3-r2 0.1.9: A plugin-driven server agent for reporting metri
 dev-db/tidb 0.1.0_pre20151916 0.5: TiDB is a distributed SQL database compatible with MySQL protocol
 dev-db/tiedot 3.2-r2 3.3_pre20160117: Tiedot is a document-oriented NoSQL database written in GoLang
 dev-go/Go-Package-Store 0.1.0_pre20151209 0.1.0_pre20160119: An app that displays updates for the Go packages in your GOPATH
+dev-go/anderson 0.1_pre20150328-r1: Checks your Go dependencies for contraband licenses
 dev-go/discover 0.1_pre20160103: Discover is a utility to aid in conceptualizing large Go code bases
 dev-go/duktape 2.0.0_pre20151125: CLI for Duktape JavaScript engine written in GoLang
 dev-go/gb 0.2.0 0.3.5 0.4.0: Gb is a project based build tool for the Go programming language
@@ -60,7 +61,6 @@ dev-go/tomlv 0.2.0_pre20160219: A TOML validator written in GoLang
 dev-go/wago 1.0 1.2.0: Wago automates the actions you do after saving code.
 dev-go/walter 1.3.0: Walter is a tiny deployment pipeline
 dev-go/xj2s 20151106: A small tool for Golang to generate Golang strunc from xml/json file
-dev-util/anderson 0.1_pre20150328: Checks your Go dependencies for contraband licenses
 dev-util/check 0.1_pre20160108: A set of utilities for checking Go sources
 dev-util/deadcode 2012.02.28: Deadcode finds unused Go source code
 dev-util/direnv 2.7.0-r1: Direnv is an environment switcher for the shell.
