@@ -5,13 +5,12 @@
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/${PN}"
-GOLANG_PKG_VERSION="da4fb18bad3ebe9a1371d316137be199fb5bdaa4"
 GOLANG_PKG_BUILDPATH="/cmd/${PN//go-/}"
 #GOLANG_PKG_USE_GENERATE=1
-GOLANG_PKG_HAVE_TEST=1
+#GOLANG_PKG_HAVE_TEST=1
 
-GOLANG_PKG_DEPENDENCIES=(
-	# Unit Testing
+#GOLANG_PKG_DEPENDENCIES=(
+#	# Unit Testing
 #	"github.com/naoina/denco:9af2ba0"
 #	"github.com/go-swagger/scan-repo-boundary:196ec52"
 #	"github.com/golang/net:2cba614 -> golang.org/x"
@@ -22,7 +21,7 @@ GOLANG_PKG_DEPENDENCIES=(
 #	"github.com/smartystreets/assertions:edb6e29"
 #	"github.com/go-check/check:4f90aea -> gopkg.in/check.v1"
 #	"github.com/golang/tools:4f50f44d7a -> golang.org/x"
-)
+#)
 
 inherit golang-single
 
