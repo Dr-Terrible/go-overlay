@@ -91,8 +91,8 @@ dev-util/pipecat 0.2: Pipecat allows you to scale any program using traditional 
 dev-util/unconvert 0.1_pre20160221: Remove unnecessary type conversions from Go source
 dev-util/wellington 0.9.3 1.0.2: Wellington is a CSS preprocessor with spriting and based on libsass
 dev-vcs/hub 2.2.2-r1 2.2.3: Hub wraps git in order to extend it with extra features and commands
-net-ftp/pixiecore 0.1.0_pre20150915: PXE booting for people in a hurry
-net-misc/bat 0.0.2: Go implemented CLI cURL-like tool for humans
+net-ftp/pixiecore 0.1.0_pre20151221: PXE booting for people in a hurry
+net-misc/bat 0.1.0: Go implemented CLI cURL-like tool for humans
 net-misc/drive 0.3.4: Google Drive client for the commandline
 net-misc/gnatsd 0.6.6: A high Performance NATS Server written in GoLang
 net-misc/goduckgo 0.1.0_pre20150206: Command-line tool for DuckDuckGo API
