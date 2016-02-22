@@ -8,6 +8,10 @@ GOLANG_PKG_IMPORTPATH="github.com/jpillora"
 GOLANG_PKG_LDFLAGS="-X main.VERSION=${PV}"
 GOLANG_PKG_HAVE_TEST=1
 
+GOLANG_PKG_DEPENDENCIES=(
+	"github.com/elazarl/go-bindata-assetfs:57eb5e1"
+)
+
 inherit golang-single
 
 DESCRIPTION="Cloud Torrent is a self-hosted remote torrent client, written in GoLang"
