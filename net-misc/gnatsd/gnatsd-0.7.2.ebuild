@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -10,6 +10,7 @@ GOLANG_PKG_HAVE_TEST=1
 
 # Declares dependencies
 GOLANG_PKG_DEPENDENCIES=(
+	"github.com/golang/crypto:1f22c01 -> golang.org/x"
 
 	# Unit regression tests
 	"github.com/nats-io/nats:574d117d50" # v1.0.9
