@@ -11,7 +11,7 @@ app-editors/liteide 27.2.1: LiteIDE is a simple, open source, cross-platform Go 
 app-editors/srclib 0.0.40: A hackable, multilange code analysis library for building better software tools
 app-emulation/packer 0.8.6 0.8.6-r1 0.9.0: Packer is a tool for creating identical machine images for multiple platforms
 app-emulation/runc 0.0.6-r1 0.0.8: Runc is a CLI tool for spawning and running containers according to the OCF specification
-app-misc/asciinema 1.1.1: A terminal session recorder for asciinema.org service
+app-misc/asciinema 1.2.0: A terminal session recorder for asciinema.org service
 app-misc/devtodo 2.2_pre20150904: DevTodo is a small command line application for maintaining lists of tasks.
 app-misc/thymer 0.1.0: Consolo Pomodoro Timer written in GoLang
 app-misc/weather 0.2.0 0.3.0_pre20150913: Weather via the command line.
