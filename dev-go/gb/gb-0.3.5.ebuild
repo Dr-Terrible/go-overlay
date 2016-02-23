@@ -20,8 +20,8 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 
 src_test() {
-	if has sandbox $FEATURES && has network-sandox $FEATURES; then
-		eerror "Some tests require 'sandbox', and 'network-sandox' to be disabled in FEATURES."
+	if has sandbox $FEATURES && has network-sandbox $FEATURES; then
+		eerror "Some tests require 'sandbox', and 'network-sandbox' to be disabled in FEATURES."
 	fi
 
 	golang-single_src_test

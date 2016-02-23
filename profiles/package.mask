@@ -8,6 +8,7 @@
 # Toffanin Mauro <toffanin.mauro@gmail.com> (09 Gen 2016)
 # Gitea is no longer developed by upstram. For reference
 # see https://github.com/go-gitea/gitea/issues/227
+# Please use www-apps/gogs
 www-apps/gitea
 
 # Toffanin Mauro <toffanin.mauro@gmail.com> (10 Jun 2015)

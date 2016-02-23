@@ -46,8 +46,8 @@ KEYWORDS="~amd64 ~x86 ~arm"
 RDEPEND="dev-util/go-tools"
 
 src_test() {
-	if has network-sandox $FEATURES; then
-		eerror "Some tests require 'network-sandox' to be disabled in FEATURES."
+	if has network-sandbox $FEATURES; then
+		eerror "Some tests require 'network-sandbox' to be disabled in FEATURES."
 	fi
 
 	golang-single_src_test

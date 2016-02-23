@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -22,8 +22,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 #src_test() {
-#	if has sandbox $FEATURES && has network-sandox $FEATURES; then
-#		eerror "Some tests require 'sandbox', and 'network-sandox' to be disabled in FEATURES."
+#	if has sandbox $FEATURES && has network-sandbox $FEATURES; then
+#		eerror "Some tests require 'sandbox', and 'network-sandbox' to be disabled in FEATURES."
 #	fi
 #
 #	golang-single_src_test

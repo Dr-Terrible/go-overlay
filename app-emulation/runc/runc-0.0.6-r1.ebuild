@@ -11,7 +11,7 @@ GOLANG_PKG_USE_CGO=1
 
 inherit golang-single
 
-DESCRIPTION="Runc is a CLI tool for spawning and running containers according to the OCF specification"
+DESCRIPTION="A CLI tool for spawning and running containers according to the OCF specs"
 HOMEPAGE="http://runc.io"
 
 LICENSE="Apache-2.0"
