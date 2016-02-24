@@ -48,7 +48,7 @@ golang_do_build() {
 
 	einfo "${EGO} build -ldflags '$GOLANG_PKG_LDFLAGS' -tags '$GOLANG_PKG_TAGS' $*"
 	${EGO} build \
-		-ldflags "$( echo ${GOLANG_PKG_LDFLAGS} )" \
+		-ldflags "-s -w $( echo ${GOLANG_PKG_LDFLAGS} )" \
 		-tags "$( echo ${GOLANG_PKG_TAGS} )" \
 		$* \
 		|| die

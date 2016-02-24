@@ -65,7 +65,7 @@
 
 inherit eutils multiprocessing golang-utils
 
-RESTRICT+=" mirror "
+RESTRICT+=" mirror strip"
 
 QA_FLAGS_IGNORED="usr/bin/.*
 	usr/sbin/.*"
@@ -871,7 +871,7 @@ golang-single_src_install() {
 	if [[ -n ${GOLANG_PKG_IS_MULTIPLE} ]]; then
 		einfo "${EGO} install -ldflags '$GOLANG_PKG_LDFLAGS' -tags '$GOLANG_PKG_TAGS' ${EGO_BUILD_FLAGS}"
 		${EGO} install \
-			-ldflags "$( echo ${GOLANG_PKG_LDFLAGS} )" \
+			-ldflags "-s -w $( echo ${GOLANG_PKG_LDFLAGS} )" \
 			-tags "$( echo ${GOLANG_PKG_TAGS} )" \
 			${EGO_BUILD_FLAGS} \
 			"${EGO_SUBPACKAGES}" \
