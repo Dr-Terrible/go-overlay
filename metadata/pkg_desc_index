@@ -45,6 +45,7 @@ dev-go/goa 0.0.1_pre20160218: Goa is a framework for building RESTful microservi
 dev-go/gocode 2015.03.03: An autocompletion daemon for the Go programming language
 dev-go/gom 20160119: A visual interface to work with runtime profiling data for Go
 dev-go/gopherjs 0_pre20150820 0_pre20160130: GopherJS compils GoLang code to pure JavaScript code
+dev-go/gopm 0.7.2 0.8_pre20160214: Gopm is a package manager and build tool for Go
 dev-go/gore 0.2.5: A REPL for Golang
 dev-go/gostatus 20160119: A command-line tool that show the status of GoLang repositories
 dev-go/gox 0.3.0 0.4.0_pre20151231: A dead simple, no frills Go cross compile tool
