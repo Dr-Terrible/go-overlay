@@ -5,12 +5,15 @@
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/jfrazelle"
-GOLANG_PKG_VERSION="12521eda805f8ec90e20fe8fddb53a5240fdebe9"
+GOLANG_PKG_VERSION="0bbd408bf8cc1eb34a568dca2811c59b87deed3a"
 GOLANG_PKG_HAVE_TEST=1
 
 # Declares dependencies
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/mitchellh/colorstring:61164e4994"
+	"github.com/mitchellh/colorstring:8631ce9"
+
+	# Unit Testing
+	"github.com/Sirupsen/logrus:219c8cb"
 )
 
 inherit golang-single

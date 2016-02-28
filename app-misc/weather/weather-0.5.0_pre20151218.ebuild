@@ -5,6 +5,7 @@
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/jfrazelle"
+GOLANG_PKG_VERSION="0bbd408bf8cc1eb34a568dca2811c59b87deed3a"
 GOLANG_PKG_HAVE_TEST=1
 
 # Declares dependencies
@@ -19,4 +20,4 @@ HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 x86 arm"
+KEYWORDS="~amd64 ~x86 ~arm"
