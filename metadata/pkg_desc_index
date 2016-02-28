@@ -1,6 +1,6 @@
 app-admin/pony 0.1.0_pre20160104: Local File-Based Password, API Key, Secret, Recovery Code Store Backed vy GPG
 app-admin/restic 0.1.0: Restic is a program that does backups
-app-admin/terraform 0.6.11: Terraform builds, changes, and combines infrastructure safely and efficiently
+app-admin/terraform 0.6.11 0.6.12: Terraform builds, changes, and combines infrastructure safely and efficiently
 app-admin/trousseau 0.3.5_pre20150212: A networked and encrypted key-value database.
 app-benchmarks/boom 20151223: HTTP(S) load generator, ApacheBench (ab) replacement, written in GoLang
 app-benchmarks/vegeta 6.0.0: HTTP load testing tool and library written in GoLang.
