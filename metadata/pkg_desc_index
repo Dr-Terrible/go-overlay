@@ -14,7 +14,7 @@ app-emulation/runc 0.0.6-r1 0.0.8: A CLI tool for spawning and running container
 app-misc/asciinema 1.2.0: A terminal session recorder for asciinema.org service
 app-misc/devtodo 2.2_pre20150904: DevTodo is a small command line application for maintaining lists of tasks.
 app-misc/thymer 0.1.0: Consolo Pomodoro Timer written in GoLang
-app-misc/weather 0.2.0 0.3.0_pre20150913: Weather via the command line.
+app-misc/weather 0.5.0_pre20151218 0.5.0 0.6.0_pre20151218: Weather via the command line.
 app-misc/wego 1.0: Wego is a weather client for the terminal
 app-shells/antibody 0.4.0: A faster and simpler antigen written in Golang
 app-shells/peco 0.3.5: Simplistic interactive filtering tool
