@@ -64,6 +64,7 @@ dev-go/tomlv 0.2.0_pre20160219: A TOML validator written in GoLang
 dev-go/wago 1.0 1.2.0: Wago automates the actions you do after saving code.
 dev-go/walter 1.3.0: Walter is a tiny deployment pipeline
 dev-go/xj2s 20151106: A small tool for Golang to generate Golang strunc from xml/json file
+dev-go/xo 0.1_pre20160229: A cli tool to generate Golang types and funcs based on a database schema
 dev-util/check 0.1_pre20160108: A set of utilities for checking Go sources
 dev-util/deadcode 2012.02.28: Deadcode finds unused Go source code
 dev-util/direnv 2.7.0-r1: Direnv is an environment switcher for the shell.
@@ -74,7 +75,7 @@ dev-util/forego 0.16.1-r1: Foreman written in GoLang
 dev-util/ghfs 0.1_pre20150217: Ghfs is a user space filesystem that overlays the GitHub API
 dev-util/github-release 0.6.2: CLI to create and edit releases on Github
 dev-util/go-swagger 0.2.17 0.3.0: Swagger 2.0 implementation for GoLang
-dev-util/go-tools 20151230-r1 20160219: Various packages and tools that support the Go programming language
+dev-util/go-tools 20151230-r1 20160219 20160226: Various packages and tools that support the Go programming language
 dev-util/goconst 0.1_pre20151227: Find repeated strings that could be replaced by a constant.
 dev-util/gocyclo 2015.06.27: Calculate cyclomatic complexities of functions in Go source code
 dev-util/godef 0.1_pre20160114: Godef prints where symbols are defined in Go source code
