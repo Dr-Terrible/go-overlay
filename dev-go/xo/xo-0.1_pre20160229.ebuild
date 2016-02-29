@@ -32,6 +32,7 @@ RESTRICT+=" test"
 
 CDEPEND="dev-db/sqlite:3"
 DEPEND="${CDEPEND}
+	>=dev-lang/go-1.5.3
 	dev-go/go-bindata"
 RDEPEND="${CDEPEND}
 	dev-util/go-tools"
