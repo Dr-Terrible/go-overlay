@@ -87,6 +87,7 @@ dev-util/goyacc 0.1.0_pre20150811: Goyacc is a version of yacc generating Go par
 dev-util/hulk 0.1.0_pre20160121: Ultimate job/build runner
 dev-util/ineffassign 0.1_pre20151029: Detects ineffectual assignments in Go code.
 dev-util/interfacer 0.0.1_pre20160220: A linter for GoLang that suggests interface types
+dev-util/lll 0.1_pre20160229: Line length linter, used to enforce line length in files.
 dev-util/maligned 0.1_pre20151009: Detects Go structs that would take less memory if their fields were sorted
 dev-util/minify 1.0.0 1.1.0-r1 1.2.0_pre20160128 1.2.0_pre20160219: Go minifiers for web formats.
 dev-util/orange-cat 0.2.2-r1: A Markdown previewer written in GoLang
