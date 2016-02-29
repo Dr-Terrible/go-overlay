@@ -55,6 +55,7 @@ dev-go/grind 0.1.0_pre20150302: Grind rewrites the source files written in GoLan
 dev-go/kar 0.1_pre20151213: Kar is a simple utility that helps you run Kargar builds from CLI
 dev-go/liteide-tools 2015.04.09: Liteide Golang tools
 dev-go/mock 0.1.0_pre20150821 0.1.0_pre20151213: GoMock is a mocking framework for the Go programming language
+dev-go/prdeps 0.1_pre20160229: prdeps prints the dependency graph of a Go package
 dev-go/protobuf 0.1: Protocol Buffers for Go with Gadgets
 dev-go/re2dfa 0.1.0_pre20150627: Transform regular expressions into finite state machines and output GoLang source code
 dev-go/revel-cli 0.12.0-r1: Command-line tool for Revel framework

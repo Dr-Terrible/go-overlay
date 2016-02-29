@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=prdeps prints the dependency graph of a Go package
+EAPI=5
+HOMEPAGE=https://github.com/davecheney/prdeps
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RESTRICT=mirror strip
+SLOT=0
+SRC_URI=https://github.com/davecheney/prdeps/archive/01331707332a2dd6995d4564bc82bc3b0eb6f973.tar.gz -> prdeps-0.1_pre20160229.tar.gz
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	4932106ba6725ed562f3247b6bf8e5ee	golang-utils	326535ac0e9f47b32a1dcca8bc70eb88	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=398dd2cfbb9fae00dfe36aacb517df4d
