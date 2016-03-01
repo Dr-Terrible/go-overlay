@@ -77,12 +77,12 @@ dev-util/ghfs 0.1_pre20150217: Ghfs is a user space filesystem that overlays the
 dev-util/github-release 0.6.2: CLI to create and edit releases on Github
 dev-util/go-swagger 0.2.17 0.3.0: Swagger 2.0 implementation for GoLang
 dev-util/go-tools 20151230-r1 20160219 20160226: Various packages and tools that support the Go programming language
-dev-util/goconst 0.1_pre20151227: Find repeated strings that could be replaced by a constant.
+dev-util/goconst 0.1_pre20160229: Find repeated strings that could be replaced by a constant.
 dev-util/gocyclo 2015.06.27: Calculate cyclomatic complexities of functions in Go source code
 dev-util/godef 0.1_pre20160114: Godef prints where symbols are defined in Go source code
 dev-util/golex 0.1.0_pre20150807: A lex/flex like (not fully POSIX lex compatible) utility
 dev-util/golint 2015.10.19: This is a linter for Go source code.
-dev-util/gometalinter 0.1_pre20160221 0.1_pre20160229: Concurrently run Go lint tools and normalise their output
+dev-util/gometalinter 0.1_pre20160301: Concurrently run Go lint tools and normalise their output
 dev-util/goyacc 0.1.0_pre20150811: Goyacc is a version of yacc generating Go parsers.
 dev-util/hulk 0.1.0_pre20160121: Ultimate job/build runner
 dev-util/ineffassign 0.1_pre20151029: Detects ineffectual assignments in Go code.

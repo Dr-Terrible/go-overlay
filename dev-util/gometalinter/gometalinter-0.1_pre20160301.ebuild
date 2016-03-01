@@ -5,7 +5,7 @@
 EAPI=5
 
 GOLANG_PKG_IMPORTPATH="github.com/alecthomas"
-GOLANG_PKG_VERSION="494118e679c0b23182e4b076e9a935e10064f82e"
+GOLANG_PKG_VERSION="5ba5353545d7d13bcb10d7ca58c45e026a99a58d"
 GOLANG_PKG_HAVE_TEST=1
 
 # Declares dependencies
@@ -39,4 +39,6 @@ RDEPEND="dev-util/go-tools
 	dev-util/dupl
 	dev-util/ineffassign
 	dev-util/interfacer
-	dev-util/unconvert"
+	dev-util/unconvert
+	dev-util/lll
+	dev-util/goconst"
