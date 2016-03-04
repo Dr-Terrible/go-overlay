@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=Like gofmt, but for Markdown with front matter.
+EAPI=5
+HOMEPAGE=https://github.com/moorereason/mdfmt
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=MIT
+RESTRICT=mirror strip
+SLOT=0
+SRC_URI=https://github.com/moorereason/mdfmt/archive/7d7dd58e8df422b308264756583e7ddefc52aea3.tar.gz -> mdfmt-0.1_pre20160209.tar.gz https://github.com/shurcooL/markdownfmt/archive/b38f26a.tar.gz -> github.com-shurcooL-markdownfmt-b38f26a.tar.gz https://github.com/spf13/hugo/archive/3c100cc.tar.gz -> github.com-spf13-hugo-3c100cc.tar.gz https://github.com/BurntSushi/toml/archive/056c9bc7be.tar.gz -> github.com-BurntSushi-toml-056c9bc7be.tar.gz https://github.com/russross/blackfriday/archive/006144a.tar.gz -> github.com-russross-blackfriday-006144a.tar.gz https://github.com/mattn/go-runewidth/archive/d037b52.tar.gz -> github.com-mattn-go-runewidth-d037b52.tar.gz https://github.com/shurcooL/go/archive/63a73a4.tar.gz -> github.com-shurcooL-go-63a73a4.tar.gz https://github.com/shurcooL/sanitized_anchor_name/archive/10ef21a.tar.gz -> github.com-shurcooL-sanitized_anchor_name-10ef21a.tar.gz https://github.com/go-yaml/yaml/archive/f7716cb.tar.gz -> github.com-go-yaml-yaml-f7716cb.tar.gz
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	4932106ba6725ed562f3247b6bf8e5ee	golang-utils	326535ac0e9f47b32a1dcca8bc70eb88	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=636b235a862fb3f0268badacb776c5d8
