@@ -641,9 +641,8 @@ golang-single_src_prepare() {
 	fi
 
 
-	# Evaluates PATCHES array and allows user defined patches.
-	[[ ${PATCHES[@]} ]] && epatch "${PATCHES[@]}"
-	epatch_user
+	# Evaluates PATCHES array.
+	default_src_prepare
 }
 
 

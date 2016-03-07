@@ -1,5 +1,5 @@
---- deadcode/deadcode.go
-+++ deadcode/deadcode.go
+--- a/deadcode/deadcode.go
++++ b/deadcode/deadcode.go
 @@ -98,6 +98,7 @@
  	}
  	// init() is always used

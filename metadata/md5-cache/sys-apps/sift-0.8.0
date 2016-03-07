@@ -9,5 +9,5 @@ LICENSE=GPL-3
 RESTRICT=mirror strip
 SLOT=0
 SRC_URI=https://github.com/svent/sift/archive/v0.8.0.tar.gz -> sift-0.8.0.tar.gz https://github.com/svent/go-flags/archive/4bcbad3.tar.gz -> github.com-svent-go-flags-4bcbad3.tar.gz https://github.com/svent/go-nbreader/archive/7cef48d.tar.gz -> github.com-svent-go-nbreader-7cef48d.tar.gz https://github.com/golang/crypto/archive/1f22c01.tar.gz -> github.com-golang-crypto-1f22c01.tar.gz
-_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	d527c6c2d88ad7d45267b2a598e794ac	golang-utils	326535ac0e9f47b32a1dcca8bc70eb88	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	785391cc1559d5c5133734b965cad842	golang-utils	326535ac0e9f47b32a1dcca8bc70eb88	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
 _md5_=20a70e5e9b1cc8b07641fa4389b6e1cb

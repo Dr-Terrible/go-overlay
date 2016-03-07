@@ -8,5 +8,5 @@ LICENSE=Apache-2.0
 RESTRICT=mirror strip
 SLOT=0
 SRC_URI=https://github.com/gpmgo/gopm/archive/1e95246706ab849c7fe2da15e2f7fac870346b7f.tar.gz -> gopm-0.8_pre20160214.tar.gz https://github.com/Unknwon/cae/archive/7f5e046.tar.gz -> github.com-Unknwon-cae-7f5e046.tar.gz https://github.com/Unknwon/com/archive/28b053d.tar.gz -> github.com-Unknwon-com-28b053d.tar.gz https://github.com/Unknwon/goconfig/archive/5f601ca.tar.gz -> github.com-Unknwon-goconfig-5f601ca.tar.gz https://github.com/aybabtme/color/archive/28ad4cc.tar.gz -> github.com-aybabtme-color-28ad4cc.tar.gz https://github.com/codegangsta/cli/archive/27ecc97.tar.gz -> github.com-codegangsta-cli-27ecc97.tar.gz
-_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	d527c6c2d88ad7d45267b2a598e794ac	golang-utils	326535ac0e9f47b32a1dcca8bc70eb88	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	785391cc1559d5c5133734b965cad842	golang-utils	326535ac0e9f47b32a1dcca8bc70eb88	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
 _md5_=8fe91b27ecad304d1eaeef49cfdaa289

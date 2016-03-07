@@ -9,5 +9,5 @@ LICENSE=BSD
 RESTRICT=mirror strip
 SLOT=0
 SRC_URI=https://github.com/shurcooL/gostatus/archive/e400277c2abf67c6ccc69d6d24f55f7bb0749492.tar.gz -> gostatus-20160119.tar.gz https://github.com/bradfitz/iter/archive/454541e.tar.gz -> github.com-bradfitz-iter-454541e.tar.gz https://github.com/kisielk/gotool/archive/58a7a19.tar.gz -> github.com-kisielk-gotool-58a7a19.tar.gz https://github.com/shurcooL/vcsstate/archive/20a6595.tar.gz -> github.com-shurcooL-vcsstate-20a6595.tar.gz https://github.com/shurcooL/go/archive/63a73a4.tar.gz -> github.com-shurcooL-go-63a73a4.tar.gz https://github.com/golang/tools/archive/a17fa84.tar.gz -> github.com-golang-tools-a17fa84.tar.gz
-_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	d527c6c2d88ad7d45267b2a598e794ac	golang-utils	326535ac0e9f47b32a1dcca8bc70eb88	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	785391cc1559d5c5133734b965cad842	golang-utils	326535ac0e9f47b32a1dcca8bc70eb88	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
 _md5_=a48832eae654d2f4671fc3232fa78606
