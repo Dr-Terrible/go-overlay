@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/stripe"
 GOLANG_PKG_VERSION="9fcb7be12dfcbef68bd78acd116e2065cd0b3482"

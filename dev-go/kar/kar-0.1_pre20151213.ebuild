@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/omeid"
 GOLANG_PKG_VERSION="337e4a1033160f551977f2525ca37a2e5ed2e189"

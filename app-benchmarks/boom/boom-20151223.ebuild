@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/rakyll"
 GOLANG_PKG_VERSION="758f4140140923a4d17561f0c52e8a6cee60a0e6"

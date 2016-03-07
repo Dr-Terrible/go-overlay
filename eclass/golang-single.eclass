@@ -300,7 +300,7 @@ _factorize_dependency_entities() {
 
 # Silences repoman warnings.
 case "${EAPI:-0}" in
-	5)
+	6)
 		case "${GOLANG_PKG_DEPEND_ON_GO_SUBSLOT:-yes}" in
 			yes)
 				GO_DEPEND="dev-lang/go:0="

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/opennota"
 GOLANG_PKG_VERSION="d848db686414d3454ddf1b467fccc3d26b99d3fa"

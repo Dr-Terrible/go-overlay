@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/fzipp"
 GOLANG_PKG_VERSION="6acd4345c835499920e8426c7e4e8d7a34f1bb83"

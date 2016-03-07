@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/cznic"
 GOLANG_PKG_VERSION="0f61a5abc4fb10befbe363d5795b71d599faaf6e"

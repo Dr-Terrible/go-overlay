@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/pquerna"
 GOLANG_PKG_VERSION="7b05a7d3d8064feff39ce06557fe402d9f16ab29"

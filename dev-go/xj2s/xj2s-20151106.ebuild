@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/wicast"
 GOLANG_PKG_VERSION="e9e5ebc6c31305e23ba7951e95f8a1fb9f9d4828"

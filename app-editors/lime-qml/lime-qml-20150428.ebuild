@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/limetext"
 GOLANG_PKG_VERSION="9be3dfbf330f6ca1f101a1b33f43fdf4b61bbac6"

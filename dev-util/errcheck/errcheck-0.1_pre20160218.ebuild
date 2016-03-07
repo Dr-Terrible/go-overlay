@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/kisielk"
 GOLANG_PKG_VERSION="f76568f8d87e48ccbbd17a827c2eaf31805bf58c"

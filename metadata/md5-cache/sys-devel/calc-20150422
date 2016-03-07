@@ -1,7 +1,7 @@
 DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=dev-lang/go:*
 DESCRIPTION=A simple, fast command-line calculator written in GoLang
-EAPI=5
+EAPI=6
 HOMEPAGE=https://github.com/alfredxing/calc
 IUSE=test
 KEYWORDS=~amd64 ~x86 ~arm
@@ -9,5 +9,5 @@ LICENSE=MIT
 RESTRICT=mirror strip
 SLOT=0
 SRC_URI=https://github.com/alfredxing/calc/archive/1a308a39ad3e902f5d680610c634069e4f32ea3a.tar.gz -> calc-20150422.tar.gz https://github.com/golang/crypto/archive/1e856cbfdf.tar.gz -> github.com-golang-crypto-1e856cbfdf.tar.gz
-_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	4932106ba6725ed562f3247b6bf8e5ee	golang-utils	326535ac0e9f47b32a1dcca8bc70eb88	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
-_md5_=59e8aa16ecbe1fd36fb5cb2b5deed2e4
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	d527c6c2d88ad7d45267b2a598e794ac	golang-utils	326535ac0e9f47b32a1dcca8bc70eb88	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=23998ddea5488890470ec265d77716a4

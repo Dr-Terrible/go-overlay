@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/gopherjs"
 GOLANG_PKG_VERSION="4b53e1bddba0e2f734514aeb6c02db652f4c6fe8"

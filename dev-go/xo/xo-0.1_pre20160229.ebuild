@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/knq"
 GOLANG_PKG_VERSION="2284b40a411344029a0705a91793da89d0bb636c"

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/xoebus"
 GOLANG_PKG_VERSION="1a5c7cc1705c9b10ceb37491cf4b35545eb83485"

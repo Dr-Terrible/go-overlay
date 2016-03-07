@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/oleiade"
 GOLANG_PKG_VERSION="3461cb35c1309d7b315609d22a84cdc7c7bdd329"

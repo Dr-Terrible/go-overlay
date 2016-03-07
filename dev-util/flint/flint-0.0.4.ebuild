@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/pengwynn"
 GOLANG_PKG_VERSION="c3a5d8d9a2e04296fba560d9a22f763cff68eb75"

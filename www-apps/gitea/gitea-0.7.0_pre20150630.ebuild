@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/go-gitea"
 GOLANG_PKG_VERSION="61cfcef4d857e1fbcff1d97c2ae92ba111a191ab"
@@ -63,8 +63,6 @@ DEPEND="dev-go/go-bindata
 RDEPEND="${DEPEND}
 	ssl? ( net-misc/openssh )
 	dev-vcs/git[curl,threads]"
-
-use test && RESTRICT+=" sandbox"
 
 GITEA_REPO_DIR="/var/lib/${PN}"
 GITEA_APP_DIR="/usr/share/${PN}"

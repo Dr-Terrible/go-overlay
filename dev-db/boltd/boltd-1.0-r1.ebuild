@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/boltdb"
 GOLANG_PKG_VERSION="1f04e2021e45203042db17ab1323577452a90350"

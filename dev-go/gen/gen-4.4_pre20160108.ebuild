@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/clipperhouse"
 GOLANG_PKG_VERSION="a964fea0946e9883fdcd13ea7af1507638a6679d"

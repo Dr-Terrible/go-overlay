@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/walle"
 GOLANG_PKG_VERSION="8dc538ef4fe36afbfbdfd86b071fe0cc2651a1e4"

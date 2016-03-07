@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/uber"
 GOLANG_PKG_VERSION="7fb644a0cef57991ac4277320bafed6bb72bab31"

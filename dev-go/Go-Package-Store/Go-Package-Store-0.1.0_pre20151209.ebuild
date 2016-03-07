@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/shurcooL"
 GOLANG_PKG_VERSION="55bf53ffb3e85129e9f296abd67e465095d66e49"

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/spf13"
 GOLANG_PKG_VERSION="429b669a294695bd574575803273b28abd3c4f6b"
@@ -61,8 +61,6 @@ KEYWORDS="~amd64 ~x86 ~arm"
 IUSE+=" doc pygments"
 
 RDEPEND="pygments? ( dev-python/pygments )"
-
-use test && RESTRICT+=" sandbox"
 
 src_prepare() {
 	golang-single_src_prepare

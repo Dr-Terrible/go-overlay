@@ -1,7 +1,7 @@
 DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=dev-lang/go:*
 DESCRIPTION=A TOML validator written in GoLang
-EAPI=5
+EAPI=6
 HOMEPAGE=https://github.com/BurntSushi/toml
 IUSE=test
 KEYWORDS=~amd64 ~x86 ~arm
@@ -9,5 +9,5 @@ LICENSE=public-domain
 RESTRICT=mirror strip
 SLOT=0
 SRC_URI=https://github.com/BurntSushi/toml/archive/f772cd89eb0b33743387f826d1918df67f99cc7a.tar.gz -> tomlv-0.2.0_pre20160219.tar.gz
-_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	4932106ba6725ed562f3247b6bf8e5ee	golang-utils	326535ac0e9f47b32a1dcca8bc70eb88	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
-_md5_=37b9597184eed168d902be93fcea176e
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	d527c6c2d88ad7d45267b2a598e794ac	golang-utils	326535ac0e9f47b32a1dcca8bc70eb88	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=3e5117d90412146a93b7591dbe396439

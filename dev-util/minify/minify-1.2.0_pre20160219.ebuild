@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/tdewolff"
 GOLANG_PKG_VERSION="b3f49b1e31ee2f9e0dcdf31f05f243cb5d87ac56"
