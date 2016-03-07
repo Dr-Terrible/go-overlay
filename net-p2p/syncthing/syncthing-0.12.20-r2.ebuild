@@ -14,7 +14,7 @@ GOLANG_PKG_HAVE_TEST=1
 
 inherit user systemd golang-single
 
-EDOC_COMMIT="648e3b77d7ab597bb0d20adccd4ab089c0e6e190"
+EDOC_COMMIT="8ee999962ee7885442c1d61a54a08b31dd1d6788"
 
 DESCRIPTION="Syncthing is an app that lets you synchronize your files across multiple devices"
 HOMEPAGE="http://syncthing.net"

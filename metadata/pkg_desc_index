@@ -109,7 +109,7 @@ net-misc/nsq 0.3.6: A real-time distributed messaging platform, written in GoLan
 net-misc/wsd 0.0.0_pre20150722: Simple cURL-like command line utility for debugging WebSocket servers
 net-nds/dex 0.2.3: Dex is a Federated Indentity Provider written in GoLang
 net-p2p/cloud-torrent 0.8.10: Cloud Torrent is a self-hosted remote torrent client, written in GoLang
-net-p2p/syncthing 0.11.26-r1 0.12.19-r2: Syncthing is an app that lets you synchronize your files across multiple devices
+net-p2p/syncthing 0.11.26-r1 0.12.20-r2: Syncthing is an app that lets you synchronize your files across multiple devices
 net-p2p/syncthing-cli 0.1.0_pre20150922-r1: SyncThing command-line interface
 net-p2p/syncthing-inotify 0.6.8-r2: File watcher intended for use with Syncthing
 net-print/cups-connector 2016.01.02: Google Cloud Print CUPS Connector
