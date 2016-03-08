@@ -10,22 +10,6 @@ AssertPathIsReadWrite=/var/log/gogs
 After=network.target
 Requires=network.target
 
-# Uncomment to enable MemCache service as a dependency
-#After=memcached.service
-#Requires=memcached.service
-
-# Uncomment to enable Redis service as a dependency
-#After=redis.service
-#Requires=redis.service
-
-# Uncomment to enable MySQL service as a dependency
-#After=mysqld.service
-#Requires=mysqld.service
-
-# Uncomment to enable PostGRES service as a dependency
-#After=postgresql.service
-#Requires=postgresql.service
-
 [Service]
 User=gogs
 Group=gogs
