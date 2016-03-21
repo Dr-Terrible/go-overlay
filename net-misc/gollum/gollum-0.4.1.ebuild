@@ -44,7 +44,8 @@ src_install() {
 				-b html \
 				-d _build/doctrees \
 				. _build/html || die
-			dohtml -r _build/html/*
+			docinto html
+			dodoc -r _build/html/*
 		popd > /dev/null || die
 	fi
 }

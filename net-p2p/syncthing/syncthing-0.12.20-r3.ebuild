@@ -54,7 +54,10 @@ src_install() {
 	doman man/*.[157]
 
 	# install documentation
-	use doc && dohtml -r "${WORKDIR}"/docs-${EDOC_COMMIT}/_build/singlehtml/*
+	if use doc; then
+		docinto html
+		dodoc -r "${WORKDIR}"/docs-${EDOC_COMMIT}/_build/singlehtml/*
+	fi
 
 	# install systemd services
 	systemd_dounit \
@@ -65,9 +68,6 @@ src_install() {
 	# Install OpenRC init.d and conf.d files.
 	newinitd "${FILESDIR}/${PN}.initd" ${PN}
 	newconfd "${FILESDIR}/${PN}.confd" ${PN}
-
-#	diropts "-m0700 -o${PN}"
-#	dodir "${SYNCTHING_HOME}"
 
 	keepdir /var/{lib,log}/${PN}
 	fowners ${PN}:${PN} /var/{lib,log}/${PN}

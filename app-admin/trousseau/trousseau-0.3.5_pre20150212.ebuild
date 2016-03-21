@@ -33,7 +33,8 @@ src_install() {
 	if use doc; then
 		pushd "${S}"/docs > /dev/null || die
 			emake singlehtml
-			dohtml -r build/singlehtml/*
+			docinto html
+			dodoc -r build/singlehtml/*
 		popd > /dev/null || die
 	fi
 

@@ -47,7 +47,8 @@ src_install() {
 	if use doc; then
 		einfo "Bulding documentation ..."
 		emake -C doc/
-		dohtml -r doc/${PN}.html/*
+		docinto html
+		dodoc -r doc/${PN}.html/*
 	fi
 
 	# install utils

@@ -54,7 +54,10 @@ src_install() {
 	doman man/${PN}*
 
 	# install documentation
-	use doc && dohtml -r "${WORKDIR}"/docs-${EDOC_COMMIT}/_build/singlehtml/*
+	if use doc; then
+		docinto html
+		dodoc -r "${WORKDIR}"/docs-${EDOC_COMMIT}/_build/singlehtml/*
+	fi
 
 	# install systemd services
 	systemd_dounit "${S}"/etc/linux-systemd/system/${PN}@.service
