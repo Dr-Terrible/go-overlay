@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:*
+DESCRIPTION=Go assembler formatter
+EAPI=6
+HOMEPAGE=https://github.com/github.com/klauspost/asmfmt
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=MIT
+RESTRICT=mirror strip
+SLOT=0
+SRC_URI=https://github.com/klauspost/asmfmt/archive/7971758b0c6584f67d745c62d006814ae7b44e9d.tar.gz -> asmfmt-0.1_pre20160219.tar.gz https://github.com/golang/tools/archive/9360848.tar.gz -> github.com-golang-tools-9360848.tar.gz https://github.com/sqs/goreturns/archive/b368f1f.tar.gz -> github.com-sqs-goreturns-b368f1f.tar.gz
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	785391cc1559d5c5133734b965cad842	golang-utils	326535ac0e9f47b32a1dcca8bc70eb88	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=a21a86098a66eb7a78a3627fa0e5b927
