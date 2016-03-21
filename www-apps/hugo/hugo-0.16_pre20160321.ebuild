@@ -5,7 +5,7 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/spf13"
-GOLANG_PKG_VERSION="429b669a294695bd574575803273b28abd3c4f6b"
+GOLANG_PKG_VERSION="d45b55bdd405ae019c065bc6fa0888c25f7952c9"
 GOLANG_PKG_HAVE_TEST=1
 
 # Declares dependencies
@@ -19,21 +19,21 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/kardianos/osext:345163f"
 	"github.com/miekg/mmark:9dca01c"
 	"github.com/mitchellh/mapstructure:281073e"
-	"github.com/russross/blackfriday:006144a"
+	"github.com/russross/blackfriday:b43df97"
 	"github.com/opennota/urlesc:5fa9ff0392"
 	"github.com/shurcooL/sanitized_anchor_name:10ef21a"
-	"github.com/spf13/afero:2ec8b79"
-	"github.com/spf13/cast:ee7b3e0"
-	"github.com/spf13/cobra:b3f29e9"
-	"github.com/spf13/fsync:c2544e7"
+	"github.com/spf13/afero:2f194a2"
+	"github.com/spf13/cast:27b586b"
+	"github.com/spf13/cobra:1bacefc"
+	"github.com/spf13/fsync:eefee59"
 	"github.com/spf13/nitro:24d7ef3"
-	"github.com/spf13/viper:110492b"
+	"github.com/spf13/viper:c975dc1"
 	"github.com/spf13/pflag:7f60f83"
-	"github.com/spf13/jWalterWeatherman:c2aa07d"
+	"github.com/spf13/jWalterWeatherman:33c24e7"
 	"github.com/cpuguy83/go-md2man:71acacd" #v1.0.4
-	"github.com/yosssi/ace:8e090bf"
-	"github.com/go-fsnotify/fsnotify:8611c35 -> gopkg.in/fsnotify.v1" #v1.2.9
-	"github.com/go-yaml/yaml:f7716cb -> gopkg.in/yaml.v2"
+	"github.com/yosssi/ace:71afeb7"
+	"github.com/go-fsnotify/fsnotify:875cf42 -> gopkg.in/fsnotify.v1" #v1.2.10
+	"github.com/go-yaml/yaml:a83829b -> gopkg.in/yaml.v2"
 	"github.com/inconshreveable/mousetrap:76626ae9c9"
 	"github.com/kr/pretty:e6ac2fc51e"
 	"github.com/kr/text:bb797dc"
@@ -41,9 +41,10 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/pkg/sftp:e84cc8c"
 	"github.com/magiconair/properties:6ac0b95"
 	"github.com/stretchr/testify:d797d25"
-	"github.com/golang/text:4838fa4 -> golang.org/x"
-	"github.com/golang/crypto:3760e01 -> golang.org/x"
-	"github.com/hashicorp/hcl:197e8d3"
+	"github.com/golang/text:1b466db -> golang.org/x"
+	"github.com/golang/crypto:c197bcf -> golang.org/x"
+	"github.com/hashicorp/hcl:32f2911"
+	"github.com/kyokomi/emoji:1ee4529"
 
 	# unit testing
 	"github.com/davecgh/go-spew:5215b55"

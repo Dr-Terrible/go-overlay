@@ -120,5 +120,5 @@ sys-devel/gcvis 0.1.0_pre20150714 0.1.0_pre20151111: Visualise Go program Garbag
 www-apps/gitea 0.7.0_pre20150630: Gitea is a self-hosted Git service written in Go
 www-apps/gogs 0.8.43 0.8.43-r1 0.9.0: Gogs is a self-hosted Git service written in Go
 www-apps/gotty 0.0.12: A simple command-line tool that turns your CLI tools into web applications
-www-apps/hugo 0.14-r4 0.15-r3 0.16_pre20160306: A fast and flexible static site generator built in GoLang
+www-apps/hugo 0.14-r4 0.15-r3 0.16_pre20160321: A fast and flexible static site generator built in GoLang
 x11-misc/noti 2.0.0: Display a notification when a terminal process finishes.
