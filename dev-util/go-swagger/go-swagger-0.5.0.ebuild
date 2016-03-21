@@ -9,10 +9,17 @@ GOLANG_PKG_BUILDPATH="/cmd/${PN//go-/}"
 #GOLANG_PKG_USE_GENERATE=1
 #GOLANG_PKG_HAVE_TEST=1
 
+GOLANG_PKG_DEPENDENCIES=(
+	"github.com/golang/tools:fcde774 -> golang.org/x"
+)
+
 inherit golang-single
+
+EDOC_COMMIT="a5bcce78b41f2c779ce609ae3a78988159238ed4"
 
 DESCRIPTION="Swagger 2.0 implementation for GoLang"
 HOMEPAGE="https://goswagger.io"
+SRC_URI+=" doc? ( https://github.com/${PN}/${PN}.github.io/archive/${EDOC_COMMIT}.tar.gz -> ${PN}-docs-${EDOC_COMMIT}.tar.gz )"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -27,6 +34,8 @@ DEPEND=">=dev-lang/go-1.5.1
 	doc? ( www-apps/hugo )"
 
 src_prepare() {
+	# Fix for documentation
+	pushd "${WORKDIR}"/${PN}.github.io-${EDOC_COMMIT}
 	sed -i \
 		-e "s:href=\"/\":href=\"file\:///usr/share/doc/${PF}/html/index.html\":" \
 		-e "s:about/:about.html:" \
@@ -47,9 +56,14 @@ src_prepare() {
 		-e "s:server/:server.html:" \
 		-e "s:schemas/:schemas.html:" \
 		-e "s:dynamic/:dynamic.html:" \
-		docs/layouts/partials/navbar.html \
-		docs/layouts/index.html \
+		layouts/partials/navbar.html \
+		layouts/index.html \
 		|| die
+	popd
+
+	# Remove outdated libraries
+	rm -r vendor/golang.org/x/tools || die
+
 	golang-single_src_prepare
 }
 
@@ -57,7 +71,7 @@ src_install() {
 	golang-single_src_install
 
 	if use doc; then
-		pushd docs
+		pushd "${WORKDIR}"/${PN}.github.io-${EDOC_COMMIT}
 			hugo -v \
 				-d "${T}"/docs \
 				--baseURL="file:///usr/share/doc/${PF}/html/" \
