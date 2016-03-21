@@ -101,7 +101,8 @@ src_install() {
 				--disableSitemap=true \
 				--noTimes=true \
 				|| die
-			dohtml -r "${T}"/docs/*
+			docinto html
+			dodoc -r "${T}"/docs/*
 		popd
 	fi
 }
