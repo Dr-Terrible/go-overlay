@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:0=
+DESCRIPTION=btcsim implements a simulation test driver using the simnet network provided by btcd
+EAPI=6
+HOMEPAGE=https://btcsuite.github.io
+IUSE=test
+KEYWORDS=amd64 x86 arm
+LICENSE=ISC
+RESTRICT=mirror strip
+SLOT=0
+SRC_URI=https://github.com/btcsuite/btcsim/archive/62fce1136c04d45ffcfb3a1a240b5dc6dddee17e.tar.gz -> btcsim-0.1_pre20150902.tar.gz https://github.com/btcsuite/btcd/archive/cea5d3c.tar.gz -> github.com-btcsuite-btcd-cea5d3c.tar.gz https://github.com/btcsuite/btcrpcclient/archive/e6e3b66.tar.gz -> github.com-btcsuite-btcrpcclient-e6e3b66.tar.gz https://github.com/btcsuite/btclog/archive/5005b72.tar.gz -> github.com-btcsuite-btclog-5005b72.tar.gz https://github.com/btcsuite/btcutil/archive/ff82dac.tar.gz -> github.com-btcsuite-btcutil-ff82dac.tar.gz https://github.com/btcsuite/fastsha256/archive/302ad4d.tar.gz -> github.com-btcsuite-fastsha256-302ad4d.tar.gz https://github.com/btcsuite/go-socks/archive/cfe8b59.tar.gz -> github.com-btcsuite-go-socks-cfe8b59.tar.gz https://github.com/btcsuite/golangcrypto/archive/53f62d9.tar.gz -> github.com-btcsuite-golangcrypto-53f62d9.tar.gz https://github.com/btcsuite/seelog/archive/313961b.tar.gz -> github.com-btcsuite-seelog-313961b.tar.gz https://github.com/btcsuite/websocket/archive/31079b6.tar.gz -> github.com-btcsuite-websocket-31079b6.tar.gz https://github.com/davecgh/go-spew/archive/5215b55.tar.gz -> github.com-davecgh-go-spew-5215b55.tar.gz
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-base	9be53bab0d65304f82dbd940473985b3	golang-single	a73513726df110e259a8af82a9d660ec	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=21ce4ece816d73232186eb9cb58144aa
