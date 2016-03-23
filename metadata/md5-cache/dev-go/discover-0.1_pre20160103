@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=dev-lang/go:*
+DEPEND=dev-lang/go:0=
 DESCRIPTION=Discover is a utility to aid in conceptualizing large Go code bases
 EAPI=6
 HOMEPAGE=https://github.com/eandre/discover
@@ -9,5 +9,5 @@ LICENSE=BSD
 RESTRICT=mirror strip
 SLOT=0
 SRC_URI=https://github.com/eandre/discover/archive/ca2d48e26f6181d4e6686b7b46030116ee37e5bf.tar.gz -> discover-0.1_pre20160103.tar.gz https://github.com/golang/tools/archive/a8498a7.tar.gz -> github.com-golang-tools-a8498a7.tar.gz
-_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	785391cc1559d5c5133734b965cad842	golang-utils	326535ac0e9f47b32a1dcca8bc70eb88	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-base	9be53bab0d65304f82dbd940473985b3	golang-single	a73513726df110e259a8af82a9d660ec	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
 _md5_=ff2ee039e8f63b20bb0dd6c5df15f0e3

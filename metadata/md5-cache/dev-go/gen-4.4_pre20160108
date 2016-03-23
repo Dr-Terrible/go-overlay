@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=dev-lang/go:*
+DEPEND=dev-lang/go:0=
 DESCRIPTION=Type-driven code generation for GoLang
 EAPI=6
 HOMEPAGE=http://clipperhouse.github.io/gen/
@@ -9,5 +9,5 @@ LICENSE=BSD
 RESTRICT=mirror strip
 SLOT=0
 SRC_URI=https://github.com/clipperhouse/gen/archive/a964fea0946e9883fdcd13ea7af1507638a6679d.tar.gz -> gen-4.4_pre20160108.tar.gz https://github.com/clipperhouse/fsnotify/archive/73e10d3.tar.gz -> github.com-clipperhouse-fsnotify-73e10d3.tar.gz https://github.com/clipperhouse/slice/archive/3ae82e0.tar.gz -> github.com-clipperhouse-slice-3ae82e0.tar.gz https://github.com/clipperhouse/stringer/archive/e6cc61d.tar.gz -> github.com-clipperhouse-stringer-e6cc61d.tar.gz https://github.com/clipperhouse/typewriter/archive/e469540.tar.gz -> github.com-clipperhouse-typewriter-e469540.tar.gz https://github.com/golang/tools/archive/f7268ab.tar.gz -> github.com-golang-tools-f7268ab.tar.gz
-_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	785391cc1559d5c5133734b965cad842	golang-utils	326535ac0e9f47b32a1dcca8bc70eb88	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-base	9be53bab0d65304f82dbd940473985b3	golang-single	a73513726df110e259a8af82a9d660ec	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
 _md5_=df543039d61ac99a55b00dd69a875998

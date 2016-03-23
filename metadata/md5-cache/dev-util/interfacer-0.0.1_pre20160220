@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=>=dev-lang/go-1.5.0 !dev-go/interfacer dev-lang/go:*
+DEPEND=>=dev-lang/go-1.5.0 !dev-go/interfacer dev-lang/go:0=
 DESCRIPTION=A linter for GoLang that suggests interface types
 EAPI=6
 HOMEPAGE=https://github.com/mvdan/interfacer
@@ -9,5 +9,5 @@ LICENSE=BSD
 RESTRICT=mirror strip
 SLOT=0
 SRC_URI=https://github.com/mvdan/interfacer/archive/034ed623e2eb202e0629c9b1c596af8ff0b97878.tar.gz -> interfacer-0.0.1_pre20160220.tar.gz https://github.com/golang/tools/archive/b0452ee.tar.gz -> github.com-golang-tools-b0452ee.tar.gz
-_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	785391cc1559d5c5133734b965cad842	golang-utils	326535ac0e9f47b32a1dcca8bc70eb88	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-base	9be53bab0d65304f82dbd940473985b3	golang-single	a73513726df110e259a8af82a9d660ec	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
 _md5_=45f5d31b79f0737309d070f4f2869888

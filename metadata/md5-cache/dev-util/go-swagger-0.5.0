@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=>=dev-lang/go-1.5.1 virtual/perl-version dev-go/go-bindata doc? ( www-apps/hugo ) dev-lang/go:*
+DEPEND=>=dev-lang/go-1.5.1 virtual/perl-version dev-go/go-bindata doc? ( www-apps/hugo ) dev-lang/go:0=
 DESCRIPTION=Swagger 2.0 implementation for GoLang
 EAPI=6
 HOMEPAGE=https://goswagger.io
@@ -9,5 +9,5 @@ LICENSE=Apache-2.0
 RESTRICT=mirror strip test
 SLOT=0
 SRC_URI=https://github.com/go-swagger/go-swagger/archive/0.5.0.tar.gz -> go-swagger-0.5.0.tar.gz https://github.com/golang/tools/archive/fcde774.tar.gz -> github.com-golang-tools-fcde774.tar.gz doc? ( https://github.com/go-swagger/go-swagger.github.io/archive/a5bcce78b41f2c779ce609ae3a78988159238ed4.tar.gz -> go-swagger-docs-a5bcce78b41f2c779ce609ae3a78988159238ed4.tar.gz )
-_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	785391cc1559d5c5133734b965cad842	golang-utils	326535ac0e9f47b32a1dcca8bc70eb88	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-base	9be53bab0d65304f82dbd940473985b3	golang-single	a73513726df110e259a8af82a9d660ec	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
 _md5_=c4be239144ba25d2a2a517f9d91e1a6c

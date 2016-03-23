@@ -12,6 +12,7 @@ app-editors/srclib 0.0.40: A hackable, multilange code analysis library for buil
 app-emulation/packer 0.8.6 0.8.6-r1 0.9.0: Packer is a tool for creating identical machine images for multiple platforms
 app-emulation/runc 0.0.6-r1 0.0.8: A CLI tool for spawning and running containers according to the OCF specs
 app-misc/asciinema 1.2.0: A terminal session recorder for asciinema.org service
+app-misc/btcwallet 0.7.0 9999: A secure bitcoin wallet daemon written in Go
 app-misc/devtodo 2.2_pre20150904: DevTodo is a small command line application for maintaining lists of tasks.
 app-misc/thymer 0.1.0: Consolo Pomodoro Timer written in GoLang
 app-misc/weather 0.5.0_pre20151218 0.5.0 0.6.0_pre20151218: Weather via the command line.
@@ -110,6 +111,9 @@ net-misc/hoverfly 0.5.11: Hoverfly is a lightweight, open source service virtual
 net-misc/nsq 0.3.6: A real-time distributed messaging platform, written in GoLang
 net-misc/wsd 0.0.0_pre20150722: Simple cURL-like command line utility for debugging WebSocket servers
 net-nds/dex 0.2.3: Dex is a Federated Indentity Provider written in GoLang
+net-p2p/bmd 0.1_pre20160320 9999: bmd is collection of Bitmessage tools inspired by btcsuite
+net-p2p/btcd 0.12.0 9999: An alternative full node bitcoin implementation written in Go
+net-p2p/btcsim 0.1_pre20150902 9999: btcsim implements a simulation test driver using the simnet network provided by btcd
 net-p2p/cloud-torrent 0.8.10: Cloud Torrent is a self-hosted remote torrent client, written in GoLang
 net-p2p/syncthing 0.11.26-r1 0.12.20-r3: Syncthing is an app that lets you synchronize your files across multiple devices
 net-p2p/syncthing-cli 0.1.0_pre20150922-r1: SyncThing command-line interface

@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=dev-lang/go:*
+DEPEND=dev-lang/go:0=
 DESCRIPTION=Concurrently run Go lint tools and normalise their output
 EAPI=6
 HOMEPAGE=https://github.com/alecthomas/gometalinter
@@ -10,5 +10,5 @@ RDEPEND=dev-util/go-tools dev-util/deadcode dev-util/gocyclo dev-util/golint dev
 RESTRICT=mirror strip
 SLOT=0
 SRC_URI=https://github.com/alecthomas/gometalinter/archive/5ba5353545d7d13bcb10d7ca58c45e026a99a58d.tar.gz -> gometalinter-0.1_pre20160301.tar.gz https://github.com/alecthomas/kingpin/archive/8cccfa8.tar.gz -> github.com-alecthomas-kingpin-8cccfa8.tar.gz https://github.com/alecthomas/template/archive/14fd436.tar.gz -> github.com-alecthomas-template-14fd436.tar.gz https://github.com/alecthomas/units/archive/2efee85.tar.gz -> github.com-alecthomas-units-2efee85.tar.gz https://github.com/stretchr/testify/archive/f390dcf.tar.gz -> github.com-stretchr-testify-f390dcf.tar.gz https://github.com/google/shlex/archive/6f45313.tar.gz -> github.com-google-shlex-6f45313.tar.gz https://github.com/davecgh/go-spew/archive/5215b55.tar.gz -> github.com-davecgh-go-spew-5215b55.tar.gz https://github.com/pmezard/go-difflib/archive/792786c.tar.gz -> github.com-pmezard-go-difflib-792786c.tar.gz
-_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-single	785391cc1559d5c5133734b965cad842	golang-utils	326535ac0e9f47b32a1dcca8bc70eb88	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-base	9be53bab0d65304f82dbd940473985b3	golang-single	a73513726df110e259a8af82a9d660ec	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
 _md5_=5d6946f48bb45d759785980716ba09a0
