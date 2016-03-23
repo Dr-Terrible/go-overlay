@@ -1,0 +1,11 @@
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=virtual/pkgconfig dev-lang/go:0=
+DESCRIPTION=An alternative full node bitcoin implementation written in Go
+EAPI=6
+HOMEPAGE=https://btcsuite.github.io
+IUSE=test
+LICENSE=ISC
+RESTRICT=mirror strip
+SLOT=0
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-base	9be53bab0d65304f82dbd940473985b3	golang-live	560c69034bcd24bbc2fdc74313f2a248	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	systemd	3165c885f3c71ffae7a867d931fb0e07	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	user	906f3c8eb3a2350a4f1191a89baa3e46	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=3ba42a5d79e74ba20ff293d88200e639

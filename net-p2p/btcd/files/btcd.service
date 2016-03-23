@@ -1,0 +1,20 @@
+[Unit]
+Description=btcd service
+Documentation=https://btcsuite.github.io
+
+After=local-fs.target network.target
+Requires=network.target
+
+[Service]
+Type=simple
+Restart=always
+User=btcd
+ExecStart=/usr/bin/btcd
+ExecReload=/bin/kill -HUP $MAINPID
+
+NoNewPrivileges=true
+DevicePolicy=closed
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
