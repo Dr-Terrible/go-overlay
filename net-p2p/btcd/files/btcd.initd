@@ -1,0 +1,34 @@
+#!/sbin/runscript
+# Copyright 1999-2016 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+BTCD_USER=${BTCD_USER:-btcd}
+BTCD_GROUP=${BTCD_GROUP:-btcd}
+BTCD_HOMEDIR=${BTCD_HOMEDIR:-/var/lib/btcd}
+BTCD_LOGFILE=${BTCD_LOGFILE:-/var/log/btcd/btcd.log}
+BTCD_UMASK=${BTCD_UMASK:-007}
+BTCD_IONICE=${BTCD_IONICE:-0}
+BTCD_NICE=${BTCD_NICE:-0}
+
+description="An alternative full node bitcoin implementation written in Go"
+command="/usr/bin/btcd"
+command_args=""
+pidfile="/run/btcd.pid"
+start_stop_daemon_args="--background \
+	--user ${BTCD_USER} \
+	--group ${BTCD_GROUP} \
+	--umask ${BTCD_UMASK} \
+	--make-pidfile \
+	--ionice ${BTCD_IONICE} \
+	--nicelevel ${BTCD_NICE} \
+	--stdout ${BTCD_LOGFILE} \
+	--stderr ${BTCD_LOGFILE}"
+
+depend() {
+	need localmount net
+}
+
+start_pre() {
+	checkpath -q -d -o ${BTCD_USER}:${BTCD_GROUP} ${BTCD_HOMEDIR}
+	checkpath -q -f -o ${BTCD_USER}:${BTCD_GROUP} ${BTCD_LOGFILE}
+}

@@ -41,10 +41,18 @@ src_install() {
 
 	# Installs init scripts
 	systemd_dounit "${FILESDIR}/btcd.service"
+	newinitd "${FILESDIR}/${PN}.initd" ${PN}
+	newconfd "${FILESDIR}/${PN}.confd" ${PN}
 
+	# Prepares home directory
 	keepdir "${PHOME}"/.btcd
 	fperms 700 "${PHOME}"
 	fowners "${PUG}" "${PHOME}"
 	fowners "${PUG}" "${PHOME}"/.btcd
 	dosym "${PCONFFILE}" "${PHOME}"/.btcd/btcd.conf
+
+	# Prepares log directory
+	keepdir /var/log/${PN}
+	fperms 700 /var/log/${PN}
+	fowners ${PN}:${PN} /var/log/${PN}
 }

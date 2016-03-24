@@ -1,0 +1,24 @@
+# /etc/conf.d/btcd: config file for /etc/init.d/btcd
+
+# User and group as which to run
+#BTCD_USER="btcd"
+#BTCD_GROUP="btcd"
+
+# Configuration directory
+#BTCD_HOMEDIR="/var/lib/btcd"
+
+# Log file location
+#BTCD_LOGFILE="/var/log/btcd/btcd.log"
+
+# umask used to create files
+# The default allows group access
+#BTCD_UMASK=007
+
+# I/O nice level of btcd
+#BTCD_IONICE="0"
+
+# Nice level of btcd
+#BTCD_NICE="0"
+
+# Extra options for btcd
+#BTCD_OPTS=""
