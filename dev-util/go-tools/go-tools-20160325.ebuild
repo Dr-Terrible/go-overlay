@@ -7,17 +7,17 @@ EAPI=6
 GOLANG_PKG_IMPORTPATH="github.com/golang"
 GOLANG_PKG_IMPORTPATH_ALIAS="golang.org/x"
 GOLANG_PKG_NAME="${PN/go-}"
-GOLANG_PKG_VERSION="2dff1e88eb92a374a989dd38e3402481f498ffa2"
+GOLANG_PKG_VERSION="47218d24f212e7c2842e86977c1e213d65771ec8"
 GOLANG_PKG_IS_MULTIPLE=1
 GOLANG_PKG_USE_GENERATE=1
 GOLANG_PKG_HAVE_TEST=1
 
 # Declare dependencies
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/golang/net:2cba614 -> golang.org/x"
-	"github.com/golang/protobuf:5baca1b"
-	"github.com/golang/appengine:75a29a6"
-	"github.com/GoogleCloudPlatform/gcloud-golang:137f428"
+	"github.com/golang/net:991d3e3 -> golang.org/x"
+	"github.com/golang/protobuf:8d92cf5"
+	"github.com/golang/appengine:41265fb"
+	"github.com/GoogleCloudPlatform/gcloud-golang:eb47ba8"
 )
 
 inherit golang-single
@@ -32,9 +32,9 @@ KEYWORDS="amd64 x86 arm"
 DEPEND="!dev-go/go-tools"
 
 # FIX for unit testing
-GOLANG_PKG_VENDOR=(
-	"${S}"
-)
+#GOLANG_PKG_VENDOR=(
+#	"${S}"
+#)
 
 src_prepare() {
 	golang-single_src_prepare
