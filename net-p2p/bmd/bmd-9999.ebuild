@@ -10,7 +10,7 @@ GOLANG_PKG_HAVE_TEST=1
 
 inherit golang-live
 
-DESCRIPTION="bmd is collection of Bitmessage tools inspired by btcsuite"
+DESCRIPTION="bmd is a collection of Bitmessage tools inspired by btcsuite"
 
 LICENSE="ISC"
 SLOT="0"
