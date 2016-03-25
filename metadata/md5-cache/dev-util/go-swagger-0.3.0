@@ -9,5 +9,5 @@ LICENSE=Apache-2.0
 RESTRICT=mirror strip test
 SLOT=0
 SRC_URI=https://github.com/go-swagger/go-swagger/archive/0.3.0.tar.gz -> go-swagger-0.3.0.tar.gz
-_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-base	9be53bab0d65304f82dbd940473985b3	golang-single	a73513726df110e259a8af82a9d660ec	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-base	a07949eb0b2432c338a1135ee273edba	golang-single	f86787712b82f1864946145c0e1f9449	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
 _md5_=9ba5a9ce568b8dc09d3fb6335e046665

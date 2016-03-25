@@ -10,5 +10,5 @@ RDEPEND=!net-misc/syncthing-inotify
 RESTRICT=mirror strip
 SLOT=0
 SRC_URI=https://github.com/syncthing/syncthing-inotify/archive/v0.6.8.tar.gz -> syncthing-inotify-0.6.8.tar.gz https://github.com/cenkalti/backoff/archive/4dc77674ac.tar.gz -> github.com-cenkalti-backoff-4dc77674ac.tar.gz https://github.com/zillode/notify/archive/f06b1e3b79.tar.gz -> github.com-zillode-notify-f06b1e3b79.tar.gz
-_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-base	9be53bab0d65304f82dbd940473985b3	golang-single	a73513726df110e259a8af82a9d660ec	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	systemd	3165c885f3c71ffae7a867d931fb0e07	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-base	a07949eb0b2432c338a1135ee273edba	golang-single	f86787712b82f1864946145c0e1f9449	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	systemd	3165c885f3c71ffae7a867d931fb0e07	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
 _md5_=ff5f5c60f6a059a0a142f9446d79bbbb

@@ -9,5 +9,5 @@ LICENSE=BSD
 RESTRICT=mirror strip
 SLOT=0
 SRC_URI=https://github.com/alecthomas/devtodo2/archive/d59df692a0080f3e45a760982a901aae4385a205.tar.gz -> devtodo-2.2_pre20150904.tar.gz https://github.com/droundy/goopt/archive/e5c9ab1.tar.gz -> github.com-droundy-goopt-e5c9ab1.tar.gz
-_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-base	9be53bab0d65304f82dbd940473985b3	golang-single	a73513726df110e259a8af82a9d660ec	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-base	a07949eb0b2432c338a1135ee273edba	golang-single	f86787712b82f1864946145c0e1f9449	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
 _md5_=65066b6f250099abadc83f96d3620095
