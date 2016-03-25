@@ -7,15 +7,14 @@ EAPI=6
 GOLANG_PKG_IMPORTPATH="github.com/DanielKrawisz"
 GOLANG_PKG_IS_MULTIPLE=1
 GOLANG_PKG_HAVE_TEST=1
-#GOLANG_PKG_USE_GENERATE=1
+GOLANG_PKG_USE_GENERATE=1
 
 inherit golang-live
 
-DESCRIPTION="bmd is a collection of Bitmessage tools inspired by btcsuite"
+DESCRIPTION="Client for bmd, functions as IMAP/SMTP server"
 
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS=""
 
-# TODO: dependency required by go:generate
-#DEPEND="dev-libs/protobuf:3"
+DEPEND=">=dev-go/gogo-protobuf-0.2"
