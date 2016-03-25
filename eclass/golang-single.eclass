@@ -71,18 +71,6 @@ if [[ -z ${_GOLANG_SINGLE_ECLASS} ]]; then
 _GOLANG_SINGLE_ECLASS=1
 
 
-# @FUNCTION: create_sourcedir
-# @INTERNAL
-# @DESCRIPTION:
-# Prepares the source path declared by S.
-_create_sourcedir() {
-	debug-print-function ${FUNCNAME} "${@}"
-
-	mkdir -p "${S%/*}" || die
-}
-
-
-
 # This eclass uses GOLANG_PKG_IMPORTPATH to populate SRC_URI.
 SRC_URI="https://${GOLANG_PKG_IMPORTPATH}/${GOLANG_PKG_NAME}/archive/${GOLANG_PKG_ARCHIVEPREFIX}${GOLANG_PKG_VERSION}${GOLANG_PKG_ARCHIVESUFFIX} -> ${P}${GOLANG_PKG_ARCHIVESUFFIX}"
 
@@ -124,10 +112,6 @@ if [[ ${#GOLANG_PKG_DEPENDENCIES[@]} -gt 0 ]]; then
 fi
 
 
-# Defines SOURCE directory.
-S="${WORKDIR}/gopath/src/${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}"
-
-
 # @FUNCTION: golang-single_src_unpack
 # @DESCRIPTION:
 # Unpack the source archive.
@@ -136,9 +120,17 @@ golang-single_src_unpack() {
 
 	default
 
-	# Create S by moving main GoLang package from WORKDIR into GOPATH.
-	_create_sourcedir
-	mv "${GOLANG_PKG_NAME}-${GOLANG_PKG_VERSION}" "${S}"/ || die
+	# Creates S.
+	mkdir -p "${S%/*}" || die
+
+	# Moves main GoLang package from WORKDIR into GOPATH.
+	if [[ "${GOLANG_PKG_IMPORTPATH}" != "${GOLANG_PKG_IMPORTPATH_ALIAS}" ]]; then
+		local alias_abspath="${WORKDIR}/gopath/src/${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}"
+		mkdir -p "${alias_abspath%/*}" || die
+		mv "${GOLANG_PKG_NAME}-${GOLANG_PKG_VERSION}" "${alias_abspath}"/ || die
+	else
+		mv "${GOLANG_PKG_NAME}-${GOLANG_PKG_VERSION}" "${S}"/ || die
+	fi
 }
 
 

@@ -407,6 +407,22 @@ golang-base_src_prepare() {
 	pushd "${WORKDIR}" > /dev/null
 		einfo "Preparing GoLang build environment in ${GOPATH}/src"
 
+		# If the ebuild declares an importpath alias, then its path was
+		# already created during the src_unpack phase. That means the eclass
+		# needs to create the missing original import path (GOLANG_PKG_IMPORTPATH)
+		# as a simbolic link pointing to the alias.
+		if [[ "${GOLANG_PKG_IMPORTPATH}" != "${GOLANG_PKG_IMPORTPATH_ALIAS}" ]]; then
+
+			# If the ebuild declares a GOLANG_PKG_NAME different from PN, then
+			# the latter will be used as the simbolic link target.
+			local TARGET="${GOLANG_PKG_NAME}"
+			[[ "${PN}" != "${GOLANG_PKG_NAME}" ]] && TARGET="${PN}"
+
+			golang_fix_importpath_alias \
+				"${GOLANG_PKG_IMPORTPATH_ALIAS}/${TARGET}" \
+				"${GOLANG_PKG_IMPORTPATH}/${GOLANG_PKG_NAME}"
+		fi
+
 		# If the ebuild declares some GoLang dependencies, then they need to be
 		# correctly installed into the sand-boxed GoLang build environment which
 		# was set up automatically during pkg_setup() phase.
@@ -626,11 +642,13 @@ golang-base_src_configure() {
 	# Executes 'go generate'.
 	# NOTE: generate should never run automatically. It must be run explicitly.
 	if [[ -n ${GOLANG_PKG_USE_GENERATE} ]]; then
-		einfo "${EGO} generate ${EGO_VERBOSE} ./..."
-		${EGO} generate \
-			${EGO_VERBOSE} \
-			./... \
-			|| die
+		pushd "${GOPATH}/src/${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}" > /dev/null
+			einfo "${EGO} generate ${EGO_VERBOSE} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}/..."
+			${EGO} generate \
+				${EGO_VERBOSE} \
+				./... \
+				|| die
+		popd > /dev/null
 	fi
 
 
@@ -829,7 +847,7 @@ golang-base_src_test() {
 #   GOLANG_PKG_LDFLAGS="-extldflags=-static"
 #   GOLANG_PKG_TAGS="netgo"
 #
-#	golang_do_build ${EGO_BUILD_FLAGS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}
+#	golang_do_build ${EGO_BUILD_FLAGS} ${GOLANG_PKG_IMPORTPATH}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}
 # @CODE
 golang_do_build() {
 	debug-print-function ${FUNCNAME} $*
@@ -914,7 +932,8 @@ golang_add_vendor() {
 golang_fix_importpath_alias() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	[[ ${1} ]] || die "${FUNCNAME}: no paths given"
+	[[ ${1} ]] || die "${FUNCNAME}: no target specified"
+	[[ ${2} ]] || die "${FUNCNAME}: no alias specified"
 
 	[[ ${EGO} ]] || die "No GoLang implementation set (golang_setup not called?)."
 

@@ -49,7 +49,7 @@ golang-live_src_unpack() {
 	addwrite "${EGO_LIVESTORE_DIR}"
 
 	# Retrieves the GOLANG_PKG_IMPORTPATH go package along with its dependencies.
-	set -- env GOPATH="${EGO_LIVESTORE_DIR}" go get -d -u -v -t "${GOLANG_PKG_IMPORTPATH}/${GOLANG_PKG_NAME}"
+	set -- env GOPATH="${EGO_LIVESTORE_DIR}" go get -d -u -v -t -tags="${GOLANG_PKG_TAGS}" "${GOLANG_PKG_IMPORTPATH}/${GOLANG_PKG_NAME}"
 	echo "$@"
 	"$@" || die
 
