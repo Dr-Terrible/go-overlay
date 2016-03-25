@@ -7,7 +7,7 @@ EAPI=6
 GOLANG_PKG_IMPORTPATH="github.com/${PN}-cd"
 GOLANG_PKG_IMPORTPATH_ALIAS="github.com/recruit-tech"
 GOLANG_PKG_ARCHIVEPREFIX="v"
-GOLANG_PKG_LDFLAGS="-X ${GOLANG_PKG_IMPORTPATH_ALIAS}/${PN}/version.Version v${PV}"
+GOLANG_PKG_LDFLAGS="-X=${GOLANG_PKG_IMPORTPATH_ALIAS}/${PN}/version.Version v${PV}"
 GOLANG_PKG_HAVE_TEST=1
 
 # Declares dependencies
