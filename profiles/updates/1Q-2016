@@ -13,3 +13,4 @@ move dev-go/flint dev-util/flint
 move dev-go/forego dev-util/forego
 move dev-util/anderson dev-go/anderson
 move dev-util/ffjson dev-go/ffjson
+move dev-go/protobuf dev-go/gogo-protobuf

@@ -50,7 +50,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
 
-DEPEND="dev-go/protobuf"
+DEPEND="dev-go/gogo-protobuf"
 
 pkg_setup() {
 	ebegin "Creating ${PN} user and group"
