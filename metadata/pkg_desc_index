@@ -64,7 +64,7 @@ dev-go/re2dfa 0.1.0_pre20150627: Transform regular expressions into finite state
 dev-go/revel-cli 0.12.0-r1: Command-line tool for Revel framework
 dev-go/safesql 0_pre20150617: Static analysis tool for GoLang that protects against SQL injections
 dev-go/statik 20150419: statik embeds static files into a GoLang executable
-dev-go/structlayout 0.1_pre20160321: An utility that prints the layout of a Go struct
+dev-go/structlayout 0.1_pre20160321 0.1_pre20160324: An utility that prints the layout of a Go struct
 dev-go/tomlv 0.2.0_pre20160219: A TOML validator written in GoLang
 dev-go/wago 1.0 1.2.0: Wago automates the actions you do after saving code.
 dev-go/walter 1.3.0: Walter is a tiny deployment pipeline
