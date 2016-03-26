@@ -48,7 +48,7 @@ pkg_setup() {
 }
 
 src_install() {
-	golang-live_src_install
+	golang-single_src_install
 
 	# Installs configuration file
 	insinto "${PCONFDIR}"
