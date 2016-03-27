@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:0=
+DESCRIPTION=bmd is a collection of Bitmessage tools inspired by btcsuite
+EAPI=6
+HOMEPAGE=https://github.com/DanielKrawisz/bmd
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=ISC
+RESTRICT=mirror strip
+SLOT=0
+SRC_URI=https://github.com/DanielKrawisz/bmd/archive/fcc13c707a59d15e817569a308f7243eaef2228a.tar.gz -> bmd-0.1.0_pre20160320.tar.gz https://github.com/DanielKrawisz/bmutil/archive/669c809.tar.gz -> github.com-DanielKrawisz-bmutil-669c809.tar.gz https://github.com/DanielKrawisz/maxrate/archive/fae0eea.tar.gz -> github.com-DanielKrawisz-maxrate-fae0eea.tar.gz https://github.com/boltdb/bolt/archive/ee716d1.tar.gz -> github.com-boltdb-bolt-ee716d1.tar.gz https://github.com/btcsuite/btcd/archive/cea5d3c.tar.gz -> github.com-btcsuite-btcd-cea5d3c.tar.gz https://github.com/golang/protobuf/archive/8d92cf5.tar.gz -> github.com-golang-protobuf-8d92cf5.tar.gz https://github.com/grpc/grpc-go/archive/9e3a674.tar.gz -> github.com-grpc-grpc-go-9e3a674.tar.gz https://github.com/jessevdk/go-flags/archive/6b9493b.tar.gz -> github.com-jessevdk-go-flags-6b9493b.tar.gz https://github.com/golang/crypto/archive/c197bcf.tar.gz -> github.com-golang-crypto-c197bcf.tar.gz https://github.com/golang/net/archive/35b06af.tar.gz -> github.com-golang-net-35b06af.tar.gz https://github.com/btcsuite/btclog/archive/5005b72.tar.gz -> github.com-btcsuite-btclog-5005b72.tar.gz https://github.com/btcsuite/btcutil/archive/ff82dac.tar.gz -> github.com-btcsuite-btcutil-ff82dac.tar.gz https://github.com/btcsuite/fastsha256/archive/302ad4d.tar.gz -> github.com-btcsuite-fastsha256-302ad4d.tar.gz https://github.com/btcsuite/go-socks/archive/cfe8b59.tar.gz -> github.com-btcsuite-go-socks-cfe8b59.tar.gz https://github.com/btcsuite/golangcrypto/archive/53f62d9.tar.gz -> github.com-btcsuite-golangcrypto-53f62d9.tar.gz https://github.com/btcsuite/seelog/archive/313961b.tar.gz -> github.com-btcsuite-seelog-313961b.tar.gz https://github.com/DanielKrawisz/mocknet/archive/c81c9ee.tar.gz -> github.com-DanielKrawisz-mocknet-c81c9ee.tar.gz https://github.com/ishbir/bmutil/archive/bdbe780.tar.gz -> github.com-ishbir-bmutil-bdbe780.tar.gz
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-base	039226a14d707d84a6bf69b96eedc012	golang-single	60e909239bd26d758dcad25d20f95a39	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=be077f85146296d1377b92d333ab3acf
