@@ -20,6 +20,24 @@ if [[ -z ${_GOLANG_LIVE_ECLASS} ]]; then
 _GOLANG_LIVE_ECLASS=1
 
 
+# @ECLASS-VARIABLE: EGO_LIVESTORE_DIR
+# @INTERNAL
+# @DESCRIPTION:
+# Storage directory for Go sources.
+# Ebuilds must not set it.
+
+# @ECLASS-VARIABLE: EVCS_UMASK
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Set this variable to a custom umask. This is intended to be set by
+# users. By setting this to something like 002, it can make life easier
+# for people who do development as non-root (but are in the portage
+# group), and then switch over to building with FEATURES=userpriv.
+# Or vice-versa. Shouldn't be a security issue here as anyone who has
+# portage group write access already can screw the system over in more
+# creative ways.
+
+
 # Validates use of GOLANG_PKG_DEPENDENCIES.
 # NOTE: a live ebuild should not have go dependencies.
 # TODO: check also if GOLANG_PKG_DEPENDENCIES is an array
@@ -29,6 +47,27 @@ if [[ -n ${GOLANG_PKG_DEPENDENCIES} ]]; then
 	die "Banned variable GOLANG_PKG_DEPENDENCIES is set"
 fi
 
+
+# @FUNCTION: golang-live_src_fetch
+# @DESCRIPTION:
+# Fetch a go package along with its dependencies.
+golang-live_src_fetch() {
+	debug-print-function ${FUNCTION} "$@"
+
+	[[ -z ${EGO_LIVESTORE_DIR} ]] && die "No EGO_LIVESTORE_DIR set (golang-live_src_unpack not called?)."
+
+	# Fetch the go package
+	[[ -n ${EVCS_UMASK} ]] && eumask_push ${EVCS_UMASK}
+
+	set -- env \
+		GOPATH="${EGO_LIVESTORE_DIR}" \
+		go get -d -u -v -t -tags="${GOLANG_PKG_TAGS}" ${@}
+	echo "$@"
+	"$@" || die
+
+	[[ -n ${EVCS_UMASK} ]] && eumask_pop
+}
+
 # @FUNCTION: golang-live_src_unpack
 # @DESCRIPTION:
 # Unpack the source archive.
@@ -37,7 +76,9 @@ golang-live_src_unpack() {
 
 	# Creates EGO_LIVESTORE_DIR if necessary.
 	local distdir=${PORTAGE_ACTUAL_DISTDIR:-${DISTDIR}}
-	local EGO_LIVESTORE_DIR=${EGO_LIVESTORE_DIR:=${distdir}/go-${PN}-livesrc}
+	: EGO_LIVESTORE_DIR=${EGO_LIVESTORE_DIR:=${distdir}/go-${PN}-livesrc}
+
+	[[ -n ${EVCS_UMASK} ]] && eumask_push ${EVCS_UMASK}
 
 	if [[ ! -d ${EGO_LIVESTORE_DIR} ]]; then
 		(
@@ -48,10 +89,10 @@ golang-live_src_unpack() {
 
 	addwrite "${EGO_LIVESTORE_DIR}"
 
-	# Retrieves the GOLANG_PKG_IMPORTPATH go package along with its dependencies.
-	set -- env GOPATH="${EGO_LIVESTORE_DIR}" go get -d -u -v -t -tags="${GOLANG_PKG_TAGS}" "${GOLANG_PKG_IMPORTPATH}/${GOLANG_PKG_NAME}"
-	echo "$@"
-	"$@" || die
+	[[ -n ${EVCS_UMASK} ]] && eumask_pop
+
+	# Retrieves the GOLANG_PKG_IMPORTPATH go package.
+	golang-live_src_fetch "${GOLANG_PKG_IMPORTPATH}/${GOLANG_PKG_NAME}"
 
 	# Creates SOURCE directory.
 	mkdir -p "${S}" || die
