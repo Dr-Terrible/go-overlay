@@ -115,7 +115,7 @@ net-misc/nsq 0.3.6: A real-time distributed messaging platform, written in GoLan
 net-misc/wsd 0.0.0_pre20150722: Simple cURL-like command line utility for debugging WebSocket servers
 net-nds/dex 0.2.3: Dex is a Federated Indentity Provider written in GoLang
 net-p2p/bmagent 9999-r1: Client for bmd, functions as IMAP/SMTP server
-net-p2p/bmd 0.1.0_pre20160320 9999-r1: bmd is a collection of Bitmessage tools inspired by btcsuite
+net-p2p/bmd 0.1.0_pre20160320-r2 9999-r3: bmd is a collection of Bitmessage tools inspired by btcsuite
 net-p2p/btcd 0.12.0-r1 9999: An alternative full node bitcoin implementation written in Go
 net-p2p/btcgui 9999: btcgui is a graphical client for btcwallet and btcd
 net-p2p/btcsim 0.1_pre20150902 9999: btcsim implements a simulation test driver using the simnet network provided by btcd

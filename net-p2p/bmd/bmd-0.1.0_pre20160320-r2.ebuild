@@ -41,6 +41,8 @@ LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
 
+DEPEND=">=dev-go/gogo-protobuf-0.2"
+
 PUSER="bmd"
 PHOME="/var/lib/${PUSER}"
 PCONFDIR="/etc/bmd"
