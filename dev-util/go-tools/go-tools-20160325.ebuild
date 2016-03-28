@@ -23,18 +23,12 @@ GOLANG_PKG_DEPENDENCIES=(
 inherit golang-single
 
 DESCRIPTION="Various packages and tools that support the Go programming language"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="amd64 x86 arm"
 
 DEPEND="!dev-go/go-tools"
-
-# FIX for unit testing
-#GOLANG_PKG_VENDOR=(
-#	"${S}"
-#)
 
 src_prepare() {
 	golang-single_src_prepare
