@@ -1,0 +1,34 @@
+#!/sbin/runscript
+# Copyright 1999-2016 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+BMD_USER=${BMD_USER:-bmd}
+BMD_GROUP=${BMD_GROUP:-bmd}
+BMD_HOMEDIR=${BMD_HOMEDIR:-/var/lib/bmd}
+BMD_LOGFILE=${BMD_LOGFILE:-/var/log/bmd/bmd.log}
+BMD_UMASK=${BMD_UMASK:-007}
+BMD_IONICE=${BMD_IONICE:-0}
+BMD_NICE=${BMD_NICE:-0}
+
+description="An alternative full node bitcoin implementation written in Go"
+command="/usr/bin/bmd"
+command_args=""
+pidfile="/run/bmd.pid"
+start_stop_daemon_args="--background \
+	--user ${BMD_USER} \
+	--group ${BMD_GROUP} \
+	--umask ${BMD_UMASK} \
+	--make-pidfile \
+	--ionice ${BMD_IONICE} \
+	--nicelevel ${BMD_NICE} \
+	--stdout ${BMD_LOGFILE} \
+	--stderr ${BMD_LOGFILE}"
+
+depend() {
+	need localmount net
+}
+
+start_pre() {
+	checkpath -q -d -o ${BMD_USER}:${BMD_GROUP} ${BMD_HOMEDIR}
+	checkpath -q -f -o ${BMD_USER}:${BMD_GROUP} ${BMD_LOGFILE}
+}

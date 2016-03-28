@@ -33,7 +33,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/ishbir/bmutil:bdbe780 -> github.com/monetas"
 )
 
-inherit golang-single
+inherit user systemd golang-single
 
 DESCRIPTION="bmd is a collection of Bitmessage tools inspired by btcsuite"
 
@@ -41,10 +41,47 @@ LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
 
+PUSER="bmd"
+PHOME="/var/lib/${PUSER}"
+PCONFDIR="/etc/bmd"
+PCONFFILE="${PCONFDIR}/bmd.conf"
+
+pkg_setup() {
+	enewgroup "${PUSER}"
+	enewuser "${PUSER}" -1 -1 "${PHOME}" "${PUSER}"
+}
+
 src_prepare() {
 	golang-single_src_prepare
 
 	golang_fix_importpath_alias \
 		"github.com/grpc/grpc-go" \
 		"google.golang.org/grpc"
+}
+
+src_install() {
+	golang-single_src_install
+
+	# Installs configuration file
+	insinto "${PCONFDIR}"
+	newins "${S}/sample-bmd.conf" bmd.conf
+	fowners "${PUSER}:${PUSER}" "${PCONFFILE}"
+	fperms 600 "${PCONFFILE}"
+
+	# Installs init scripts
+	systemd_dounit "${FILESDIR}/bmd.service"
+	newinitd "${FILESDIR}/${PN}.initd" ${PN}
+	newconfd "${FILESDIR}/${PN}.confd" ${PN}
+
+	# Prepares home directory
+	keepdir "${PHOME}"/.bmd
+	fperms 700 "${PHOME}"
+	fowners "${PUSER}:${PUSER}" "${PHOME}"
+	fowners "${PUSER}:${PUSER}" "${PHOME}"/.bmd
+	dosym "${PCONFFILE}" "${PHOME}"/.bmd/bmd.conf
+
+	# Prepares log directory
+	keepdir /var/log/${PN}
+	fperms 700 /var/log/${PN}
+	fowners ${PN}:${PN} /var/log/${PN}
 }

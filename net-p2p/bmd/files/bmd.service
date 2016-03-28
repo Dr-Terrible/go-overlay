@@ -1,0 +1,20 @@
+[Unit]
+Description=bmd service
+Documentation=https://github.com/DanielKrawisz/bmd
+
+After=local-fs.target network.target
+Requires=network.target
+
+[Service]
+Type=simple
+Restart=always
+User=bmd
+ExecStart=/usr/bin/bmd
+ExecReload=/bin/kill -HUP $MAINPID
+
+NoNewPrivileges=true
+DevicePolicy=closed
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

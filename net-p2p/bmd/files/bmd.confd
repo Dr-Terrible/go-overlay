@@ -1,0 +1,24 @@
+# /etc/conf.d/bmd: config file for /etc/init.d/bmd
+
+# User and group as which to run
+#BMD_USER="bmd"
+#BMD_GROUP="bmd"
+
+# Configuration directory
+#BMD_HOMEDIR="/var/lib/bmd"
+
+# Log file location
+#BMD_LOGFILE="/var/log/bmd/bmd.log"
+
+# umask used to create files
+# The default allows group access
+#BMD_UMASK=007
+
+# I/O nice level of bmd
+#BMD_IONICE="0"
+
+# Nice level of bmd
+#BMD_NICE="0"
+
+# Extra options for bmd
+#BMD_OPTS=""
