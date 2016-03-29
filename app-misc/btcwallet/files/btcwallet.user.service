@@ -1,0 +1,24 @@
+[Unit]
+Description=btcwallet service (sandboxed for user @%u)
+
+AssertPathIsDirectory=%h
+AssertPathIsDirectory=%h/.btcwallet
+AssertPathIsReadWrite=%h/.btcwallet
+
+[Service]
+Type=simple
+
+# Set up filesystem namespace
+ExecStartPre=/bin/cp -n /etc/btcwallet/btcwallet.conf %h/.btcwallet/btcwallet.conf
+
+# Service's properties
+ExecStart=/usr/bin/btcwallet
+SendSIGHUP=yes
+Restart=on-failure
+User=%i
+NoNewPrivileges=true
+DevicePolicy=closed
+PrivateTmp=true
+
+[Install]
+WantedBy=default.target

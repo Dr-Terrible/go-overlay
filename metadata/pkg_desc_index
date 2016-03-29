@@ -12,7 +12,7 @@ app-editors/srclib 0.0.40: A hackable, multilange code analysis library for buil
 app-emulation/packer 0.8.6 0.8.6-r1 0.9.0: Packer is a tool for creating identical machine images for multiple platforms
 app-emulation/runc 0.0.6-r1 0.0.8: A CLI tool for spawning and running containers according to the OCF specs
 app-misc/asciinema 1.2.0: A terminal session recorder for asciinema.org service
-app-misc/btcwallet 0.7.0 9999: A secure bitcoin wallet daemon written in Go
+app-misc/btcwallet 0.7.0-r1 9999-r1: A secure bitcoin wallet daemon written in Go
 app-misc/devtodo 2.2_pre20150904: DevTodo is a small command line application for maintaining lists of tasks.
 app-misc/thymer 0.1.0: Consolo Pomodoro Timer written in GoLang
 app-misc/weather 0.5.0_pre20151218 0.5.0 0.6.0_pre20151218: Weather via the command line.
