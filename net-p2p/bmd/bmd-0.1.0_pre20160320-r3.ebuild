@@ -30,7 +30,7 @@ GOLANG_PKG_DEPENDENCIES=(
 
 	# Unit Testing
 	"github.com/DanielKrawisz/mocknet:c81c9ee"
-	"github.com/ishbir/bmutil:bdbe780 -> github.com/monetas"
+	"github.com/DanielKrawisz/bmutil:669c809 -> github.com/monetas"
 )
 
 inherit user systemd golang-single

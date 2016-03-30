@@ -10,7 +10,7 @@ app-editors/lime-termbox 20150428: Termbox frontend for Lime text editor.
 app-editors/liteide 27.2.1: LiteIDE is a simple, open source, cross-platform Go IDE.
 app-editors/srclib 0.0.40: A hackable, multilange code analysis library for building better software tools
 app-emulation/packer 0.8.6 0.8.6-r1 0.9.0: Packer is a tool for creating identical machine images for multiple platforms
-app-emulation/runc 0.0.6-r1 0.0.8: A CLI tool for spawning and running containers according to the OCF specs
+app-emulation/runc 0.0.9: A CLI tool for spawning and running containers according to the OCF specs
 app-misc/asciinema 1.2.0: A terminal session recorder for asciinema.org service
 app-misc/btcwallet 0.7.0-r1 9999-r1: A secure bitcoin wallet daemon written in Go
 app-misc/devtodo 2.2_pre20150904: DevTodo is a small command line application for maintaining lists of tasks.
@@ -43,7 +43,7 @@ dev-go/glide 0.9.0 0.9.1: Glide is a vendor Package Management for Golang
 dev-go/go-bindata 3.0.7 3.0.8_pre20151023: A small utility for embedding binary data in a GoLang program.
 dev-go/go-bindata-assetfs 0.1.0_pre20151224: A small utility for embedding binary data in a GoLang program.
 dev-go/go-fuzz 0.1_pre20160204: Go-fuzz is a coverage-guided fuzzing solution for testing of Go packages
-dev-go/go-protobuf 0.1_pre20160321: Go support for Google's protocol buffers
+dev-go/go-protobuf 0.1_pre20160321-r1: Go support for Google's protocol buffers
 dev-go/go-torch 0.5.0_pre20150729 0.5.0_pre20160107: Stochastic flame graph profiler for Go Programs
 dev-go/goa 0.0.1_pre20160218: Goa is a framework for building RESTful microservices in Go
 dev-go/gocode 2015.03.03: An autocompletion daemon for the Go programming language
@@ -116,7 +116,7 @@ net-misc/nsq 0.3.6: A real-time distributed messaging platform, written in GoLan
 net-misc/wsd 0.0.0_pre20150722: Simple cURL-like command line utility for debugging WebSocket servers
 net-nds/dex 0.2.3: Dex is a Federated Indentity Provider written in GoLang
 net-p2p/bmagent 9999-r1: Client for bmd, functions as IMAP/SMTP server
-net-p2p/bmd 0.1.0_pre20160320-r2 9999-r3: bmd is a collection of Bitmessage tools inspired by btcsuite
+net-p2p/bmd 0.1.0_pre20160320-r3 9999-r4: bmd is a collection of Bitmessage tools inspired by btcsuite
 net-p2p/btcd 0.12.0-r1 9999: An alternative full node bitcoin implementation written in Go
 net-p2p/btcgui 9999: btcgui is a graphical client for btcwallet and btcd
 net-p2p/btcsim 0.1_pre20150902 9999: btcsim implements a simulation test driver using the simnet network provided by btcd
