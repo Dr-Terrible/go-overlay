@@ -47,7 +47,7 @@ src_compile() {
 src_install() {
 	golang-single_src_install
 
-	# Removes binaries which are duplicate of dev-go/go-protobuf
+	# Removes binaries which are not installable
 	rm	"${ED}"/usr/bin/jsonpb \
 		"${ED}"/usr/bin/proto \
 		|| die
