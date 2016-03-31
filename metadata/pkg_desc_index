@@ -17,8 +17,8 @@ app-misc/btcwallet 0.7.0-r1 9999-r1: A secure bitcoin wallet daemon written in G
 app-misc/devtodo 2.2_pre20150904: DevTodo is a small command line application for maintaining lists of tasks.
 app-misc/thymer 0.1.0: Consolo Pomodoro Timer written in GoLang
 app-misc/weather 0.5.0_pre20151218 0.5.0 0.6.0_pre20151218: Weather via the command line.
-app-misc/wego 1.0: Wego is a weather client for the terminal
-app-shells/antibody 0.4.0: A faster and simpler antigen written in Golang
+app-misc/wego 2.0: Wego is a weather client for the terminal
+app-shells/antibody 0.4.0 0.4.4: A faster and simpler antigen written in Golang
 app-shells/peco 0.3.5: Simplistic interactive filtering tool
 app-text/go-md2man 1.0.5 1.0.5-r1: Command-line tool to convert Markdown into UNIX man pages
 dev-db/bolt 1.0 1.1.0: Bolt is a low level key/value NoSQL database written in GoLang
