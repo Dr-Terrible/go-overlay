@@ -1,3 +1,4 @@
+app-admin/doctl 1.0.0: A command line tool for DigitalOcean services
 app-admin/pony 0.1.0_pre20160104: Local File-Based Password, API Key, Secret, Recovery Code Store Backed vy GPG
 app-admin/restic 0.1.0: Restic is a program that does backups
 app-admin/terraform 0.6.11 0.6.12: Terraform builds, changes, and combines infrastructure safely and efficiently
