@@ -9,5 +9,5 @@ LICENSE=BSD
 RESTRICT=mirror strip
 SLOT=0
 SRC_URI=https://github.com/kisielk/errcheck/archive/1cd10f9f7824cdbedd5175a6cea0da9763bbeece.tar.gz -> errcheck-0.1_pre20160115.tar.gz https://github.com/kisielk/gotool/archive/58a7a19.tar.gz -> github.com-kisielk-gotool-58a7a19.tar.gz https://github.com/golang/tools/archive/4ad5335.tar.gz -> github.com-golang-tools-4ad5335.tar.gz
-_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-base	039226a14d707d84a6bf69b96eedc012	golang-single	60e909239bd26d758dcad25d20f95a39	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-base	039226a14d707d84a6bf69b96eedc012	golang-single	60e909239bd26d758dcad25d20f95a39	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	d513d423d449877e49d99af3f7af7acb	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
 _md5_=a4017a6f81b3e6cf8e502bd293049fe9

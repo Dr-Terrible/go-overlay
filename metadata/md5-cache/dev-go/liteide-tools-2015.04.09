@@ -9,5 +9,5 @@ LICENSE=MIT
 RESTRICT=mirror strip
 SLOT=0
 SRC_URI=https://github.com/visualfc/gotools/archive/b8348693492ca3791bccfa028f3c19634c11c5b5.tar.gz -> liteide-tools-2015.04.09.tar.gz https://github.com/golang/tools/archive/cc54cd6553.tar.gz -> github.com-golang-tools-cc54cd6553.tar.gz
-_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-base	039226a14d707d84a6bf69b96eedc012	golang-single	60e909239bd26d758dcad25d20f95a39	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-base	039226a14d707d84a6bf69b96eedc012	golang-single	60e909239bd26d758dcad25d20f95a39	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	d513d423d449877e49d99af3f7af7acb	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
 _md5_=cc105d636a0902d59db8dbe169d147b9
