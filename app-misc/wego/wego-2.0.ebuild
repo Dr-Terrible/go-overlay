@@ -6,10 +6,12 @@ EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/schachmat"
 GOLANG_PKG_HAVE_TEST=1
+GOLANG_PKG_USE_CGO=1
 
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/mattn/go-colorable:9fdad7c"
 	"github.com/mattn/go-runewidth:d037b52"
+	"github.com/schachmat/ingo:fab41e4"
 )
 
 inherit golang-single
