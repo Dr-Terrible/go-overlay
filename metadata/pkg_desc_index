@@ -1,4 +1,4 @@
-app-admin/doctl 1.0.0: A command line tool for DigitalOcean services
+app-admin/doctl 1.0.0-r1: A command line tool for DigitalOcean services
 app-admin/pony 0.1.0_pre20160104: Local File-Based Password, API Key, Secret, Recovery Code Store Backed vy GPG
 app-admin/restic 0.1.0: Restic is a program that does backups
 app-admin/terraform 0.6.11 0.6.12: Terraform builds, changes, and combines infrastructure safely and efficiently
@@ -57,6 +57,7 @@ dev-go/gostatus 20160119: A command-line tool that show the status of GoLang rep
 dev-go/gox 0.3.0 0.4.0_pre20151231: A dead simple, no frills Go cross compile tool
 dev-go/goxc 0.17.0 0.18.1: Goxc is a build tool for GoLange, with a focus on cross-compiling and packaging
 dev-go/grind 0.1.0_pre20150302: Grind rewrites the source files written in GoLang.
+dev-go/gvt 0.1.0_pre20160328: gvt is the go vendoring tool
 dev-go/kar 0.1_pre20151213: Kar is a simple utility that helps you run Kargar builds from CLI
 dev-go/liteide-tools 2015.04.09: Liteide Golang tools
 dev-go/mock 0.1.0_pre20160127: GoMock is a mocking framework for the Go programming language
