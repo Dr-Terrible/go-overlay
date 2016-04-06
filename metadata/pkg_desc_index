@@ -33,6 +33,7 @@ dev-db/tiedot 3.2-r2 3.3_pre20160117: Tiedot is a document-oriented NoSQL databa
 dev-go/Go-Package-Store 0.1.0_pre20151209 0.1.0_pre20160119: An app that displays updates for the Go packages in your GOPATH
 dev-go/anderson 0.1_pre20150328-r1: Checks your Go dependencies for contraband licenses
 dev-go/asmfmt 0.1_pre20160219: Go assembler formatter
+dev-go/depscheck 0.1.0_pre20160401: Prints stats and suggests to remove small LeftPad-like imports from Golang packages
 dev-go/discover 0.1_pre20160103: Discover is a utility to aid in conceptualizing large Go code bases
 dev-go/duktape 2.0.0_pre20151125: CLI for Duktape JavaScript engine written in GoLang
 dev-go/ffjson 0.1_pre20160210: Ffjson is a faster JSON serialization for Go
@@ -64,6 +65,7 @@ dev-go/mock 0.1.0_pre20160127: GoMock is a mocking framework for the Go programm
 dev-go/prdeps 0.1_pre20160229: prdeps prints the dependency graph of a Go package
 dev-go/re2dfa 0.1.0_pre20150627: Transform regular expressions into finite state machines and output GoLang source code
 dev-go/revel-cli 0.12.0-r1: Command-line tool for Revel framework
+dev-go/rts 0.1_pre20160405: Generates Go structs from JSON server responses
 dev-go/safesql 0_pre20150617: Static analysis tool for GoLang that protects against SQL injections
 dev-go/statik 20150419: statik embeds static files into a GoLang executable
 dev-go/structlayout 0.1_pre20160321 0.1_pre20160324: An utility that prints the layout of a Go struct
@@ -95,7 +97,7 @@ dev-util/gometalinter 0.1_pre20160301: Concurrently run Go lint tools and normal
 dev-util/goyacc 0.1.0_pre20150811: Goyacc is a version of yacc generating Go parsers.
 dev-util/hulk 0.1.0_pre20160121: Ultimate job/build runner
 dev-util/ineffassign 0.1_pre20151029: Detects ineffectual assignments in Go code.
-dev-util/interfacer 0.0.1_pre20160220: A linter for GoLang that suggests interface types
+dev-util/interfacer 0.0.1_pre20160220 0.0.1_pre20160331: A linter for GoLang that suggests interface types
 dev-util/lll 0.1_pre20160229: Line length linter, used to enforce line length in files.
 dev-util/maligned 0.1_pre20151009: Detects Go structs that would take less memory if their fields were sorted
 dev-util/mdfmt 0.1_pre20160209: Like gofmt, but for Markdown with front matter.
