@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:0=
+DESCRIPTION=Gosimple is a linter for Go source code that specialises on simplifying code
+EAPI=6
+HOMEPAGE=https://github.com/dominikh/simple
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=BSD
+RESTRICT=mirror strip
+SLOT=0
+SRC_URI=https://github.com/dominikh/go-simple/archive/fc501be92c4a32446cf2429d0ff2d29fcdbfe661.tar.gz -> simple-0.1_pre20160404.tar.gz https://github.com/dominikh/go-lint/archive/104a558.tar.gz -> github.com-dominikh-go-lint-104a558.tar.gz https://github.com/golang/tools/archive/fe1488f.tar.gz -> github.com-golang-tools-fe1488f.tar.gz
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	golang-base	039226a14d707d84a6bf69b96eedc012	golang-single	60e909239bd26d758dcad25d20f95a39	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	d513d423d449877e49d99af3f7af7acb	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=0bf70d214ba29389dbcd09ce62367b7b
