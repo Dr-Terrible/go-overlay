@@ -5,7 +5,7 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/alecthomas"
-GOLANG_PKG_VERSION="5ba5353545d7d13bcb10d7ca58c45e026a99a58d"
+GOLANG_PKG_VERSION="6e2c3c171bc7f7417b1027a6084e6bbdc62c7b98"
 GOLANG_PKG_HAVE_TEST=1
 
 # Declares dependencies
@@ -24,7 +24,6 @@ GOLANG_PKG_DEPENDENCIES=(
 inherit golang-single
 
 DESCRIPTION="Concurrently run Go lint tools and normalise their output"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="BSD"
 SLOT="0"
@@ -41,4 +40,5 @@ RDEPEND="dev-util/go-tools
 	dev-util/interfacer
 	dev-util/unconvert
 	dev-util/lll
-	dev-util/goconst"
+	dev-util/goconst
+	dev-util/staticcheck"

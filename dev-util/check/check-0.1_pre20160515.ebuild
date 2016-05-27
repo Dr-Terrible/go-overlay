@@ -5,12 +5,12 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/opennota"
-GOLANG_PKG_VERSION="2647c7f78677e5af42e988a36343bc83194b7109"
+GOLANG_PKG_VERSION="5b00aacd5639507d2b039245a278ec9f5505509f"
 GOLANG_PKG_BUILDPATH="/cmd/aligncheck /cmd/structcheck /cmd/varcheck"
 
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/kisielk/gotool:58a7a19"
-	"github.com/golang/tools:ae18226 -> golang.org/x"
+	"github.com/golang/tools:6d483ee -> golang.org/x"
 )
 
 inherit golang-single

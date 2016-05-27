@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-lang/go:0=
+DESCRIPTION=A Golang tool for statically checking the inputs to certain functions
+EAPI=6
+HOMEPAGE=https://honnef.co/go/staticcheck
+IUSE=test
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=BSD
+RESTRICT=mirror strip
+SLOT=0
+SRC_URI=https://github.com/dominikh/go-staticcheck/archive/a9330d18e74f715869622ca8c58d4e231191b13c.tar.gz -> staticcheck-0.1.0_pre20160524.tar.gz https://github.com/golang/tools/archive/9ae4729.tar.gz -> github.com-golang-tools-9ae4729.tar.gz https://github.com/dominikh/go-lint/archive/59aea2a.tar.gz -> github.com-dominikh-go-lint-59aea2a.tar.gz https://github.com/kisielk/gotool/archive/58a7a19.tar.gz -> github.com-kisielk-gotool-58a7a19.tar.gz
+_eclasses_=eutils	792f83d5ec9536cb5ccef375469d8bde	golang-base	039226a14d707d84a6bf69b96eedc012	golang-single	8dcfdfc9baed80f7598dec1e3c1034a0	multilib	d062ae4ba2fc40a19c11de2ad89b6616	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	d513d423d449877e49d99af3f7af7acb	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=5806ae60e73a6a6484880276f95e018d
