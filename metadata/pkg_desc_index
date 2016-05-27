@@ -37,7 +37,7 @@ dev-go/depscheck 0.1.0_pre20160401: Prints stats and suggests to remove small Le
 dev-go/discover 0.1_pre20160103: Discover is a utility to aid in conceptualizing large Go code bases
 dev-go/duktape 2.0.0_pre20151125: CLI for Duktape JavaScript engine written in GoLang
 dev-go/ffjson 0.1_pre20160210: Ffjson is a faster JSON serialization for Go
-dev-go/gb 0.2.0 0.3.5 0.4.0: Gb is a project based build tool for the Go programming language
+dev-go/gb 0.2.0 0.3.5 0.4.1: Gb is a project based build tool for the Go programming language
 dev-go/gcli 0.2.3 0.2.3-r1: Gcli builds GoLang command-line applications
 dev-go/gen 4.3 4.4_pre20160108: Type-driven code generation for GoLang
 dev-go/ginkgo 1.2.0: BDD Testing Framework for GoLang
@@ -113,6 +113,7 @@ dev-util/wellington 0.9.3 1.0.2: Wellington is a CSS preprocessor with spriting 
 dev-vcs/hub 2.2.2-r1 2.2.3: Hub wraps git in order to extend it with extra features and commands
 net-ftp/pixiecore 0.1.0_pre20151221: PXE booting for people in a hurry
 net-misc/bat 0.1.0: Go implemented CLI cURL-like tool for humans
+net-misc/dbxcli 1.1.0: A command line client for Dropbox built using the Go SDK
 net-misc/drive 0.3.4: Google Drive client for the commandline
 net-misc/gnatsd 0.7.2: A high Performance NATS Server written in GoLang
 net-misc/goduckgo 0.1.0_pre20150206: Command-line tool for DuckDuckGo API
