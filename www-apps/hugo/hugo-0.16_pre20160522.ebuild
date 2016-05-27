@@ -5,12 +5,12 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/spf13"
-GOLANG_PKG_VERSION="d45b55bdd405ae019c065bc6fa0888c25f7952c9"
+GOLANG_PKG_VERSION="efae41c18659f29029f09f86876b4f9c28e7a181"
 GOLANG_PKG_HAVE_TEST=1
 
 # Declares dependencies
 GOLANG_PKG_DEPENDENCIES=(
-	"bitbucket.org/pkg/inflect:8961c3750a47"
+	"github.com/bep/inflect:b896c45"
 	"github.com/BurntSushi/toml:056c9bc7be"
 	"github.com/PuerkitoBio/purell:d69616f51c"
 	"github.com/dchest/cssmin:a22e1d8dac"
@@ -22,20 +22,20 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/russross/blackfriday:b43df97"
 	"github.com/opennota/urlesc:5fa9ff0392"
 	"github.com/shurcooL/sanitized_anchor_name:10ef21a"
-	"github.com/spf13/afero:2f194a2"
+	"github.com/spf13/afero:f0b36a9"
 	"github.com/spf13/cast:27b586b"
-	"github.com/spf13/cobra:1bacefc"
+	"github.com/spf13/cobra:f368244"
 	"github.com/spf13/fsync:eefee59"
 	"github.com/spf13/nitro:24d7ef3"
-	"github.com/spf13/viper:c975dc1"
-	"github.com/spf13/pflag:7f60f83"
+	"github.com/spf13/viper:d8a428b"
+	"github.com/spf13/pflag:cb88ea7"
 	"github.com/spf13/jWalterWeatherman:33c24e7"
 	"github.com/cpuguy83/go-md2man:71acacd" #v1.0.4
 	"github.com/yosssi/ace:71afeb7"
-	"github.com/go-fsnotify/fsnotify:875cf42 -> gopkg.in/fsnotify.v1" #v1.2.10
+	"github.com/fsnotify/fsnotify:30411db" #v1.3.0
 	"github.com/go-yaml/yaml:a83829b -> gopkg.in/yaml.v2"
 	"github.com/inconshreveable/mousetrap:76626ae9c9"
-	"github.com/kr/pretty:e6ac2fc51e"
+	"github.com/kr/pretty:add1dbc"
 	"github.com/kr/text:bb797dc"
 	"github.com/kr/fs:2788f0d"
 	"github.com/pkg/sftp:e84cc8c"
@@ -43,6 +43,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/stretchr/testify:d797d25"
 	"github.com/golang/text:1b466db -> golang.org/x"
 	"github.com/golang/crypto:c197bcf -> golang.org/x"
+	"github.com/golang/sys:d4feaf1 -> golang.org/x"
 	"github.com/hashicorp/hcl:32f2911"
 	"github.com/kyokomi/emoji:1ee4529"
 

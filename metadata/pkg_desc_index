@@ -67,7 +67,7 @@ dev-go/re2dfa 0.1.0_pre20150627: Transform regular expressions into finite state
 dev-go/revel-cli 0.12.0-r1: Command-line tool for Revel framework
 dev-go/rts 0.1_pre20160405: Generates Go structs from JSON server responses
 dev-go/safesql 0_pre20150617: Static analysis tool for GoLang that protects against SQL injections
-dev-go/simple 0.1_pre20160404: Gosimple is a linter for Go source code that specialises on simplifying code
+dev-go/simple 0.1_pre20160507: Gosimple is a linter for Go source code that specialises on simplifying code
 dev-go/statik 20150419: statik embeds static files into a GoLang executable
 dev-go/structlayout 0.1_pre20160321 0.1_pre20160324: An utility that prints the layout of a Go struct
 dev-go/tomlv 0.2.0: A TOML validator written in GoLang
@@ -78,7 +78,7 @@ dev-go/xj2s 20151106: A small tool for Golang to generate Golang strunc from xml
 dev-go/xo 0.1_pre20160229: A cli tool to generate Golang types and funcs based on a database schema
 dev-libs/protobuf 3.0.0_beta2: Google's Protocol Buffers -- an efficient method of encoding structured data
 dev-libs/protobuf-c 1.2.1: code generator and runtime libraries to use Protocol Buffers (protobuf) from pure C
-dev-util/check 0.1_pre20160108: A set of utilities for checking Go sources
+dev-util/check 0.1_pre20160515: A set of utilities for checking Go sources
 dev-util/deadcode 2012.02.28: Deadcode finds unused Go source code
 dev-util/direnv 2.7.0-r1: Direnv is an environment switcher for the shell.
 dev-util/dupl 0.1_pre20160125: A tool for Go code clone detection
@@ -94,7 +94,7 @@ dev-util/gocyclo 2015.06.27: Calculate cyclomatic complexities of functions in G
 dev-util/godef 0.1_pre20160114: Godef prints where symbols are defined in Go source code
 dev-util/golex 0.1.0_pre20150807: A lex/flex like (not fully POSIX lex compatible) utility
 dev-util/golint 2015.10.19: This is a linter for Go source code.
-dev-util/gometalinter 0.1_pre20160301: Concurrently run Go lint tools and normalise their output
+dev-util/gometalinter 0.1_pre20160518: Concurrently run Go lint tools and normalise their output
 dev-util/goyacc 0.1.0_pre20150811: Goyacc is a version of yacc generating Go parsers.
 dev-util/hulk 0.1.0_pre20160121: Ultimate job/build runner
 dev-util/ineffassign 0.1_pre20151029: Detects ineffectual assignments in Go code.
@@ -106,7 +106,8 @@ dev-util/minify 1.0.0 1.1.0-r1 1.2.0_pre20160128 1.2.0_pre20160219: Go minifiers
 dev-util/orange-cat 0.2.2-r1: A Markdown previewer written in GoLang
 dev-util/pcstat 0.1_pre20160126: Page Cache stat: get page cache stats for files on Linux
 dev-util/pipecat 0.2: Pipecat allows you to scale any program using traditional UNIX pipes and AMQP
-dev-util/unconvert 0.1_pre20160221: Remove unnecessary type conversions from Go source
+dev-util/staticcheck 0.1.0_pre20160524: A Golang tool for statically checking the inputs to certain functions
+dev-util/unconvert 0.1_pre20160415: Remove unnecessary type conversions from Go source
 dev-util/wellington 0.9.3 1.0.2: Wellington is a CSS preprocessor with spriting and based on libsass
 dev-vcs/hub 2.2.2-r1 2.2.3: Hub wraps git in order to extend it with extra features and commands
 net-ftp/pixiecore 0.1.0_pre20151221: PXE booting for people in a hurry
@@ -137,5 +138,5 @@ sys-devel/gcvis 0.1.0_pre20150714 0.1.0_pre20151111: Visualise Go program Garbag
 www-apps/gitea 0.7.0_pre20150630: Gitea is a self-hosted Git service written in Go
 www-apps/gogs 0.8.43 0.8.43-r1 0.9.0 0.9.13: Gogs is a self-hosted Git service written in Go
 www-apps/gotty 0.0.12: A simple command-line tool that turns your CLI tools into web applications
-www-apps/hugo 0.14-r4 0.15-r3 0.16_pre20160321: A fast and flexible static site generator built in GoLang
+www-apps/hugo 0.14-r4 0.15-r3 0.16_pre20160522: A fast and flexible static site generator built in GoLang
 x11-misc/noti 2.0.0: Display a notification when a terminal process finishes.
