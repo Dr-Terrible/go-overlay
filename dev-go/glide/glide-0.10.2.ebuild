@@ -10,23 +10,22 @@ GOLANG_PKG_HAVE_TEST=1
 
 # Declares dependencies
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/go-yaml/yaml:f7716cb -> gopkg.in/yaml.v2"
-	"github.com/Masterminds/semver:513f3dc" # v1.0.1
-	"github.com/Masterminds/vcs:9c0db65" # v1.4.0
-	"github.com/codegangsta/cli:5db7419"
+	# Unit Testing
+	"github.com/go-check/check:4f90aea -> gopkg.in/check.v1"
 )
 
 inherit golang-single
 
 DESCRIPTION="Glide is a vendor Package Management for Golang"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="amd64 x86 arm"
 
+DEPEND="test? ( dev-vcs/bzr )"
+
 src_test() {
-	if has sandbox $FEATURES && has usersandbox $FEATURES; then
+	if has usersandbox $FEATURES; then
 		eerror "Tests require 'network-sandbox' to be disabled in FEATURES."
 	fi
 
