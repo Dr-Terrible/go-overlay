@@ -56,6 +56,7 @@ dev-go/gopherjs 0_pre20150820 0_pre20160130: GopherJS compils GoLang code to pur
 dev-go/gopm 0.7.2 0.8_pre20160214: Gopm is a package manager and build tool for Go
 dev-go/gore 0.2.5: A REPL for Golang
 dev-go/gostatus 20160119: A command-line tool that show the status of GoLang repositories
+dev-go/gotests 1.3.0: It's a Golang commandline tool that generates table driven tests
 dev-go/gox 0.3.0 0.4.0_pre20151231: A dead simple, no frills Go cross compile tool
 dev-go/goxc 0.17.0 0.18.1: Goxc is a build tool for GoLange, with a focus on cross-compiling and packaging
 dev-go/grind 0.1.0_pre20150302: Grind rewrites the source files written in GoLang.
