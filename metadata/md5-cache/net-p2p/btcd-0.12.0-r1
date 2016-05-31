@@ -3,11 +3,11 @@ DEPEND=virtual/pkgconfig dev-lang/go:0=
 DESCRIPTION=An alternative full node bitcoin implementation written in Go
 EAPI=6
 HOMEPAGE=https://btcsuite.github.io
-IUSE=test
+IUSE=debug test
 KEYWORDS=amd64 x86 arm
 LICENSE=ISC
 RESTRICT=mirror strip
 SLOT=0
 SRC_URI=https://github.com/btcsuite/btcd/archive/BTCD_0_12_0_BETA.tar.gz -> btcd-0.12.0.tar.gz https://github.com/btcsuite/btclog/archive/5005b72.tar.gz -> github.com-btcsuite-btclog-5005b72.tar.gz https://github.com/btcsuite/btcutil/archive/ff82dac.tar.gz -> github.com-btcsuite-btcutil-ff82dac.tar.gz https://github.com/btcsuite/fastsha256/archive/302ad4d.tar.gz -> github.com-btcsuite-fastsha256-302ad4d.tar.gz https://github.com/btcsuite/go-flags/archive/6c288d6.tar.gz -> github.com-btcsuite-go-flags-6c288d6.tar.gz https://github.com/btcsuite/go-socks/archive/cfe8b59.tar.gz -> github.com-btcsuite-go-socks-cfe8b59.tar.gz https://github.com/btcsuite/golangcrypto/archive/53f62d9.tar.gz -> github.com-btcsuite-golangcrypto-53f62d9.tar.gz https://github.com/btcsuite/goleveldb/archive/1fde62c.tar.gz -> github.com-btcsuite-goleveldb-1fde62c.tar.gz https://github.com/btcsuite/seelog/archive/313961b.tar.gz -> github.com-btcsuite-seelog-313961b.tar.gz https://github.com/btcsuite/snappy-go/archive/0bdef8d.tar.gz -> github.com-btcsuite-snappy-go-0bdef8d.tar.gz https://github.com/btcsuite/websocket/archive/31079b6.tar.gz -> github.com-btcsuite-websocket-31079b6.tar.gz https://github.com/davecgh/go-spew/archive/5215b55.tar.gz -> github.com-davecgh-go-spew-5215b55.tar.gz
-_eclasses_=eutils	792f83d5ec9536cb5ccef375469d8bde	golang-base	039226a14d707d84a6bf69b96eedc012	golang-single	8dcfdfc9baed80f7598dec1e3c1034a0	multilib	d062ae4ba2fc40a19c11de2ad89b6616	multiprocessing	e32940a7b2a9992ad217eccddb84d548	systemd	3165c885f3c71ffae7a867d931fb0e07	toolchain-funcs	d513d423d449877e49d99af3f7af7acb	user	906f3c8eb3a2350a4f1191a89baa3e46	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_eclasses_=eutils	792f83d5ec9536cb5ccef375469d8bde	golang-base	bb6b2fce3734a49843612960d87c4c9f	golang-single	8dcfdfc9baed80f7598dec1e3c1034a0	multilib	d062ae4ba2fc40a19c11de2ad89b6616	multiprocessing	e32940a7b2a9992ad217eccddb84d548	systemd	3165c885f3c71ffae7a867d931fb0e07	toolchain-funcs	d513d423d449877e49d99af3f7af7acb	user	906f3c8eb3a2350a4f1191a89baa3e46	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
 _md5_=6461717cface1d1885a3f56e9dbaebf5

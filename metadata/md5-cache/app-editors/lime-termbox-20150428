@@ -3,11 +3,11 @@ DEPEND=>=dev-vcs/git-1.8.2.1 dev-lang/go:0= >=sys-devel/gcc-4.8.4[go]
 DESCRIPTION=Termbox frontend for Lime text editor.
 EAPI=6
 HOMEPAGE=https://github.com/limetext/lime-termbox
-IUSE=test
+IUSE=debug test
 KEYWORDS=~amd64 ~x86 ~arm
 LICENSE=BSD
 RESTRICT=mirror strip
 SLOT=0
 SRC_URI=https://github.com/limetext/lime-termbox/archive/30af493eccd4f13442a5f22bdf87b0bf1787430b.tar.gz -> lime-termbox-20150428.tar.gz https://github.com/limetext/lime-backend/archive/57d076bbb9.tar.gz -> github.com-limetext-lime-backend-57d076bbb9.tar.gz https://github.com/limetext/termbox-go/archive/4eff9880a7.tar.gz -> github.com-limetext-termbox-go-4eff9880a7.tar.gz https://github.com/atotto/clipboard/archive/dfde2702d6.tar.gz -> github.com-atotto-clipboard-dfde2702d6.tar.gz https://github.com/limetext/log4go/archive/2aba105a60.tar.gz -> github.com-limetext-log4go-2aba105a60.tar.gz https://github.com/limetext/rubex/archive/3fc130e580.tar.gz -> github.com-limetext-rubex-3fc130e580.tar.gz https://github.com/limetext/text/archive/d6b8f8c60f.tar.gz -> github.com-limetext-text-d6b8f8c60f.tar.gz https://github.com/limetext/gopy/archive/92b1bf5ab8.tar.gz -> github.com-limetext-gopy-92b1bf5ab8.tar.gz https://github.com/quarnster/parser/archive/ea90feb37b.tar.gz -> github.com-quarnster-parser-ea90feb37b.tar.gz https://github.com/go-fsnotify/fsnotify/archive/96c060f6a6.tar.gz -> github.com-go-fsnotify-fsnotify-96c060f6a6.tar.gz https://github.com/mattn/go-runewidth/archive/5890272cd4.tar.gz -> github.com-mattn-go-runewidth-5890272cd4.tar.gz
-_eclasses_=eutils	792f83d5ec9536cb5ccef375469d8bde	git-r3	ef66dfc3db09f327af21cf32f140fb2b	golang-base	039226a14d707d84a6bf69b96eedc012	golang-single	8dcfdfc9baed80f7598dec1e3c1034a0	multilib	d062ae4ba2fc40a19c11de2ad89b6616	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	d513d423d449877e49d99af3f7af7acb	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_eclasses_=eutils	792f83d5ec9536cb5ccef375469d8bde	git-r3	1731cf71913d74a7834d1f8d6b8ad3e3	golang-base	bb6b2fce3734a49843612960d87c4c9f	golang-single	8dcfdfc9baed80f7598dec1e3c1034a0	multilib	d062ae4ba2fc40a19c11de2ad89b6616	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	d513d423d449877e49d99af3f7af7acb	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
 _md5_=6ec86f37e800764288e68ad93420a33c

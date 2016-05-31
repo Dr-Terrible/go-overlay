@@ -3,10 +3,11 @@ DEPEND=>=dev-lang/go-1.5.1 dev-lang/go:0=
 DESCRIPTION=A set of utilities for checking Go sources
 EAPI=6
 HOMEPAGE=https://github.com/opennota/check
+IUSE=debug
 KEYWORDS=~amd64 ~x86 ~arm
 LICENSE=GPL-3
 RESTRICT=mirror strip
 SLOT=0
 SRC_URI=https://github.com/opennota/check/archive/5b00aacd5639507d2b039245a278ec9f5505509f.tar.gz -> check-0.1_pre20160515.tar.gz https://github.com/kisielk/gotool/archive/58a7a19.tar.gz -> github.com-kisielk-gotool-58a7a19.tar.gz https://github.com/golang/tools/archive/6d483ee.tar.gz -> github.com-golang-tools-6d483ee.tar.gz
-_eclasses_=eutils	792f83d5ec9536cb5ccef375469d8bde	golang-base	039226a14d707d84a6bf69b96eedc012	golang-single	8dcfdfc9baed80f7598dec1e3c1034a0	multilib	d062ae4ba2fc40a19c11de2ad89b6616	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	d513d423d449877e49d99af3f7af7acb	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_eclasses_=eutils	792f83d5ec9536cb5ccef375469d8bde	golang-base	bb6b2fce3734a49843612960d87c4c9f	golang-single	8dcfdfc9baed80f7598dec1e3c1034a0	multilib	d062ae4ba2fc40a19c11de2ad89b6616	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	d513d423d449877e49d99af3f7af7acb	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
 _md5_=a375c5d0f0a1c86a601ec68af982b9f2

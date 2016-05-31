@@ -242,6 +242,7 @@ if [[ ${GOLANG_PKG_ARCHIVESUFFIX/.*} == "xz" ]]; then
 fi
 
 # Enables USE 'test' when required by GOLANG_PKG_HAVE_TEST.
+IUSE="${IUSE} debug"
 if [[ -n ${GOLANG_PKG_HAVE_TEST} ]]; then
 	IUSE+=" test"
 fi
@@ -369,6 +370,10 @@ golang_setup() {
 		einfo "Found statik version: ${STATIK_VERSION}"
 	fi
 
+	# Enable/Disable frame pointers
+    local GOEXPERIMENT="noframepointer"
+    use debug && GOEXPERIMENT="framepointer"
+
 	# Sets the build environment inside Portage's WORKDIR.
 	ebegin "Setting up GoLang build environment"
 
@@ -389,6 +394,7 @@ golang_setup() {
 		export GOPATH="$_GOPATH"
 		export GOBIN="$_GOBIN"
 		export CGO_ENABLED
+		export GOEXPERIMENT
 
 		debug-print "${FUNCNAME}: GOPATH = ${GOPATH}"
 		debug-print "${FUNCNAME}: GOBIN = ${GOBIN}"
@@ -774,10 +780,10 @@ golang-base_src_install() {
 
 	# Executes the pre-install phase (go install).
 	if [[ -n ${GOLANG_PKG_IS_MULTIPLE} ]]; then
-		einfo "${EGO} install -ldflags '$GOLANG_PKG_LDFLAGS' -tags '$GOLANG_PKG_TAGS' ${EGO_BUILD_FLAGS}"
+		einfo "${EGO} install -ldflags '$GOLANG_PKG_LDFLAGS' -tags '$GOLANG_PKG_TAGS' ${EGO_BUILD_FLAGS} ${EGO_SUBPACKAGES}"
 		${EGO} install \
-			-ldflags "-s -w $( echo ${GOLANG_PKG_LDFLAGS} )" \
-			-tags "$( echo ${GOLANG_PKG_TAGS} )" \
+			-ldflags "${GOLANG_PKG_LDFLAGS}" \
+			-tags "${GOLANG_PKG_TAGS}" \
 			${EGO_BUILD_FLAGS} \
 			"${EGO_SUBPACKAGES}" \
 			|| die
@@ -854,18 +860,25 @@ golang_do_build() {
 
 	[[ ${GOLANG_VERSION} ]] || die "No GoLang implementation set (golang_setup not called?)."
 
-	# Filters "=" chars from ldflags declaration
-	# NOTE: from go1.5+ linker syntax is no more compatible with <go1.4; this hack
-	#       ensures that the old behaviour is honoured.
+	# Filters "=" chars from ldflags declaration.
+	# NOTE: from go1.5+ linker syntax is no more compatible with <go1.4;
+	#       this hack ensures that the old behaviour is honoured.
 	if [[ $( get_version_component_range 1-2 ${GOLANG_VERSION} ) == "1.4" ]]; then
 		GOLANG_PKG_LDFLAGS="${GOLANG_PKG_LDFLAGS//=/ }"
 	fi
 
+	# Disables debug symbols (DWARF) when not required.
+	! use debug && GOLANG_PKG_LDFLAGS="-s -w ${GOLANG_PKG_LDFLAGS}"
+
+	# Sanitizes vars from entra white spaces.
+	GOLANG_PKG_LDFLAGS="$( echo ${GOLANG_PKG_LDFLAGS} )"
+	GOLANG_PKG_TAGS="$( echo ${GOLANG_PKG_TAGS} )"
+
 	einfo "${EGO} build -ldflags '$GOLANG_PKG_LDFLAGS' -tags '$GOLANG_PKG_TAGS' $*"
 	${EGO} build \
-		-ldflags "-s -w $( echo ${GOLANG_PKG_LDFLAGS} )" \
-		-tags "$( echo ${GOLANG_PKG_TAGS} )" \
-		$* \
+		-ldflags "${GOLANG_PKG_LDFLAGS}" \
+		-tags "${GOLANG_PKG_TAGS}" \
+		$( echo $* ) \
 		|| die
 }
 

@@ -3,11 +3,11 @@ DEPEND=dev-lang/go:0=
 DESCRIPTION=A visual interface to work with runtime profiling data for Go
 EAPI=6
 HOMEPAGE=https://github.com/rakyll/gom
-IUSE=test
+IUSE=debug test
 KEYWORDS=~amd64 ~x86 ~arm
 LICENSE=Apache-2.0
 RESTRICT=mirror strip
 SLOT=0
 SRC_URI=https://github.com/rakyll/gom/archive/dbdd968e88d8c259a2e2dd03422e5ec58c79f48d.tar.gz -> gom-20160119.tar.gz https://github.com/gizak/termui/archive/551f2e7.tar.gz -> github.com-gizak-termui-551f2e7.tar.gz https://github.com/mattn/go-runewidth/archive/d96d1bd.tar.gz -> github.com-mattn-go-runewidth-d96d1bd.tar.gz https://github.com/nsf/termbox-go/archive/9554a56.tar.gz -> github.com-nsf-termbox-go-9554a56.tar.gz https://github.com/rakyll/statik/archive/274df120e9.tar.gz -> github.com-rakyll-statik-274df120e9.tar.gz
-_eclasses_=eutils	792f83d5ec9536cb5ccef375469d8bde	golang-base	039226a14d707d84a6bf69b96eedc012	golang-single	8dcfdfc9baed80f7598dec1e3c1034a0	multilib	d062ae4ba2fc40a19c11de2ad89b6616	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	d513d423d449877e49d99af3f7af7acb	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_eclasses_=eutils	792f83d5ec9536cb5ccef375469d8bde	golang-base	bb6b2fce3734a49843612960d87c4c9f	golang-single	8dcfdfc9baed80f7598dec1e3c1034a0	multilib	d062ae4ba2fc40a19c11de2ad89b6616	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	d513d423d449877e49d99af3f7af7acb	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
 _md5_=fbe32b6713d785714fa135bb33e81a50

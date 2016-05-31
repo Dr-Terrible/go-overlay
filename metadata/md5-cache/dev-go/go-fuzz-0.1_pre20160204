@@ -3,10 +3,11 @@ DEPEND=>=dev-lang/go-1.5.1 dev-lang/go:0=
 DESCRIPTION=Go-fuzz is a coverage-guided fuzzing solution for testing of Go packages
 EAPI=6
 HOMEPAGE=https://github.com/dvyukov/go-fuzz
+IUSE=debug
 KEYWORDS=~amd64 ~x86 ~arm
 LICENSE=Apache-2.0
 RESTRICT=mirror strip test
 SLOT=0
 SRC_URI=https://github.com/dvyukov/go-fuzz/archive/7076fcda38ec4a894e08ae5558cfa84288f60a25.tar.gz -> go-fuzz-0.1_pre20160204.tar.gz https://github.com/elazarl/go-bindata-assetfs/archive/57eb5e1.tar.gz -> github.com-elazarl-go-bindata-assetfs-57eb5e1.tar.gz https://github.com/golang/tools/archive/a17fa84.tar.gz -> github.com-golang-tools-a17fa84.tar.gz
-_eclasses_=eutils	792f83d5ec9536cb5ccef375469d8bde	golang-base	039226a14d707d84a6bf69b96eedc012	golang-single	8dcfdfc9baed80f7598dec1e3c1034a0	multilib	d062ae4ba2fc40a19c11de2ad89b6616	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	d513d423d449877e49d99af3f7af7acb	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_eclasses_=eutils	792f83d5ec9536cb5ccef375469d8bde	golang-base	bb6b2fce3734a49843612960d87c4c9f	golang-single	8dcfdfc9baed80f7598dec1e3c1034a0	multilib	d062ae4ba2fc40a19c11de2ad89b6616	multiprocessing	e32940a7b2a9992ad217eccddb84d548	toolchain-funcs	d513d423d449877e49d99af3f7af7acb	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
 _md5_=090e348993a41125afc3b5d0b5384724
