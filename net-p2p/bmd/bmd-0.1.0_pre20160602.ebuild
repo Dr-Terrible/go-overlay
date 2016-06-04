@@ -5,13 +5,13 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/DanielKrawisz"
-GOLANG_PKG_VERSION="fcc13c707a59d15e817569a308f7243eaef2228a"
+GOLANG_PKG_VERSION="7d114c25c4daf5660d51bf17f62b2ff16fbf5168"
 GOLANG_PKG_IS_MULTIPLE=1
 GOLANG_PKG_HAVE_TEST=1
 GOLANG_PKG_USE_GENERATE=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/DanielKrawisz/bmutil:669c809"
+	"github.com/DanielKrawisz/bmutil:7e76903"
 	"github.com/DanielKrawisz/maxrate:fae0eea"
 	"github.com/boltdb/bolt:ee716d1" #v1.1.0
 	"github.com/btcsuite/btcd:cea5d3c" #v0.12.0
