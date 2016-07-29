@@ -10,6 +10,10 @@ GOLANG_PKG_IS_MULTIPLE=1
 GOLANG_PKG_HAVE_TEST=1
 GOLANG_PKG_USE_CGO=1
 
+GOLANG_PKG_DEPENDENCIES=(
+	"github.com/pkg/errors:01fa410" #v0.7.0
+)
+
 inherit golang-single
 
 DESCRIPTION="Gb is a project based build tool for the Go programming language"
