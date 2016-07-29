@@ -5,13 +5,14 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="honnef.co/go"
-GOLANG_PKG_VERSION="89d55e2b9c70c83cf35d5752acd09034b373757d"
+GOLANG_PKG_VERSION="56d5bf64050e1bf7f8f7b628b62c96821a692937"
 GOLANG_PKG_BUILDPATH="/cmd/go${PN}"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/dominikh/go-lint:104a558 -> honnef.co/go"
-	"github.com/golang/tools:fe1488f -> golang.org/x"
+	"github.com/kisielk/gotool:94d5dba"
+	"github.com/dominikh/go-lint:a730e73 -> honnef.co/go"
+	"github.com/golang/tools:9e74590 -> golang.org/x"
 )
 
 # (Ugly hack) Must be declared before the inherit since we're
@@ -24,7 +25,7 @@ DESCRIPTION="Gosimple is a linter for Go source code that specialises on simplif
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm"
+KEYWORDS="amd64 x86 arm"
 
 src_unpack() {
 	# Ugly hack to circumvent 'github.com/dominikh/go-simple' as

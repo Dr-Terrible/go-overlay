@@ -5,14 +5,14 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="honnef.co/go"
-GOLANG_PKG_VERSION="a9330d18e74f715869622ca8c58d4e231191b13c"
+GOLANG_PKG_VERSION="4e4406f161a1bf5c12e243190843989e462fa07b"
 GOLANG_PKG_BUILDPATH="/cmd/${PN}"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/golang/tools:9ae4729 -> golang.org/x"
-	"github.com/dominikh/go-lint:59aea2a -> honnef.co/go"
-	"github.com/kisielk/gotool:58a7a19"
+	"github.com/kisielk/gotool:94d5dba"
+	"github.com/golang/tools:9e74590 -> golang.org/x"
+	"github.com/dominikh/go-lint:a730e73 -> honnef.co/go"
 )
 
 # (Ugly hack) Must be declared before the inherit since we're
@@ -25,7 +25,7 @@ DESCRIPTION="A Golang tool for statically checking the inputs to certain functio
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm"
+KEYWORDS="amd64 x86 arm"
 
 src_unpack() {
 	# Ugly hack to circumvent 'github.com/dominikh/go-staticcheck' as

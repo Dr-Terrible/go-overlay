@@ -5,13 +5,13 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="honnef.co/go"
-GOLANG_PKG_VERSION="16cf7f968ef7ba0cabb3f004ad0679d25077d1a1"
+GOLANG_PKG_VERSION="9057d575b3bb51f1e1251088a8b8196f4226f936"
 GOLANG_PKG_IS_MULTIPLE=1
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/golang/tools:0ed9f24 -> golang.org/x"
-	"github.com/kisielk/gotool:58a7a19"
+	"github.com/kisielk/gotool:94d5dba"
+	"github.com/golang/tools:9e74590 -> golang.org/x"
 )
 
 # (Ugly hack) Must be declared before the inherit since we're
@@ -24,7 +24,7 @@ DESCRIPTION="Check Go programs for unused identifiers"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm"
+KEYWORDS="amd64 x86 arm"
 
 src_unpack() {
 	# Ugly hack to circumvent 'github.com/dominikh/go-unused' as

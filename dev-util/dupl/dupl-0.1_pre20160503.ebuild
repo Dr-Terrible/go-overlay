@@ -5,13 +5,12 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/mibk"
-GOLANG_PKG_VERSION="c450df04426c2f8c35d91fb588feb88fbe328915"
+GOLANG_PKG_VERSION="415e882ea21ca7012cc49906cb338f34d2d4b4d6"
 
 inherit golang-single
 
 DESCRIPTION="A tool for Go code clone detection"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm"
+KEYWORDS="amd64 x86 arm"

@@ -4,14 +4,14 @@
 
 EAPI=6
 
-GOLANG_PKG_IMPORTPATH="github.com/fzipp"
-GOLANG_PKG_VERSION="6acd4345c835499920e8426c7e4e8d7a34f1bb83"
+GOLANG_PKG_IMPORTPATH="github.com/HewlettPackard"
+GOLANG_PKG_VERSION="28f0f1abe8192dc4a8550a28fdfc1ae7fdb0c6f4"
 GOLANG_PKG_HAVE_TEST=1
 
 inherit golang-single
 
-DESCRIPTION="Calculate cyclomatic complexities of functions in Go source code"
+DESCRIPTION="Inspects golang source code for security problems."
 
-LICENSE="BSD"
+LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 x86 arm"

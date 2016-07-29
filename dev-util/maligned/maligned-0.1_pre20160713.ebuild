@@ -5,17 +5,17 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/mdempsky"
-GOLANG_PKG_VERSION="9600d43b243a85a72db55e1b747b46f73580af64"
+GOLANG_PKG_VERSION="9b708e0f302568320acd662a90da7e6f80a07e01"
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/golang/tools:2477c0d -> golang.org/x"
+	"github.com/golang/tools:9e74590 -> golang.org/x"
+	"github.com/kisielk/gotool:94d5dba"
 )
 
 inherit golang-single
 
 DESCRIPTION="Detects Go structs that would take less memory if their fields were sorted"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm"
+KEYWORDS="amd64 x86 arm"

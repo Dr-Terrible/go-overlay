@@ -5,23 +5,22 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/kisielk"
-GOLANG_PKG_VERSION="1cd10f9f7824cdbedd5175a6cea0da9763bbeece"
+GOLANG_PKG_VERSION="50ffcb6f3595daac70aff9e63afe8b8b277b1a1a"
 GOLANG_PKG_HAVE_TEST=1
 
 # Declares dependencies
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/kisielk/gotool:58a7a19"
-	"github.com/golang/tools:4ad5335 -> golang.org/x" #without "go/types" API changes
+	"github.com/kisielk/gotool:94d5dba"
+	"github.com/golang/tools:9e74590 -> golang.org/x"
+	#"github.com/golang/tools:4ad5335 -> golang.org/x" #without "go/types" API changes
 )
 
 inherit golang-single
 
 DESCRIPTION="Errcheck checks that you checked errors"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm"
+KEYWORDS="amd64 x86 arm"
 
-DEPEND=">=dev-lang/go-1.5.1
-	!dev-go/${PN}"
+DEPEND="!dev-go/${PN}"

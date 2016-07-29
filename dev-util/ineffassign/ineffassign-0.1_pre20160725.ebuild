@@ -5,15 +5,12 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/gordonklaus"
-GOLANG_PKG_VERSION="507e48671a072e56dbc5dbbee2872ce0d662697e"
+GOLANG_PKG_VERSION="cb7fbaf18166b1f12a02c381e89ab5ce538a02ec"
 
 inherit golang-single
 
 DESCRIPTION="Detects ineffectual assignments in Go code."
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm"
-
-#DEPEND=">=dev-lang/go-1.5.1"
+KEYWORDS="amd64 x86 arm"

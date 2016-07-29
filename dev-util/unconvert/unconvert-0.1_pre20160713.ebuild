@@ -5,11 +5,12 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/mdempsky"
-GOLANG_PKG_VERSION="9e7daadf56a775c61d1edbe2618bb7dc9d61a300"
+GOLANG_PKG_VERSION="3d66c843b1de9ec7637bc07a9f401fc988a59a98"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/golang/tools:6d483ee -> golang.org/x"
+	"github.com/kisielk/gotool:94d5dba"
+	"github.com/golang/tools:9e74590 -> golang.org/x"
 )
 
 inherit golang-single
@@ -18,4 +19,4 @@ DESCRIPTION="Remove unnecessary type conversions from Go source"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm"
+KEYWORDS="amd64 x86 arm"
