@@ -11,12 +11,12 @@ GOLANG_PKG_LDFLAGS="-X main.Version=v${PV}"
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/bmizerany/perks:d9a9656a3a"
 	"github.com/streadway/quantile:b0c5887"
+	"github.com/golang/net:35028a4 -> golang.org/x"
 )
 
 inherit golang-single
 
 DESCRIPTION="HTTP load testing tool and library written in GoLang."
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="MIT"
 SLOT="0"
