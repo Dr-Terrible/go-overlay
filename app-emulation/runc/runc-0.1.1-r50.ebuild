@@ -17,11 +17,15 @@ HOMEPAGE="http://runc.io"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE+=" seccomp"
+IUSE+=" +seccomp apparmor"
 
 RESTRICT+=" test"
 
+RDEPEND="apparmor? ( sys-libs/libapparmor )
+	seccomp? ( sys-libs/libseccomp )"
+
 src_compile() {
-	use seccomp && GOLANG_PKG_TAGS="seccomp"
+	use seccomp && GOLANG_PKG_TAGS+=" seccomp"
+	use apparmor && GOLANG_PKG_TAGS+=" apparmor"
 	golang-single_src_compile
 }
