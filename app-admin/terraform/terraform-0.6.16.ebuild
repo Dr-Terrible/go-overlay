@@ -19,14 +19,13 @@ SLOT="0"
 KEYWORDS="amd64 x86 arm"
 
 COMMON_IUSE="chef"
-IUSE_PROVIDERS="atlas aws azure azurerm cloudflare cloudstack consul digitalocean dme dnsimple docker dyn google heroku mailgun +null openstack packet rundeck statuscake +template +tls vsphere vcd postgresql mysql powerdns"
+IUSE_PROVIDERS="atlas aws azure azurerm cloudflare cloudstack consul digitalocean dme dnsimple docker dyn google heroku librato mailgun +null openstack packet rundeck softlayer statuscake +template +tls vsphere vcd postgresql mysql powerdns"
 IUSE_PROVISIONERS="+file +local-exec +remote-exec"
 IUSE+=" $IUSE_PROVIDERS $IUSE_PROVISIONERS $COMMON_IUSE"
 
-DEPEND=">=dev-lang/go-1.5.1"
-
-# go-tools is required by "go:generate stringer" directive
-DEPEND="dev-util/go-tools"
+# go-tools and codecgen are required by "go:generate stringer" directive
+#DEPEND="dev-util/go-tools
+#	dev-go/codecgen"
 
 src_compile() {
 	# build terraform binary

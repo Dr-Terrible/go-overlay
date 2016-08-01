@@ -55,6 +55,10 @@
 			Builds the provider that interacts with the resources supported by
 			Heroku https://www.heroku.com
 		</flag>
+		<flag name="librato">
+			Builds the provider that interacts with the resources supported by
+			Librato Spaces https://www.librato.com
+		</flag>
 		<flag name="mailgun">
 			Builds the provider that interacts with the resources supported by
 			Mailgun http://www.mailgun.com
@@ -78,6 +82,10 @@
 		<flag name="rundeck">
 			Builds the provider that creates and configures Projects, Jobs and
 			Keys in Rundeck http://rundeck.org
+		</flag>
+		<flag name="softlayer">
+			Builds the provider that interacts with the resources supported by
+			IBM's SoftLayer https://www.softlayer.com
 		</flag>
 		<flag name="statuscake">
 			Builds the provider that creates and configures tests in StatusCake
