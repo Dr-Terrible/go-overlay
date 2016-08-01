@@ -12,8 +12,9 @@ GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
 	# Unit Testing
-	"github.com/go-fsnotify/fsnotify:875cf42 -> gopkg.in/fsnotify.v1" #v1.2.10
+	"github.com/go-fsnotify/fsnotify:a8a77c9 -> gopkg.in/fsnotify.v1" #v1.3.1
 	"github.com/go-check/check:4f90aea -> gopkg.in/check.v1"
+	"github.com/golang/sys:a646d33 -> golang.org/x"
 )
 
 inherit golang-single
@@ -26,6 +27,12 @@ KEYWORDS="amd64 x86 arm"
 
 src_prepare() {
 	golang-single_src_prepare
+
+	sed -i \
+		-e "s:github.com/magiconair/properties/_third_party/gopkg.in/check.v1:gopkg.in/check.v1:" \
+		vendor/github.com/magiconair/properties/load_test.go \
+		vendor/github.com/magiconair/properties/properties_test.go \
+		|| die
 
 	golang_fix_importpath_alias \
 		"github.com/go-check/check" \
