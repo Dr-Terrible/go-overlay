@@ -6,8 +6,6 @@ EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/${PN}"
 GOLANG_PKG_ARCHIVEPREFIX="v"
-GOLANG_PKG_BUILDPATH="/cmd/${PN}"
-GOLANG_PKG_HAVE_TEST=1
 
 inherit golang-single
 
@@ -19,3 +17,8 @@ SLOT="0"
 KEYWORDS="amd64 x86 arm"
 
 RESTRICT+=" test"
+
+src_compile() {
+	${EGO} run build.go -v || die
+	mv ${PN} ${GOBIN} || die
+}
