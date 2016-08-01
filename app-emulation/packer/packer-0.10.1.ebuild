@@ -10,16 +10,16 @@ GOLANG_PKG_IS_MULTIPLE=1
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/golang/protobuf:1270911"
-	"github.com/golang/text:07b9a78 -> golang.org/x"
-	"github.com/golang/net:b6d7b13 -> golang.org/x"
-	"github.com/go-yaml/yaml:f7716cb -> gopkg.in/yaml.v2"
-	"github.com/grpc/grpc-go:178b68e"
-	"github.com/golang/oauth2:188fb45 -> golang.org/x"
+	"github.com/golang/protobuf:b982704"
+	"github.com/golang/net:6ccd669 -> golang.org/x"
+	"github.com/go-yaml/yaml:e4d366f -> gopkg.in/yaml.v2"
 	"github.com/go-fsnotify/fsnotify:8611c35 -> gopkg.in/fsnotify.v1" # v1.2.9
 	"github.com/go-tomb/tomb:dd63297 -> gopkg.in/tomb.v1"
-	"github.com/GoogleCloudPlatform/gcloud-golang:872c736"
+	"github.com/GoogleCloudPlatform/gcloud-golang:5a3b06f"
+	"github.com/golang/appengine:6bde959"
 	"github.com/hpcloud/tail:1a0242e"
+	"github.com/rackspace/gophercloud:53d1dc4"
+	"github.com/mitchellh/mapstructure:281073e"
 )
 
 inherit golang-single
@@ -45,13 +45,22 @@ src_prepare() {
 		"google.golang.org/cloud"
 
 	golang_fix_importpath_alias \
+		"github.com/golang/appengine" \
+		"google.golang.org/appengine"
+
+	golang_fix_importpath_alias \
 		"github.com/hpcloud/tail" \
 		"github.com/ActiveState/tail"
 
 	rm -r vendor/google.golang.org/cloud || die
+	rm -r vendor/google.golang.org/appengine || die
+	rm -r vendor/golang.org/x/net || die
+	rm -r vendor/github.com/rackspace/gophercloud || die
 	rm -r vendor/github.com/hpcloud/tail || die
-	rm -r vendor/gopkg.in/tomb.v1 || die
 	rm -r vendor/github.com/golang/protobuf || die
+	rm -r vendor/gopkg.in/tomb.v1 || die
+	rm -r vendor/gopkg.in/fsnotify.v1 || die
+	rm -r vendor/github.com/mitchellh/mapstructure || die
 }
 
 src_install() {
