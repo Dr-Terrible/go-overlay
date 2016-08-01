@@ -7,17 +7,13 @@ EAPI=6
 GOLANG_PKG_IMPORTPATH="github.com/golang"
 GOLANG_PKG_IMPORTPATH_ALIAS="golang.org/x"
 GOLANG_PKG_NAME="${PN/go-}"
-GOLANG_PKG_VERSION="47218d24f212e7c2842e86977c1e213d65771ec8"
+GOLANG_PKG_VERSION="9e7459099f9afd6a15464d69d93c6eed49bb545d"
 GOLANG_PKG_IS_MULTIPLE=1
-GOLANG_PKG_USE_GENERATE=1
 GOLANG_PKG_HAVE_TEST=1
 
 # Declare dependencies
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/golang/net:991d3e3 -> golang.org/x"
-	"github.com/golang/protobuf:8d92cf5"
-	"github.com/golang/appengine:41265fb"
-	"github.com/GoogleCloudPlatform/gcloud-golang:eb47ba8"
+	"github.com/golang/net:e90d6d0 -> golang.org/x"
 )
 
 inherit golang-single
