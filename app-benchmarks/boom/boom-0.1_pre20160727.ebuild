@@ -10,6 +10,7 @@ GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/rakyll/pb:8d46b8b"
+	"github.com/golang/net:28d1bd4 -> golang.org/x"
 )
 
 inherit golang-single
