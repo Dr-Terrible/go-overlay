@@ -5,51 +5,49 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/spf13"
-GOLANG_PKG_VERSION="efae41c18659f29029f09f86876b4f9c28e7a181"
+GOLANG_PKG_VERSION="5824e80932fd243c429cdae5b15f39402f392673"
+GOLANG_PKG_LDFLAGS="-X ${GOLANG_PKG_IMPORTPATH}/${PN}/hugolib.BuildDate=$( date +%FT%T%z )"
 GOLANG_PKG_HAVE_TEST=1
 
-# Declares dependencies
+# Declare dependencies
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/bep/inflect:b896c45"
-	"github.com/BurntSushi/toml:056c9bc7be"
-	"github.com/PuerkitoBio/purell:d69616f51c"
-	"github.com/dchest/cssmin:a22e1d8dac"
-	"github.com/eknkc/amber:144da19"
-	"github.com/gorilla/websocket:361d4c0"
-	"github.com/kardianos/osext:345163f"
-	"github.com/miekg/mmark:9dca01c"
-	"github.com/mitchellh/mapstructure:281073e"
-	"github.com/russross/blackfriday:b43df97"
-	"github.com/opennota/urlesc:5fa9ff0392"
+	"github.com/BurntSushi/toml:9906417"
+	"github.com/PuerkitoBio/purell:8a29053"
+	"github.com/PuerkitoBio/urlesc:5bd2802"
+	"github.com/dchest/cssmin:fb8d9b4"
+	"github.com/eknkc/amber:7875e96"
+	"github.com/gorilla/websocket:5e2e56d"
+	"github.com/kardianos/osext:29ae4ff"
+	"github.com/miekg/mmark:adb5c3e"
+	"github.com/mitchellh/mapstructure:21a35fb"
+	"github.com/russross/blackfriday:93622da"
 	"github.com/shurcooL/sanitized_anchor_name:10ef21a"
-	"github.com/spf13/afero:f0b36a9"
-	"github.com/spf13/cast:27b586b"
-	"github.com/spf13/cobra:f368244"
-	"github.com/spf13/fsync:eefee59"
+	"github.com/spf13/afero:cc9c218"
+	"github.com/spf13/cast:e31f36f"
+	"github.com/spf13/cobra:f62e98d"
+	"github.com/spf13/fsync:1773df7"
 	"github.com/spf13/nitro:24d7ef3"
-	"github.com/spf13/viper:d8a428b"
-	"github.com/spf13/pflag:cb88ea7"
+	"github.com/spf13/viper:b53595f"
+	"github.com/spf13/pflag:1560c10"
 	"github.com/spf13/jWalterWeatherman:33c24e7"
-	"github.com/cpuguy83/go-md2man:71acacd" #v1.0.4
-	"github.com/yosssi/ace:71afeb7"
-	"github.com/fsnotify/fsnotify:30411db" #v1.3.0
-	"github.com/go-yaml/yaml:a83829b -> gopkg.in/yaml.v2"
-	"github.com/inconshreveable/mousetrap:76626ae9c9"
-	"github.com/kr/pretty:add1dbc"
-	"github.com/kr/text:bb797dc"
+	"github.com/cpuguy83/go-md2man:2724a9c" #v1.0.5
+	"github.com/yosssi/ace:ea038f4"
+	"github.com/fsnotify/fsnotify:a8a77c9" #v1.3.1
+	"github.com/go-yaml/yaml:e4d366f -> gopkg.in/yaml.v2"
 	"github.com/kr/fs:2788f0d"
-	"github.com/pkg/sftp:e84cc8c"
-	"github.com/magiconair/properties:6ac0b95"
-	"github.com/stretchr/testify:d797d25"
-	"github.com/golang/text:1b466db -> golang.org/x"
-	"github.com/golang/crypto:c197bcf -> golang.org/x"
-	"github.com/golang/sys:d4feaf1 -> golang.org/x"
-	"github.com/hashicorp/hcl:32f2911"
-	"github.com/kyokomi/emoji:1ee4529"
+	"github.com/pkg/sftp:a71e8f5"
+	"github.com/pkg/errors:01fa410" #v0.7.0
+	"github.com/magiconair/properties:c265cfa" #v1.7.0
+	"github.com/golang/text:2910a50 -> golang.org/x"
+	"github.com/golang/crypto:bc89c49 -> golang.org/x"
+	"github.com/golang/sys:a646d33 -> golang.org/x"
+	"github.com/golang/net:28d1bd4 -> golang.org/x"
+	"github.com/hashicorp/hcl:d8c773c"
+	"github.com/kyokomi/emoji:17c5e70" #v1.4
 
 	# unit testing
-	"github.com/davecgh/go-spew:5215b55"
-	"github.com/pmezard/go-difflib:e8554b8"
+	"github.com/stretchr/testify:f390dcf" #v1.1.3
 )
 
 inherit golang-single
@@ -110,12 +108,4 @@ src_install() {
 			dodoc -r "${T}"/docs/*
 		popd
 	fi
-}
-
-src_test() {
-	if has sandbox $FEATURES && has network-sandbox $FEATURES; then
-		eerror "Some tests require 'sandbox', and 'network-sandbox' to be disabled in FEATURES."
-	fi
-
-	golang-single_src_test
 }
