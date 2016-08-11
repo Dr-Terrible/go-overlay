@@ -22,7 +22,7 @@ SRC_URI+=" doc? ( https://github.com/${PN}/docs/archive/${EDOC_COMMIT}.tar.gz ->
 
 LICENSE="MPL-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm"
+KEYWORDS="amd64 x86 arm"
 IUSE+=" cli doc inotify"
 
 DEPEND=">=dev-lang/go-1.5.3

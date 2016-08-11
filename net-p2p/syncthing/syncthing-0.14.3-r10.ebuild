@@ -9,12 +9,10 @@ GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_BUILDPATH="/cmd/${PN}"
 GOLANG_PKG_TAGS="noupgrade"
 GOLANG_PKG_LDFLAGS="-w -X main.Version=v${PV} -X main.BuildUser=portage -X main.BuildHost=gentoo -X main.BuildStamp=$( date +%s )"
-#GOLANG_PKG_USE_GENERATE=1     temporarely disabled
-GOLANG_PKG_HAVE_TEST=1
 
 inherit user systemd golang-single
 
-EDOC_COMMIT="699786cee1213018b1bc501812a4317596dbf21d"
+EDOC_COMMIT="79ef4c7dcec80ea64f6f065606c341e47f216b9d"
 
 DESCRIPTION="Syncthing is an app that lets you synchronize your files across multiple devices"
 HOMEPAGE="http://syncthing.net"
@@ -25,9 +23,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
 IUSE+=" cli doc inotify"
 
-DEPEND=">=dev-lang/go-1.5.3
-	doc? ( dev-python/sphinx )"
+RESTRICT+=" test"
+
+DEPEND="doc? ( dev-python/sphinx )"
 RDEPEND="!net-misc/${PN}
+	!<net-p2p/${PN}-0.13.99
 	cli? ( net-p2p/syncthing-cli )
 	inotify? ( net-p2p/syncthing-inotify )"
 
