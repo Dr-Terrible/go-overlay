@@ -42,6 +42,28 @@ IUSE="doc"
 
 DEPEND="doc? ( www-apps/jekyll )"
 
+src_prepare() {
+	golang-single_src_prepare
+
+	cp ../revel/skeleton/public/js/jquery-2.2.4.min.js \
+		../revel.github.io/js/ || die
+
+	local baseURL="/usr/share/doc/${PF}/html"
+	sed -i \
+		-e "s:href=\"\/:href=\"${baseURL}\/:" \
+		-e "s:{{ page.root }}:${baseURL}:" \
+		-e "s:\/\/ajax.googleapis.com\/ajax\/libs\/jquery\/2.1.3\/jquery.min.js:${baseURL}\/js\/jquery-2.2.4.min.js:" \
+		-e "s:^\@import.*::" \
+		-e "s:<script>.*::" \
+		-e "s:.*include analytics.html.*::" \
+		../revel.github.io/_includes/head.html \
+		../revel.github.io/_includes/topnav.html \
+		../revel.github.io/index.html \
+		../revel.github.io/tutorial/index.md \
+		../revel.github.io/css/revel.4.css \
+		|| die
+}
+
 src_install() {
 	golang-single_src_install
 
