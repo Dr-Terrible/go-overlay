@@ -159,7 +159,7 @@ GOLANG_PKG_TAGS="${GOLANG_PKG_TAGS:-}"
 # Sets additional standard Go workspaces to be appended to the environment
 # variable GOPATH, as described in http://golang.org/doc/code.html.
 # This eclass defaults to an empty list.
-GOLANG_PKG_VENDOR="${GOLANG_PKG_VENDOR:-}"
+GOLANG_PKG_VENDOR=()
 
 # @ECLASS-VARIABLE: GOLANG_PKG_STATIK
 # @DESCRIPTION:
@@ -395,6 +395,7 @@ golang_setup() {
 		export GOBIN="$_GOBIN"
 		export CGO_ENABLED
 		export GOEXPERIMENT
+		export GO15VENDOREXPERIMENT=0
 
 		debug-print "${FUNCNAME}: GOPATH = ${GOPATH}"
 		debug-print "${FUNCNAME}: GOBIN = ${GOBIN}"
@@ -520,6 +521,7 @@ golang-base_src_prepare() {
 	local VENDOR="${S}/vendor"
 	if [[ -d "${VENDOR}" ]]; then
 		golang_add_vendor "${VENDOR}"
+		export GO15VENDOREXPERIMENT=1
 	fi
 
 	# Auto-detects the presence of Go's vendored
@@ -547,7 +549,7 @@ golang-base_src_prepare() {
 	# (see github.com/tools/godep for more infos).
 	VENDOR="${S}/Godeps/_workspace"
 	if [[ -d "${VENDOR}" ]]; then
-		GOLANG_PKG_VENDOR+=" ${VENDOR}"
+		golang_add_vendor "${VENDOR}"
 	fi
 
 
@@ -676,22 +678,19 @@ golang-base_src_compile() {
 	[[ ${EGO} ]] || die "No GoLang implementation set (golang_setup not called?)."
 
 	# Populates env variable GOPATH with vendored workspaces (if present).
-	if [[ -n ${GOLANG_PKG_VENDOR} || "1" == ${GO15VENDOREXPERIMENT} ]]; then
+	if [[ -n ${GOLANG_PKG_VENDOR} ]]; then
 		einfo "Using vendored dependencies from:"
 
-		# Prints Go's vendored directory.
-		if [[ "1" == ${GO15VENDOREXPERIMENT} ]]; then
-			einfo "- vendor"
-		fi
-	fi
-
-	# Prints user defined vendored directories.
-	if [[ -n ${GOLANG_PKG_VENDOR} ]]; then
 		for path in "${GOLANG_PKG_VENDOR[@]}"; do
 			[ -d ${path} ] || continue
 
+			if [[ ${path//${S}\//} == "vendor" ]]; then
+				einfo "- vendor/ (native vendoring support)"
+				continue
+			fi
+
 			debug-print "$FUNCNAME: GOPATH: Adding vendor path ${path}"
-			ebegin "- ${path//${WORKDIR}\//}"
+			ebegin "- |${path//${S}\//}|"
 				GOPATH="${GOPATH}:$( echo ${path} )"
 			eend
 		done
@@ -901,22 +900,16 @@ golang_add_vendor() {
 
 	[[ ${GOLANG_VERSION} ]] || die "No Golang implementation set (golang_setup not called?)."
 
-	case $( get_version_component_range 1-2 ${GOLANG_VERSION} ) in
-		1.4*)
-			# TODO: traverse $1 and expose all the bundled /vendor
-			#       sub-directories to GOLANG_PKG_VENDOR
-			if [[ ! -d "${1}"/src ]]; then
-				ebegin "Fixing $1"
-					ln -s "${1}" "${1}"/src || die
-				eend
-			fi
+	[[ ! -d "${1}" ]] && return
 
-			GOLANG_PKG_VENDOR+=" ${1}"
-			;;
-		1.5*)
-			export GO15VENDOREXPERIMENT=1
-			;;
-	esac
+	# NOTE: this hack is required by Go v1.4 and older versions.
+	if [[ ! -d "${1}"/src ]]; then
+		ebegin "Fixing $1"
+			ln -s "${1}" "${1}"/src || die
+		eend
+	fi
+
+	GOLANG_PKG_VENDOR+=(${1})
 }
 
 
