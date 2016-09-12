@@ -10,13 +10,17 @@ GOLANG_PKG_ARCHIVEPREFIX="v"
 inherit golang-single
 
 DESCRIPTION="Display a notification when a terminal process finishes. "
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64 arm x86"
 
 RESTRICT+=" test"
 
 RDEPEND="x11-libs/libnotify
 	app-accessibility/espeak"
+
+src_install() {
+	golang-single_src_install
+	dodoc -r docs/*
+}
