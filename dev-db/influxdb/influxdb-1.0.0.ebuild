@@ -4,41 +4,38 @@
 
 EAPI=6
 
-GOLANG_PKG_IMPORTPATH="github.com/${PN}"
+GOLANG_PKG_IMPORTPATH="github.com/influxdata"
 GOLANG_PKG_ARCHIVEPREFIX="v"
-GOLANG_PKG_LDFLAGS="-X main.version ${PV} -X main.branch=${PV} -X main.commit=5d42b21"
+GOLANG_PKG_LDFLAGS="-X main.version=${PV} -X main.branch=${PV} -X main.commit=3799237"
 GOLANG_PKG_HAVE_TEST=1
-GOLANG_PKG_HAVE_TEST_RACE=1
 GOLANG_PKG_IS_MULTIPLE=1
-GOLANG_PKG_USE_GENERATE=1
+#GOLANG_PKG_USE_GENERATE=1
 GOLANG_PKG_USE_CGO=1
 GOLANG_PKG_INSTALLSUFFIX="cgo"
-GOLANG_PKG_STATIK="-src=./shared/admin"
+#GOLANG_PKG_STATIK="-src=./shared/admin"
 
 # Declares dependencies
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/gogo/protobuf:6cab0cc9f" # v0.1
-	"github.com/hashicorp/raft:4165b47aca"
-	"github.com/hashicorp/raft-boltdb:d1e82c1ec3"
-	"github.com/hashicorp/go-msgpack:fa3f63826f"
-	"github.com/golang/crypto:1e856cbfdf -> golang.org/x"
-	"github.com/golang/protobuf:1dceb1a265"
-	"github.com/golang/snappy:723cc1e459"
-	"github.com/armon/go-metrics:b2d95e5291"
-	"github.com/fatih/pool:cba550ebf9 -> gopkg.in/fatih/pool.v2"
-	"github.com/peterh/liner:1bb0d1c1a2"
-	"github.com/BurntSushi/toml:056c9bc7be"
-	"github.com/bmizerany/pat:b8a35001b7"
-	"github.com/kimor79/gollectd:61d0deeb4f"
-	"github.com/rakyll/statik:274df120e9"
-	"github.com/collectd/go-collectd:4439385f75"
-
-	# NOTE: stable release (v1.0) of boltdb is not supported,
-	#       HEAD version is required.
-	"github.com/boltdb/bolt:04a3e85793"
+	"github.com/gogo/protobuf:909568b" # v0.3
+	"github.com/golang/crypto:81372b2 -> golang.org/x"
+	"github.com/golang/snappy:d9eb7a3"
+	"github.com/peterh/liner:8975875"
+	"github.com/dgryski/go-bitstream:7d46cd2"
+	"github.com/dgryski/go-bits:2ad8d70"
+	"github.com/jwilder/encoding:ac74639"
+	"github.com/retailnext/hllpp:38a7bb7"
+	"github.com/BurntSushi/toml:bbd5bb6" #v0.2.0
+	"github.com/bmizerany/pat:c068ca2"
+	"github.com/dgrijalva/jwt-go:268038b" #v2.7.0
+	"github.com/kimor79/gollectd:b5dddb1" #v1.0.0
+	"github.com/rakyll/statik:274df12" #v0.1.0
+	"github.com/collectd/go-collectd:9fc824c"
+	"github.com/influxdata/usage-client:6d38953"
+	"github.com/boltdb/bolt:583e893" #v1.3.0
+	"github.com/paulbellamy/ratecounter:5a11f58" #v0.1.0
 
 	# Unit Testing
-	"github.com/davecgh/go-spew:2df174808e"
+	"github.com/davecgh/go-spew:6cf5744" #v1.0.0
 )
 
 inherit user systemd golang-single
@@ -48,9 +45,9 @@ HOMEPAGE="http://influxdb.com"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm"
+KEYWORDS="amd64 x86 arm"
 
-DEPEND="dev-go/gogo-protobuf"
+#DEPEND="dev-go/gogo-protobuf"
 
 pkg_setup() {
 	ebegin "Creating ${PN} user and group"
@@ -82,9 +79,6 @@ src_prepare() {
 
 src_install() {
 	golang-single_src_install
-
-	# FIX: /usr/bin/inspect conflicts with dev-libs/boost
-	mv "${ED}"/usr/bin/inspect "${ED}"/usr/bin/${PN}-inspect || die
 
 	# Install configuration files
 	insinto /etc/${PN}
