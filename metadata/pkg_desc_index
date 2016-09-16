@@ -1,44 +1,49 @@
-app-admin/doctl 1.0.0-r1: A command line tool for DigitalOcean services
-app-admin/pony 0.1.0_pre20160104: Local File-Based Password, API Key, Secret, Recovery Code Store Backed vy GPG
-app-admin/restic 0.1.0: Restic is a program that does backups
-app-admin/terraform 0.6.11 0.6.12: Terraform builds, changes, and combines infrastructure safely and efficiently
+app-admin/doctl 1.4.0: A command line tool for DigitalOcean services
+app-admin/pony 0.1.0_pre20160513: Local File-Based Password, API Key, Secret, Recovery Code Store Backed vy GPG
+app-admin/restic 0.2.0: Restic is a program that does backups
+app-admin/terraform 0.6.16: Terraform builds, changes, and combines infrastructure safely and efficiently
 app-admin/trousseau 0.3.5_pre20150212: A networked and encrypted key-value database.
-app-benchmarks/boom 20151223: HTTP(S) load generator, ApacheBench (ab) replacement, written in GoLang
-app-benchmarks/vegeta 6.0.0: HTTP load testing tool and library written in GoLang.
-app-crypt/keybase 1.0.9.1 1.0.12.0 1.0.14.1: Client for keybase.io
+app-benchmarks/hey 0.1_pre20160906: HTTP(S) load generator, ApacheBench (ab) replacement, written in GoLang
+app-benchmarks/vegeta 6.1.1: HTTP load testing tool and library written in GoLang.
+app-crypt/keybase 1.0.17-r50: Client for keybase.io
 app-editors/lime-qml 20150428: QML frontend for Lime text editor.
 app-editors/lime-termbox 20150428: Termbox frontend for Lime text editor.
 app-editors/liteide 27.2.1: LiteIDE is a simple, open source, cross-platform Go IDE.
+app-editors/micro 1.0.3: A modern and intuitive terminal-based text editor
 app-editors/srclib 0.0.40: A hackable, multilange code analysis library for building better software tools
-app-emulation/packer 0.8.6 0.8.6-r1 0.9.0: Packer is a tool for creating identical machine images for multiple platforms
-app-emulation/runc 0.0.9: A CLI tool for spawning and running containers according to the OCF specs
+app-emulation/packer 0.10.1: Packer is a tool for creating identical machine images for multiple platforms
+app-emulation/runc 0.1.1-r51: A CLI tool for spawning and running containers according to the OCF specs
 app-misc/asciinema 1.2.0: A terminal session recorder for asciinema.org service
 app-misc/btcwallet 0.7.0-r1 9999-r1: A secure bitcoin wallet daemon written in Go
-app-misc/devtodo 2.2_pre20150904: DevTodo is a small command line application for maintaining lists of tasks.
-app-misc/exercism 2.2.5: A command line tool for exercism.io
+app-misc/devtodo 2.2_pre20150904 2.2_pre20160819: DevTodo is a small command line application for maintaining lists of tasks.
+app-misc/exercism 2.3.0: A command line tool for exercism.io
+app-misc/thyme 0.2.2: Automatically track which applications you use and for how long
 app-misc/thymer 0.1.0: Consolo Pomodoro Timer written in GoLang
 app-misc/weather 0.5.0_pre20151218 0.5.0 0.6.0_pre20151218: Weather via the command line.
 app-misc/wego 2.0: Wego is a weather client for the terminal
-app-shells/antibody 0.4.0 0.4.4: A faster and simpler antigen written in Golang
-app-shells/peco 0.3.5: Simplistic interactive filtering tool
-app-text/go-md2man 1.0.5 1.0.5-r1: Command-line tool to convert Markdown into UNIX man pages
-dev-db/bolt 1.0 1.1.0: Bolt is a low level key/value NoSQL database written in GoLang
+app-shells/antibody 2.0.1: A faster and simpler antigen written in Golang
+app-shells/peco 0.4.2: Simplistic interactive filtering tool
+app-text/go-md2man 1.0.6: Command-line tool to convert Markdown into UNIX man pages
+dev-db/bolt 1.3.0: Bolt is a low level key/value NoSQL database written in GoLang
 dev-db/boltd 1.0-r1: Bolts is a introspection tool for Bolt databases.
-dev-db/cayley 0.4.1-r1: Cayley is a graph databse written in GoLang.
+dev-db/cayley 0.4.1-r1 0.5.0: Cayley is a graph databse written in GoLang.
 dev-db/cockroach 0.1.0_pre20150926: A scalable, geo-replicanted, transactional datastore
-dev-db/influxdb 0.9.4.1-r1 0.9.4.2-r1: Scalable datastore for metrics, events, and real-time analytics
-dev-db/pgfutter 0.3.2: Command-line tool to import CSV and JSON into PostgreSQL
+dev-db/influxdb 1.0.0: Scalable datastore for metrics, events, and real-time analytics
+dev-db/pgfutter 1.0: Command-line tool to import CSV and JSON into PostgreSQL
+dev-db/pgweb 0.9.4: Cross-platform client for PostgreSQL databases
 dev-db/telegraf 0.1.3-r2 0.1.9: A plugin-driven server agent for reporting metrics into InfluxDB
 dev-db/tidb 0.1.0_pre20151916 0.5: TiDB is a distributed SQL database compatible with MySQL protocol
 dev-db/tiedot 3.2-r2 3.3_pre20160117: Tiedot is a document-oriented NoSQL database written in GoLang
 dev-go/Go-Package-Store 0.1.0_pre20151209 0.1.0_pre20160119: An app that displays updates for the Go packages in your GOPATH
 dev-go/anderson 0.1_pre20150328-r1: Checks your Go dependencies for contraband licenses
+dev-go/apimock 0.1_pre20160727: A mock API server
 dev-go/asmfmt 0.1_pre20160219: Go assembler formatter
+dev-go/codecgen 0.1_pre20160722: Idiomatic codec and rpc lib for msgpack, cbor, json, etc. msgpack.org
 dev-go/depscheck 0.1.0_pre20160401: Prints stats and suggests to remove small LeftPad-like imports from Golang packages
 dev-go/discover 0.1_pre20160103: Discover is a utility to aid in conceptualizing large Go code bases
 dev-go/duktape 2.0.0_pre20151125: CLI for Duktape JavaScript engine written in GoLang
 dev-go/ffjson 0.1_pre20160210: Ffjson is a faster JSON serialization for Go
-dev-go/gb 0.2.0 0.3.5 0.4.1: Gb is a project based build tool for the Go programming language
+dev-go/gb 0.2.0 0.3.5 0.4.3 0.4.4_pre20160724: Gb is a project based build tool for the Go programming language
 dev-go/gcli 0.2.3 0.2.3-r1: Gcli builds GoLang command-line applications
 dev-go/gen 4.3 4.4_pre20160108: Type-driven code generation for GoLang
 dev-go/ginkgo 1.2.0: BDD Testing Framework for GoLang
@@ -57,6 +62,7 @@ dev-go/gopm 0.7.2 0.8_pre20160214: Gopm is a package manager and build tool for 
 dev-go/gore 0.2.5: A REPL for Golang
 dev-go/gostatus 20160119: A command-line tool that show the status of GoLang repositories
 dev-go/gotests 1.3.0: It's a Golang commandline tool that generates table driven tests
+dev-go/goviz 0.1.0_pre20140425: Goviz is a visualization tool for Golang project dependencies
 dev-go/gox 0.3.0 0.4.0_pre20151231: A dead simple, no frills Go cross compile tool
 dev-go/goxc 0.17.0 0.18.1: Goxc is a build tool for GoLange, with a focus on cross-compiling and packaging
 dev-go/grind 0.1.0_pre20150302: Grind rewrites the source files written in GoLang.
@@ -66,51 +72,53 @@ dev-go/liteide-tools 2015.04.09: Liteide Golang tools
 dev-go/mock 0.1.0_pre20160127: GoMock is a mocking framework for the Go programming language
 dev-go/prdeps 0.1_pre20160229: prdeps prints the dependency graph of a Go package
 dev-go/re2dfa 0.1.0_pre20150627: Transform regular expressions into finite state machines and output GoLang source code
-dev-go/revel-cli 0.12.0-r1: Command-line tool for Revel framework
+dev-go/revel-cli 0.12.0-r1 0.13.1: Command-line tool for Revel framework
 dev-go/rts 0.1_pre20160405: Generates Go structs from JSON server responses
 dev-go/safesql 0_pre20150617: Static analysis tool for GoLang that protects against SQL injections
-dev-go/simple 0.1_pre20160507: Gosimple is a linter for Go source code that specialises on simplifying code
+dev-go/simple 0.1_pre20160713: Gosimple is a linter for Go source code that specialises on simplifying code
 dev-go/statik 20150419: statik embeds static files into a GoLang executable
 dev-go/structlayout 0.1_pre20160321 0.1_pre20160324: An utility that prints the layout of a Go struct
 dev-go/tomlv 0.2.0: A TOML validator written in GoLang
-dev-go/unused 0.1.0_pre20160320: Check Go programs for unused identifiers
+dev-go/unused 0.1.0_pre20160418: Check Go programs for unused identifiers
 dev-go/wago 1.0 1.2.0: Wago automates the actions you do after saving code.
-dev-go/walter 1.3.0: Walter is a tiny deployment pipeline
+dev-go/walter 1.4.0: Walter is a tiny deployment pipeline
 dev-go/xj2s 20151106: A small tool for Golang to generate Golang strunc from xml/json file
 dev-go/xo 0.1_pre20160229: A cli tool to generate Golang types and funcs based on a database schema
-dev-libs/protobuf 3.0.0_beta3: Google's Protocol Buffers -- an efficient method of encoding structured data
+dev-libs/protobuf 3.0.0_beta3 3.0.2: Google's Protocol Buffers -- an efficient method of encoding structured data
 dev-libs/protobuf-c 1.2.1: code generator and runtime libraries to use Protocol Buffers (protobuf) from pure C
-dev-util/check 0.1_pre20160515: A set of utilities for checking Go sources
-dev-util/deadcode 2012.02.28: Deadcode finds unused Go source code
+dev-util/check 0.1_pre20160515-r1: A set of utilities for checking Go sources
+dev-util/deadcode 2012.02.28 2016.07.24: Deadcode finds unused Go source code
 dev-util/direnv 2.7.0-r1: Direnv is an environment switcher for the shell.
-dev-util/dupl 0.1_pre20160125: A tool for Go code clone detection
-dev-util/errcheck 0.1_pre20160115 0.1_pre20160218: Errcheck checks that you checked errors
+dev-util/dupl 0.1_pre20160503: A tool for Go code clone detection
+dev-util/errcheck 0.1_pre20160722: Errcheck checks that you checked errors
 dev-util/flint 0.0.4 0.0.5_pre20160207: Check your project for common sources of contributor friction
 dev-util/forego 0.16.1-r1: Foreman written in GoLang
+dev-util/gas 0.1_pre20160728: Inspects golang source code for security problems.
 dev-util/ghfs 0.1_pre20150217: Ghfs is a user space filesystem that overlays the GitHub API
 dev-util/github-release 0.6.2: CLI to create and edit releases on Github
 dev-util/go-swagger 0.3.0 0.5.0 0.5.9: Swagger 2.0 implementation for GoLang
-dev-util/go-tools 20160325: Various packages and tools that support the Go programming language
-dev-util/goconst 0.1_pre20160302: Find repeated strings that could be replaced by a constant.
+dev-util/go-tools 20160729: Various packages and tools that support the Go programming language
+dev-util/goconst 0.1_pre20160514: Find repeated strings that could be replaced by a constant.
 dev-util/gocyclo 2015.06.27: Calculate cyclomatic complexities of functions in Go source code
 dev-util/godef 0.1_pre20160114: Godef prints where symbols are defined in Go source code
 dev-util/golex 0.1.0_pre20150807: A lex/flex like (not fully POSIX lex compatible) utility
-dev-util/golint 2015.10.19: This is a linter for Go source code.
-dev-util/gometalinter 0.1_pre20160518: Concurrently run Go lint tools and normalise their output
+dev-util/golint 2016.04.28: This is a linter for Go source code.
+dev-util/gometalinter 1.0.0: Concurrently run Go lint tools and normalise their output
 dev-util/gotags 1.3.0 1.4.0_pre20150803: ctags-compatible tag generator for Go
 dev-util/goyacc 0.1.0_pre20150811: Goyacc is a version of yacc generating Go parsers.
 dev-util/hulk 0.1.0_pre20160121: Ultimate job/build runner
-dev-util/ineffassign 0.1_pre20151029: Detects ineffectual assignments in Go code.
-dev-util/interfacer 0.0.1_pre20160220 0.0.1_pre20160331: A linter for GoLang that suggests interface types
-dev-util/lll 0.1_pre20160229: Line length linter, used to enforce line length in files.
-dev-util/maligned 0.1_pre20151009: Detects Go structs that would take less memory if their fields were sorted
+dev-util/ineffassign 0.1_pre20160725: Detects ineffectual assignments in Go code.
+dev-util/interfacer 0.0.1_pre20160718: A linter for GoLang that suggests interface types
+dev-util/lll 0.1_pre20160702: Line length linter, used to enforce line length in files.
+dev-util/maligned 0.1_pre20160713: Detects Go structs that would take less memory if their fields were sorted
 dev-util/mdfmt 0.1_pre20160209: Like gofmt, but for Markdown with front matter.
 dev-util/minify 1.0.0 1.1.0-r1 1.2.0_pre20160128 1.2.0_pre20160219: Go minifiers for web formats.
+dev-util/misspell 0.1_pre20160729: Correct commonly misspelled words in source files
 dev-util/orange-cat 0.2.2-r1: A Markdown previewer written in GoLang
 dev-util/pcstat 0.1_pre20160126: Page Cache stat: get page cache stats for files on Linux
 dev-util/pipecat 0.2: Pipecat allows you to scale any program using traditional UNIX pipes and AMQP
-dev-util/staticcheck 0.1.0_pre20160524: A Golang tool for statically checking the inputs to certain functions
-dev-util/unconvert 0.1_pre20160415: Remove unnecessary type conversions from Go source
+dev-util/staticcheck 0.1.0_pre20160723: A Golang tool for statically checking the inputs to certain functions
+dev-util/unconvert 0.1_pre20160713: Remove unnecessary type conversions from Go source
 dev-util/wellington 0.9.3 1.0.2: Wellington is a CSS preprocessor with spriting and based on libsass
 dev-vcs/hub 2.2.2-r1 2.2.3: Hub wraps git in order to extend it with extra features and commands
 net-ftp/pixiecore 0.1.0_pre20151221: PXE booting for people in a hurry
@@ -126,21 +134,21 @@ net-misc/nsq 0.3.6: A real-time distributed messaging platform, written in GoLan
 net-misc/wsd 0.0.0_pre20150722: Simple cURL-like command line utility for debugging WebSocket servers
 net-nds/dex 0.2.3: Dex is a Federated Indentity Provider written in GoLang
 net-p2p/bmagent 9999-r1: Client for bmd, functions as IMAP/SMTP server
-net-p2p/bmd 0.1.0_pre20160320-r3 9999-r4: bmd is a collection of Bitmessage tools inspired by btcsuite
+net-p2p/bmd 0.1.0_pre20160602 9999-r4: bmd is a collection of Bitmessage tools inspired by btcsuite
 net-p2p/btcd 0.12.0-r1 9999: An alternative full node bitcoin implementation written in Go
 net-p2p/btcgui 9999: btcgui is a graphical client for btcwallet and btcd
 net-p2p/btcsim 0.1_pre20150902 9999: btcsim implements a simulation test driver using the simnet network provided by btcd
 net-p2p/cloud-torrent 0.8.10: Cloud Torrent is a self-hosted remote torrent client, written in GoLang
-net-p2p/syncthing 0.11.26-r1 0.12.25-r10 0.13.4-r10: Syncthing is an app that lets you synchronize your files across multiple devices
+net-p2p/syncthing 0.11.26-r1 0.12.25-r10 0.13.10-r10 0.14.3-r10: Syncthing is an app that lets you synchronize your files across multiple devices
 net-p2p/syncthing-cli 0.1.0_pre20150922-r1: SyncThing command-line interface
-net-p2p/syncthing-inotify 0.6.8-r2 0.8: File watcher intended for use with Syncthing
+net-p2p/syncthing-inotify 0.6.8-r2 0.8 0.8.2 0.8.3: File watcher intended for use with Syncthing
 net-print/cups-connector 2016.01.02: Google Cloud Print CUPS Connector
 sys-apps/sift 0.8.0: A fast and powerful open source alternative to grep
 sys-devel/calc 20150422: A simple, fast command-line calculator written in GoLang
 sys-devel/delve 0.9.0-r1 0.11.0: Delve is a debugger for the Go programming language
 sys-devel/gcvis 0.1.0_pre20150714 0.1.0_pre20151111: Visualise Go program Garbage Collector trace data in real-time.
 www-apps/gitea 0.7.0_pre20150630: Gitea is a self-hosted Git service written in Go
-www-apps/gogs 0.8.43 0.8.43-r1 0.9.0 0.9.13: Gogs is a self-hosted Git service written in Go
+www-apps/gogs 0.8.43-r1 0.9.48: Gogs is a self-hosted Git service written in Go
 www-apps/gotty 0.0.12: A simple command-line tool that turns your CLI tools into web applications
-www-apps/hugo 0.14-r4 0.15-r3 0.16_pre20160522: A fast and flexible static site generator built in GoLang
-x11-misc/noti 2.0.0: Display a notification when a terminal process finishes.
+www-apps/hugo 0.14-r4 0.15-r3 0.16-r1 0.17_pre20160731 0.17_pre20160913 0.17_pre20160914: A fast and flexible static site generator built in GoLang
+x11-misc/noti 2.3.0: Display a notification when a terminal process finishes.
