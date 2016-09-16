@@ -17,15 +17,26 @@ HOMEPAGE="http://runc.io"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE+=" +seccomp apparmor"
+IUSE+=" +seccomp apparmor selinux"
 
 RESTRICT+=" test"
 
+DEPEND="app-text/go-md2man"
 RDEPEND="apparmor? ( sys-libs/libapparmor )
-	seccomp? ( sys-libs/libseccomp )"
+	seccomp? ( sys-libs/libseccomp )
+	selinux? ( sys-libs/libselinux )"
 
 src_compile() {
 	use seccomp && GOLANG_PKG_TAGS+=" seccomp"
 	use apparmor && GOLANG_PKG_TAGS+=" apparmor"
+	use selinux && GOLANG_PKG_TAGS+=" selinux"
 	golang-single_src_compile
+}
+
+src_install() {
+	golang-single_src_install
+
+	# install man pages
+	man/md2man-all.sh > /dev/null 2>&1 || die
+	doman man/man[0-9]/*
 }
