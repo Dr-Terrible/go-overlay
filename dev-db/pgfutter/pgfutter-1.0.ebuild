@@ -10,17 +10,16 @@ GOLANG_PKG_HAVE_TEST=1
 
 # Declare dependencies
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/cheggaaa/pb:da1f27ad1d"
-	"github.com/codegangsta/cli:142e6cd241"
-	"github.com/kennygrant/sanitize:bf9c39a678"
-	"github.com/lib/pq:b269bd035a"
-	"github.com/golang/net:669b27b881 -> golang.org/x"
+	"github.com/cheggaaa/pb:9453b2d" #v1.0.5
+	"github.com/urfave/cli:a14d7d3 -> github.com/codegangsta" #v1.18.1
+	"github.com/kennygrant/sanitize:ce9fd1f" #v1.0
+	"github.com/lib/pq:50761b0"
+	"github.com/golang/net:71a0359 -> golang.org/x"
 )
 
 inherit golang-single
 
 DESCRIPTION="Command-line tool to import CSV and JSON into PostgreSQL"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="MIT"
 SLOT="0"
