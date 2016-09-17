@@ -5,21 +5,19 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/HouzuoGuo"
-GOLANG_PKG_VERSION="9c13256571414d545aea812ca184c792906b1a77"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/dgrijalva/jwt-go:8c45ba33b0"
+	"github.com/dgrijalva/jwt-go:d2709f9" #v3.0.0
 )
 
 inherit systemd golang-single
 
 DESCRIPTION="Tiedot is a document-oriented NoSQL database written in GoLang"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm"
+KEYWORDS="amd64 x86 arm"
 
 RDEPEND="net-misc/curl"
 
