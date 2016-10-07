@@ -8,16 +8,14 @@ GOLANG_PKG_IMPORTPATH="github.com/alecthomas"
 GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_HAVE_TEST=1
 
-# Declares dependencies
 GOLANG_PKG_DEPENDENCIES=(
+	"github.com/google/shlex:6f45313"
+	"github.com/alecthomas/kingpin:e9044be -> gopkg.in/alecthomas/kingpin.v2" #v2.2.3
+	"github.com/alecthomas/template:a0175ee"
+	"github.com/alecthomas/units:2efee85"
+
 	# Unit Testing
-	"github.com/mattn/go-isatty:3a11563" #v0.0.1
-	"github.com/alecthomas/repr:f010939"
-	"github.com/alecthomas/colour:60882d9"
-	"github.com/alecthomas/assert:5c23cad"
-	"github.com/client9/gospell:90dfc71"
-	"github.com/golang/net:6a513af -> golang.org/x"
-	"github.com/sergi/go-diff:ec7fdbb"
+	"github.com/stretchr/testify:f390dcf" #v1.1.3
 )
 
 inherit golang-single
