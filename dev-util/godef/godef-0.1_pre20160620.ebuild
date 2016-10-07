@@ -5,7 +5,7 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/rogpeppe"
-GOLANG_PKG_VERSION="f90a99664522cad305e072e594a262ae1fcdd256"
+GOLANG_PKG_VERSION="ee532b944160bb27b6f23e4f5ef38b8fdaa2a6bd"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
@@ -15,7 +15,6 @@ GOLANG_PKG_DEPENDENCIES=(
 inherit golang-single
 
 DESCRIPTION="Godef prints where symbols are defined in Go source code"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="BSD"
 SLOT="0"
