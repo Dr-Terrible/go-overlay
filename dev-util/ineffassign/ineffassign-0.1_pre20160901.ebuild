@@ -5,7 +5,7 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/gordonklaus"
-GOLANG_PKG_VERSION="cb7fbaf18166b1f12a02c381e89ab5ce538a02ec"
+GOLANG_PKG_VERSION="99762ed65232b1477364c8c53778f8b6503e868c"
 
 inherit golang-single
 
