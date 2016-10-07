@@ -11,10 +11,7 @@ GOLANG_PKG_HAVE_TEST=1
 inherit golang-single
 
 DESCRIPTION="Deadcode finds unused Go source code"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="amd64 x86 arm"
-
-RESTRICT+=" test"
