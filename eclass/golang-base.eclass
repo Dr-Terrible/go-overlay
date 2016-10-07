@@ -690,7 +690,7 @@ golang-base_src_compile() {
 			fi
 
 			debug-print "$FUNCNAME: GOPATH: Adding vendor path ${path}"
-			ebegin "- |${path//${S}\//}|"
+			ebegin "- ${path//${S}\//}"
 				GOPATH="${GOPATH}:$( echo ${path} )"
 			eend
 		done
