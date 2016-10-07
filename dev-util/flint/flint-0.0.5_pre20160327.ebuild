@@ -5,10 +5,9 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/pengwynn"
-GOLANG_PKG_VERSION="090a922453632fa3e790d1cbdcac109af534b71c"
+GOLANG_PKG_VERSION="db5e1426b264f11bde11a9a09f06bf411a9735d5"
 GOLANG_PKG_HAVE_TEST=1
 
-# Declares dependencies
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/codegangsta/cli:5db7419"
 	"github.com/fatih/color:1b35f28"
@@ -25,7 +24,6 @@ GOLANG_PKG_DEPENDENCIES=(
 inherit golang-single
 
 DESCRIPTION="Check your project for common sources of contributor friction"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="MIT"
 SLOT="0"
