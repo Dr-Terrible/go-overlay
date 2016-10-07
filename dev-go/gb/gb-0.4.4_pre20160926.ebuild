@@ -5,13 +5,13 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/constabulary"
-GOLANG_PKG_VERSION="065d2b2b1ba151d68c65f718c911bd4947f2cc13"
+GOLANG_PKG_VERSION="65d860460e1ebc22a96ff5248335ebe9c5ef6734"
 GOLANG_PKG_IS_MULTIPLE=1
 GOLANG_PKG_HAVE_TEST=1
 GOLANG_PKG_USE_CGO=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/pkg/errors:01fa410" #v0.7.0
+	"github.com/pkg/errors:645ef00" #v0.8.0
 )
 
 inherit golang-single
@@ -21,7 +21,7 @@ HOMEPAGE="http://getgb.io"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86 ~arm"
 
 src_test() {
 	if has sandbox $FEATURES && has network-sandbox $FEATURES; then
