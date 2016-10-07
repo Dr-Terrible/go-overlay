@@ -5,14 +5,14 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/gpmgo"
-GOLANG_PKG_VERSION="1e95246706ab849c7fe2da15e2f7fac870346b7f"
+GOLANG_PKG_VERSION="93fb1b742e0103c38dabf68c6dd0b9e9a1da37a4"
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/Unknwon/cae:7f5e046"
+	"github.com/Unknwon/cae:c6aac99"
 	"github.com/Unknwon/com:28b053d"
-	"github.com/Unknwon/goconfig:5f601ca"
+	"github.com/Unknwon/goconfig:5aa4f8c"
 	"github.com/aybabtme/color:28ad4cc"
-	"github.com/codegangsta/cli:27ecc97" #v1.1.0
+	"github.com/urfave/cli:a14d7d3" #v1.18.1
 )
 
 inherit golang-single
