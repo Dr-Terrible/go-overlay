@@ -5,16 +5,13 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/opennota"
-GOLANG_PKG_VERSION="d848db686414d3454ddf1b467fccc3d26b99d3fa"
+GOLANG_PKG_VERSION="b5f08842adc93990b0f00afd00e97c8c87b53063"
 GOLANG_PKG_HAVE_TEST=1
 
 inherit golang-single
 
-DESCRIPTION="Transform regular expressions into finite state machines and output GoLang source code"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
+DESCRIPTION="Transforms regexs into finite state machines and output Go source code"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
-
-RESTRICT+=" test"
