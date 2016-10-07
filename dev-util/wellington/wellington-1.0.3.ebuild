@@ -10,10 +10,9 @@ GOLANG_PKG_OUTPUT_NAME="wt"
 GOLANG_PKG_BUILDPATH="/wt"
 GOLANG_PKG_LDFLAGS="-X github.com/wellington/wellington/version.Version=${PV}"
 GOLANG_PKG_USE_CGO=1
-GO15VENDOREXPERIMENT="1"
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/golang/net:c92cdcb -> golang.org/x"
+	"github.com/golang/net:f4b625e -> golang.org/x"
 )
 
 inherit golang-single
@@ -25,12 +24,4 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RESTRICT+=" test"
-
-DEPEND=">=dev-lang/go-1.5.3
-	!dev-go/wellington"
-
-src_configure() {
-	export GO15VENDOREXPERIMENT=1
-	golang-single_src_configure
-}
+DEPEND="!dev-go/wellington"
