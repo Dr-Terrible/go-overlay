@@ -5,13 +5,13 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/galeone"
-GOLANG_PKG_VERSION="adcbb96cc1a70c55772ce9d99193acb92b7ac61b"
+GOLANG_PKG_VERSION="0cb3c7cfc3df02cbd3f7d2d142c15c22e2239d6f"
 GOLANG_PKG_BUILDPATH="/cmd/${PN}"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/ChimeraCoder/gojson:e3edd6d"
-	"github.com/nerdzeu/nerdz-api:1591e0b"
+	"github.com/nerdzeu/nerdz-api:ae2b0d5"
 )
 
 inherit golang-single
