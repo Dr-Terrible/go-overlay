@@ -5,23 +5,20 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/dvyukov"
-GOLANG_PKG_VERSION="7076fcda38ec4a894e08ae5558cfa84288f60a25"
+GOLANG_PKG_VERSION="a1492872285877e5cd4e5e1c3ab91cfde3c89948"
 GOLANG_PKG_BUILDPATH="/${PN} /${PN}-build"
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/elazarl/go-bindata-assetfs:57eb5e1"
-	"github.com/golang/tools:a17fa84 -> golang.org/x"
+	"github.com/elazarl/go-bindata-assetfs:9a6736e"
+	"github.com/golang/tools:b5358b5 -> golang.org/x"
 )
 
 inherit golang-single
 
 DESCRIPTION="Go-fuzz is a coverage-guided fuzzing solution for testing of Go packages"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
 
 RESTRICT+=" test"
-
-DEPEND=">=dev-lang/go-1.5.1"
