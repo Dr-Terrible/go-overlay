@@ -4,14 +4,13 @@
 
 EAPI=6
 
-GOLANG_PKG_IMPORTPATH="github.com/xoebus"
-GOLANG_PKG_VERSION="1a5c7cc1705c9b10ceb37491cf4b35545eb83485"
+GOLANG_PKG_IMPORTPATH="github.com/contraband"
+GOLANG_PKG_VERSION="134c6506bb201ee587d7fcbfe287078c77e3cf42"
 GOLANG_PKG_HAVE_TEST=1
 
 inherit golang-single
 
 DESCRIPTION="Checks your Go dependencies for contraband licenses"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="MIT"
 SLOT="0"
