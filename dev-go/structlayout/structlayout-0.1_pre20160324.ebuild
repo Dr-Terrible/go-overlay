@@ -19,6 +19,7 @@ GOLANG_PKG_DEPENDENCIES=(
 inherit golang-single
 
 DESCRIPTION="An utility that prints the layout of a Go struct"
+HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${GOLANG_PKG_NAME}"
 
 LICENSE="BSD"
 SLOT="0"

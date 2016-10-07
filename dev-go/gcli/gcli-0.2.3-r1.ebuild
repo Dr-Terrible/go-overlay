@@ -27,7 +27,6 @@ GOLANG_PKG_DEPENDENCIES=(
 inherit golang-single
 
 DESCRIPTION="Gcli builds GoLang command-line applications"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="MIT"
 SLOT="0"

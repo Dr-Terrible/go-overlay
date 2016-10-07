@@ -9,7 +9,6 @@ GOLANG_PKG_VERSION="dbdd968e88d8c259a2e2dd03422e5ec58c79f48d"
 GOLANG_PKG_BUILDPATH="/cmd/${PN}"
 GOLANG_PKG_HAVE_TEST=1
 
-# Declare dependencies
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/gizak/termui:551f2e7"
 	"github.com/mattn/go-runewidth:d96d1bd"
@@ -19,7 +18,6 @@ GOLANG_PKG_DEPENDENCIES=(
 inherit golang-single
 
 DESCRIPTION="A visual interface to work with runtime profiling data for Go"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="Apache-2.0"
 SLOT="0"

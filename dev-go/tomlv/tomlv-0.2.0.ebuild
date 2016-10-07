@@ -13,6 +13,7 @@ GOLANG_PKG_HAVE_TEST=1
 inherit golang-single
 
 DESCRIPTION="A TOML validator written in GoLang"
+HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${GOLANG_PKG_NAME}"
 
 LICENSE="public-domain"
 SLOT="0"

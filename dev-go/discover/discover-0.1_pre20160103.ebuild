@@ -15,16 +15,7 @@ GOLANG_PKG_DEPENDENCIES=(
 inherit golang-single
 
 DESCRIPTION="Discover is a utility to aid in conceptualizing large Go code bases"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
-
-#src_test() {
-#	if has sandbox $FEATURES && has network-sandbox $FEATURES; then
-#		eerror "Some tests require 'sandbox', and 'network-sandbox' to be disabled in FEATURES."
-#	fi
-#
-#	golang-single_src_test
-#}
+KEYWORDS="~amd64 ~x86 ~arm"
