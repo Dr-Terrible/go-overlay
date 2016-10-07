@@ -6,7 +6,7 @@ EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/olebedev"
 GOLANG_PKG_NAME="go-${PN}"
-GOLANG_PKG_VERSION="d2ff818345f8dcd5df3c5319e5073915586e8ab2"
+GOLANG_PKG_VERSION="55fa18c4e63070a925cf2090e699d4e6edd80949"
 GOLANG_PKG_IS_MULTIPLE=1
 GOLANG_PKG_USE_CGO=1
 GOLANG_PKG_HAVE_TEST=1
@@ -15,7 +15,7 @@ GOLANG_PKG_HAVE_TEST=1
 GOLANG_PKG_DEPENDENCIES=(
 
 	# unit testing
-	"github.com/go-check/check:11d3bc7 -> gopkg.in/check.v1"
+	"github.com/go-check/check:4f90aea -> gopkg.in/check.v1"
 )
 
 inherit golang-single
