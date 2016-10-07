@@ -5,14 +5,12 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/FiloSottile"
-GOLANG_PKG_VERSION="09e9f5cb7502ba2c933818d7804dca14f9e11b9d"
-#GOLANG_PKG_IS_MULTIPLE=1
+GOLANG_PKG_VERSION="1f87bb350317842680fd7e0fdec64b4e14c79576"
 GOLANG_PKG_HAVE_TEST=1
-GOLANG_PKG_USE_GENERATE=1
 
 inherit golang-single
 
-DESCRIPTION="gvt is the go vendoring tool"
+DESCRIPTION="gvt is a simple vendoring tool made for Go native vendoring"
 
 LICENSE="MIT"
 SLOT="0"
