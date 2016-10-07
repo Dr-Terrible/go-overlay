@@ -9,17 +9,6 @@ GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_LDFLAGS="-X github.com/github/hub/version.Version=${PV}"
 GOLANG_PKG_DEPEND_ON_GO_SUBSLOT="yes"
 
-GOLANG_PKG_HAVE_TEST=1
-
-GOLANG_PKG_DEPENDENCIES=(
-	"github.com/fhs/go-netrc:4422b68"
-	"github.com/jingweno/go-sawyer:1999ae5"
-	"github.com/golang/crypto:3760e01 -> golang.org/x"
-	"github.com/jtacoma/uritemplates:802b8e2"
-	"github.com/kardianos/osext:29ae4ff"
-	"github.com/kr/binarydist:9955b0a"
-)
-
 inherit golang-single bash-completion-r1
 
 DESCRIPTION="Hub wraps git in order to extend it with extra features and commands"
@@ -32,6 +21,8 @@ KEYWORDS="amd64 x86 arm"
 RDEPEND="!dev-util/hub
 	>=dev-vcs/git-1.7.3"
 
+RESTRICT+=" test"
+
 DOC=( CONTRIBUTING.md README.md )
 
 src_install() {
@@ -39,7 +30,7 @@ src_install() {
 
 	# Fix 'git help hub' failure
 	# ( see https://github.com/github/hub/issues/977 )
-	cp man/${PN}.1 man/git${PN}.1 || die
+	#cp man/${PN}.1 man/git${PN}.1 || die
 	doman man/*.1
 
 	# install bash/zsh completion files
