@@ -5,13 +5,13 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="honnef.co/go"
-GOLANG_PKG_VERSION="4e4406f161a1bf5c12e243190843989e462fa07b"
+GOLANG_PKG_VERSION="02337b3080e043d43781e1a0d129df14848f9507"
 GOLANG_PKG_BUILDPATH="/cmd/${PN}"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/kisielk/gotool:94d5dba"
-	"github.com/golang/tools:9e74590 -> golang.org/x"
+	"github.com/kisielk/gotool:5e136de"
+	"github.com/golang/tools:b5358b5 -> golang.org/x"
 	"github.com/dominikh/go-lint:a730e73 -> honnef.co/go"
 )
 
