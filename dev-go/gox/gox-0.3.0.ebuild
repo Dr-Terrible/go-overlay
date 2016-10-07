@@ -16,7 +16,6 @@ GOLANG_PKG_DEPENDENCIES=(
 inherit golang-single
 
 DESCRIPTION="A dead simple, no frills Go cross compile tool"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="MPL-2.0"
 SLOT="0"

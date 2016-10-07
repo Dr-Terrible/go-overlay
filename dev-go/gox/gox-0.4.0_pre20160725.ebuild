@@ -5,7 +5,7 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/mitchellh"
-GOLANG_PKG_VERSION="39862d88e853ecc97f45e91c1cdcb1b312c51eaa"
+GOLANG_PKG_VERSION="c9740af9c6574448fd48eb30a71f964014c7a837"
 GOLANG_PKG_HAVE_TEST=1
 
 # Declare dependencies
@@ -16,7 +16,6 @@ GOLANG_PKG_DEPENDENCIES=(
 inherit golang-single
 
 DESCRIPTION="A dead simple, no frills Go cross compile tool"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="MPL-2.0"
 SLOT="0"
