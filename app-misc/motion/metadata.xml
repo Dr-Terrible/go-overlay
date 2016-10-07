@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>pigfoot@gmail.com</email>
+		<name>Chen, Chih-Chia</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/fatih/motion/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		Motion is a tool that was designed to work with editors. It is providing
+		contextual information for a given offset(option) from a file or directory
+		of files.
+		
+		Editors can use these informations to implement navigation, text editing,
+		etc... that are specific to a Go source code.
+
+		It's optimized and created to work with vim-go, but it's designed to work
+		with any editor. It's currently work in progress and open to change.
+	</longdescription>
+</pkgmetadata>
