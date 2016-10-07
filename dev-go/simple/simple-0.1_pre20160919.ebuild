@@ -5,14 +5,14 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="honnef.co/go"
-GOLANG_PKG_VERSION="56d5bf64050e1bf7f8f7b628b62c96821a692937"
+GOLANG_PKG_VERSION="e4b33f62951a263109be351a6e7f516df082e667"
 GOLANG_PKG_BUILDPATH="/cmd/go${PN}"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/kisielk/gotool:94d5dba"
+	"github.com/kisielk/gotool:5e136de"
 	"github.com/dominikh/go-lint:a730e73 -> honnef.co/go"
-	"github.com/golang/tools:9e74590 -> golang.org/x"
+	"github.com/golang/tools:b5358b5 -> golang.org/x"
 )
 
 # (Ugly hack) Must be declared before the inherit since we're
