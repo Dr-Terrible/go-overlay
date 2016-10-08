@@ -831,7 +831,7 @@ golang-base_src_test() {
 
 	# Defines sub-packages.
 	local EGO_SUBPACKAGES="${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
-	[[ -n ${GOLANG_PKG_IS_MULTIPLE} ]] || EGO_SUBPACKAGES="./..."
+	[[ -z ${GOLANG_PKG_IS_MULTIPLE} ]] || EGO_SUBPACKAGES="./..."
 
 	# Runs the unit tests.
 	einfo "${EGO} test ${EGO_BUILD_FLAGS} ${EGO_SUBPACKAGES}"
