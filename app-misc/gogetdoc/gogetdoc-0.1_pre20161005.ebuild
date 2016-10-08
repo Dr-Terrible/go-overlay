@@ -9,7 +9,7 @@ GOLANG_PKG_VERSION="54e15dfc8cfdb34d9c674721999d302286e85e62"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-    "github.com/golang/tools:b5358b5 -> golang.org/x"
+	"github.com/golang/tools:b5358b5 -> golang.org/x"
 )
 
 inherit golang-single
