@@ -14,6 +14,8 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/kardianos/osext:c2c54e5"
 	"github.com/urfave/cli:a14d7d3" #v1.18.1
 	"github.com/golang/crypto:81372b2 -> golang.org/x"
+	"github.com/golang/sync:316e794 -> golang.org/x"
+	"github.com/golang/net:6d3beae -> golang.org/x"
 )
 
 inherit golang-single
