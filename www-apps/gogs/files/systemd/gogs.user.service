@@ -4,14 +4,11 @@ Documentation=https://gogs.io
 
 [Service]
 ExecStartPre=/usr/bin/install -d -m700 %h/.config/gogs
-#ExecStartPre=/usr/bin/install -d -m700 %h/gogs
 ExecStartPre=/bin/cp -n /etc/gogs/conf/app.user.ini %h/.config/gogs/app.ini
 ExecStartPre=/bin/sed -i 's|<user>|%u|' %h/.config/gogs/app.ini
 ExecStartPre=/bin/sed -i 's|<home>|%h|' %h/.config/gogs/app.ini
 
-#Environment="GOGS_WORK_DIR=%h/gogs"
 Environment="GOGS_CUSTOM=%h/.config/gogs"
-#Environment="RUN_USER=%u"
 ExecStart=/usr/bin/gogs web --config %h/.config/gogs/app.ini
 Restart=always
 
