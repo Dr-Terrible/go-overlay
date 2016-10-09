@@ -4,48 +4,45 @@
 
 EAPI=6
 
-GOLANG_PKG_IMPORTPATH="github.com/stargrave"
-GOLANG_PKG_BUILDPATH="/src/${PN}/cmd/..."
-GOLANG_PKG_IS_MULTIPLE=1
-GOLANG_PKG_HAVE_TEST=1
-GOLANG_PKG_LDFLAGS="-X govpn.Version=${PV}"
+ALIAS="cypherpunks.ru"
 
-# Declares dependencies
+GOLANG_PKG_IMPORTPATH="github.com/stargrave"
+GOLANG_PKG_BUILDPATH="/cmd/${PN}-client /cmd/${PN}-server /cmd/${PN}-verifier"
+GOLANG_PKG_LDFLAGS="-X cypherpunks.ru/govpn.Version=${PV}"
+GOLANG_PKG_HAVE_TEST=1
+
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/agl/ed25519:278e1ec"
-	"github.com/songgao/water:e7338c3 -> github.com/bigeagle"
+	"github.com/bigeagle/water:36aebfe"
 	"github.com/dchest/blake2b:3c8c640"
-	"github.com/magical/argon2:82d59eb"
-	"github.com/golang/crypto:f18420e -> golang.org/x"
+	"github.com/golang/crypto:0e31b18 -> golang.org/x"
+	"github.com/go-yaml/yaml:e4d366f -> gopkg.in/yaml.v2"
+	"github.com/stargrave/balloon:9e7f630 -> ${ALIAS}"
 )
 
 inherit systemd golang-single
 
 DESCRIPTION="Simple secure free software VPN daemon"
-HOMEPAGE="http://www.cypherpunks.ru/govpn"
+HOMEPAGE="http://www.govpn.info"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE+=" doc"
 
-DEPEND=">=dev-lang/go-1.5.1
-doc? (
+DEPEND="doc? (
 	sys-apps/texinfo
 	media-gfx/plantuml
 )"
 
-GOLANG_PKG_VENDOR=(
-	"${S}"
-)
-
 src_prepare() {
 	golang-single_src_prepare
 
-	sed -i \
-			-e "s:/storekey.sh:/${PN}-storekey.sh:" \
-			utils/newclient.sh \
-			|| die
+	# Move cybersphere.ru/ inside the GOPATH,
+	# and export it as an importpath alias
+	mkdir -p "${ALIAS}" || die
+	mv "${S}"/src/${ALIAS}/${PN} ${GOPATH}/src/${ALIAS}/ || die
+	export GOLANG_PKG_IMPORTPATH_ALIAS="$ALIAS"
 }
 
 src_install() {
@@ -61,5 +58,4 @@ src_install() {
 
 	# install utils
 	newbin "${S}"/utils/newclient.sh ${PN}-newclient.sh
-	newbin "${S}"/utils/storekey.sh ${PN}-storekey.sh
 }
