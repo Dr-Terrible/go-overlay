@@ -1,0 +1,8 @@
+--- /_config.yml.orig	2016-10-09 01:44:46.279363582 +0200
++++ /_config.yml	2016-10-09 01:45:06.671642366 +0200
+@@ -3,3 +3,5 @@
+ highlighter: pygments
+ baseurl: ''
+ markdown: kramdown
++gems:
++  - jekyll-gist
