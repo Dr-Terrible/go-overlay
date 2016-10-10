@@ -12,7 +12,6 @@ GOLANG_PKG_HAVE_TEST=1
 inherit golang-single
 
 DESCRIPTION="Go implemented CLI cURL-like tool for humans"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="Apache-2.0"
 SLOT="0"

@@ -9,16 +9,15 @@ GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_USE_CGO=1
 GOLANG_PKG_HAVE_TEST=1
 
-GOLANG_PKG_DEPENDENCIES=(
-	# Fix compilation errors due to outdated dependencis in Godeps
-	"github.com/mattbaird/elastigo:bd9e895"
-	"github.com/araddon/gou:101410571b"
-)
+#GOLANG_PKG_DEPENDENCIES=(
+#	# Fix compilation errors due to outdated dependencis in Godeps
+#	"github.com/mattbaird/elastigo:bd9e895"
+#	"github.com/araddon/gou:101410571b"
+#)
 
 inherit golang-single
 
 DESCRIPTION="A n:m message multiplexer written in GoLang"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="Apache-2.0"
 SLOT="0"

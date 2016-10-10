@@ -11,7 +11,6 @@ GOLANG_PKG_HAVE_TEST=1
 inherit golang-single
 
 DESCRIPTION="Command-line tool for DuckDuckGo API"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="MIT"
 SLOT="0"
