@@ -5,28 +5,31 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/coreos"
+GOLANG_PKG_VERSION="${PV//_alpha/-alpha.}"
 GOLANG_PKG_ARCHIVEPREFIX="v"
-GOLANG_PKG_BUILDPATH="/cmd/${PN}-worker /cmd/${PN}ctl /cmd/${PN}-overlord"
-GOLANG_PKG_LDFLAGS="-X main.version=v${PV}"
+GOLANG_PKG_BUILDPATH="/cmd/${PN}"
+GOLANG_PKG_LDFLAGS="-X ${GOLANG_PKG_IMPORTPATH}/${PN}/version.Version=${PV//_alpha/-alpha}"
+GOLANG_PKG_TAGS="libsqlite3"
+GOLANG_PKG_USE_CGO=1
 GOLANG_PKG_HAVE_TEST=1
 
 inherit golang-single
 
-DESCRIPTION="Dex is a Federated Indentity Provider written in GoLang"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
+DESCRIPTION="Dex is a Federated Indentity Provider"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 x86 arm"
+KEYWORDS="~amd64 ~x86 ~arm"
+IUSE="icu"
+
+RESTRICT+=" test"
 
 DEPEND="!dev-go/dex
 	dev-go/go-bindata"
+RDEPEND="dev-db/sqlite:3[icu?]"
 
 src_compile() {
-	ebegin "Building binary data"
-		go-bindata -debug=false -modtime=1 -pkg migrations -o ./db/migrations/assets.go ./db/migrations || die
-	eend
-
+	use icu && GOLANG_PKG_TAGS+=" icu"
 	golang-single_src_compile
 }
 
