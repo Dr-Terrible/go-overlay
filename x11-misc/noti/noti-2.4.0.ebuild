@@ -5,11 +5,12 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/variadico"
+GOLANG_PKG_BUILDPATH="/cmd/noti"
 GOLANG_PKG_ARCHIVEPREFIX="v"
 
 inherit golang-single
 
-DESCRIPTION="Display a notification when a terminal process finishes. "
+DESCRIPTION="Display a notification when a terminal process finishes"
 
 LICENSE="MIT"
 SLOT="0"
