@@ -10,7 +10,6 @@ GOLANG_PKG_ARCHIVEPREFIX="v"
 inherit golang-single
 
 DESCRIPTION="A simple command-line tool that turns your CLI tools into web applications"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="MIT"
 SLOT="0"
