@@ -5,7 +5,7 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/DanielKrawisz"
-GOLANG_PKG_VERSION="7d114c25c4daf5660d51bf17f62b2ff16fbf5168"
+GOLANG_PKG_VERSION="62b55fc4882455b68fa0c00342628c2477390509"
 GOLANG_PKG_IS_MULTIPLE=1
 GOLANG_PKG_HAVE_TEST=1
 GOLANG_PKG_USE_GENERATE=1
@@ -15,8 +15,8 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/DanielKrawisz/maxrate:fae0eea"
 	"github.com/boltdb/bolt:ee716d1" #v1.1.0
 	"github.com/btcsuite/btcd:cea5d3c" #v0.12.0
-	"github.com/golang/protobuf:8d92cf5"
-	"github.com/grpc/grpc-go:9e3a674"
+	"github.com/golang/protobuf:545732f"
+	"github.com/grpc/grpc-go:4c2aaab"
 	"github.com/jessevdk/go-flags:6b9493b"
 	"github.com/golang/crypto:c197bcf -> golang.org/x"
 	"github.com/golang/net:35b06af -> golang.org/x"
