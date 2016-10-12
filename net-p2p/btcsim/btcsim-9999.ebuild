@@ -9,7 +9,7 @@ GOLANG_PKG_HAVE_TEST=1
 
 inherit golang-live
 
-DESCRIPTION="btcsim implements a simulation test driver using the simnet network provided by btcd"
+DESCRIPTION="Implements a simulation test driver using the simnet network provided by btcd"
 HOMEPAGE="https://btcsuite.github.io"
 
 LICENSE="ISC"

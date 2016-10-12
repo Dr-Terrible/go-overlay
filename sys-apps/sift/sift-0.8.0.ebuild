@@ -12,7 +12,7 @@ GOLANG_PKG_HAVE_TEST=1
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/svent/go-flags:4bcbad3"
 	"github.com/svent/go-nbreader:7cef48d"
-	"github.com/golang/crypto:1f22c01 -> golang.org/x"
+	"github.com/golang/crypto:d172538 -> golang.org/x"
 )
 
 inherit golang-single
