@@ -7,7 +7,7 @@ EAPI=6
 GOLANG_PKG_IMPORTPATH="github.com/DanielKrawisz"
 GOLANG_PKG_IS_MULTIPLE=1
 GOLANG_PKG_HAVE_TEST=1
-GOLANG_PKG_USE_GENERATE=1
+#GOLANG_PKG_USE_GENERATE=1
 
 inherit golang-live
 
@@ -17,4 +17,4 @@ LICENSE="ISC"
 SLOT="0"
 KEYWORDS=""
 
-DEPEND=">=dev-go/gogo-protobuf-0.2"
+#DEPEND="=dev-go/gogo-protobuf-0.2"
