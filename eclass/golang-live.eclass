@@ -92,7 +92,7 @@ golang-live_src_unpack() {
 	[[ -n ${EVCS_UMASK} ]] && eumask_pop
 
 	# Retrieves the GOLANG_PKG_IMPORTPATH go package.
-	golang-live_src_fetch "${GOLANG_PKG_IMPORTPATH}/${GOLANG_PKG_NAME}"
+	golang-live_src_fetch "${GOLANG_PKG_IMPORTPATH}/${GOLANG_PKG_NAME}"/...
 
 	# Creates SOURCE directory.
 	mkdir -p "${S}" || die
