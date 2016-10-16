@@ -16,8 +16,6 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64 x86 arm"
 
-RDEPEND="!dev-go/go-md2man"
-
 src_install() {
 	golang-single_src_install
 
