@@ -22,7 +22,7 @@ IUSE+=" +seccomp apparmor selinux"
 
 RESTRICT+=" test"
 
-DEPEND="app-text/go-md2man"
+DEPEND="dev-go/go-md2man"
 RDEPEND="apparmor? ( sys-libs/libapparmor )
 	seccomp? ( sys-libs/libseccomp )
 	selinux? ( sys-libs/libselinux )"
