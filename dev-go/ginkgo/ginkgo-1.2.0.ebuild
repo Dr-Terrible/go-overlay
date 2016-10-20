@@ -25,4 +25,4 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64"
 
-DEPEND="test? ( dev-util/go-tools )"
+DEPEND="test? ( dev-go/go-tools )"

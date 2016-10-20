@@ -9,8 +9,8 @@ app-crypt/keybase 1.0.17-r50: Client for keybase.io
 app-editors/lime-qml 20150428: QML frontend for Lime text editor.
 app-editors/lime-termbox 20150428: Termbox frontend for Lime text editor.
 app-editors/liteide 27.2.1: LiteIDE is a simple, open source, cross-platform Go IDE.
-app-editors/micro 1.1.0: A modern and intuitive terminal-based text editor
-app-editors/srclib 0.0.40: A hackable, multilange code analysis library for building better software tools
+app-editors/micro 1.1.1: A modern and intuitive terminal-based text editor
+app-editors/srclib 0.2.5: A hackable, multilange code analysis library for building better software tools
 app-emulation/packer 0.10.2: Packer is a tool for creating identical machine images for multiple platforms
 app-emulation/runc 0.1.1-r51 1.0.0_rc2-r50: A CLI tool for spawning and running containers according to the OCF specs
 app-misc/asciinema 1.2.0: A terminal session recorder for asciinema.org service
@@ -41,6 +41,7 @@ dev-go/Go-Package-Store 0.1.0_pre20151209 0.1.0_pre20160119: An app that display
 dev-go/anderson 0.1_pre20160709: Checks your Go dependencies for contraband licenses
 dev-go/apimock 0.1_pre20160828: A mock API server
 dev-go/asmfmt 1.1: Go assembler formatter
+dev-go/bee 1.5.2: Bee is a tool for helping develop with beego app framework
 dev-go/cgogen 0.1.0_pre20160923: Automatic CGo Bindings Generator for Golang
 dev-go/codecgen 0.1_pre20160928: Idiomatic codec and rpc lib for msgpack, cbor, json, etc. msgpack.org
 dev-go/depscheck 0.1.0_pre20160406: Prints stats and suggests to remove small LeftPad-like imports from Go packages
@@ -57,6 +58,7 @@ dev-go/go-bindata-assetfs 0.1.0_pre20151224: A small utility for embedding binar
 dev-go/go-fuzz 0.1_pre20160928: Go-fuzz is a coverage-guided fuzzing solution for testing of Go packages
 dev-go/go-md2man 1.0.6: Command-line tool to convert Markdown into UNIX man pages
 dev-go/go-protobuf 0.1_pre20160927: Go support for Google's protocol buffers
+dev-go/go-tools 0_pre20161016: Various packages and tools that support the Go programming language
 dev-go/go-torch 0.5.0_pre20160909: Stochastic flame graph profiler for Go Programs
 dev-go/goa 0.0.1_pre20160218: Goa is a framework for building RESTful microservices in Go
 dev-go/gocode 2015.03.03: An autocompletion daemon for the Go programming language
@@ -69,6 +71,7 @@ dev-go/gore 0.2.5 0.2.6: A REPL for Golang
 dev-go/gostatus 0.1.0_pre20160915: A command-line tool that show the status of GoLang repositories
 dev-go/gotests 1.4.0: It's a Golang commandline tool that generates table driven tests
 dev-go/goviz 0.1.0_pre20140425: Goviz is a visualization tool for Golang project dependencies
+dev-go/govvv 0.2.0: "go build" wrapper to add version info to Golang applications
 dev-go/gox 0.3.0 0.4.0_pre20160725: A dead simple, no frills Go cross compile tool
 dev-go/goxc 0.18.1-r1: Goxc is a build tool for GoLange, with a focus on cross-compiling and packaging
 dev-go/grind 0.1.0_pre20150302: Grind rewrites the source files written in GoLang.
@@ -102,7 +105,6 @@ dev-util/gas 0.1_pre20160906: Inspects golang source code for security problems.
 dev-util/ghfs 0.1_pre20150217: Ghfs is a user space filesystem that overlays the GitHub API
 dev-util/github-release 0.6.2: CLI to create and edit releases on Github
 dev-util/go-swagger 0.3.0 0.5.0 0.5.9 0.6.0: Swagger 2.0 implementation for GoLang
-dev-util/go-tools 20161007: Various packages and tools that support the Go programming language
 dev-util/goconst 0.1_pre20160514: Find repeated strings that could be replaced by a constant.
 dev-util/gocyclo 0.1_pre20150627: Calculate cyclomatic complexities of functions in Go source code
 dev-util/godef 0.1_pre20160620: Godef prints where symbols are defined in Go source code
@@ -138,22 +140,22 @@ net-misc/hoverfly 0.5.11 0.8.2: Hoverfly is a lightweight, open source service v
 net-misc/httpstat 1.0.0: It's like curl -v, with colours
 net-misc/nsq 0.3.8: A real-time distributed messaging platform, written in GoLang
 net-misc/wsd 0.0.0_pre20150722: Simple cURL-like command line utility for debugging WebSocket servers
-net-nds/dex 0.2.3 0.6.1 2.0.0_alpha2: Dex is a Federated Indentity Provider
-net-p2p/bmagent 9999-r1: Client for bmd, functions as IMAP/SMTP server
-net-p2p/bmd 0.1.0_pre20160602 9999-r4: bmd is a collection of Bitmessage tools inspired by btcsuite
+net-nds/dex 2.0.0_alpha2: Dex is a Federated Indentity Provider
+net-p2p/bmagent 9999-r2: Client for bmd, functions as IMAP/SMTP server
+net-p2p/bmd 0.1.0_pre20160605-r1 9999-r5: bmd is a collection of Bitmessage tools inspired by btcsuite
 net-p2p/btcd 0.12.0-r1 9999: An alternative full node bitcoin implementation written in Go
-net-p2p/btcgui 9999: btcgui is a graphical client for btcwallet and btcd
-net-p2p/btcsim 0.1_pre20150902 9999: btcsim implements a simulation test driver using the simnet network provided by btcd
-net-p2p/cloud-torrent 0.8.10: Cloud Torrent is a self-hosted remote torrent client, written in GoLang
+net-p2p/btcsim 0.1_pre20150902 9999: Implements a simulation test driver using the simnet network provided by btcd
+net-p2p/cloud-torrent 0.8.11: Cloud Torrent is a self-hosted remote torrent client, written in GoLang
 net-p2p/syncthing 0.11.26-r1 0.12.25-r10 0.13.10-r10 0.14.3-r10: Syncthing is an app that lets you synchronize your files across multiple devices
 net-p2p/syncthing-cli 0.1.0_pre20150922-r1: SyncThing command-line interface
 net-p2p/syncthing-inotify 0.6.8-r2 0.8 0.8.2 0.8.3: File watcher intended for use with Syncthing
-net-print/cups-connector 2016.01.02: Google Cloud Print CUPS Connector
+net-print/cloud-print-connector 2016.01.02-r1: Google Cloud Print CUPS Connector
 sys-apps/sift 0.8.0: A fast and powerful open source alternative to grep
-sys-devel/calc 20150422: A simple, fast command-line calculator written in GoLang
-sys-devel/delve 0.9.0-r1 0.11.0: Delve is a debugger for the Go programming language
-sys-devel/gcvis 0.1.0_pre20150714 0.1.0_pre20151111: Visualise Go program Garbage Collector trace data in real-time.
+sys-devel/calc 0.1_pre20160311: A simple, fast command-line calculator written in GoLang
+sys-devel/delve 0.11.0 0.12.0_pre20161004: Delve is a debugger for the Go programming language
+sys-devel/gcvis 0.1.0_pre20160427: Visualise Go program Garbage Collector trace data in real-time.
 www-apps/gogs 0.8.43-r1 0.9.48 0.9.97: Gogs is a self-hosted Git service written in Go
-www-apps/gotty 0.0.12: A simple command-line tool that turns your CLI tools into web applications
+www-apps/gotty 0.0.13: A simple command-line tool that turns your CLI tools into web applications
 www-apps/hugo 0.14-r4 0.15-r3 0.16-r1 0.17: A fast and flexible static site generator built in GoLang
-x11-misc/noti 2.3.0: Display a notification when a terminal process finishes.
+www-servers/caddy 0.8.3 0.9.3: Fast, cross-platform HTTP/2 web server with automatic HTTPS
+x11-misc/noti 2.4.0: Display a notification when a terminal process finishes

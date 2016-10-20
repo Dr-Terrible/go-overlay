@@ -24,7 +24,7 @@ IUSE_PROVISIONERS="+file +local-exec +remote-exec"
 IUSE+=" $IUSE_PROVIDERS $IUSE_PROVISIONERS $COMMON_IUSE"
 
 # go-tools and codecgen are required by "go:generate stringer" directive
-#DEPEND="dev-util/go-tools
+#DEPEND="dev-go/go-tools
 #	dev-go/codecgen"
 
 src_compile() {

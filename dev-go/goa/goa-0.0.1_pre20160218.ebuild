@@ -43,7 +43,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
 
-RDEPEND="dev-util/go-tools"
+RDEPEND="dev-go/go-tools"
 
 src_test() {
 	if has network-sandbox $FEATURES; then

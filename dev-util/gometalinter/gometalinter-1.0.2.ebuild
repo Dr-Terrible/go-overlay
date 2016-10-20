@@ -26,7 +26,7 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="amd64 x86 arm"
 
-RDEPEND="dev-util/go-tools
+RDEPEND="dev-go/go-tools
 	dev-util/deadcode
 	dev-util/gocyclo
 	dev-util/golint

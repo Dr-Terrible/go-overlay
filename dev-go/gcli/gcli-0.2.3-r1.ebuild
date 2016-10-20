@@ -33,7 +33,7 @@ SLOT="0"
 KEYWORDS="amd64 x86 arm"
 
 DEPEND="dev-go/go-bindata
-	test? ( dev-util/go-tools )"
+	test? ( dev-go/go-tools )"
 
 PATCHES=(
 	"${FILESDIR}/${PN}.patch"

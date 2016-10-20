@@ -35,7 +35,7 @@ CDEPEND="dev-db/sqlite:3"
 DEPEND="${CDEPEND}
 	dev-go/go-bindata"
 RDEPEND="${CDEPEND}
-	dev-util/go-tools"
+	dev-go/go-tools"
 
 src_compile() {
 	# generate templates
