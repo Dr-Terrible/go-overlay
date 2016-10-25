@@ -11,6 +11,7 @@ app-editors/lime-termbox 20150428: Termbox frontend for Lime text editor.
 app-editors/liteide 27.2.1: LiteIDE is a simple, open source, cross-platform Go IDE.
 app-editors/micro 1.1.1: A modern and intuitive terminal-based text editor
 app-editors/srclib 0.2.5: A hackable, multilange code analysis library for building better software tools
+app-emulation/cinf 0.4.0: A tool to view namespaces and cgroups, useful for low-level container prodding
 app-emulation/packer 0.10.2: Packer is a tool for creating identical machine images for multiple platforms
 app-emulation/runc 0.1.1-r51 1.0.0_rc2-r50: A CLI tool for spawning and running containers according to the OCF specs
 app-misc/asciinema 1.2.0: A terminal session recorder for asciinema.org service
@@ -42,6 +43,7 @@ dev-go/anderson 0.1_pre20160709: Checks your Go dependencies for contraband lice
 dev-go/apimock 0.1_pre20160828: A mock API server
 dev-go/asmfmt 1.1: Go assembler formatter
 dev-go/bee 1.5.2: Bee is a tool for helping develop with beego app framework
+dev-go/benthos 0.0.2: A persistent stream buffer
 dev-go/cgogen 0.1.0_pre20160923: Automatic CGo Bindings Generator for Golang
 dev-go/codecgen 0.1_pre20160928: Idiomatic codec and rpc lib for msgpack, cbor, json, etc. msgpack.org
 dev-go/depscheck 0.1.0_pre20160406: Prints stats and suggests to remove small LeftPad-like imports from Go packages
