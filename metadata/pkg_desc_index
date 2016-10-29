@@ -87,6 +87,7 @@ dev-go/revel-cli 0.12.0-r1 0.13.1: Command-line tool for Revel framework
 dev-go/rts 0.1.0_pre20160617: Generates Go structs from JSON server responses
 dev-go/safesql 0.1.0_pre20160304: Static analysis tool for GoLang that protects against SQL injections
 dev-go/simple 0.1_pre20160919: Gosimple is a linter for Go source code that specialises on simplifying code
+dev-go/staticfiles 0_pre20160903: staticfiles compiles a directory of files into an embeddable .go file
 dev-go/statik 0.1.0 0.2.0_pre20160906: statik embeds static files into a GoLang executable
 dev-go/structlayout 0.1_pre20160324: An utility that prints the layout of a Go struct
 dev-go/tomlv 0.2.0: A TOML validator written in GoLang
@@ -106,6 +107,7 @@ dev-util/forego 0.16.1-r1: Foreman written in GoLang
 dev-util/gas 0.1_pre20160906: Inspects golang source code for security problems.
 dev-util/ghfs 0.1_pre20150217: Ghfs is a user space filesystem that overlays the GitHub API
 dev-util/github-release 0.6.2: CLI to create and edit releases on Github
+dev-util/go-raml-mocker 1.0.4: RAML (1.0) web mock server implementation in Go
 dev-util/go-swagger 0.3.0 0.5.0 0.5.9 0.6.0: Swagger 2.0 implementation for GoLang
 dev-util/goconst 0.1_pre20160514: Find repeated strings that could be replaced by a constant.
 dev-util/gocyclo 0.1_pre20150627: Calculate cyclomatic complexities of functions in Go source code
@@ -158,6 +160,6 @@ sys-devel/delve 0.11.0 0.12.0_pre20161004: Delve is a debugger for the Go progra
 sys-devel/gcvis 0.1.0_pre20160427: Visualise Go program Garbage Collector trace data in real-time.
 www-apps/gogs 0.8.43-r1 0.9.48 0.9.97: Gogs is a self-hosted Git service written in Go
 www-apps/gotty 0.0.13: A simple command-line tool that turns your CLI tools into web applications
-www-apps/hugo 0.14-r4 0.15-r3 0.16-r1 0.17: A fast and flexible static site generator built in GoLang
+www-apps/hugo 0.14-r4 0.15-r3 0.16-r1 0.17 0.18_pre20161024: A fast and flexible static site generator built in GoLang
 www-servers/caddy 0.8.3 0.9.3: Fast, cross-platform HTTP/2 web server with automatic HTTPS
 x11-misc/noti 2.4.0: Display a notification when a terminal process finishes
