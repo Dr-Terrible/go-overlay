@@ -129,6 +129,7 @@ dev-util/misspell 0.1_pre20160927: Correct commonly misspelled words in source f
 dev-util/orange-cat 0.2.2-r1: A Markdown previewer written in GoLang
 dev-util/pcstat 0.1_pre20160126: Page Cache stat: get page cache stats for files on Linux
 dev-util/pipecat 0.2: Pipecat allows you to scale any program using traditional UNIX pipes and AMQP
+dev-util/shfmt 0_pre20161029: A shell parser and formatter for POSIX shell and bash
 dev-util/staticcheck 0.1.0_pre20160811: A Golang tool for statically checking the inputs to certain functions
 dev-util/unconvert 0.1_pre20160804: Remove unnecessary type conversions from Go source
 dev-util/wellington 1.0.3: Wellington is a CSS preprocessor with spriting and based on libsass
