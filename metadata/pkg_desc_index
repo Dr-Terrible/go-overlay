@@ -108,6 +108,7 @@ dev-util/flint 0.0.4 0.0.5_pre20160327: Check your project for common sources of
 dev-util/forego 0.16.1-r1: Foreman written in GoLang
 dev-util/gas 0.1_pre20160906: Inspects golang source code for security problems.
 dev-util/ghfs 0.1_pre20150217: Ghfs is a user space filesystem that overlays the GitHub API
+dev-util/gini 0.1_pre20161014: A fast SAT solver
 dev-util/github-release 0.6.2: CLI to create and edit releases on Github
 dev-util/go-raml-mocker 1.0.4: RAML (1.0) web mock server implementation in Go
 dev-util/go-swagger 0.3.0 0.5.0 0.5.9 0.6.0: Swagger 2.0 implementation for GoLang
