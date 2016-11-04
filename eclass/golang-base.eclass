@@ -719,8 +719,7 @@ golang-base_src_compile() {
 	# Defines the output binary name of the package.
 	# If the package is a multiple package then this eclass doesn't specify
 	# the output name.
-	# [[ -z ${GOLANG_PKG_BUILDPATH} ]] && EGO_BUILD_FLAGS+=
-	EGO_BUILD_FLAGS+=" -o ${GOBIN}/${GOLANG_PKG_OUTPUT_NAME}"
+	#[[ -z ${GOLANG_PKG_BUILDPATH} ]] && EGO_BUILD_FLAGS+=" -o ${GOBIN}/${GOLANG_PKG_OUTPUT_NAME}"
 
 	# Builds the package.
 	einfo "Compiling package(s):"

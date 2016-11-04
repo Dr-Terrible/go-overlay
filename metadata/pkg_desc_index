@@ -62,7 +62,7 @@ dev-go/go-carpet 1.4: Shows test coverage for Go source files
 dev-go/go-fuzz 0.1_pre20160928: Go-fuzz is a coverage-guided fuzzing solution for testing of Go packages
 dev-go/go-md2man 1.0.6: Command-line tool to convert Markdown into UNIX man pages
 dev-go/go-protobuf 0.1_pre20160927: Go support for Google's protocol buffers
-dev-go/go-tools 0_pre20161016: Various packages and tools that support the Go programming language
+dev-go/go-tools 0_pre20161104: Various packages and tools that support the Go programming language
 dev-go/go-torch 0.5.0_pre20160909: Stochastic flame graph profiler for Go Programs
 dev-go/goa 0.0.1_pre20160218: Goa is a framework for building RESTful microservices in Go
 dev-go/gocode 2015.03.03: An autocompletion daemon for the Go programming language
