@@ -12,7 +12,7 @@
 # This eclass is written to ease the maintenance of live ebuilds
 # of software written in the Go programming language.
 
-inherit golang-base
+inherit golang-common
 
 EXPORT_FUNCTIONS src_prepare src_unpack src_configure src_compile src_install src_test
 
@@ -113,7 +113,7 @@ golang-live_src_prepare() {
 		cp -r "${EGO_LIVESTORE_DIR}/src" "${GOPATH}" || die "Unable to copy sources to ${GOPATH}"
 	eend
 
-	golang-base_src_prepare
+	golang-common_src_prepare
 }
 
 
@@ -123,7 +123,7 @@ golang-live_src_prepare() {
 golang-live_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	golang-base_src_configure
+	golang-common_src_configure
 }
 
 # @FUNCTION: golang-live_src_compile
@@ -132,7 +132,7 @@ golang-live_src_configure() {
 golang-live_src_compile() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	golang-base_src_compile
+	golang-common_src_compile
 }
 
 # @FUNCTION: golang-live_src_install
@@ -141,7 +141,7 @@ golang-live_src_compile() {
 golang-live_src_install() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	golang-base_src_install
+	golang-common_src_install
 }
 
 # @FUNCTION: golang-live_src_test
@@ -150,7 +150,7 @@ golang-live_src_install() {
 golang-live_src_test() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	golang-base_src_test
+	golang-common_src_test
 }
 
 

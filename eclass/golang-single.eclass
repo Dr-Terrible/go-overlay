@@ -63,7 +63,7 @@
 # @CODE
 
 
-inherit golang-base
+inherit golang-common
 
 EXPORT_FUNCTIONS src_prepare src_unpack src_configure src_compile src_install src_test
 
@@ -143,7 +143,7 @@ golang-single_src_prepare() {
 	# Sets up GoLang build environment.
 	golang_setup
 
-	golang-base_src_prepare
+	golang-common_src_prepare
 }
 
 # @FUNCTION: golang-single_src_configure
@@ -152,7 +152,7 @@ golang-single_src_prepare() {
 golang-single_src_configure() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	golang-base_src_configure
+	golang-common_src_configure
 }
 
 # @FUNCTION: golang-single_src_compile
@@ -161,7 +161,7 @@ golang-single_src_configure() {
 golang-single_src_compile() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	golang-base_src_compile
+	golang-common_src_compile
 }
 
 # @FUNCTION: golang-single_src_install
@@ -170,7 +170,7 @@ golang-single_src_compile() {
 golang-single_src_install() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	golang-base_src_install
+	golang-common_src_install
 }
 
 # @FUNCTION: golang-single_src_test
@@ -179,7 +179,7 @@ golang-single_src_install() {
 golang-single_src_test() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	golang-base_src_test
+	golang-common_src_test
 }
 
 fi
