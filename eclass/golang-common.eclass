@@ -716,13 +716,14 @@ golang-common_src_compile() {
 	local EGO_BUILD_FLAGS="$( echo ${EGO_VERBOSE} ) $( echo ${EGO_PARALLEL} ) $( echo ${EGO_EXTRA_OPTIONS} )"
 	[[ -n ${EGO_INSTALLSUFFIX} ]] && EGO_BUILD_FLAGS+=" $( echo ${EGO_INSTALLSUFFIX} )"
 
-	# Builds the package.
+	# Detects the total number of packages.
 	local pkgs=0 ifs_save=${IFS} IFS=$' '
 	for path in ${GOLANG_PKG_BUILDPATH[@]} ; do
 		pkgs=$(( $i+1 ))
 	done
 	IFS=${ifs_save}
 
+	# Builds the package
 	einfo "Compiling package(s):"
 	if [[ -n ${GOLANG_PKG_BUILDPATH} && ${GOLANG_PKG_BUILDPATH##*/} != "..." && ${pkgs} -gt 1 ]]; then
 
@@ -742,9 +743,12 @@ golang-common_src_compile() {
 				"${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}"
 		done <<< "$( echo ${GOLANG_PKG_BUILDPATH}) "
 	else
+		# If the package is a multiple package (/...)
+		# then this eclass doesn't specify the output name.
+		[[ ${GOLANG_PKG_BUILDPATH##*/} != "..." ]] && EGO_BUILD_FLAGS+=" -o ${GOBIN}/${GOLANG_PKG_OUTPUT_NAME}"
+
 		golang_do_build \
 			${EGO_BUILD_FLAGS} \
-			-o "${GOBIN}/${GOLANG_PKG_OUTPUT_NAME}" \
 			"${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
 	fi
 }
