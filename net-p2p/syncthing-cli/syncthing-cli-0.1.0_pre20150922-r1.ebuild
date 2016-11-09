@@ -11,7 +11,7 @@ GOLANG_PKG_HAVE_TEST=1
 inherit golang-single
 
 DESCRIPTION="SyncThing command-line interface"
-HOMEPAGE="http://syncthing.net"
+HOMEPAGE="https://syncthing.net"
 
 LICENSE="BSD"
 SLOT="0"

@@ -10,14 +10,16 @@ GOLANG_PKG_LDFLAGS="-X main.Version=v${PV}"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/cenkalti/backoff:32cd0c5" #v1.0.0
-	"github.com/zillode/notify:2da5cc9"
+	"github.com/syncthing/syncthing:b7e2198" #v0.14.10
+	"github.com/cenkalti/backoff:b02f2bb"
+	"github.com/zillode/notify:df33c1a"
+	"github.com/gobwas/glob:0354991" #v0.2.1
 )
 
 inherit systemd golang-single
 
 DESCRIPTION="File watcher intended for use with Syncthing"
-HOMEPAGE="http://syncthing.net"
+HOMEPAGE="https://syncthing.net"
 
 LICENSE="MPL-2.0"
 SLOT="0"
