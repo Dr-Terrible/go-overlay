@@ -405,10 +405,10 @@ golang_setup() {
 }
 
 
-# @FUNCTION: golang-base_src_prepare
+# @FUNCTION: golang-common_src_prepare
 # @DESCRIPTION:
 # Prepare source code.
-golang-base_src_prepare() {
+golang-common_src_prepare() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	pushd "${WORKDIR}" > /dev/null
@@ -507,7 +507,7 @@ golang-base_src_prepare() {
 							mv ${DEPENDENCY[project_name]}-${DEPENDENCY[revision]}* "${GOPATH}"/src/${destdir} || die
 						eend
 						;;
-					*) die "Function 'golang-base_src_prepare' doesn't support '${DEPENDENCY[importpath]}'" ;;
+					*) die "Function 'golang-common_src_prepare' doesn't support '${DEPENDENCY[importpath]}'" ;;
 				esac
 			done
 
@@ -558,10 +558,10 @@ golang-base_src_prepare() {
 }
 
 
-# @FUNCTION: golang-base_src_configure
+# @FUNCTION: golang-common_src_configure
 # @DESCRIPTION:
 # Configure the package.
-golang-base_src_configure() {
+golang-common_src_configure() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	[[ ${EGO} ]] || die "No GoLang implementation set (golang_setup not called?)."
@@ -669,10 +669,10 @@ golang-base_src_configure() {
 }
 
 
-# @FUNCTION: golang-base_src_compile
+# @FUNCTION: golang-common_src_compile
 # @DESCRIPTION:
 # Compiles the package.
-golang-base_src_compile() {
+golang-common_src_compile() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	[[ ${EGO} ]] || die "No GoLang implementation set (golang_setup not called?)."
@@ -749,10 +749,10 @@ golang-base_src_compile() {
 }
 
 
-# @FUNCTION: golang-base_src_install
+# @FUNCTION: golang-common_src_install
 # @DESCRIPTION:
 # Installs binaries and documents from DOCS or HTML_DOCS arrays.
-golang-base_src_install() {
+golang-common_src_install() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	[[ ${EGO} ]] || die "No GoLang implementation set (golang_setup not called?)."
@@ -799,10 +799,10 @@ golang-base_src_install() {
 	einstalldocs
 }
 
-# @FUNCTION: golang-base_src_test
+# @FUNCTION: golang-common_src_test
 # @DESCRIPTION:
 # Runs the unit tests for the main package.
-golang-base_src_test() {
+golang-common_src_test() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	[[ ${EGO} ]] || die "No GoLang implementation set (golang_setup not called?)."
