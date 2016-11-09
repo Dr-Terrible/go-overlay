@@ -12,8 +12,8 @@ GOLANG_PKG_TAGS="production"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/keybase/kbfs:db9c923"
-	"github.com/golang/text:04b8648 -> golang.org/x"
+	"github.com/keybase/kbfs:504185e"
+	"github.com/golang/text:a263ba8 -> golang.org/x"
 )
 
 inherit golang-single
