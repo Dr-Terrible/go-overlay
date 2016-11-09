@@ -439,7 +439,7 @@ golang-common_src_prepare() {
 
 				# Collects all the tokens of the dependency.
 				local -A DEPENDENCY=()
-				while read -d $'\n' key value; do
+				while read -r -d $'\n' key value; do
 					[[ -z ${key} ]] && continue
 					DEPENDENCY[$key]="${value}"
 				done <<-EOF
@@ -527,7 +527,7 @@ golang-common_src_prepare() {
 	# Auto-detects the presence of Go's vendored
 	# dependencies inside $S/*/vendor
 	if [[ -n ${GOLANG_PKG_BUILDPATH} && ${GOLANG_PKG_BUILDPATH##*/} != "..." ]]; then
-		while read -d $' ' path; do
+		while read -r -d $' ' path; do
 			# Trims leading slash (if any).
 			path="${path/\//}"
 
@@ -573,7 +573,7 @@ golang-common_src_configure() {
 	# GoLang doesn't have a configure phase,
 	# so instead this eclass prints the output of 'go env'.
 	local -a GOLANG_ENV=()
-	while read line; do
+	while read -r line; do
 		GOLANG_ENV+=("${line}")
 	done <<-EOF
 		$( ${GO} env )
@@ -613,7 +613,7 @@ golang-common_src_configure() {
 
 			# Collects all the tokens of the dependency.
 			local -A DEPENDENCY=()
-			while read -d $'\n' key value; do
+			while read -r -d $'\n' key value; do
 				[[ -z ${key} ]] && continue
 				DEPENDENCY[$key]="${value}"
 			done <<-EOF
@@ -716,34 +716,35 @@ golang-common_src_compile() {
 	local EGO_BUILD_FLAGS="$( echo ${EGO_VERBOSE} ) $( echo ${EGO_PARALLEL} ) $( echo ${EGO_EXTRA_OPTIONS} )"
 	[[ -n ${EGO_INSTALLSUFFIX} ]] && EGO_BUILD_FLAGS+=" $( echo ${EGO_INSTALLSUFFIX} )"
 
-	# Defines the output binary name of the package.
-	# If the package is a multiple package then this eclass doesn't specify
-	# the output name.
-	#[[ -z ${GOLANG_PKG_BUILDPATH} ]] && EGO_BUILD_FLAGS+=" -o ${GOBIN}/${GOLANG_PKG_OUTPUT_NAME}"
-
 	# Builds the package.
+	local pkgs=0 ifs_save=${IFS} IFS=$' '
+	for path in ${GOLANG_PKG_BUILDPATH[@]} ; do
+		pkgs=$(( $i+1 ))
+	done
+	IFS=${ifs_save}
+
 	einfo "Compiling package(s):"
-	if [[ -n ${GOLANG_PKG_BUILDPATH} && ${GOLANG_PKG_BUILDPATH##*/} != "..." ]]; then
+	if [[ -n ${GOLANG_PKG_BUILDPATH} && ${GOLANG_PKG_BUILDPATH##*/} != "..." && ${pkgs} -gt 1 ]]; then
 
 		# NOTE: This eclass trims all leading and trailing white spaces from the
 		#       input of the following 'while read' loop, then appends an extra
 		#       trailing space; this is necessary to avoid undefined behaviours
 		#       within the loop when GOLANG_PKG_BUILDPATH is populated with only
 		#       a single element.
-		while read -d $' ' cmd; do
+		while read -r -d $' ' cmd; do
 			# Ignores $cmd when it's empty or a string of white spaces
 			#einfo "cmd: |$cmd| cmd: |${cmd##*/}|"
 			[[ -n $cmd ]] || continue
 
-			# -o "${GOBIN}/${cmd##*/}" \
 			golang_do_build \
 				${EGO_BUILD_FLAGS} \
-				-o "${GOBIN}/${GOLANG_PKG_OUTPUT_NAME}" \
+				-o "${GOBIN}/${cmd##*/}" \
 				"${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}"
 		done <<< "$( echo ${GOLANG_PKG_BUILDPATH}) "
 	else
 		golang_do_build \
 			${EGO_BUILD_FLAGS} \
+			-o "${GOBIN}/${GOLANG_PKG_OUTPUT_NAME}" \
 			"${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
 	fi
 }
