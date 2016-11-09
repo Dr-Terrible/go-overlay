@@ -719,12 +719,13 @@ golang-common_src_compile() {
 	# Detects the total number of packages.
 	local pkgs=0 ifs_save=${IFS} IFS=$' '
 	for path in ${GOLANG_PKG_BUILDPATH[@]} ; do
-		pkgs=$(( $i+1 ))
+		pkgs=$(( $pkgs + 1 ))
 	done
+	[[ ${pkgs} -eq 0 ]] && pkgs=1 # there is always at least 1 package
 	IFS=${ifs_save}
 
 	# Builds the package
-	einfo "Compiling package(s):"
+	einfo "Compiling ${pkgs} package(s):"
 	if [[ -n ${GOLANG_PKG_BUILDPATH} && ${GOLANG_PKG_BUILDPATH##*/} != "..." && ${pkgs} -gt 1 ]]; then
 
 		# NOTE: This eclass trims all leading and trailing white spaces from the
