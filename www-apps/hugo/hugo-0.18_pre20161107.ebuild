@@ -11,6 +11,7 @@ GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/bep/inflect:b896c45"
+	"github.com/bep/gitmap:a1a71ab"
 	"github.com/BurntSushi/toml:9906417"
 	"github.com/pelletier/go-toml:45932ad"
 	"github.com/pelletier/go-buffruneio:df1e16f"
@@ -103,9 +104,11 @@ src_install() {
 				--baseURL="file:///usr/share/doc/${PF}/html/" \
 				--canonifyURLs=true \
 				--uglyURLs=true \
+				--disable404 \
 				--disableRSS=true \
 				--disableSitemap=true \
 				--noTimes=true \
+				--enableGitInfo=false \
 				|| die
 			docinto html
 			dodoc -r "${T}"/docs/*
