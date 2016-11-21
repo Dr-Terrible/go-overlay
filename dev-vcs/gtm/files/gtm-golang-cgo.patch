@@ -1,0 +1,10 @@
+--- /blame.go
++++ /blame.go
+@@ -1,6 +1,7 @@
+ package git
+ 
+ /*
++#cgo pkg-config: --static ./vendor/libgit2/build/libgit2.pc 
+ #include <git2.h>
+ */
+ import "C"
