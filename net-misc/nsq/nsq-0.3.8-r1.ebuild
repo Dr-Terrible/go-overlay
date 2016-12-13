@@ -36,7 +36,7 @@ SLOT="0"
 KEYWORDS="~amd64 -x86 -arm"
 IUSE="doc"
 
-DEPEND="dev-libs/protobuf:0/10
+DEPEND=">=dev-libs/protobuf-3.0.3:0
 	doc? (
 		www-apps/jekyll
 		www-apps/jekyll-gist
