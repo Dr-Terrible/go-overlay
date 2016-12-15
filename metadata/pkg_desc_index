@@ -27,7 +27,7 @@ app-misc/thymer 0.1.0: Consolo Pomodoro Timer written in GoLang
 app-misc/weather 0.5.0_pre20151218 0.5.0 0.6.0_pre20151218: Weather via the command line.
 app-misc/wego 2.0: Wego is a weather client for the terminal
 app-shells/antibody 2.1.1: A faster and simpler antigen written in Golang
-app-shells/fzf 0.15.8: A general-purpose command-line fuzzy finder
+app-shells/fzf 0.15.8 0.15.9: A general-purpose command-line fuzzy finder
 app-shells/peco 0.4.3: Simplistic interactive filtering tool
 dev-db/bolt 1.3.0: Bolt is a low level key/value NoSQL database written in GoLang
 dev-db/boltd 1.0-r1: Bolts is a introspection tool for Bolt databases.
@@ -76,6 +76,7 @@ dev-go/gonum-internal 9999: This is the set of internal packages for the Gonum p
 dev-go/gonum-stat 9999: A statistics package for the Go language
 dev-go/gopherjs 0_pre20160930: GopherJS compils GoLang code to pure JavaScript code
 dev-go/gopm 0.7.2 0.8_pre20160708: Gopm is a package manager and build tool for Go
+dev-go/gops 0.0.1 0.0.2_pre20161128: A tool to list and diagnose Go processes currently running on your system
 dev-go/gore 0.2.5 0.2.6: A REPL for Golang
 dev-go/gostatus 0.1.0_pre20160915: A command-line tool that show the status of GoLang repositories
 dev-go/gotests 1.5.2: It's a Golang commandline tool that generates table driven tests
