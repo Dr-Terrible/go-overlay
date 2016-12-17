@@ -28,6 +28,7 @@ app-misc/thymer 0.1.0: Consolo Pomodoro Timer written in GoLang
 app-misc/weather 0.5.0_pre20151218 0.5.0 0.6.0_pre20151218: Weather via the command line.
 app-misc/wego 2.0: Wego is a weather client for the terminal
 app-shells/antibody 2.1.1: A faster and simpler antigen written in Golang
+app-shells/elvish 0.5: A novel Unix shell
 app-shells/fzf 0.15.8 0.15.9: A general-purpose command-line fuzzy finder
 app-shells/oh 0.0.1_pre20161126: A surprisingly powerful Unix shell
 app-shells/peco 0.4.3: Simplistic interactive filtering tool
