@@ -5,7 +5,7 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/spf13"
-GOLANG_PKG_VERSION="4d4c7791acce13e4ec4fcf2b8d763081dd52e219"
+GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_LDFLAGS="-X ${GOLANG_PKG_IMPORTPATH}/${PN}/hugolib.BuildDate=$( date +%FT%T%z )"
 GOLANG_PKG_HAVE_TEST=1
 
@@ -13,44 +13,44 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/bep/inflect:b896c45"
 	"github.com/bep/gitmap:a1a71ab"
 	"github.com/BurntSushi/toml:9906417"
-	"github.com/pelletier/go-toml:45932ad"
+	"github.com/pelletier/go-toml:017119f"
 	"github.com/pelletier/go-buffruneio:df1e16f"
-	"github.com/PuerkitoBio/purell:8a29053"
+	"github.com/PuerkitoBio/purell:0bcb03f"
 	"github.com/PuerkitoBio/urlesc:5bd2802"
 	"github.com/dchest/cssmin:fb8d9b4"
-	"github.com/eknkc/amber:80f9e27"
-	"github.com/gorilla/websocket:2d1e454"
+	"github.com/eknkc/amber:a69a021"
+	"github.com/gorilla/websocket:e8f0f8a"
 	"github.com/kardianos/osext:c2c54e5"
-	"github.com/miekg/mmark:701c11f"
-	"github.com/mitchellh/mapstructure:a6ef2f0"
+	"github.com/miekg/mmark:2d4f1dd"
+	"github.com/mitchellh/mapstructure:f3009df"
 	"github.com/russross/blackfriday:5f33e7b"
 	"github.com/shurcooL/sanitized_anchor_name:1dba4b3"
-	"github.com/spf13/afero:52e4a6c"
-	"github.com/spf13/cast:2580bc9"
-	"github.com/spf13/cobra:9c28e4b"
-	"github.com/spf13/fsync:1773df7"
+	"github.com/spf13/afero:06b7e5f"
+	"github.com/spf13/cast:24b6558"
+	"github.com/spf13/cobra:6b74a60"
+	"github.com/spf13/fsync:cb2da33"
 	"github.com/spf13/nitro:24d7ef3"
-	"github.com/spf13/viper:80ab665"
-	"github.com/spf13/pflag:b83537d"
+	"github.com/spf13/viper:651d9d9"
+	"github.com/spf13/pflag:5ccb023"
 	"github.com/spf13/jWalterWeatherman:33c24e7"
 	"github.com/cpuguy83/go-md2man:a65d4d2" #v1.0.6
 	"github.com/yosssi/ace:ea038f4"
-	"github.com/fsnotify/fsnotify:944cff2" #v1.4.1
+	"github.com/fsnotify/fsnotify:fd9ec7d"
 	"github.com/go-yaml/yaml:a5b47d3 -> gopkg.in/yaml.v2"
 	"github.com/kr/fs:2788f0d"
 	"github.com/pkg/sftp:4d0e916"
 	"github.com/pkg/errors:839d9e9"
 	"github.com/magiconair/properties:0723e35"
-	"github.com/golang/text:ede1cb9 -> golang.org/x"
+	"github.com/golang/text:a263ba8 -> golang.org/x"
 	"github.com/golang/crypto:d172538 -> golang.org/x"
-	"github.com/golang/sys:8d1157a -> golang.org/x"
-	"github.com/golang/net:f4b625e -> golang.org/x"
-	"github.com/hashicorp/hcl:6f5bfed"
+	"github.com/golang/sys:b699b70 -> golang.org/x"
+	"github.com/golang/net:4971afd -> golang.org/x"
+	"github.com/hashicorp/hcl:c3e054b"
 	"github.com/kyokomi/emoji:17c5e70" #v1.4
-	"github.com/nicksnyder/go-i18n:e6c90c3"
+	"github.com/nicksnyder/go-i18n:991e81c"
 
 	# unit testing
-	"github.com/stretchr/testify:f390dcf" #v1.1.3
+	"github.com/stretchr/testify:69483b4" #v1.1.4
 	"github.com/fortytw2/leaktest:0db74e8"
 )
 
