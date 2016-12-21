@@ -1,5 +1,5 @@
 app-admin/doctl 1.4.0: A command line tool for DigitalOcean services
-app-admin/juju 1.25.9: juju is devops distilled
+app-admin/juju 2.1_beta3: juju is devops distilled
 app-admin/pony 0.1.0_pre20160513: Local File-Based Password, API Key, Secret, Recovery Code Store Backed vy GPG
 app-admin/restic 0.2.0: Restic is a program that does backups
 app-admin/terraform 0.6.16: Terraform builds, changes, and combines infrastructure safely and efficiently
@@ -108,6 +108,9 @@ dev-go/walter 1.4.0: Walter is a tiny deployment pipeline
 dev-go/xj2s 20151106: A small tool for Golang to generate Golang strunc from xml/json file
 dev-go/xo 0.1_pre20160918: A cli tool to generate Golang types and funcs based on a database schema
 dev-libs/protobuf 3.0.0_beta3 3.0.2: Google's Protocol Buffers -- an efficient method of encoding structured data
+dev-python/mdx_anchors_away 1.0.1: Add anchor tags and icons to all headers
+dev-python/mdx_callouts 1.0.0: Add anchor tags and icons to all headers
+dev-python/mdx_foldouts 1.0.0: Add anchor tags and icons to all headers
 dev-util/check 0.1_pre20160515-r1: A set of utilities for checking Go sources
 dev-util/deadcode 0.1_pre20160724: Deadcode finds unused Go source code
 dev-util/direnv 2.9.0: Direnv is an environment switcher for the shell.
@@ -177,6 +180,6 @@ sys-devel/delve 0.11.0 0.12.0_pre20161102: Delve is a debugger for the Go progra
 sys-devel/gcvis 0.1.0_pre20160427: Visualise Go program Garbage Collector trace data in real-time.
 www-apps/gogs 0.8.43-r1 0.9.48 0.9.97: Gogs is a self-hosted Git service written in Go
 www-apps/gotty 0.0.13: A simple command-line tool that turns your CLI tools into web applications
-www-apps/hugo 0.14-r4 0.15-r3 0.16-r1 0.17 0.18_pre20161024 0.18_pre20161107: A fast and flexible static site generator built in GoLang
+www-apps/hugo 0.14-r4 0.15-r3 0.16-r1 0.17 0.18: A fast and flexible static site generator built in GoLang
 www-servers/caddy 0.8.3 0.9.3: Fast, cross-platform HTTP/2 web server with automatic HTTPS
 x11-misc/noti 2.4.0: Display a notification when a terminal process finishes
