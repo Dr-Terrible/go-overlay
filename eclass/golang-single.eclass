@@ -32,7 +32,7 @@
 # LICENSE="MIT"
 # KEYWORDS="~amd64 ~x86"
 # SLOT="0"
-# IUSE="debug doc qt4"
+# IUSE="doc qt4"
 #
 # CDEPEND="
 #   qt4? (
