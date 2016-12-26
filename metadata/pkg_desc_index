@@ -151,6 +151,7 @@ dev-util/unconvert 0.1_pre20160804: Remove unnecessary type conversions from Go 
 dev-util/wellington 1.0.3: Wellington is a CSS preprocessor with spriting and based on libsass
 dev-vcs/gtm 1.2.3: Simple, seamless, lightweight time tracking for Git
 dev-vcs/hub 2.2.9: Hub wraps git in order to extend it with extra features and commands
+net-analyzer/dbshield 1.0.0_beta4: Protects your data by inspecting incoming queries from your application server
 net-ftp/pixiecore 0.1.0_pre20161101: PXE booting for people in a hurry
 net-misc/bat 0.1.0: Go implemented CLI cURL-like tool for humans
 net-misc/dbxcli 1.4.0: A command line client for Dropbox built using the Go SDK
