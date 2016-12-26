@@ -381,6 +381,7 @@ golang_setup() {
 		# Prepares CGO_ENABLED.
 		CGO_ENABLED=0
 		[[ -z ${GOLANG_PKG_USE_CGO} ]] || CGO_ENABLED=1
+		use pie && CGO_ENABLED=1 # PIE requires CGO
 
 		# Prepares gopath / gobin directories inside WORKDIR.
 		local _GOPATH="${WORKDIR}/gopath"
