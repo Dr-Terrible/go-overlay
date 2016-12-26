@@ -72,7 +72,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/hailocab/go-hostpool:e80d13c"
 	"github.com/samuel/go-zookeeper:87e1bca"
 	"github.com/miekg/dns:db96a2b"
-	"github.com/nats-io/nats:fc85f44" #v1.2.0
+	"github.com/nats-io/go-nats:fc85f44" #v1.2.0
 	"github.com/nats-io/nuid:a5152d6"
 	"github.com/nsqio/go-nsq:d71fb89" #v1.0.6
 	"github.com/opencontainers/runc:04f275d" #v1.0.0-rc1
@@ -96,6 +96,14 @@ pkg_setup() {
 		enewgroup ${PN}
 		enewuser ${PN} -1 -1 "/var/lib/${PN}" ${PN}
 	eend $?
+}
+
+src_prepare() {
+	golang-single_src_prepare
+
+	golang_fix_importpath_alias \
+		"github.com/nats-io/go-nats" \
+		"github.com/nats-io/nats"
 }
 
 src_install() {
