@@ -6,11 +6,10 @@ EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/DiSiqueira"
 GOLANG_PKG_NAME="${PN//gor/Gor}"
-GOLANG_PKG_VERSION="fae9e0405d8b9a99f30fa01f6fa3ef88dd5132fa"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/boltdb/bolt:583e893" #v1.3.0
+	"github.com/go-ini/ini:6f66b0e -> gopkg.in/ini.v1" #v1.23.0
 )
 
 inherit golang-single
