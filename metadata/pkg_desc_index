@@ -183,5 +183,5 @@ sys-devel/gcvis 0.1.0_pre20160427: Visualise Go program Garbage Collector trace 
 www-apps/gogs 0.8.43-r1 0.9.48 0.9.97 0.9.113: Gogs is a self-hosted Git service written in Go
 www-apps/gotty 0.0.13: A simple command-line tool that turns your CLI tools into web applications
 www-apps/hugo 0.14-r4 0.15-r3 0.16-r1 0.17 0.18: A fast and flexible static site generator built in GoLang
-www-servers/caddy 0.8.3 0.9.3: Fast, cross-platform HTTP/2 web server with automatic HTTPS
+www-servers/caddy 0.9.3 0.9.4: Fast, cross-platform HTTP/2 web server with automatic HTTPS
 x11-misc/noti 2.4.0: Display a notification when a terminal process finishes

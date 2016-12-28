@@ -4,7 +4,7 @@
 
 EAPI=6
 
-EDOC_COMMIT="63d39dcdb898cf1b601765f26525230229591bf1"
+EDOC_COMMIT="0831e3278fac230c3986a5ce62d55a6af89c4605"
 
 GOLANG_PKG_IMPORTPATH="github.com/mholt"
 GOLANG_PKG_ARCHIVEPREFIX="v"
@@ -16,13 +16,13 @@ GOLANG_PKG_HAVE_TEST=1
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/dustin/go-humanize:bd88f87"
 	"github.com/flynn/go-shlex:3f9db97"
-	"github.com/gorilla/websocket:1f512fc" #v1.0.0
+	"github.com/gorilla/websocket:3ab3a8b" #v1.1.0
 	"github.com/hashicorp/go-syslog:315de0c"
 	"github.com/jimstudt/http-authentication:3eca13d"
 	"github.com/lucas-clemente/quic-go:1d7cf74" #v0.4
 	"github.com/naoina/toml:7511716" #v0.1.0
 	"github.com/russross/blackfriday:5f33e7b"
-	"github.com/xenolf/lego:96d81ae"
+	"github.com/xenolf/lego:ce8fb06"
 	"github.com/golang/crypto:dc7f3af -> golang.org/x"
 	"github.com/golang/net:cf4effb -> golang.org/x"
 	"github.com/natefinch/lumberjack:e21e5cb -> gopkg.in/natefinch/lumberjack.v2" #v2.0
@@ -36,28 +36,22 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/square/go-jose:aa2e30f -> gopkg.in/square/go-jose.v1" #v1.1.0
 )
 
-# Addons
-#CADDY_ADDONS=(
-#	"github.com/coopernurse/caddy-awslambda:cd21233"
-#)
-
 inherit user systemd golang-single
 
 DESCRIPTION="Fast, cross-platform HTTP/2 web server with automatic HTTPS"
 HOMEPAGE="https://caddyserver.com"
-SRC_URI+=" https://github.com/klingtnet/${PN}-release-downloader/archive/${PV}.tar.gz -> ${PF}-addons.tar.gz
-	doc? ( https://github.com/${PN}server/${PN}server.com/archive/${EDOC_COMMIT}.tar.gz -> ${PF}-doc.tar.gz )"
+SRC_URI+=" doc? ( https://github.com/${PN}server/${PN}server.com/archive/${EDOC_COMMIT}.tar.gz -> ${PF}-doc.tar.gz )"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 x86 arm"
 
-#ADDONS="awslambda cors expires filemanager filter git hugo ipfilter jsonp jwt locale mailout minify multipass prometheus ratelimit realip search upload"
+ADDONS=""
 IUSE="doc $ADDONS"
 
 DEPEND="doc? ( www-apps/hugo )"
 
-PATCHES=( "${FILESDIR}"/${PN}-systemd.patch )
+#PATCHES=( "${FILESDIR}"/${PN}-systemd.patch )
 
 USER_NAME="${PN}"
 USER_DIR="/var/lib/${USER_NAME}"
@@ -65,6 +59,16 @@ USER_DIR="/var/lib/${USER_NAME}"
 pkg_setup() {
 	enewgroup ${USER_NAME}
 	enewuser ${USER_NAME} -1 /bin/bash "${USER_DIR}" ${USER_NAME}
+}
+
+src_prepare() {
+	golang-single_src_prepare
+
+	# Fix systemd unit file
+	sed -i \
+		-e "s:www-data:${USER_NAME}:" \
+		-e "s:/usr/local/bin:/usr/bin:" \
+		dist/init/linux-systemd/caddy.service || die
 }
 
 src_install() {
