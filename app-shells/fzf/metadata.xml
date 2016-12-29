@@ -9,5 +9,6 @@
 	<use>
 		<flag name="vim">Install vim plugin</flag>
 		<flag name="tmux">Install TMUX extra tools</flag>
+		<flag name="fish-completion">Enable fish completion support</flag>
 	</use>
 </pkgmetadata>
