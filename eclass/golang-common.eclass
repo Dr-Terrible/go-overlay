@@ -434,7 +434,7 @@ golang-common_src_prepare() {
 
 		# If the ebuild declares some GoLang dependencies, then they need to be
 		# correctly installed into the sand-boxed GoLang build environment which
-		# was set up automatically during pkg_setup() phase.
+		# was set up automatically during src_unpack) phase.
 		if [[ ${#GOLANG_PKG_DEPENDENCIES[@]} -gt 0 ]]; then
 
 			for i in ${!GOLANG_PKG_DEPENDENCIES[@]} ; do
@@ -836,7 +836,7 @@ golang-common_src_test() {
 	local EGO_PARALLEL="-p $(makeopts_jobs)"
 
 	# Defines extra options.
-	local EGO_EXTRA_OPTIONS="-a"
+	#local EGO_EXTRA_OPTIONS="-a"
 
 	# Enables data race detection.
 	local EGO_RACE
@@ -850,12 +850,42 @@ golang-common_src_test() {
 	local EGO_SUBPACKAGES="${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
 	[[ -z ${GOLANG_PKG_IS_MULTIPLE} ]] || EGO_SUBPACKAGES="./..."
 
-	# Runs the unit tests.
-	einfo "${EGO} test ${EGO_BUILD_FLAGS} ${EGO_SUBPACKAGES}"
-	${EGO} test \
-		${EGO_BUILD_FLAGS} \
-		"${EGO_SUBPACKAGES}" \
-		|| die
+	# Detects the total number of packages.
+	local pkgs=0 ifs_save=${IFS} IFS=$' '
+	for path in ${GOLANG_PKG_BUILDPATH[@]} ; do
+		pkgs=$(( $pkgs + 1 ))
+	done
+	[[ ${pkgs} -eq 0 ]] && pkgs=1 # there is always at least 1 package
+	IFS=${ifs_save}
+
+	# Runs the Unit Tests
+	einfo "Testing ${pkgs} package(s):"
+	if [[ -n ${GOLANG_PKG_BUILDPATH} && ${GOLANG_PKG_BUILDPATH##*/} != "..." && ${pkgs} -gt 1 ]]; then
+
+		# NOTE: This eclass trims all leading and trailing white spaces from the
+		#       input of the following 'while read' loop, then appends an extra
+		#       trailing space; this is necessary to avoid undefined behaviours
+		#       within the loop when GOLANG_PKG_BUILDPATH is populated with only
+		#       a single element.
+		while read -r -d $' ' cmd; do
+			# Ignores $cmd when it's empty or a string of white spaces
+			#einfo "cmd: |$cmd| cmd: |${cmd##*/}|"
+			[[ -n $cmd ]] || continue
+
+			einfo "${EGO} test ${EGO_BUILD_FLAGS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}/..."
+			${EGO} test \
+				${EGO_BUILD_FLAGS} \
+				"${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}/..." \
+				|| die
+       done <<< "$( echo ${GOLANG_PKG_BUILDPATH}) "
+	else
+		# It's a single package
+		einfo "${EGO} test ${EGO_BUILD_FLAGS} ${EGO_SUBPACKAGES}"
+		${EGO} test \
+			${EGO_BUILD_FLAGS} \
+			"${EGO_SUBPACKAGES}" \
+			|| die
+	fi
 }
 
 
@@ -884,7 +914,15 @@ golang_do_build() {
 	fi
 
 	# Disables debug symbols (DWARF) when not required.
-	! use debug && GOLANG_PKG_LDFLAGS="-s -w ${GOLANG_PKG_LDFLAGS}"
+	if ! use debug; then
+		case "${GOLANG_PKG_LDFLAGS}" in
+			*-s*|*-w*)
+			    # Do nothing
+    			;;
+			*)
+				GOLANG_PKG_LDFLAGS+=" -s -w"
+		esac
+	fi
 
 	# Sanitizes vars from entra white spaces.
 	GOLANG_PKG_LDFLAGS="$( echo ${GOLANG_PKG_LDFLAGS} )"
