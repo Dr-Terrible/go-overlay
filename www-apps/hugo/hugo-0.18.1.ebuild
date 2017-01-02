@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -98,7 +98,7 @@ src_install() {
 
 	# Install documentation
 	if use doc; then
-		pushd docs
+		pushd docs > /dev/null || die
 			${GOBIN}/${PN} \
 				-d "${T}"/docs \
 				--baseURL="file:///usr/share/doc/${PF}/html/" \
@@ -112,6 +112,6 @@ src_install() {
 				|| die
 			docinto html
 			dodoc -r "${T}"/docs/*
-		popd
+		popd > /dev/null || die
 	fi
 }
