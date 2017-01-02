@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -63,18 +63,17 @@ src_compile() {
 src_install() {
 	golang-single_src_install
 
-	# Install data dir
-	#insinto /usr/share/${PN}
-	#doins -r web/dist/*
+	# Install config file
+	insinto /etc
+	touch "${T}"/${PN}.yaml || die
+	doins "${T}"/${PN}.yaml
 
 	# Install init scripts
 	systemd_dounit examples/systemd/${PN}.service
 
 	if use doc; then
 		einfo "Building documentations"
-		mkdocs build -c \
-			-f mkdocs.yml \
-			|| die
+		mkdocs build -c -f mkdocs.yml || die
 
 		rm -r build/docs/{*.py,__pycache__,theme/__init__.py} || die
 		docinto html
