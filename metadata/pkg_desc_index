@@ -88,7 +88,7 @@ dev-go/govvv 0.2.0: "go build" wrapper to add version info to Golang application
 dev-go/gox 0.3.0 0.4.0_pre20160725: A dead simple, no frills Go cross compile tool
 dev-go/goxc 0.18.1-r1: Goxc is a build tool for GoLange, with a focus on cross-compiling and packaging
 dev-go/grind 0.1.0_pre20150302: Grind rewrites the source files written in GoLang.
-dev-go/gvt 0.1.0_pre20161003: gvt is a simple vendoring tool made for Go native vendoring
+dev-go/gvt 0.1.0_pre20161118: gvt is a simple vendoring tool made for Go native vendoring
 dev-go/kar 0.1_pre20151213: Kar is a simple utility that helps you run Kargar builds from CLI
 dev-go/liteide-tools 2015.04.09: Liteide Golang tools
 dev-go/mock 0.1.0_pre20160127: GoMock is a mocking framework for the Go programming language
@@ -108,7 +108,7 @@ dev-go/walter 1.4.0: Walter is a tiny deployment pipeline
 dev-go/xj2s 20151106: A small tool for Golang to generate Golang strunc from xml/json file
 dev-go/xo 0.1_pre20160918: A cli tool to generate Golang types and funcs based on a database schema
 dev-go/zebrapack 2.0.4: ZebraPack is a data definition language and serialization format
-dev-libs/protobuf 3.0.0_beta3 3.0.2: Google's Protocol Buffers -- an efficient method of encoding structured data
+dev-python/markdown-include 0.5.1: Add anchor tags and icons to all headers
 dev-python/mdx_anchors_away 1.0.1: Add anchor tags and icons to all headers
 dev-python/mdx_callouts 1.0.0: Add anchor tags and icons to all headers
 dev-python/mdx_foldouts 1.0.0: Add anchor tags and icons to all headers
@@ -151,6 +151,7 @@ dev-util/shfmt 0_pre20161029: A shell parser and formatter for POSIX shell and b
 dev-util/staticcheck 0.1.0_pre20160811: A Golang tool for statically checking the inputs to certain functions
 dev-util/unconvert 0.1_pre20160804: Remove unnecessary type conversions from Go source
 dev-util/wellington 1.0.3: Wellington is a CSS preprocessor with spriting and based on libsass
+dev-vcs/gitql 1.3.0: A git query language
 dev-vcs/gtm 1.2.3: Simple, seamless, lightweight time tracking for Git
 dev-vcs/hub 2.2.9: Hub wraps git in order to extend it with extra features and commands
 net-analyzer/dbshield 1.0.0_beta4: Protects your data by inspecting incoming queries from your application server
@@ -165,6 +166,7 @@ net-misc/govpn 6.0: Simple secure free software VPN daemon
 net-misc/hoverfly 0.5.11 0.8.2: Hoverfly is a lightweight, open source service virtualization tool.
 net-misc/httpstat 1.0.0: It's like curl -v, with colours
 net-misc/nsq 0.3.8-r1: A real-time distributed messaging platform, written in GoLang
+net-misc/teleport 1.3.1: Modern SSH server for clusters and teams
 net-misc/wsd 0.0.0_pre20150722: Simple cURL-like command line utility for debugging WebSocket servers
 net-nds/dex 2.0.0_alpha2: Dex is a Federated Indentity Provider
 net-p2p/bmagent 9999-r2: Client for bmd, functions as IMAP/SMTP server
