@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -157,9 +157,9 @@ src_install() {
 
 	# install docs
 	if use doc; then
-		pushd "${WORKDIR}"/gopath/src/github.com/juju/docs
+		pushd "${WORKDIR}"/gopath/src/github.com/juju/docs > /dev/null || die
 			emake build
 			dodoc -r htmldocs/en/*
-		popd
+		popd > /dev/null || die
 	fi
 }

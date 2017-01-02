@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -40,16 +40,16 @@ PATCHES=(
 )
 
 src_compile() {
-	pushd skeleton &> /dev/null
+	pushd skeleton > /dev/null || die
 	ebegin "Building binary data"
 		go-bindata -pkg="skeleton" resource/... || die
 	eend
-	popd
+	popd > /dev/null || die
 
 	golang-single_src_compile
 }
 
 src_test() {
-	ln -sf ${GOBIN} "${S}"/bin || die
+	dosym ${GOBIN} "${S}"/bin || die
 	golang-single_src_test
 }

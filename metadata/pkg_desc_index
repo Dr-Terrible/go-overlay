@@ -67,7 +67,7 @@ dev-go/go-carpet 1.4: Shows test coverage for Go source files
 dev-go/go-fuzz 0.1_pre20160928: Go-fuzz is a coverage-guided fuzzing solution for testing of Go packages
 dev-go/go-md2man 1.0.6: Command-line tool to convert Markdown into UNIX man pages
 dev-go/go-protobuf 0.1_pre20160927: Go support for Google's protocol buffers
-dev-go/go-tools 0_pre20161104 0_pre20161220: Various packages and tools that support the Go programming language
+dev-go/go-tools 0_pre20161220: Various packages and tools that support the Go programming language
 dev-go/go-torch 0.5.0_pre20160909: Stochastic flame graph profiler for Go Programs
 dev-go/goa 0.0.1_pre20160218: Goa is a framework for building RESTful microservices in Go
 dev-go/gocode 2015.03.03: An autocompletion daemon for the Go programming language
@@ -124,7 +124,7 @@ dev-util/ghfs 0.1_pre20150217: Ghfs is a user space filesystem that overlays the
 dev-util/gini 0.1_pre20161014: A fast SAT solver
 dev-util/github-release 0.6.2: CLI to create and edit releases on Github
 dev-util/go-raml-mocker 1.0.4: RAML (1.0) web mock server implementation in Go
-dev-util/go-swagger 0.3.0 0.5.0 0.5.9 0.6.0: Swagger 2.0 implementation for GoLang
+dev-util/go-swagger 0.6.0: Swagger 2.0 implementation for GoLang
 dev-util/goconst 0.1_pre20160514: Find repeated strings that could be replaced by a constant.
 dev-util/gocyclo 0.1_pre20150627: Calculate cyclomatic complexities of functions in Go source code
 dev-util/godef 0.1_pre20160620: Godef prints where symbols are defined in Go source code
@@ -186,6 +186,6 @@ sys-devel/delve 0.11.0 0.12.0_pre20161102: Delve is a debugger for the Go progra
 sys-devel/gcvis 0.1.0_pre20160427: Visualise Go program Garbage Collector trace data in real-time.
 www-apps/gogs 0.8.43-r1 0.9.48 0.9.97 0.9.113: Gogs is a self-hosted Git service written in Go
 www-apps/gotty 0.0.13: A simple command-line tool that turns your CLI tools into web applications
-www-apps/hugo 0.14-r4 0.15-r3 0.16-r1 0.17 0.18: A fast and flexible static site generator built in GoLang
+www-apps/hugo 0.18.1: A fast and flexible static site generator built in GoLang
 www-servers/caddy 0.9.3 0.9.4: Fast, cross-platform HTTP/2 web server with automatic HTTPS
 x11-misc/noti 2.4.0: Display a notification when a terminal process finishes

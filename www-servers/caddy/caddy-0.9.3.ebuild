@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -74,7 +74,7 @@ src_install() {
 	systemd_newunit dist/init/linux-systemd/${PN}.service "${PN}@.service"
 
 	if use doc; then
-		pushd "${WORKDIR}"/${PN}server.com-${EDOC_COMMIT}
+		pushd "${WORKDIR}"/${PN}server.com-${EDOC_COMMIT} > /dev/null || die
 			hugo -v \
     	        -d "${T}"/docs \
 	        	--baseURL="file:///usr/share/doc/${PF}/html/" \
@@ -84,7 +84,7 @@ src_install() {
 	        	--disableSitemap=true \
             	--noTimes=true \
         	    || die
-		popd
+		popd > /dev/null || die
 
 		docinto html
 		dodoc -r "${T}"/docs/*

@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -27,13 +27,13 @@ RDEPEND="!<dev-lang/go-1.6.0"
 
 src_compile() {
 	# Generate static.go
-	pushd godoc/static >/dev/null
+	pushd godoc/static > /dev/null || die
 		ebegin "Building static files"
 			${EGO} run \
 				-a -p $( makeopts_jobs ) \
 				makestatic.go || die
 		eend
-	popd >/dev/null
+	popd > /dev/null || die
 
 	golang-single_src_compile
 }

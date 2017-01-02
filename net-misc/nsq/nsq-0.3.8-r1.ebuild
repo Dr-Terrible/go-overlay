@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -44,9 +44,9 @@ DEPEND=">=dev-libs/protobuf-3.0.3:0
 
 src_prepare(){
 	golang-single_src_prepare
-	pushd ../nsqio.github.io
+	pushd ../nsqio.github.io > /dev/null || die
 		epatch "${FILESDIR}/${PN}-doc.patch"
-	popd
+	popd > /dev/null || die
 }
 
 src_install() {

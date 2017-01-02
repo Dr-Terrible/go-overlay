@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -413,7 +413,7 @@ golang_setup() {
 golang-common_src_prepare() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	pushd "${WORKDIR}" > /dev/null
+	pushd "${WORKDIR}" > /dev/null || die
 		einfo "Preparing GoLang build environment in ${GOPATH}/src"
 
 		# If the ebuild declares an importpath alias, then its path was
@@ -515,7 +515,7 @@ golang-common_src_prepare() {
 
 		fi
 
-	popd > /dev/null
+	popd > /dev/null || die
 
 
 	# Auto-detects the presence of Go's vendored
@@ -652,13 +652,13 @@ golang-common_src_configure() {
 	# Executes 'go generate'.
 	# NOTE: generate should never run automatically. It must be run explicitly.
 	if [[ -n ${GOLANG_PKG_USE_GENERATE} ]]; then
-		pushd "${GOPATH}/src/${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}" > /dev/null
+		pushd "${GOPATH}/src/${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}" > /dev/null || die
 			einfo "${EGO} generate ${EGO_VERBOSE} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}/..."
 			${EGO} generate \
 				${EGO_VERBOSE} \
 				./... \
 				|| die
-		popd > /dev/null
+		popd > /dev/null || die
 	fi
 
 

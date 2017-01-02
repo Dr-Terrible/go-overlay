@@ -12,8 +12,6 @@
 	</upstream>
 	<use>
 		<flag name="gdb">Enables support for <pkg>sys-devel/gdb</pkg></flag>
-	</use>
-	<use>
 		<flag name="tools">Install additional tools such as <pkg>dev-go/liteide-tools</pkg> and <pkg>dev-go/gotools</pkg></flag>
 	</use>
 </pkgmetadata>

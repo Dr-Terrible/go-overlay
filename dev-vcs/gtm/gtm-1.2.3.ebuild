@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -52,16 +52,16 @@ src_prepare() {
 	ln -s "${libgit2}" "${git2go}"/vendor/libgit2 || die
 
 	# Fix: force cgo to use the vendored libgit2 lib instead of the one from the system
-	pushd ../git2go > /dev/null
+	pushd ../git2go > /dev/null || die
 		epatch "${FILESDIR}/${PN}-golang-cgo.patch"
-	popd
+	popd > /dev/null || die
 }
 
 src_compile() {
 	einfo "go install github.com/git-time-metric/git2go/... "
-	pushd "${git2go}" > /dev/null
+	pushd "${git2go}" > /dev/null || die
 		emake install || die
-	popd
+	popd > /dev/null || die
 
 	golang-single_src_compile
 }

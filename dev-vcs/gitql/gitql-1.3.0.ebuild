@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -53,7 +53,7 @@ src_prepare() {
 src_compile() {
 	# Compiles forked version of libgit2
 	CMAKE_USE_DIR="${LIBGIT2}"
-	pushd "${CMAKE_USE_DIR}" || die
+	pushd "${CMAKE_USE_DIR}"  > /dev/null || die
 		CMAKE_IN_SOURCE_BUILD=1
 		local mycmakeargs=(
 			-DCMAKE_INSTALL_PREFIX=install
@@ -67,7 +67,7 @@ src_compile() {
 		)
 		cmake-utils_src_configure
 		cmake-utils_src_compile
-	popd || die
+	popd > /dev/null || die
 
 	# Compiles gitql
 	local FLAGS=$( pkg-config --static --libs ${LIBGIT2}/libgit2.pc )
