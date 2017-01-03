@@ -12,7 +12,7 @@ GOLANG_PKG_LDFLAGS="-w -X main.Version=v${PV} -X main.BuildUser=portage -X main.
 
 inherit user systemd golang-single
 
-EDOC_COMMIT="b1d42cccfa636e29b5b7639bd3d58a988ec6fcfd"
+EDOC_COMMIT="5a07b087cc38f9fc77170223acc600bc0a2e9f4d"
 
 DESCRIPTION="Syncthing is an app that lets you synchronize your files across multiple devices"
 HOMEPAGE="https://syncthing.net"
