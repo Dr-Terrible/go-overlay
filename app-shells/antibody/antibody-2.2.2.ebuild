@@ -10,12 +10,13 @@ GOLANG_PKG_IS_MULTIPLE=1
 GOLANG_PKG_LDFLAGS="-X main.version=${PV}"
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/caarlos0/gohome:cbed4b2"
+	"github.com/getantibody/folder:479aa91" #v1.0.0
+	"github.com/caarlos0/gohome:321f486"
 	"github.com/kardianos/osext:c2c54e5"
-	"github.com/urfave/cli:a14d7d3" #v1.18.1
-	"github.com/golang/crypto:81372b2 -> golang.org/x"
-	"github.com/golang/sync:316e794 -> golang.org/x"
-	"github.com/golang/net:6d3beae -> golang.org/x"
+	"github.com/urfave/cli:0bdedde" #v1.19.1
+	"github.com/golang/crypto:f6b343c -> golang.org/x"
+	"github.com/golang/sync:450f422 -> golang.org/x"
+	"github.com/golang/net:69d4b8a -> golang.org/x"
 )
 
 inherit golang-single
