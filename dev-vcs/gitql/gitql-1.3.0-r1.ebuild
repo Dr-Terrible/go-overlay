@@ -35,7 +35,7 @@ RDEPEND="!libressl? ( dev-libs/openssl:0 )
 	net-libs/http-parser:=
 	ssh? ( net-libs/libssh2 )"
 
-DEPEND="dev-ruby/pkg-config"
+DEPEND="virtual/pkgconfig"
 
 src_prepare() {
 	golang-single_src_prepare
