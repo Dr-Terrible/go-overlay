@@ -39,6 +39,7 @@ dev-db/cockroach 0.1.0_pre20150926: A scalable, geo-replicanted, transactional d
 dev-db/eliasdb 0.8.0_pre20160921: EliasDB is a graph based database
 dev-db/influxdb 1.0.0: Scalable datastore for metrics, events, and real-time analytics
 dev-db/pgfutter 1.0: Command-line tool to import CSV and JSON into PostgreSQL
+dev-db/pgrebase 1.1.2: PGRebase handles your postgres codebase for functions, triggers and views
 dev-db/pgweb 0.9.4: Cross-platform client for PostgreSQL databases
 dev-db/telegraf 1.0.0: A plugin-driven server agent for reporting metrics into InfluxDB
 dev-db/tidb 0.1.0_pre20161109: TiDB is a distributed SQL database compatible with MySQL protocol
