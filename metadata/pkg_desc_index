@@ -17,6 +17,7 @@ app-emulation/packer 0.10.2: Packer is a tool for creating identical machine ima
 app-emulation/runc 0.1.1-r51 1.0.0_rc2-r50: A CLI tool for spawning and running containers according to the OCF specs
 app-forensics/onionscan 0.2: a free and open source tool for investigating the Dark Web
 app-misc/asciinema 1.2.0: A terminal session recorder for asciinema.org service
+app-misc/aurora 1.8: Cross-platform Beanstalk queue server console
 app-misc/btcwallet 0.7.0-r1 9999-r1: A secure bitcoin wallet daemon written in Go
 app-misc/devtodo 2.2_pre20150904 2.2_pre20160819: DevTodo is a small command line application for maintaining lists of tasks.
 app-misc/exercism 2.3.0: A command line tool for exercism.io
