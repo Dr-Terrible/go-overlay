@@ -50,6 +50,7 @@ dev-go/apimock 0.1_pre20160828: A mock API server
 dev-go/asmfmt 1.1: Go assembler formatter
 dev-go/bee 1.5.2: Bee is a tool for helping develop with beego app framework
 dev-go/benthos 0.0.2: A persistent stream buffer
+dev-go/callvis 0_pre20170107: Visualize call graph of your Go program using dot format
 dev-go/cgogen 0.1.0_pre20160923: Automatic CGo Bindings Generator for Golang
 dev-go/codecgen 0.1_pre20160928: Idiomatic codec and rpc lib for msgpack, cbor, json, etc. msgpack.org
 dev-go/depscheck 0.1.0_pre20160406: Prints stats and suggests to remove small LeftPad-like imports from Go packages
