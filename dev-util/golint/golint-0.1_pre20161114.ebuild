@@ -5,18 +5,18 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/golang"
-GOLANG_PKG_VERSION="55ae771cfa82f3846897c972e262ed5d54d47d48"
+GOLANG_PKG_VERSION="206c0f020eba0f7fbcfbc467a5eb808037df2ed6"
 GOLANG_PKG_NAME="${PN/go}"
 GOLANG_PKG_BUILDPATH="/${PN}"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/golang/tools:b5358b5 -> golang.org/x"
+	"github.com/golang/tools:354f9f8 -> golang.org/x"
 )
 
 inherit golang-single
 
-DESCRIPTION="This is a linter for Go source code."
+DESCRIPTION="This is a linter for Go source code"
 
 LICENSE="BSD"
 SLOT="0"
