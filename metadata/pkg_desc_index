@@ -134,7 +134,7 @@ dev-util/gocyclo 0.1_pre20150627: Calculate cyclomatic complexities of functions
 dev-util/godef 0.1_pre20160620: Godef prints where symbols are defined in Go source code
 dev-util/golex 0.1.0_pre20160422: A lex/flex like (not fully POSIX lex compatible) utility
 dev-util/golint 0.1_pre20161004: This is a linter for Go source code.
-dev-util/gometalinter 1.0.3: Concurrently run Go lint tools and normalise their output
+dev-util/gometalinter 1.0.3 1.0.4_pre20170105: Concurrently run Go lint tools and normalise their output
 dev-util/gorganizer 0.3: Organize your folders into a beautiful classified folder structure
 dev-util/gotags 1.3.0 1.4.0_pre20150803: ctags-compatible tag generator for Go
 dev-util/goyacc 0.1.0_pre20160420: Goyacc is a version of yacc generating Go parsers.
