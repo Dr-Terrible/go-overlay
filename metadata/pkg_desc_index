@@ -119,7 +119,7 @@ dev-util/check 0.1_pre20160515-r1: A set of utilities for checking Go sources
 dev-util/deadcode 0.1_pre20160724: Deadcode finds unused Go source code
 dev-util/direnv 2.10.0: Direnv is an environment switcher for the shell.
 dev-util/dupl 0.1_pre20160503 0.1_pre20160920: A tool for Go code clone detection
-dev-util/errcheck 0.1_pre20160917: Errcheck checks that you checked errors
+dev-util/errcheck 0.1_pre20161118: Errcheck checks that you checked errors
 dev-util/flint 0.0.4 0.0.5_pre20160327: Check your project for common sources of contributor friction
 dev-util/forego 0.16.1-r1: Foreman written in GoLang
 dev-util/gas 0.1_pre20161214: Inspects golang source code for security problems
