@@ -105,7 +105,7 @@ dev-go/staticfiles 0_pre20160903: staticfiles compiles a directory of files into
 dev-go/statik 0.1.0 0.2.0_pre20160906: statik embeds static files into a GoLang executable
 dev-go/structlayout 0.1_pre20160324: An utility that prints the layout of a Go struct
 dev-go/tomlv 0.2.0: A TOML validator written in GoLang
-dev-go/unused 0.1.0_pre20160917: Check Go programs for unused identifiers
+dev-go/unused 0.1.0_pre20161221: Check Go programs for unused identifiers
 dev-go/wago 1.0 1.2.0: Wago automates the actions you do after saving code.
 dev-go/walter 1.4.0: Walter is a tiny deployment pipeline
 dev-go/xj2s 20151106: A small tool for Golang to generate Golang strunc from xml/json file
