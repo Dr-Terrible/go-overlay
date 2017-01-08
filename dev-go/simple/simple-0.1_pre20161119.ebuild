@@ -5,14 +5,15 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="honnef.co/go"
-GOLANG_PKG_VERSION="e4b33f62951a263109be351a6e7f516df082e667"
+GOLANG_PKG_VERSION="785f2adbeecfb675c110966bb69792863aa0aa49"
 GOLANG_PKG_BUILDPATH="/cmd/go${PN}"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/kisielk/gotool:5e136de"
-	"github.com/dominikh/go-lint:a730e73 -> honnef.co/go"
-	"github.com/golang/tools:b5358b5 -> golang.org/x"
+	"github.com/kisielk/gotool:0de1eaf"
+	"github.com/dominikh/go-lint:3cb61f0 -> honnef.co/go"
+	"github.com/dominikh/go-ssa:1cf7f34 -> honnef.co/go"
+	"github.com/golang/tools:354f9f8 -> golang.org/x"
 )
 
 # (Ugly hack) Must be declared before the inherit since we're
@@ -40,4 +41,8 @@ src_prepare() {
 	golang_fix_importpath_alias \
 		"${GOLANG_PKG_IMPORTPATH}/go-lint" \
 		"${GOLANG_PKG_IMPORTPATH}/lint"
+
+	golang_fix_importpath_alias \
+		"${GOLANG_PKG_IMPORTPATH}/go-ssa" \
+		"${GOLANG_PKG_IMPORTPATH}/ssa"
 }

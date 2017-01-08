@@ -100,7 +100,7 @@ dev-go/re2dfa 0.1.0_pre20151021: Transforms regexs into finite state machines an
 dev-go/revel-cli 0.12.0-r1 0.13.1: Command-line tool for Revel framework
 dev-go/rts 0.1.0_pre20160617: Generates Go structs from JSON server responses
 dev-go/safesql 0.1.0_pre20160304: Static analysis tool for GoLang that protects against SQL injections
-dev-go/simple 0.1_pre20160919: Gosimple is a linter for Go source code that specialises on simplifying code
+dev-go/simple 0.1_pre20161119: Gosimple is a linter for Go source code that specialises on simplifying code
 dev-go/staticfiles 0_pre20160903: staticfiles compiles a directory of files into an embeddable .go file
 dev-go/statik 0.1.0 0.2.0_pre20160906: statik embeds static files into a GoLang executable
 dev-go/structlayout 0.1_pre20160324: An utility that prints the layout of a Go struct
