@@ -5,13 +5,13 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/mvdan"
-GOLANG_PKG_VERSION="2927fff6028e3bc73636bf2fb627021a68566a2b"
+GOLANG_PKG_VERSION="588bd9940e912b1b2760d41bd836ef28ff97164d"
 GOLANG_PKG_BUILDPATH="/cmd/${PN}"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/kisielk/gotool:5e136de"
-	"github.com/golang/tools:b5358b5 -> golang.org/x"
+	"github.com/kisielk/gotool:0de1eaf"
+	"github.com/golang/tools:354f9f8 -> golang.org/x"
 )
 
 inherit golang-single
