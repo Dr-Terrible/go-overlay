@@ -14,6 +14,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/junegunn/go-isatty:66b8e73"
 	"github.com/junegunn/go-runewidth:63c378b"
 	"github.com/junegunn/go-shellwords:35d512a"
+	"github.com/golang/crypto:91902e3 -> golang.org/x"
 )
 
 inherit golang-single bash-completion-r1
@@ -39,14 +40,14 @@ src_install() {
 	fi
 
 	# Install bash completion files
-	if bash-completion; then
+	if use bash-completion; then
 		newbashcomp shell/completion.bash ${PN}
 		insinto /etc/profile.d/
 		newins shell/key-bindings.bash ${PN}.sh
 	fi
 
 	# Install zsh completion files
-	if zsh-completion; then
+	if use zsh-completion; then
 		insinto /usr/share/zsh/site-functions
 		newins shell/completion.zsh _${PN}
 		insinto /usr/share/zsh/site-contrib/
@@ -54,7 +55,7 @@ src_install() {
 	fi
 
 	# Install fish completion files
-	if fish-completion; then
+	if use fish-completion; then
 		insinto /usr/share/fish/functions/
 		newins shell/key-bindings.fish ${PN}.fish
 	fi
