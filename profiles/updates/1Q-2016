@@ -5,7 +5,6 @@ move dev-util/hub dev-vcs/hub
 move dev-go/direnv dev-util/direnv
 move dev-go/dex net-nds/dex
 move dev-go/minify dev-util/minify
-move dev-go/go-md2man app-text/go-md2man
 move net-misc/syncthing net-p2p/syncthing
 move net-misc/syncthing-inotify net-p2p/syncthing-inotify
 move net-misc/syncthing-cli net-p2p/syncthing-cli
