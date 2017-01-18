@@ -115,6 +115,7 @@ dev-python/markdown-include 0.5.1: Add anchor tags and icons to all headers
 dev-python/mdx_anchors_away 1.0.1: Add anchor tags and icons to all headers
 dev-python/mdx_callouts 1.0.0: Add anchor tags and icons to all headers
 dev-python/mdx_foldouts 1.0.0: Add anchor tags and icons to all headers
+dev-util/addlicense 0_pre20160627: A program which ensures source code files have copyright license headers
 dev-util/check 0.1_pre20160515-r1: A set of utilities for checking Go sources
 dev-util/deadcode 0.1_pre20160724: Deadcode finds unused Go source code
 dev-util/direnv 2.10.0: Direnv is an environment switcher for the shell.
