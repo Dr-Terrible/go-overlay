@@ -13,8 +13,8 @@ GOLANG_PKG_USE_CGO=1
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/junegunn/go-isatty:66b8e73"
 	"github.com/junegunn/go-runewidth:63c378b"
-	"github.com/junegunn/go-shellwords:35d512a"
-	"github.com/golang/crypto:f6b343c -> golang.org/x"
+	"github.com/junegunn/go-shellwords:33bd8f1"
+	"github.com/golang/crypto:854ae91 -> golang.org/x"
 )
 
 inherit golang-single bash-completion-r1
