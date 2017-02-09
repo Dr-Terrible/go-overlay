@@ -12,11 +12,12 @@ GOLANG_PKG_USE_CGO=1
 
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/git-time-metric/git2go:342230c" # 'next' branch
-	"github.com/git-time-metric/libgit2:a6763ff" # v0.25.0-rc1
-	"github.com/mattn/go-isatty:66b8e73"
-	"github.com/mitchellh/cli:fcf5214"
+	#"github.com/git-time-metric/libgit2:a6763ff" # v0.25.0-rc1
+	"github.com/libgit2/libgit2:2fcb870" #v0.25.1
+	"github.com/mattn/go-isatty:30a891c"
+	"github.com/mitchellh/cli:494eb00"
 	"github.com/armon/go-radix:4239b77"
-	"github.com/bgentry/speakeasy:a1ccbf2"
+	"github.com/bgentry/speakeasy:675b82c"
 )
 
 inherit golang-single
@@ -46,7 +47,7 @@ src_prepare() {
 	export GOROOT
 
 	# Link libgit2 as a vendored dependency for git2go
-	libgit2="${GOPATH}/src/github.com/git-time-metric/libgit2"
+	libgit2="${GOPATH}/src/github.com/libgit2/libgit2"
 	git2go="${GOPATH}/src/github.com/git-time-metric/git2go"
 	rm -r "${git2go}"/vendor/libgit2 || die
 	ln -s "${libgit2}" "${git2go}"/vendor/libgit2 || die
