@@ -18,6 +18,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/Unknwon/com:28b053d"
 	"github.com/Unknwon/i18n:39d6f27"
 	"github.com/Unknwon/paginater:701c23f"
+	"github.com/fatih/color:42c364b"
 	"github.com/urfave/cli:347a988"
 	"github.com/go-macaron/binding:4892016"
 	"github.com/go-macaron/cache:5617353"
@@ -36,13 +37,15 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/gogits/go-libravatar:cd1abbd"
 	"github.com/gogits/go-gogs-client:98046bb"
 	"github.com/gogits/cron:2fc07a4"
-	"github.com/gogits/git-module:df1013f"
+	"github.com/gogits/git-module:172cbc2"
 	"github.com/issue9/identicon:d36b545"
 	"github.com/jaytaylor/html2text:d16d412"
 	"github.com/klauspost/compress:461e8fd"
 	"github.com/klauspost/cpuid:09cded8"
 	"github.com/klauspost/crc32:cb6bfca"
 	"github.com/lib/pq:67c3f2a"
+	"github.com/mattn/go-colorable:d228849"
+	"github.com/mattn/go-isatty:30a891c"
 	"github.com/mattn/go-sqlite3:ce9149a"
 	"github.com/mcuadros/go-version:257f7b9"
 	"github.com/microcosm-cc/bluemonday:e797637"
@@ -61,6 +64,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/go-macaron/macaron:78521e4 -> gopkg.in/macaron.v1"
 	"github.com/go-redis/redis:e617904 -> gopkg.in/redis.v2" #v2.3.2
 	"github.com/go-bufio/bufio:567b2bf -> gopkg.in/bufio.v1"
+	"github.com/go-clog/clog:d359c28 -> gopkg.in/clog.v1"
 	"github.com/go-ldap/ldap:8168ee0 -> gopkg.in/ldap.v2" #v2.5.0
 	"github.com/go-asn1-ber/asn1-ber:4e86f43 -> gopkg.in/asn1-ber.v1" #v1.1
 	"github.com/editorconfig/editorconfig-core-go:a872f05 -> gopkg.in/editorconfig/editorconfig-core-go.v1" #v1.2.0
