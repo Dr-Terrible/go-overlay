@@ -6,7 +6,7 @@ EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/mvdan"
 GOLANG_PKG_NAME="sh"
-GOLANG_PKG_VERSION="84af269409cb999594b7bac7642aa78bc7df9bdb"
+GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_BUILDPATH="/cmd/${PN}"
 GOLANG_PKG_HAVE_TEST=1
 
@@ -16,4 +16,4 @@ DESCRIPTION="A shell parser and formatter for POSIX shell and bash"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="amd64 arm x86"
