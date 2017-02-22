@@ -94,6 +94,7 @@ dev-go/gox 0.3.0 0.4.0_pre20160725: A dead simple, no frills Go cross compile to
 dev-go/goxc 0.18.1-r1: Goxc is a build tool for GoLange, with a focus on cross-compiling and packaging
 dev-go/grind 0.1.0_pre20150302: Grind rewrites the source files written in GoLang.
 dev-go/gvt 0.1.0_pre20161118: gvt is a simple vendoring tool made for Go native vendoring
+dev-go/janus 1.7.4: An Api Gateway written in Go
 dev-go/kar 0.1_pre20151213: Kar is a simple utility that helps you run Kargar builds from CLI
 dev-go/liteide-tools 2015.04.09: Liteide Golang tools
 dev-go/mock 0.1.0_pre20160127: GoMock is a mocking framework for the Go programming language
