@@ -24,7 +24,7 @@ DESCRIPTION="A general-purpose command-line fuzzy finder"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64 arm x86"
-IUSE="tmux vim bash-completion zsh-completion fish-completion"
+IUSE="tmux neovim vim bash-completion zsh-completion fish-completion"
 
 RDEPEND="tmux? ( app-misc/tmux )"
 
@@ -39,14 +39,14 @@ src_install() {
 	fi
 
 	# Install bash completion files
-	if bash-completion; then
+	if use bash-completion; then
 		newbashcomp shell/completion.bash ${PN}
 		insinto /etc/profile.d/
 		newins shell/key-bindings.bash ${PN}.sh
 	fi
 
 	# Install zsh completion files
-	if zsh-completion; then
+	if use zsh-completion; then
 		insinto /usr/share/zsh/site-functions
 		newins shell/completion.zsh _${PN}
 		insinto /usr/share/zsh/site-contrib/
@@ -54,14 +54,20 @@ src_install() {
 	fi
 
 	# Install fish completion files
-	if fish-completion; then
+	if use fish-completion; then
 		insinto /usr/share/fish/functions/
-		newins shell/key-bindings.fish ${PN}.fish
+		newins shell/key-bindings.fish fzf_key_bindings.fish
 	fi
 
 	# Install VIM plugin
 	if use vim; then
 		insinto /usr/share/vim/vimfiles/plugin
+		doins plugin/${PN}.vim
+	fi
+
+	# Install Neovim plugin
+	if use neovim; then
+		insinto /usr/share/nvim/runtime/plugin
 		doins plugin/${PN}.vim
 	fi
 }

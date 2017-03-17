@@ -7,8 +7,9 @@
 		<description>Maintainer. Assign bugs to him</description>
 	</maintainer>
 	<use>
-		<flag name="vim">Install vim plugin</flag>
-		<flag name="tmux">Install TMUX extra tools</flag>
 		<flag name="fish-completion">Enable fish completion support</flag>
+		<flag name="neovim">Install neovim plugin</flag>
+		<flag name="tmux">Install TMUX extra tools</flag>
+		<flag name="vim">Install vim plugin</flag>
 	</use>
 </pkgmetadata>
