@@ -11,7 +11,7 @@ app-crypt/keybase 1.0.18-r50: Client for keybase.io
 app-editors/lime-qml 20150428: QML frontend for Lime text editor.
 app-editors/lime-termbox 20150428: Termbox frontend for Lime text editor.
 app-editors/liteide 27.2.1: LiteIDE is a simple, open source, cross-platform Go IDE.
-app-editors/micro 1.1.3 1.1.4: A modern and intuitive terminal-based text editor
+app-editors/micro 1.3.3: A modern and intuitive terminal-based text editor
 app-editors/srclib 0.2.5: A hackable, multilange code analysis library for building better software tools
 app-emulation/cinf 0.4.0: A tool to view namespaces and cgroups, useful for low-level container prodding
 app-emulation/packer 0.10.2: Packer is a tool for creating identical machine images for multiple platforms
@@ -55,7 +55,7 @@ dev-go/benthos 0.0.2: A persistent stream buffer
 dev-go/callvis 0_pre20170107: Visualize call graph of your Go program using dot format
 dev-go/cgogen 0.1.0_pre20160923: Automatic CGo Bindings Generator for Golang
 dev-go/codecgen 0.1_pre20160928: Idiomatic codec and rpc lib for msgpack, cbor, json, etc. msgpack.org
-dev-go/dep 0_pre20170221 0.1.0: A Go's dependency management tool
+dev-go/dep 0_pre20170221 0.1.0 0.1.0-r1 0.3.0: A Go's dependency management tool
 dev-go/depscheck 0.1.0_pre20160406: Prints stats and suggests to remove small LeftPad-like imports from Go packages
 dev-go/discover 0.1_pre20160103: Discover is a utility to aid in conceptualizing large Go code bases
 dev-go/duktape 2.0.0_pre20160305: CLI for Duktape JavaScript engine written in GoLang
@@ -72,7 +72,7 @@ dev-go/go-carpet 1.4: Shows test coverage for Go source files
 dev-go/go-fuzz 0.1_pre20160928: Go-fuzz is a coverage-guided fuzzing solution for testing of Go packages
 dev-go/go-md2man 1.0.6: Command-line tool to convert Markdown into UNIX man pages
 dev-go/go-protobuf 0.1_pre20160927: Go support for Google's protocol buffers
-dev-go/go-tools 0_pre20161220: Various packages and tools that support the Go programming language
+dev-go/go-tools 0_pre20161220 0_pre20170808: Various packages and tools that support the Go programming language
 dev-go/go-torch 0.5.0_pre20160909: Stochastic flame graph profiler for Go Programs
 dev-go/goa 0.0.1_pre20160218: Goa is a framework for building RESTful microservices in Go
 dev-go/gocode 2015.03.03: An autocompletion daemon for the Go programming language
