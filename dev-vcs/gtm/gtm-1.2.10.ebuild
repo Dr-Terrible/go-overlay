@@ -6,17 +6,17 @@ EAPI=6
 GOLANG_PKG_IMPORTPATH="github.com/git-time-metric"
 GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_LDFLAGS="-X main.Version=${PV}"
+GOLANG_PKG_TAGS="static"
 GOLANG_PKG_HAVE_TEST=1
 GOLANG_PKG_USE_CGO=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/git-time-metric/git2go:342230c" # 'next' branch
-	#"github.com/git-time-metric/libgit2:a6763ff" # v0.25.0-rc1
+	"github.com/libgit2/git2go:334260d" #v25
 	"github.com/libgit2/libgit2:2fcb870" #v0.25.1
-	"github.com/mattn/go-isatty:30a891c"
-	"github.com/mitchellh/cli:494eb00"
+	"github.com/mattn/go-isatty:fc9e8d8"
+	"github.com/mitchellh/cli:b481eac"
 	"github.com/armon/go-radix:4239b77"
-	"github.com/bgentry/speakeasy:675b82c"
+	"github.com/bgentry/speakeasy:4aabc24"
 )
 
 inherit golang-single
@@ -40,27 +40,23 @@ DEPEND="${RDEPEND}
 src_prepare() {
 	golang-single_src_prepare
 
-	# Create a writable GOROOT in order to avoid sandbox violations.
-	GOROOT="${WORKDIR}/goroot"
-	cp -sR "$(go env GOROOT)" "${GOROOT}" || die
-	export GOROOT
-
 	# Link libgit2 as a vendored dependency for git2go
 	libgit2="${GOPATH}/src/github.com/libgit2/libgit2"
-	git2go="${GOPATH}/src/github.com/git-time-metric/git2go"
+	git2go="${GOPATH}/src/github.com/libgit2/git2go"
 	rm -r "${git2go}"/vendor/libgit2 || die
 	ln -s "${libgit2}" "${git2go}"/vendor/libgit2 || die
 
 	# Fix: force cgo to use the vendored libgit2 lib instead of the one from the system
-	pushd ../git2go > /dev/null || die
+	pushd "${git2go}" > /dev/null || die
 		epatch "${FILESDIR}/${PN}-golang-cgo.patch"
 	popd > /dev/null || die
 }
 
 src_compile() {
-	einfo "go install github.com/git-time-metric/git2go/... "
+	einfo "go install ${git2go//${GOPATH}\/src\//}/... "
 	pushd "${git2go}" > /dev/null || die
-		emake install || die
+		# TODO: use cmake eclass and build a static lib without debug symbols
+		emake build-static || die
 	popd > /dev/null || die
 
 	golang-single_src_compile

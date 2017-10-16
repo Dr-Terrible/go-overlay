@@ -58,9 +58,9 @@ dev-go/codecgen 0.1_pre20160928: Idiomatic codec and rpc lib for msgpack, cbor, 
 dev-go/dep 0_pre20170221 0.1.0 0.1.0-r1 0.3.0: A Go's dependency management tool
 dev-go/depscheck 0.1.0_pre20160406: Prints stats and suggests to remove small LeftPad-like imports from Go packages
 dev-go/discover 0.1_pre20160103: Discover is a utility to aid in conceptualizing large Go code bases
-dev-go/duktape 2.0.0_pre20160305: CLI for Duktape JavaScript engine written in GoLang
+dev-go/duktape 2.0.0_pre20170901: CLI for Duktape JavaScript engine written in GoLang
 dev-go/ffjson 0.1_pre20160210 0.1_pre20160811: Ffjson is a faster JSON serialization for Go
-dev-go/gb 0.2.0 0.3.5 0.4.3 0.4.4_pre20160926: Gb is a project based build tool for the Go programming language
+dev-go/gb 0.2.0 0.3.5 0.4.3 0.4.4: Gb is a project based build tool for the Go programming language
 dev-go/gcli 0.2.3-r1: Gcli builds GoLang command-line applications
 dev-go/gen 4.3 4.4_pre20160108: Type-driven code generation for GoLang
 dev-go/ginkgo 1.2.0: BDD Testing Framework for GoLang
@@ -160,9 +160,9 @@ dev-util/realize 1.2.2: A Go build system with file watchers, output streams and
 dev-util/shfmt 1.1.0: A shell parser and formatter for POSIX shell and bash
 dev-util/staticcheck 0.1.0_pre20170104: A Golang tool for statically checking the inputs to certain functions
 dev-util/unconvert 0.1_pre20160804: Remove unnecessary type conversions from Go source
-dev-util/wellington 1.0.3: Wellington is a CSS preprocessor with spriting and based on libsass
+dev-util/wellington 1.0.4: Wellington is a CSS preprocessor with spriting and based on libsass
 dev-vcs/gitql 1.3.0-r1: A git query language
-dev-vcs/gtm 1.2.6: Simple, seamless, lightweight time tracking for Git
+dev-vcs/gtm 1.2.6 1.2.10: Simple, seamless, lightweight time tracking for Git
 dev-vcs/hub 2.2.9: Hub wraps git in order to extend it with extra features and commands
 net-analyzer/dbshield 1.0.0_beta4: Protects your data by inspecting incoming queries from your application server
 net-ftp/pixiecore 0.1.0_pre20161101: PXE booting for people in a hurry
@@ -184,7 +184,7 @@ net-p2p/bmd 0.1.0_pre20160605-r1 9999-r5: bmd is a collection of Bitmessage tool
 net-p2p/btcd 0.12.0-r1 9999: An alternative full node bitcoin implementation written in Go
 net-p2p/btcsim 0.1_pre20150902 9999: Implements a simulation test driver using the simnet network provided by btcd
 net-p2p/cloud-torrent 0.8.11: Cloud Torrent is a self-hosted remote torrent client, written in GoLang
-net-p2p/syncthing 0.11.26-r1 0.12.25-r10 0.13.10-r10 0.14.23-r50: Syncthing is an app that lets you synchronize your files across multiple devices
+net-p2p/syncthing 0.11.26-r1 0.12.25-r10 0.13.10-r10 0.14.38-r50: Syncthing is an app that lets you synchronize your files across multiple devices
 net-p2p/syncthing-cli 0.1.0_pre20150922-r1: SyncThing command-line interface
 net-p2p/syncthing-inotify 0.8.4: File watcher intended for use with Syncthing
 net-print/cloud-print-connector 2016.01.02-r1: Google Cloud Print CUPS Connector
