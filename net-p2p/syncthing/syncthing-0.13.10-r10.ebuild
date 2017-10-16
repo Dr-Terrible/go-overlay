@@ -1,6 +1,5 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
@@ -9,18 +8,8 @@ GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_BUILDPATH="/cmd/${PN}"
 GOLANG_PKG_TAGS="noupgrade"
 GOLANG_PKG_LDFLAGS="-w -X main.Version=v${PV} -X main.BuildUser=portage -X main.BuildHost=gentoo -X main.BuildStamp=$( date +%s )"
-#GOLANG_PKG_USE_GENERATE=1     temporarely disabled
 GOLANG_PKG_HAVE_TEST=1
 
-#GOLANG_PKG_DEPENDENCIES=(
-#
-#	# Unit Testing
-#	"github.com/remyoudompheng/bigfft:a8e77dd"
-#	"github.com/golang/protobuf:3852dcf"
-#	"github.com/go-check/check:4f90aea -> gopkg.in/check.v1"
-#	"github.com/golang/net:f841c39 -> golang/x"
-#	"github.com/golang/text:ce78b07 -> golang/x"
-#)
 inherit user systemd golang-single
 
 EDOC_COMMIT="3b76ff63297d09c0400fc404179ff3097ec4c214"
@@ -45,13 +34,6 @@ SYNCTHING_HOME="/var/lib/${PN}"
 pkg_setup() {
 	enewuser ${PN} -1 -1 "${SYNCTHING_HOME}"
 }
-
-#src_prepare() {
-#	rm -rf "${S}"/vendor/golang.org/x/net || die
-#	rm -rf "${S}"/vendor/golang.org/x/text || die
-#
-#	golang-single_src_prepare
-#}
 
 src_compile() {
 	# generate assets
