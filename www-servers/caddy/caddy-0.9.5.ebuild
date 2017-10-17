@@ -1,10 +1,9 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
-EDOC_COMMIT="b3532a3c8f944da4c8778e2c7eb2dac35345d6a6" #release branch
+#EDOC_COMMIT="b3532a3c8f944da4c8778e2c7eb2dac35345d6a6" #release branch
 
 GOLANG_PKG_IMPORTPATH="github.com/mholt"
 GOLANG_PKG_ARCHIVEPREFIX="v"
@@ -40,16 +39,16 @@ inherit user systemd golang-single
 
 DESCRIPTION="Fast, cross-platform HTTP/2 web server with automatic HTTPS"
 HOMEPAGE="https://caddyserver.com"
-SRC_URI+=" doc? ( https://github.com/${PN}server/${PN}server.com/archive/${EDOC_COMMIT}.tar.gz -> ${PF}-doc.tar.gz )"
+#SRC_URI+=" doc? ( https://github.com/${PN}server/${PN}server.com/archive/${EDOC_COMMIT}.tar.gz -> ${PF}-doc.tar.gz )"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 x86 arm"
 
 ADDONS=""
-IUSE="doc $ADDONS"
+IUSE="$ADDONS"
 
-DEPEND="doc? ( www-apps/hugo )"
+#DEPEND="doc? ( www-apps/hugo )"
 
 #PATCHES=( "${FILESDIR}"/${PN}-systemd.patch )
 
@@ -77,22 +76,22 @@ src_install() {
 	# install systemd services
 	systemd_newunit dist/init/linux-systemd/${PN}.service "${PN}@.service"
 
-	if use doc; then
-		pushd "${WORKDIR}"/${PN}server.com-${EDOC_COMMIT} > /dev/null || die
-			hugo -v \
-    	        -d "${T}"/docs \
-	        	--baseURL="file:///usr/share/doc/${PF}/html/" \
-            	--canonifyURLs=true \
-        	    --uglyURLs=true \
-    	        --disableRSS=true \
-	        	--disableSitemap=true \
-            	--noTimes=true \
-        	    || die
-		popd > /dev/null || die
-
-		docinto html
-		dodoc -r "${T}"/docs/*
-	fi
+#	if use doc; then
+#		pushd "${WORKDIR}"/${PN}server.com-${EDOC_COMMIT} > /dev/null || die
+#			hugo -v \
+#    	        -d "${T}"/docs \
+#	        	--baseURL="file:///usr/share/doc/${PF}/html/" \
+#            	--canonifyURLs=true \
+#        	    --uglyURLs=true \
+#    	        --disableRSS=true \
+#	        	--disableSitemap=true \
+#            	--noTimes=true \
+#        	    || die
+#		popd > /dev/null || die
+#
+#		docinto html
+#		dodoc -r "${T}"/docs/*
+#	fi
 }
 
 pkg_postinst() {
