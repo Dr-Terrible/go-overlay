@@ -1,22 +1,19 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/oleiade"
-GOLANG_PKG_VERSION="3461cb35c1309d7b315609d22a84cdc7c7bdd329"
 GOLANG_PKG_BUILDPATH="/cmd/${PN}"
 GOLANG_PKG_HAVE_TEST=1
 
 inherit golang-single bash-completion-r1
 
 DESCRIPTION="A networked and encrypted key-value database."
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 -arm x86"
 IUSE="doc bash-completion zsh-completion fish-completion"
 
 DEPEND="doc? ( dev-python/sphinx )
