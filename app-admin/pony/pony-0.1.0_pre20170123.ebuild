@@ -1,20 +1,19 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/jfrazelle"
 GOLANG_PKG_VERSION="85e750a290ebcf3167d77cc9b4a0334d400e5cf8"
 
-GOLANG_PKG_DEPENDENCIES=(
-	"github.com/Sirupsen/logrus:4b6ea73" # v0.10.0
-	"github.com/atotto/clipboard:bb272b8"
-	"github.com/codegangsta/cli:f9cc300"
-	"github.com/docker/docker:23cf638 -> github.com/dotcloud" # v1.12.1
-	"github.com/golang/crypto:81372b2 -> golang.org/x"
-	"github.com/opencontainers/runc:baf6536" #v0.1.1
-)
+#GOLANG_PKG_DEPENDENCIES=(
+#	"github.com/Sirupsen/logrus:4b6ea73" # v0.10.0
+#	"github.com/atotto/clipboard:bb272b8"
+#	"github.com/codegangsta/cli:f9cc300"
+#	"github.com/docker/docker:23cf638 -> github.com/dotcloud" # v1.12.1
+#	"github.com/golang/crypto:81372b2 -> golang.org/x"
+#	"github.com/opencontainers/runc:baf6536" #v0.1.1
+#)
 
 inherit golang-single
 

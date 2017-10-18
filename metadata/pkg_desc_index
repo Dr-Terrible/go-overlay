@@ -1,7 +1,7 @@
 app-admin/chaosmonkey 2.0.2: A resiliency tool that helps applications tolerate random instance failures
 app-admin/doctl 1.4.0: A command line tool for DigitalOcean services
 app-admin/juju 2.1_beta3: juju is devops distilled
-app-admin/pony 0.1.0_pre20160513: Local File-Based Password, API Key, Secret, Recovery Code Store Backed vy GPG
+app-admin/pony 0.1.0_pre20170123: Local File-Based Password, API Key, Secret, Recovery Code Store Backed vy GPG
 app-admin/restic 0.2.0: Restic is a program that does backups
 app-admin/terraform 0.6.16: Terraform builds, changes, and combines infrastructure safely and efficiently
 app-admin/trousseau 0.4.0: A networked and encrypted key-value database.
