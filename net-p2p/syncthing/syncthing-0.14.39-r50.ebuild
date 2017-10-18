@@ -8,15 +8,13 @@ GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_BUILDPATH="/cmd/${PN}"
 GOLANG_PKG_TAGS="noupgrade"
 GOLANG_PKG_LDFLAGS="-w -X main.Version=v${PV} -X main.BuildUser=portage -X main.BuildHost=gentoo -X main.BuildStamp=$( date +%s )"
-GOLANG_PKG_USE_GENERATE=1
-GOLANG_PKG_HAVE_TEST=1
 
 inherit user systemd golang-single
 
-EDOC_COMMIT="8ee999962ee7885442c1d61a54a08b31dd1d6788"
+EDOC_COMMIT="1aa9c87a064d0e2c5461e4a33535657d01f36bd3"
 
 DESCRIPTION="Syncthing is an app that lets you synchronize your files across multiple devices"
-HOMEPAGE="http://syncthing.net"
+HOMEPAGE="https://syncthing.net"
 SRC_URI+=" doc? ( https://github.com/${PN}/docs/archive/${EDOC_COMMIT}.tar.gz -> ${PN}-docs-${EDOC_COMMIT}.tar.gz )"
 
 LICENSE="MPL-2.0"
@@ -24,10 +22,11 @@ SLOT="0"
 KEYWORDS="amd64 x86 arm"
 IUSE+=" cli doc inotify"
 
-DEPEND=">=dev-lang/go-1.5.3
-	doc? ( dev-python/sphinx )"
+RESTRICT+=" test"
+
+DEPEND="doc? ( dev-python/sphinx )"
 RDEPEND="!net-misc/${PN}
-	cli? ( net-p2p/syncthing-cli )
+	!<net-p2p/${PN}-0.13.99
 	inotify? ( net-p2p/syncthing-inotify )"
 
 SYNCTHING_HOME="/var/lib/${PN}"
@@ -37,6 +36,11 @@ pkg_setup() {
 }
 
 src_compile() {
+	# generate assets
+	go run build.go assets
+
+	# building app
+	use cli && GOLANG_PKG_BUILDPATH+=" /cmd/stcli"
 	golang-single_src_compile
 
 	# compile documentation
@@ -46,7 +50,7 @@ src_compile() {
 }
 
 src_install() {
-	# install the package
+	# install the app
 	golang-single_src_install
 
 	# install man pages

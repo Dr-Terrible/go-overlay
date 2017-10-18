@@ -1,6 +1,5 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
@@ -9,12 +8,12 @@ GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_LDFLAGS="-X main.Version=v${PV}"
 GOLANG_PKG_HAVE_TEST=1
 
-GOLANG_PKG_DEPENDENCIES=(
-	"github.com/syncthing/syncthing:b7e2198" #v0.14.10
-	"github.com/cenkalti/backoff:b02f2bb"
-	"github.com/zillode/notify:df33c1a"
-	"github.com/gobwas/glob:0354991" #v0.2.1
-)
+#GOLANG_PKG_DEPENDENCIES=(
+#	"github.com/syncthing/syncthing:b7e2198" #v0.14.10
+#	"github.com/cenkalti/backoff:b02f2bb"
+#	"github.com/zillode/notify:df33c1a"
+#	"github.com/gobwas/glob:0354991" #v0.2.1
+#)
 
 inherit systemd golang-single
 
