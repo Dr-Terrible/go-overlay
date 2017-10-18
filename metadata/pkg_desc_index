@@ -173,7 +173,7 @@ net-misc/gnatsd 0.9.4: A high Performance NATS Server written in GoLang
 net-misc/goduckgo 0.1.0_pre20150206: Command-line tool for DuckDuckGo API
 net-misc/gollum 0.4.4: A n:m message multiplexer written in GoLang
 net-misc/govpn 6.0: Simple secure free software VPN daemon
-net-misc/hoverfly 0.5.11 0.8.2: Hoverfly is a lightweight, open source service virtualization tool.
+net-misc/hoverfly 0.14.2: Hoverfly is a lightweight, open source service virtualization tool.
 net-misc/httpstat 1.0.0: It's like curl -v, with colours
 net-misc/nsq 1.0.0: A real-time distributed messaging platform, written in GoLang
 net-misc/teleport 1.3.2: Modern SSH server for clusters and teams
