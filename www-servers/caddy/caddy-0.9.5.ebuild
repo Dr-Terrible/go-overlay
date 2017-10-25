@@ -9,7 +9,7 @@ GOLANG_PKG_IMPORTPATH="github.com/mholt"
 GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_BUILDPATH="/${PN}"
 PKG="${GOLANG_PKG_IMPORTPATH}/${PN}/${PN}/${PN}main"
-GOLANG_PKG_LDFLAGS="-X ${PKG}.appVersion=v${PV} -X ${PKG}.gitTag=v${PV} -X ${PKG}.gitCommit=c885edd -X \"${PKG}.buildDate=$( date -u +"%a %b %d %H:%M:%S %Z %Y" )\""
+GOLANG_PKG_LDFLAGS="-X ${PKG}.appVersion=v${PV} -X ${PKG}.gitTag=v${PV} -X ${PKG}.gitCommit=c885edd"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
@@ -58,6 +58,7 @@ USER_DIR="/var/lib/${USER_NAME}"
 pkg_setup() {
 	enewgroup ${USER_NAME}
 	enewuser ${USER_NAME} -1 /bin/bash "${USER_DIR}" ${USER_NAME}
+	GOLANG_PKG_LDFLAGS+=" -X \"${PKG}.buildDate=$( date -u +"%a %b %d %H:%M:%S %Z %Y" )\""
 }
 
 src_prepare() {
