@@ -4,7 +4,17 @@
  package git
  
  /*
-+#cgo pkg-config: --static ./vendor/libgit2/build/libgit2.pc 
++#cgo pkg-config: --static ../libgit2/libgit2.pc
  #include <git2.h>
+ */
+ import "C"
+--- /git_static.go
++++ /git_static.go
+@@ -6,6 +6,6 @@
+ #cgo CFLAGS: -I${SRCDIR}/vendor/libgit2/include
+ #cgo LDFLAGS: -L${SRCDIR}/vendor/libgit2/build/ -lgit2
+ #cgo windows LDFLAGS: -lwinhttp
+-#cgo !windows pkg-config: --static ${SRCDIR}/vendor/libgit2/build/libgit2.pc
++#cgo !windows pkg-config: --static ${SRCDIR}/vendor/libgit2/libgit2.pc
  */
  import "C"

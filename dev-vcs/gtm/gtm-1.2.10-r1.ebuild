@@ -19,21 +19,24 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/bgentry/speakeasy:4aabc24"
 )
 
-inherit golang-single
+CMAKE_IN_SOURCE_BUILD=1
+inherit cmake-utils golang-single
 
 DESCRIPTION="Simple, seamless, lightweight time tracking for Git"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64 ~arm x86"
-IUSE="libressl"
+IUSE="libressl threads +ssh gssapi +curl"
 
 RDEPEND="
 	!libressl? ( dev-libs/openssl:0 )
 	libressl? ( dev-libs/libressl )
 	sys-libs/zlib
 	net-libs/http-parser:=
-	net-libs/libssh2"
+	gssapi? ( virtual/krb5 )
+	ssh? ( net-libs/libssh2 )
+	curl? ( net-misc/curl )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
@@ -46,18 +49,38 @@ src_prepare() {
 	rm -r "${git2go}"/vendor/libgit2 || die
 	ln -s "${libgit2}" "${git2go}"/vendor/libgit2 || die
 
-	# Fix: force cgo to use the vendored libgit2 lib instead of the one from the system
+	# Force cgo to use the vendored libgit2 lib
+	# instead of the one from the system (if present)
 	pushd "${git2go}" > /dev/null || die
 		epatch "${FILESDIR}/${PN}-golang-cgo.patch"
 	popd > /dev/null || die
+
+	CMAKE_USE_DIR="${libgit2}"
+	cmake-utils_src_prepare
 }
 
 src_compile() {
-	einfo "go install ${git2go//${GOPATH}\/src\//}/... "
-	pushd "${git2go}" > /dev/null || die
-		# TODO: use cmake eclass and build a static lib without debug symbols
-		emake build-static || die
-	popd > /dev/null || die
+	# Build libgit2 as a static lib
+	local mycmakeargs=(
+		-DSONAME=OFF
+		-DBUILD_SHARED_LIBS=OFF
+		-DBUILD_EXAMPLES=OFF
+		-DBUILD_CLAR=OFF
+		-DTAGS=OFF
+		-DPROFILE=OFF
+		-DENABLE_TRACE=OFF
+		-DUSE_ICONV=OFF
+		-DVALGRIND=OFF
+		-DDEBUG_POOL=OFF
+		-DUSE_OPENSSL=ON
+		-DCURL="$(usex curl)"
+		-DUSE_GSSAPI="$(usex gssapi)"
+		-DUSE_SSH="$(usex ssh)"
+		-DTHREADSAFE="$(usex threads)"
+	)
+	cmake-utils_src_configure
+	cmake-utils_src_compile
 
+	# Build gtm
 	golang-single_src_compile
 }
