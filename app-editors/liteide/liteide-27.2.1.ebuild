@@ -1,6 +1,5 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 inherit qmake-utils
@@ -10,7 +9,7 @@ HOMEPAGE="http://code.google.com/p/liteide"
 SRC_URI="https://github.com/visualfc/${PN}/archive/x${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
-KEYWORDS="~amd64 ~x86 ~arm ~amd64-fbsd ~x86-fbsd"
+KEYWORDS="-* ~amd64"
 SLOT="0"
 IUSE="debug gdb kernel_linux kernel_FreeBSD test +tools"
 

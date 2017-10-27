@@ -1,6 +1,5 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
@@ -34,7 +33,6 @@ EGIT_COMMIT="4fffef018f"
 EGIT_CHECKOUT_DIR="${S}/packages/"
 
 DESCRIPTION="Termbox frontend for Lime text editor."
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="BSD"
 SLOT="0"

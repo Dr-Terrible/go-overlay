@@ -1,6 +1,5 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
@@ -18,7 +17,6 @@ GOLANG_PKG_DEPENDENCIES=(
 inherit golang-single
 
 DESCRIPTION="A small tool for Golang to generate Golang strunc from xml/json file"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="GPL-3"
 SLOT="0"

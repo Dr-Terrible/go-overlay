@@ -1,6 +1,5 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
@@ -16,7 +15,6 @@ GOLANG_PKG_DEPENDENCIES=(
 inherit golang-single
 
 DESCRIPTION="Pipecat allows you to scale any program using traditional UNIX pipes and AMQP"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN}"
 
 LICENSE="BSD"
 SLOT="0"

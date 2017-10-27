@@ -1,6 +1,5 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
@@ -11,7 +10,7 @@ GOLANG_PKG_HAVE_TEST=1
 inherit golang-single
 
 DESCRIPTION="A terminal session recorder for asciinema.org service"
-HOMEPAGE="https://${GOLANG_PKG_IMPORTPATH}/${PN} http://asciinema.org"
+HOMEPAGE="http://asciinema.org"
 
 LICENSE="GPL-3"
 SLOT="0"

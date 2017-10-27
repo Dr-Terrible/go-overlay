@@ -1,6 +1,5 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
@@ -61,5 +60,5 @@ src_prepare() {
 	golang-single_src_prepare
 
 	rmdir config || die
-	ln -s "${GOPATH}"/src/github.com/muesli/${PN}-admin-dist config
+	ln -s "${GOPATH}"/src/github.com/muesli/${PN}-admin-dist config || die
 }

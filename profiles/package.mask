@@ -5,6 +5,12 @@
 #
 # NOTE: Please add your entry at the top!
 
+# Toffanin Mauro <toffanin.mauro@gmail.com> (01 Sep 2017)
+# LiteIDE makes use of dev-qt/qtwebkit:4 that, at the time of writing,
+# is hard masked. Qt4 is not more supported by upstream.
+# Untile LiteIDE will switch to Qt5, this hard mask will remain in place.
+<=app-editors/liteide-27.2.1
+
 # Toffanin Mauro <toffanin.mauro@gmail.com> (09 Gen 2016)
 # Gitea is no longer developed by upstram. For reference
 # see https://github.com/go-gitea/gitea/issues/227

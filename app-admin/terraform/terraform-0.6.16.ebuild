@@ -1,12 +1,10 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/hashicorp"
 GOLANG_PKG_ARCHIVEPREFIX="v"
-#GOLANG_PKG_USE_GENERATE=1
 GOLANG_PKG_HAVE_TEST=1
 
 inherit golang-single
@@ -22,10 +20,6 @@ COMMON_IUSE="chef"
 IUSE_PROVIDERS="atlas aws azure azurerm cloudflare cloudstack consul digitalocean dme dnsimple docker dyn google heroku librato mailgun +null openstack packet rundeck softlayer statuscake +template +tls vsphere vcd postgresql mysql powerdns"
 IUSE_PROVISIONERS="+file +local-exec +remote-exec"
 IUSE+=" $IUSE_PROVIDERS $IUSE_PROVISIONERS $COMMON_IUSE"
-
-# go-tools and codecgen are required by "go:generate stringer" directive
-#DEPEND="dev-go/go-tools
-#	dev-go/codecgen"
 
 src_compile() {
 	# build terraform binary
