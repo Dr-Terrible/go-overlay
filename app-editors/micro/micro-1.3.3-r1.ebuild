@@ -37,3 +37,5 @@ HOMEPAGE="https://micro-editor.github.io"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64 arm x86"
+
+DOCS=( "${S}"/runtime/help/ )
