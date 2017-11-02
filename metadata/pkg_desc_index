@@ -55,7 +55,7 @@ dev-go/benthos 0.0.2: A persistent stream buffer
 dev-go/callvis 0_pre20170107: Visualize call graph of your Go program using dot format
 dev-go/cgogen 0.1.0_pre20160923: Automatic CGo Bindings Generator for Golang
 dev-go/codecgen 0.1_pre20160928: Idiomatic codec and rpc lib for msgpack, cbor, json, etc. msgpack.org
-dev-go/dep 0_pre20170221 0.1.0 0.1.0-r1 0.3.0: A Go's dependency management tool
+dev-go/dep 0_pre20170221 0.1.0 0.1.0-r1 0.3.2: A Go's dependency management tool
 dev-go/depscheck 0.1.0_pre20160406: Prints stats and suggests to remove small LeftPad-like imports from Go packages
 dev-go/discover 0.1_pre20160103: Discover is a utility to aid in conceptualizing large Go code bases
 dev-go/duktape 2.0.0_pre20170901: CLI for Duktape JavaScript engine written in GoLang
