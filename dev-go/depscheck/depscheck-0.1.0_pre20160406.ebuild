@@ -8,7 +8,7 @@ GOLANG_PKG_VERSION="bf02ca53aeeac11245186b99b69af0dde07601c4"
 
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/olekukonko/tablewriter:cca8bbc"
-	"github.com/golang/tools:fcde774 -> golang.org/x"
+	"github.com/golang/tools:354f9f8 -> golang.org/x"
 	"github.com/mattn/go-runewidth:d037b52"
 )
 
