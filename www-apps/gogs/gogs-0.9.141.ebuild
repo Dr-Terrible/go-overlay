@@ -5,7 +5,7 @@ EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/gogits"
 GOLANG_PKG_ARCHIVEPREFIX="v"
-GOLANG_PKG_LDFLAGS="-X github.com/gogits/gogs/modules/setting.BuildTime=$(date -u '+%Y-%m-%d') -X github.com/gogits/gogs/modules/setting.BuildGitHash=0ea0c5e"
+GOLANG_PKG_LDFLAGS="-X github.com/gogits/gogs/modules/setting.BuildGitHash=0ea0c5e"
 GOLANG_PKG_USE_CGO=1
 GOLANG_PKG_HAVE_TEST=1
 
@@ -128,6 +128,7 @@ APP_DIR="/usr/share/${PN}"
 pkg_setup() {
 	enewgroup ${USER_NAME}
 	enewuser ${USER_NAME} -1 /bin/bash "${USER_DIR}" ${USER_NAME}
+	GOLANG_PKG_LDFLAGS+=" -X github.com/gogits/gogs/modules/setting.BuildTime=$(date -u '+%Y-%m-%d')"
 }
 
 src_prepare() {

@@ -5,7 +5,7 @@ EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/rfjakob"
 GOLANG_PKG_ARCHIVEPREFIX="v"
-GOLANG_PKG_LDFLAGS="-X main.GitVersion=${PV} -X main.GitVersionFuse=0ad840c -X main.BuildTime=$( date +%s )"
+GOLANG_PKG_LDFLAGS="-X main.GitVersion=${PV} -X main.GitVersionFuse=0ad840c"
 GOLANG_PKG_HAVE_TEST=1
 GOLANG_PKG_USE_CGO=1
 
@@ -27,6 +27,10 @@ IUSE="ssl"
 
 RDEPEND="sys-fs/fuse
 	ssl? ( dev-libs/openssl:0 )"
+
+pkg_setup() {
+	GOLANG_PKG_LDFLAGS+=" -X main.BuildTime=$( date +%s )"
+}
 
 src_compile() {
 	use ssl || GOLANG_PKG_TAGS="without_openssl"

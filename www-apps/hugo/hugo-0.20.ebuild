@@ -5,7 +5,6 @@ EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/spf13"
 GOLANG_PKG_ARCHIVEPREFIX="v"
-GOLANG_PKG_LDFLAGS="-X ${GOLANG_PKG_IMPORTPATH}/${PN}/hugolib.BuildDate=$( date +%FT%T%z )"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
@@ -67,6 +66,10 @@ KEYWORDS="amd64 x86 arm"
 IUSE+=" doc pygments"
 
 RDEPEND="pygments? ( dev-python/pygments )"
+
+pkg_setup() {
+	GOLANG_PKG_LDFLAGS=" -X ${GOLANG_PKG_IMPORTPATH}/${PN}/hugolib.BuildDate=$( date +%FT%T%z )"
+}
 
 src_prepare() {
 	golang-single_src_prepare
