@@ -1,10 +1,10 @@
 # Apache License 2015
 
-# Where is your custom config located 
+# Path of your config dir
 # It will be created upon finishing installation
 custom_config_dir="/etc/gogs/custom"
 
-# Where should gogs store it's data (avatars etc.)
+# Path of gogs data (avatars etc.)
 # This will change the location in which repos are stored
 workdir="/var/lib/gogs"
 
@@ -44,6 +44,4 @@ startwait=500
 # Expects a number (in milliseconds)
 # Default 1000
 timeout=1000
-
-
 

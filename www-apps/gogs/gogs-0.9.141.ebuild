@@ -104,7 +104,7 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE_CACHE_ADAPTER="redis memcached"
 IUSE_DATABASE_ADAPTER="mysql postgres +sqlite tidb"
-IUSE="$IUSE_DATABASE_ADAPTER $IUSE_CACHE_ADAPTER pam +ssl systemd"
+IUSE="$IUSE_DATABASE_ADAPTER $IUSE_CACHE_ADAPTER pam +ssl"
 
 REQUIRED_USE="|| ( sqlite tidb mysql postgres )"
 
@@ -216,22 +216,21 @@ EOF
 src_install() {
 	golang-single_src_install
 
-	if use systemd; then
-		# Prepare systemd init scripts
-		cp "${FILESDIR}/systemd/${PN}.service" "${T}/${PN}.service" || die
-		use memcached && enable_systemd_dep memcached
-		use redis && enable_systemd_dep redis
-		use mysql && enable_systemd_dep mysqld
-		use postgres && enable_systemd_dep postgresql
-		# Install init scripts
-		systemd_dounit "${T}/${PN}.service"
-		systemd_newuserunit "${FILESDIR}/systemd/${PN}.user.service" "${PN}.service"
-		systemd_dotmpfilesd "${FILESDIR}/systemd/${PN}.conf"
-	else
-		# Install init files
-		doconfd "${FILESDIR}/conf.d/gogs"
-		doinitd "${FILESDIR}/init.d/gogs"
-	fi
+	# Prepare systemd init scripts
+	cp "${FILESDIR}/systemd/${PN}.service" "${T}/${PN}.service" || die
+	use memcached && enable_systemd_dep memcached
+	use redis && enable_systemd_dep redis
+	use mysql && enable_systemd_dep mysqld
+	use postgres && enable_systemd_dep postgresql
+
+	# Install init scripts
+	systemd_dounit "${T}/${PN}.service"
+	systemd_newuserunit "${FILESDIR}/systemd/${PN}.user.service" "${PN}.service"
+	systemd_dotmpfilesd "${FILESDIR}/systemd/${PN}.conf"
+
+	# Install init files
+	doconfd "${FILESDIR}/conf.d/gogs"
+	doinitd "${FILESDIR}/init.d/gogs"
 
 	# Install HTTPS certs
 	if use ssl; then
