@@ -8,7 +8,7 @@ GOLANG_PKG_BUILDPATH="/cmd/${PN//go-/}"
 
 inherit golang-single
 
-EDOC_COMMIT="98f130337f929aa4bd64feb00ee5a270c3405d7e"
+EDOC_COMMIT="40d5a2dd8fc403b02f9f85fa1060426465d1d2b2"
 
 DESCRIPTION="Swagger 2.0 implementation for GoLang"
 HOMEPAGE="https://goswagger.io"
