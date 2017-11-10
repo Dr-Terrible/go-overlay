@@ -4,12 +4,12 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/dvyukov"
-GOLANG_PKG_VERSION="a1492872285877e5cd4e5e1c3ab91cfde3c89948"
+GOLANG_PKG_VERSION="490b850ac16b7307e047fb1ea3d91dfc5e8154f4"
 GOLANG_PKG_BUILDPATH="/${PN} /${PN}-build"
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/elazarl/go-bindata-assetfs:9a6736e"
-	"github.com/golang/tools:b5358b5 -> golang.org/x"
+	"github.com/elazarl/go-bindata-assetfs:30f82fa"
+	"github.com/golang/tools:bce7a99 -> golang.org/x"
 )
 
 inherit golang-single
