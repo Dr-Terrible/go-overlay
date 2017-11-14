@@ -29,10 +29,14 @@ RDEPEND="!net-misc/${PN}
 	!<net-p2p/${PN}-0.13.99
 	inotify? ( net-p2p/syncthing-inotify )"
 
+DOCS=( README.md AUTHORS CONTRIBUTING.md )
+
 SYNCTHING_HOME="/var/lib/${PN}"
 
 pkg_setup() {
+	enewgroup ${PN}
 	enewuser ${PN} -1 -1 "${SYNCTHING_HOME}"
+
 	GOLANG_PKG_LDFLAGS+=" -X main.BuildStamp=$( date +%s )"
 }
 
@@ -64,9 +68,7 @@ src_install() {
 	fi
 
 	# install systemd services
-	systemd_dounit \
-		"${S}"/etc/linux-systemd/system/${PN}@.service \
-		"${S}"/etc/linux-systemd/system/${PN}-resume.service
+	systemd_dounit "${S}"/etc/linux-systemd/system/${PN}{@,-resume}.service
 	systemd_douserunit "${S}"/etc/linux-systemd/user/${PN}.service
 
 	# Install OpenRC init.d and conf.d files.

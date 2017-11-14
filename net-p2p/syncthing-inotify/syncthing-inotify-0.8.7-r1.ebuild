@@ -4,16 +4,10 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/${PN//-inotify}"
-GOLANG_PKG_ARCHIVEPREFIX="v"
+GOLANG_PKG_VERSION="46cef29a2d625de31b3a73b6c48f3f97afa687a9"
+#GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_LDFLAGS="-X main.Version=v${PV}"
 GOLANG_PKG_HAVE_TEST=1
-
-#GOLANG_PKG_DEPENDENCIES=(
-#	"github.com/syncthing/syncthing:b7e2198" #v0.14.10
-#	"github.com/cenkalti/backoff:b02f2bb"
-#	"github.com/zillode/notify:df33c1a"
-#	"github.com/gobwas/glob:0354991" #v0.2.1
-#)
 
 inherit systemd golang-single
 
