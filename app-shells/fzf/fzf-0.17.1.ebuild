@@ -6,7 +6,6 @@ EAPI=6
 GOLANG_PKG_IMPORTPATH="github.com/junegunn"
 GOLANG_PKG_TAGS="release"
 GOLANG_PKG_HAVE_TEST=1
-GOLANG_PKG_USE_CGO=1
 
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/mattn/go-isatty:0360b2a"      #v0.0.3
@@ -25,17 +24,15 @@ SLOT="0"
 KEYWORDS="amd64 arm x86"
 IUSE="tmux neovim vim bash-completion zsh-completion fish-completion"
 
-RDEPEND="tmux? ( app-misc/tmux )"
+RDEPEND="bash-completion? ( app-shells/bash )
+	fish-completion? ( app-shells/fish )
+	tmux? ( app-misc/tmux )
+	vim? ( app-editors/vim )
+	zsh-completion? ( app-shells/zsh )"
 
 src_install() {
 	golang-single_src_install
 	doman man/man1/${PN}.1
-
-	# Install TMUX utils
-	if use tmux; then
-		dobin bin/${PN}-tmux
-		doman man/man1/${PN}-tmux.1
-	fi
 
 	# Install bash completion files
 	if use bash-completion; then
@@ -44,18 +41,22 @@ src_install() {
 		newins shell/key-bindings.bash ${PN}.sh
 	fi
 
-	# Install zsh completion files
-	if use zsh-completion; then
-		insinto /usr/share/zsh/site-functions
-		newins shell/completion.zsh _${PN}
-		insinto /usr/share/zsh/site-contrib/
-		newins shell/key-bindings.zsh ${PN}.zsh
-	fi
-
 	# Install fish completion files
 	if use fish-completion; then
 		insinto /usr/share/fish/functions/
 		newins shell/key-bindings.fish fzf_key_bindings.fish
+	fi
+
+	# Install Neovim plugin
+	if use neovim; then
+		insinto /usr/share/nvim/runtime/plugin
+		doins plugin/${PN}.vim
+	fi
+
+	# Install TMUX utils
+	if use tmux; then
+		dobin bin/${PN}-tmux
+		doman man/man1/${PN}-tmux.1
 	fi
 
 	# Install VIM plugin
@@ -64,9 +65,11 @@ src_install() {
 		doins plugin/${PN}.vim
 	fi
 
-	# Install Neovim plugin
-	if use neovim; then
-		insinto /usr/share/nvim/runtime/plugin
-		doins plugin/${PN}.vim
+	# Install zsh completion files
+	if use zsh-completion; then
+		insinto /usr/share/zsh/site-functions
+		newins shell/completion.zsh _${PN}
+		insinto /usr/share/zsh/site-contrib/
+		newins shell/key-bindings.zsh ${PN}.zsh
 	fi
 }
