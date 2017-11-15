@@ -21,7 +21,7 @@ DESCRIPTION="A general-purpose command-line fuzzy finder"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm x86"
+KEYWORDS="amd64 x86"
 IUSE="tmux neovim vim bash-completion zsh-completion fish-completion"
 
 RDEPEND="bash-completion? ( app-shells/bash )
