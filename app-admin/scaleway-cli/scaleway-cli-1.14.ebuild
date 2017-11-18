@@ -7,7 +7,7 @@ GOLANG_PKG_IMPORTPATH="github.com/scaleway"
 GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_BUILDPATH="/cmd/scw"
 GOLANG_PKG_OUTPUT_NAME="scw"
-GOLANG_PKG_HAVE_TEST=0
+GOLANG_PKG_HAVE_TEST=1
 
 inherit bash-completion-r1 golang-single
 
@@ -33,4 +33,11 @@ src_install() {
 		insinto /usr/share/zsh/site-functions
 		newins contrib/completion/zsh/_scw _scw
 	fi
+}
+
+src_test() {
+	if has network-sandbox $FEATURES; then
+		eerror "Some tests require 'network-sandbox' to be disabled in FEATURES."
+	fi
+	emake test || die
 }
