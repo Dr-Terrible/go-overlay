@@ -77,6 +77,7 @@ dev-go/go-tools 0_pre20161220 0_pre20170808: Various packages and tools that sup
 dev-go/go-torch 0.5.0_pre20160909: Stochastic flame graph profiler for Go Programs
 dev-go/goa 0.0.1_pre20160218: Goa is a framework for building RESTful microservices in Go
 dev-go/gocode 2015.03.03: An autocompletion daemon for the Go programming language
+dev-go/godep 79: dependency tool for go
 dev-go/gogo-protobuf 0.1-r1 0.2-r1 0.3: Protocol Buffers for Go with Gadgets
 dev-go/gom 20160119: A visual interface to work with runtime profiling data for Go
 dev-go/gompatible 0.1.0_pre20160127: A tool to show Go package's API changes between two (git) revisions
