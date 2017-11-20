@@ -65,13 +65,13 @@ dev-go/gb 0.2.0 0.3.5 0.4.3 0.4.4: Gb is a project based build tool for the Go p
 dev-go/gcli 0.2.3-r1: Gcli builds GoLang command-line applications
 dev-go/gen 4.3 4.4_pre20160108: Type-driven code generation for GoLang
 dev-go/ginkgo 1.2.0: BDD Testing Framework for GoLang
-dev-go/glide 0.12.3: Glide is a vendor Package Management for Golang
+dev-go/glide 0.13.1: Glide is a vendor Package Management for Golang
 dev-go/go-bind-plugin 0.2.1: A tool for building Go plugins and generating wrappers around exported symbols
 dev-go/go-bindata 3.2.0: A small utility for embedding binary data in a GoLang program.
 dev-go/go-bindata-assetfs 0.1.0_pre20151224: A small utility for embedding binary data in a GoLang program.
 dev-go/go-carpet 1.4: Shows test coverage for Go source files
 dev-go/go-fuzz 0.1_pre20171021: Go-fuzz is a coverage-guided fuzzing solution for testing of Go packages
-dev-go/go-md2man 1.0.6: Command-line tool to convert Markdown into UNIX man pages
+dev-go/go-md2man 1.0.7: Command-line tool to convert Markdown into UNIX man pages
 dev-go/go-protobuf 0.1_pre20160927: Go support for Google's protocol buffers
 dev-go/go-tools 0_pre20161220 0_pre20170808: Various packages and tools that support the Go programming language
 dev-go/go-torch 0.5.0_pre20160909: Stochastic flame graph profiler for Go Programs
@@ -204,6 +204,6 @@ sys-fs/gocryptfs 1.2: Encrypted overlay filesystem written in Go
 www-apps/beehive 0.2: An event and agent system which allows you to perform automated tasks
 www-apps/gogs 0.9.141: Gogs is a self-hosted Git service written in Go
 www-apps/gotty 0.0.13: A simple command-line tool that turns your CLI tools into web applications
-www-apps/hugo 0.18.1 0.20: A fast and flexible static site generator built in GoLang
+www-apps/hugo 0.18.1 0.20 0.30.2: A fast and flexible static site generator built in GoLang
 www-servers/caddy 0.9.5: Fast, cross-platform HTTP/2 web server with automatic HTTPS
 x11-misc/noti 2.4.0: Display a notification when a terminal process finishes

@@ -29,5 +29,6 @@ src_test() {
 		eerror "Tests require 'network-sandbox' to be disabled in FEATURES."
 	fi
 
+	GOLANG_PKG_IS_MULTIPLE=1
 	golang-single_src_test
 }
