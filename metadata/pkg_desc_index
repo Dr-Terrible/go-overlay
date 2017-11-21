@@ -122,6 +122,7 @@ dev-python/mdx_anchors_away 1.0.1: Add anchor tags and icons to all headers
 dev-python/mdx_callouts 1.0.0: Add anchor tags and icons to all headers
 dev-python/mdx_foldouts 1.0.0: Add anchor tags and icons to all headers
 dev-util/addlicense 0_pre20160627: A program which ensures source code files have copyright license headers
+dev-util/c-for-go 0.1.0_pre20171012: Automatic C-Go Bindings Generator for Go Programming Language
 dev-util/check 0.1_pre20160515-r1: A set of utilities for checking Go sources
 dev-util/deadcode 0.1_pre20160724: Deadcode finds unused Go source code
 dev-util/diagram 1.0.2: CLI app to convert ascii arts into hand drawn diagrams.
