@@ -602,38 +602,40 @@ golang-common_src_configure() {
 			EGO_SUBPACKAGES+="/..."
 			;;
 	esac
-	einfo "${EGO} clean -i ${EGO_VERBOSE} ${EGO_SUBPACKAGES}"
-	${EGO} clean -i \
-		${EGO_VERBOSE} \
-		"${EGO_SUBPACKAGES}" \
-		|| die
+#	einfo "${EGO} clean -i ${EGO_VERBOSE} ${EGO_SUBPACKAGES}"
+#	${EGO} clean -i \
+#		${EGO_VERBOSE} \
+#		"${EGO_SUBPACKAGES}" \
+#		|| die
 
 	# Removes GoLang objects files from all the dependencies too.
-	if [[ ${#GOLANG_PKG_DEPENDENCIES[@]} -gt 0 ]]; then
-
-		for i in ${!GOLANG_PKG_DEPENDENCIES[@]} ; do
-
-			# Collects all the tokens of the dependency.
-			local -A DEPENDENCY=()
-			while read -r -d $'\n' key value; do
-				[[ -z ${key} ]] && continue
-				DEPENDENCY[$key]="${value}"
-			done <<-EOF
-				$( _factorize_dependency_entities "${GOLANG_PKG_DEPENDENCIES[$i]}" )
-			EOF
-
-			# Debug
-			debug-print "${FUNCNAME}: DEPENDENCY = ${GOLANG_PKG_DEPENDENCIES[$i]}"
-			debug-print "${FUNCNAME}: importpath = ${DEPENDENCY[importpath]}"
-
-			# Cleans object files of the dependency.
-			einfo "${EGO} clean -i ${EGO_VERBOSE} ${DEPENDENCY[importpath]}"
-			${EGO} clean \
-				-i ${EGO_VERBOSE} \
-				"${DEPENDENCY[importpath]}" \
-				|| die
-		done
-	fi
+#	if [[ ${#GOLANG_PKG_DEPENDENCIES[@]} -gt 0 ]]; then
+#
+#		for i in ${!GOLANG_PKG_DEPENDENCIES[@]} ; do
+#
+#			# Collects all the tokens of the dependency.
+#			local -A DEPENDENCY=()
+#			while read -r -d $'\n' key value; do
+#				[[ -z ${key} ]] && continue
+#				DEPENDENCY[$key]="${value}"
+#			done <<-EOF
+#				$( _factorize_dependency_entities "${GOLANG_PKG_DEPENDENCIES[$i]}" )
+#			EOF
+#
+#			[[ ! -d ${DEPENDENCY[importpath]} ]] && continue
+#
+#			# Debug
+#			debug-print "${FUNCNAME}: DEPENDENCY = ${GOLANG_PKG_DEPENDENCIES[$i]}"
+#			debug-print "${FUNCNAME}: importpath = ${DEPENDENCY[importpath]}"
+#
+#			# Cleans object files of the dependency.
+#			einfo "${EGO} clean -i ${EGO_VERBOSE} ${DEPENDENCY[importpath]}"
+#			${EGO} clean \
+#				-i ${EGO_VERBOSE} \
+#				"${DEPENDENCY[importpath]}" \
+#				|| die
+#		done
+#	fi
 
 	# Before to compile Godep's dependencies it's wise to wipe out
 	# all pre-built object files from Godep's package source directories.
@@ -958,11 +960,11 @@ golang_add_vendor() {
 	[[ ! -d "${1}" ]] && return
 
 	# NOTE: this hack is required by Go v1.4 and older versions.
-	if [[ ! -d "${1}"/src ]]; then
-		ebegin "Fixing $1"
-			ln -s "${1}" "${1}"/src || die
-		eend
-	fi
+	#if [[ ! -d "${1}"/src ]]; then
+	#	ebegin "Fixing $1"
+	#		ln -s "${1}" "${1}"/src || die
+	#	eend
+	#fi
 
 	GOLANG_PKG_VENDOR+=(${1})
 }
