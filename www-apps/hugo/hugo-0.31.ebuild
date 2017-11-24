@@ -16,7 +16,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/pelletier/go-buffruneio:c37440a"
 	"github.com/PuerkitoBio/purell:fd18e05"
 	"github.com/PuerkitoBio/urlesc:de5bf2a"
-	"github.com/alecthomas/chroma:02c4adc"
+	"github.com/alecthomas/chroma:9c81d25"
 	"github.com/dchest/cssmin:fb8d9b4"
 	"github.com/dlclark/regexp2:7632a26"
 	"github.com/eknkc/amber:4ed0bf7"
@@ -26,7 +26,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/mitchellh/mapstructure:d0303fe"
 	"github.com/russross/blackfriday:6d1ef89"
 	"github.com/shurcooL/sanitized_anchor_name:86672fc"
-	"github.com/spf13/afero:8a6ade7"
+	"github.com/spf13/afero:8d919cb" #v1.0.0
 	"github.com/spf13/cast:acbeb36"
 	"github.com/spf13/cobra:0dacccf"
 	"github.com/spf13/fsync:12a01e6"
@@ -43,6 +43,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/pkg/sftp:4d0e916"
 	"github.com/pkg/errors:248dadf"
 	"github.com/magiconair/properties:8d7837e"
+	"github.com/magefile/mage:2f97430"
 	"github.com/golang/image:334384d -> golang.org/x"
 	"github.com/golang/text:1cbadb4 -> golang.org/x"
 	"github.com/golang/crypto:453249f -> golang.org/x"
@@ -52,7 +53,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/hashicorp/go-immutable-radix:8aac270"
 	"github.com/hashicorp/golang-lru:0a025b7"
 	"github.com/kyokomi/emoji:ddd4753"
-	"github.com/nicksnyder/go-i18n:ca33e78"
+	"github.com/nicksnyder/go-i18n:0dc1626"
 	"github.com/inconshreveable/mousetrap:76626ae"
 	"github.com/jdkato/prose:2f88f08"
 
@@ -112,7 +113,7 @@ src_install() {
 	if use doc; then
 		# FIXME: this is really bad!
 		if has network-sandbox $FEATURES; then
-			eerror "Some tests require 'network-sandbox' to be disabled in FEATURES."
+			eerror "Doc generation require 'network-sandbox' to be disabled in FEATURES."
 		fi
 		pushd "${GOPATH}"/src/github.com/gohugoio/hugoDocs > /dev/null || die
 			${GOBIN}/${PN} \
