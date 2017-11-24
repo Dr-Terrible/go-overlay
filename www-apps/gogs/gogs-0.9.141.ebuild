@@ -229,6 +229,10 @@ src_install() {
 	systemd_newuserunit "${FILESDIR}/systemd/${PN}.user.service" "${PN}.service"
 	systemd_dotmpfilesd "${FILESDIR}/systemd/${PN}.conf"
 
+	# Install init files
+	doconfd "${FILESDIR}/conf.d/gogs"
+	doinitd "${FILESDIR}/init.d/gogs"
+
 	# Install HTTPS certs
 	if use ssl; then
 		keepdir /etc/${PN}/https
