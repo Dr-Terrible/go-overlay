@@ -1,0 +1,30 @@
+[Unit]
+Description=beehive Event daemon
+After=network.target
+
+[Service]
+# Server URL
+Environment=SERVER=127.0.0.1
+
+# Port number for server to listen on
+Environment=PORT=8181
+
+# Location of configuration files
+Environment=CONFIG=/etc/beehive/beehive.conf
+
+# Defines current working directory
+WorkingDirectory=/var/lib/beehive
+ProtectSystem=full
+
+ExecStart=/usr/bin/beehive -config=${CONFIG} -bind=${SERVER}:${PORT}
+User=beehive
+RestartSec=5
+Restart=on-failure
+
+NoNewPrivileges=true
+DevicePolicy=closed
+CapabilityBoundingSet=~CAP_SYS_ADMIN
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

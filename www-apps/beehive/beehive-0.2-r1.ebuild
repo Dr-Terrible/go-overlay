@@ -5,10 +5,14 @@ EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/muesli"
 GOLANG_PKG_ARCHIVEPREFIX="v"
+GOLANG_PKG_LDFLAGS="-X main.Version=${PV}"
+GOLANG_PKG_TAGS="embed"
 GOLANG_PKG_HAVE_TEST=1
 GOLANG_PKG_USE_CGO=1
 
 GOLANG_PKG_DEPENDENCIES=(
+	"github.com/jteeuwen/go-bindata:a0ff256" # see NOTE below
+
 	"github.com/muesli/beehive-admin-dist:1af78df"
 	"github.com/muesli/go.hue:8aefcc6"
 	"github.com/muesli/goefa:26c9a51"
@@ -48,7 +52,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/go-telegram-bot-api/telegram-bot-api:0a57807 -> gopkg.in/telegram-bot-api.v4" #v.4.6
 )
 
-inherit golang-single
+inherit user systemd golang-single
 
 DESCRIPTION="An event and agent system which allows you to perform automated tasks"
 
@@ -56,9 +60,51 @@ LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="amd64 arm x86"
 
+USER_NAME="${PN}"
+USER_DIR="/var/lib/${USER_NAME}"
+
+pkg_setup() {
+	enewgroup ${USER_NAME}
+	enewuser ${USER_NAME} -1 /bin/bash "${USER_DIR}" ${USER_NAME}
+}
+
 src_prepare() {
 	golang-single_src_prepare
 
 	rmdir config || die
 	ln -s "${GOPATH}"/src/github.com/muesli/${PN}-admin-dist config || die
+}
+
+src_compile() {
+	# NOTE: beehive doesn't compile with go-bindata v3.2.0 from github.com/shuLhan/go-bindata.
+	#       we need the old version from github.com/jteeuwen/go-bindata.
+	pushd "${GOPATH}"/src/github.com/jteeuwen/go-bindata > /dev/null || die
+		einfo "Compiling go-bindata ..."
+		${EGO} install -ldflags '-s -w' -tags ''    github.com/jteeuwen/go-bindata/... || die
+	popd > /dev/null || die
+
+	# Build assets
+	ebegin "Bulding assets"
+		"${GOBIN}"/go-bindata \
+			--tags embed \
+			--pkg api \
+			-o api/bindata.go \
+			--ignore \\.git \
+    		assets/... config/... || die
+	eend
+	rm "${GOBIN}"/go-bindata || die
+
+	golang-single_src_compile
+}
+
+src_install() {
+	golang-single_src_install
+
+	# Install init scripts
+	systemd_dounit "${FILESDIR}/${PN}.service"
+
+	# Fix permissions of config files
+	keepdir /etc/${PN}
+	fperms 770 /etc/${PN}
+	fowners -R ${USER_NAME}:${USER_NAME} /etc/${PN}
 }

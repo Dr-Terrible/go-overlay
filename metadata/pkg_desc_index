@@ -1,5 +1,6 @@
 app-admin/chaosmonkey 2.0.2: A resiliency tool that helps applications tolerate random instance failures
 app-admin/doctl 1.4.0: A command line tool for DigitalOcean services
+app-admin/gopass 1.6.1: The slightly more awesome standard unix password manager for teams
 app-admin/juju 2.1_beta3: juju is devops distilled
 app-admin/pony 0.1.0_pre20170123: Local File-Based Password, API Key, Secret, Recovery Code Store Backed vy GPG
 app-admin/restic 0.2.0: Restic is a program that does backups
@@ -204,7 +205,7 @@ sys-devel/calc 0.1_pre20160311: A simple, fast command-line calculator written i
 sys-devel/delve 1.0.0_rc1: Delve is a debugger for the Go programming language
 sys-devel/gcvis 0.1.0_pre20160427: Visualise Go program Garbage Collector trace data in real-time.
 sys-fs/gocryptfs 1.2: Encrypted overlay filesystem written in Go
-www-apps/beehive 0.2: An event and agent system which allows you to perform automated tasks
+www-apps/beehive 0.2-r1 0.3_pre20171101: An event and agent system which allows you to perform automated tasks
 www-apps/gogs 0.9.141: Gogs is a self-hosted Git service written in Go
 www-apps/gotty 0.0.13: A simple command-line tool that turns your CLI tools into web applications
 www-apps/hugo 0.18.1 0.20 0.30.2: A fast and flexible static site generator built in GoLang
