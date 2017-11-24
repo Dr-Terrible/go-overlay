@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<use>
+		<flag name="fish-completion">Enable fish completion support</flag>
+		<flag name="dmenu">Add support for <pkg>x11-misc/dmenu</pkg></flag>
+	</use>
+</pkgmetadata>
