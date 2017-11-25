@@ -848,6 +848,10 @@ golang-common_src_test() {
 	local EGO_BUILD_FLAGS="$( echo ${EGO_VERBOSE} ) $( echo ${EGO_PARALLEL} ) $( echo ${EGO_EXTRA_OPTIONS} )"
 	[[ -n ${EGO_RACE} ]] && EGO_BUILD_FLAGS+=" $( echo ${EGO_RACE} )"
 
+	# Sanitizes vars from entra white spaces.
+    GOLANG_PKG_LDFLAGS="$( echo ${GOLANG_PKG_LDFLAGS} )"
+    GOLANG_PKG_TAGS="$( echo ${GOLANG_PKG_TAGS} )"
+
 	# Defines sub-packages.
 	local EGO_SUBPACKAGES="${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${GOLANG_PKG_BUILDPATH}"
 	[[ -z ${GOLANG_PKG_IS_MULTIPLE} ]] || EGO_SUBPACKAGES="./..."
@@ -874,16 +878,20 @@ golang-common_src_test() {
 			#einfo "cmd: |$cmd| cmd: |${cmd##*/}|"
 			[[ -n $cmd ]] || continue
 
-			einfo "${EGO} test ${EGO_BUILD_FLAGS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}/..."
+			einfo "${EGO} test -ldflags '$GOLANG_PKG_LDFLAGS' -tags '$GOLANG_PKG_TAGS' ${EGO_BUILD_FLAGS} ${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}/..."
 			${EGO} test \
+				-ldflags "${GOLANG_PKG_LDFLAGS}" \
+				-tags "${GOLANG_PKG_TAGS}" \
 				${EGO_BUILD_FLAGS} \
 				"${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}${cmd}/..." \
 				|| die
        done <<< "$( echo ${GOLANG_PKG_BUILDPATH}) "
 	else
 		# It's a single package
-		einfo "${EGO} test ${EGO_BUILD_FLAGS} ${EGO_SUBPACKAGES}"
+		einfo "${EGO} test -ldflags '$GOLANG_PKG_LDFLAGS' -tags '$GOLANG_PKG_TAGS' ${EGO_BUILD_FLAGS} ${EGO_SUBPACKAGES}"
 		${EGO} test \
+			-ldflags "${GOLANG_PKG_LDFLAGS}" \
+			-tags "${GOLANG_PKG_TAGS}" \
 			${EGO_BUILD_FLAGS} \
 			"${EGO_SUBPACKAGES}" \
 			|| die
