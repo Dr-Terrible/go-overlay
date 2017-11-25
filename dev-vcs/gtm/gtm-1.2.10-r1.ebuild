@@ -27,14 +27,13 @@ DESCRIPTION="Simple, seamless, lightweight time tracking for Git"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64 ~arm x86"
-IUSE="libressl threads +ssh gssapi +curl"
+IUSE="libressl threads +ssh +curl"
 
 RDEPEND="
 	!libressl? ( dev-libs/openssl:0 )
 	libressl? ( dev-libs/libressl )
 	sys-libs/zlib
 	net-libs/http-parser:=
-	gssapi? ( virtual/krb5 )
 	ssh? ( net-libs/libssh2 )
 	curl? ( net-misc/curl )"
 DEPEND="${RDEPEND}
@@ -74,7 +73,7 @@ src_compile() {
 		-DDEBUG_POOL=OFF
 		-DUSE_OPENSSL=ON
 		-DCURL="$(usex curl)"
-		-DUSE_GSSAPI="$(usex gssapi)"
+		-DUSE_GSSAPI=OFF
 		-DUSE_SSH="$(usex ssh)"
 		-DTHREADSAFE="$(usex threads)"
 	)
@@ -82,5 +81,6 @@ src_compile() {
 	cmake-utils_src_compile
 
 	# Build gtm
+	GOLANG_PKG_IS_MULTIPLE=1
 	golang-single_src_compile
 }

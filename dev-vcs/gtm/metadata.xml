@@ -7,7 +7,6 @@
 		<description>Maintainer. Assign bugs to him</description>
 	</maintainer>
 	<use>
-		<flag name="gssapi">Enable GSSAPI support for SPNEGO auth</flag>
 		<flag name="ssh">Enable SSH transport support</flag>
 	</use>
 </pkgmetadata>
