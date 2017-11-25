@@ -1,9 +1,12 @@
-# Borrowed from https://github.com/mrueg/repoman-travis
+#
+# Run repoman via travis
+# See https://github.com/mrueg/repoman-travis
+#
 language: python
 python:
     - pypy
 env:
-    - PORTAGE_VER="2.3.13"
+    - PORTAGE_VER="2.3.16"
 before_install:
     - sudo apt-get -qq update
     - pip install lxml
@@ -27,3 +30,4 @@ before_script:
     - cd travis-overlay
 script:
     - ./../spinner.sh "python ../portage-portage-${PORTAGE_VER}/repoman/bin/repoman full -d"
+# You can append own scripts after this line
