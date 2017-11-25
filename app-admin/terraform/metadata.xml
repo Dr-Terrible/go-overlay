@@ -7,6 +7,7 @@
 		<description>Maintainer. Assign bugs to him</description>
 	</maintainer>
 	<use>
+		<flag name="fish-completion">Enable fish completion support</flag>
 		<flag name="atlas">
 			Builds the provider that interacts with resources, configuration,
 			artifacts, and metadata managed by Atlas https://atlas.hashicorp.com
