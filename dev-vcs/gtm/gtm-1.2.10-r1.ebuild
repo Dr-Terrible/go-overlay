@@ -54,6 +54,11 @@ src_prepare() {
 		epatch "${FILESDIR}/${PN}-golang-cgo.patch"
 	popd > /dev/null || die
 
+	# libressl fix; bug #606556
+	pushd "${libgit2}" > /dev/null || die
+		epatch "${FILESDIR}/libgit2-0.24.6-libressl.patch"
+	popd > /dev/null || die
+
 	CMAKE_USE_DIR="${libgit2}"
 	cmake-utils_src_prepare
 }
