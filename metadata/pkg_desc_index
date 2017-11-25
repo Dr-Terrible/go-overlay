@@ -102,6 +102,7 @@ dev-go/kar 0.1_pre20151213: Kar is a simple utility that helps you run Kargar bu
 dev-go/liteide-tools 2015.04.09: Liteide Golang tools
 dev-go/mage 2.0.1: A Make/rake-like build tool using Go
 dev-go/mock 0.1.0_pre20160127: GoMock is a mocking framework for the Go programming language
+dev-go/packr 1.9.0: The simple and easy way to embed static files into Go binaries
 dev-go/prdeps 0.1_pre20160501: prdeps prints the dependency graph of a Go package
 dev-go/re2dfa 0.1.0_pre20151021: Transforms regexs into finite state machines and output Go source code
 dev-go/revel-cli 0.12.0-r1 0.13.1: Command-line tool for Revel framework
