@@ -6,4 +6,7 @@
 		<name>Mauro Toffanin</name>
 		<description>Maintainer. Assign bugs to him</description>
 	</maintainer>
+	<use>
+		<flag name="ssh">Enable SSH transport support</flag>
+	</use>
 </pkgmetadata>

@@ -172,6 +172,7 @@ dev-util/staticcheck 0.1.0_pre20170104: A Golang tool for statically checking th
 dev-util/unconvert 0.1_pre20160804: Remove unnecessary type conversions from Go source
 dev-util/wellington 1.0.4: Wellington is a CSS preprocessor with spriting and based on libsass
 dev-vcs/gitql 1.3.0-r1: A git query language
+dev-vcs/grv 0.1.0_pre20171119-r1: GRV is a terminal interface for viewing git repositories
 dev-vcs/gtm 1.2.10-r1: Simple, seamless, lightweight time tracking for Git
 dev-vcs/hub 2.2.9: Hub wraps git in order to extend it with extra features and commands
 net-analyzer/dbshield 1.0.0_beta4: Protects your data by inspecting incoming queries from your application server
@@ -204,7 +205,7 @@ net-proxy/morty 0_pre20161029: Privacy aware web content sanitizer proxy as a se
 net-proxy/toxiproxy 2.0.0: A proxy to simulate network and system conditions
 sys-apps/sift 0.8.0: A fast and powerful open source alternative to grep
 sys-devel/calc 0.1_pre20160311: A simple, fast command-line calculator written in GoLang
-sys-devel/delve 1.0.0_rc1: Delve is a debugger for the Go programming language
+sys-devel/delve 1.0.0_rc2: Delve is a debugger for the Go programming language
 sys-devel/gcvis 0.1.0_pre20160427: Visualise Go program Garbage Collector trace data in real-time.
 sys-fs/gocryptfs 1.2: Encrypted overlay filesystem written in Go
 www-apps/beehive 0.2-r1 0.3_pre20171101: An event and agent system which allows you to perform automated tasks
