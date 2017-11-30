@@ -26,3 +26,8 @@ src_install() {
 	golang-single_src_install
 	use doc && dodoc -r Documentation/*
 }
+
+src_test() {
+	GOLANG_PKG_IS_MULTIPLE=1
+	golang-single_src_test
+}
