@@ -26,7 +26,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/klauspost/compress:006acde" #v1.0
 
 	# Unit testing
-	"github.com/revel/samples:12bbefe" #v0.13.0
+	"github.com/revel/examples:12bbefe" #v0.13.0
 )
 
 inherit golang-single

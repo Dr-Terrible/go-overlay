@@ -21,7 +21,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/go-fsnotify/fsnotify:8611c35 -> gopkg.in/fsnotify.v1" #v 1.2.9
 
 	# Unit testing
-	"github.com/revel/samples:6ecb5d88a4"
+	"github.com/revel/examples:6ecb5d88a4"
 )
 
 inherit golang-single
