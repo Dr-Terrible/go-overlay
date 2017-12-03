@@ -211,6 +211,6 @@ sys-fs/gocryptfs 1.2: Encrypted overlay filesystem written in Go
 www-apps/beehive 0.2-r1 0.3_pre20171101: An event and agent system which allows you to perform automated tasks
 www-apps/gogs 0.9.141: Gogs is a self-hosted Git service written in Go
 www-apps/gotty 0.0.13: A simple command-line tool that turns your CLI tools into web applications
-www-apps/hugo 0.31: A fast and flexible static site generator built in GoLang
+www-apps/hugo 0.31.1: A fast and flexible static site generator built in GoLang
 www-servers/caddy 0.9.5: Fast, cross-platform HTTP/2 web server with automatic HTTPS
 x11-misc/noti 2.4.0: Display a notification when a terminal process finishes
