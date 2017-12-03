@@ -22,5 +22,5 @@ src_prepare() {
 	golang-single_src_prepare
 
 	# build assets
-	make assets
+	emake assets || die
 }
