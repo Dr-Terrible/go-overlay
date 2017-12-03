@@ -3,14 +3,13 @@
 
 EAPI=6
 
-GOLANG_PKG_IMPORTPATH="github.com/client9"
-GOLANG_PKG_VERSION="9a1fc2456ac9e8c9b4cbe9d005b6e7adac0d357f"
-GOLANG_PKG_BUILDPATH="/cmd/${PN}"
+GOLANG_PKG_IMPORTPATH="github.com/alexkohler"
+GOLANG_PKG_VERSION="c0e305a4f690fed163d47628bcc06a6d5655bf92"
 GOLANG_PKG_HAVE_TEST=1
 
 inherit golang-single
 
-DESCRIPTION="Correct commonly misspelled words in source files"
+DESCRIPTION="a Go static analysis tool to find naked returns in functions"
 
 LICENSE="MIT"
 SLOT="0"
