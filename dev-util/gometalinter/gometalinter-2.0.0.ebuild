@@ -42,4 +42,5 @@ RDEPEND="dev-go/go-tools
 	dev-util/misspell
 	dev-util/nakedret
 	dev-util/unparam
+	dev-util/maligned
 	dev-go/safesql"
