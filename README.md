@@ -1,9 +1,9 @@
-# Golang Overlay
+# Go Overlay
 
 [![Build Status](https://travis-ci.org/Dr-Terrible/go-overlay.png)](https://travis-ci.org/Dr-Terrible/go-overlay)
 
-The _Golang Overlay_ is intended as a Portage collection of [Golang](https://golang.org)
-related ebuilds — mainly applications and tools written in Golang. This
+The _Go Overlay_ is intended as a Portage collection of [Go](https://golang.org)
+related ebuilds — mainly applications and tools written in Go. This
 repository offers Go packages that can be compiled in a **reproducible way**,
 without the need of recompiling wacky and obscure Go dependencies, or placing
 weird Go libraries inside your system GOROOT, and then ending up with a polluted
@@ -18,7 +18,7 @@ does not want to blindly build against the latest revision of the code. Head
 over [there](http://getgb.io) for more information about reproducible builds in
 Go.
 
-The _Golang Overlay_ main purpose is to create an easy way for the Go community
+The _Go Overlay_ main purpose is to create an easy way for the Go community
 to use Gentoo. This overlay strives to maintain a large set of Go packages as
 well as wide configuration options that users of Gentoo have come to expect.
 
