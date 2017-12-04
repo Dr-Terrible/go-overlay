@@ -165,7 +165,7 @@ dev-util/pprof 0.1_pre20171202: pprof is a tool for visualization and analysis o
 dev-util/prealloc 0.1_pre20171020: Go static analysis tool to find slice declarations that could potentially be preallocated
 dev-util/rambler 4.0.0: A simple and language-independent SQL schema migration tool
 dev-util/ramlapi 1.1.0: Automatic API generation for Go projects
-dev-util/realize 1.2.2: A Go build system with file watchers, output streams and live reload
+dev-util/realize 1.5.2: A Go build system with file watchers, output streams and live reload
 dev-util/rubigo 1.0.3: Golang dependency tool and package manager
 dev-util/shfmt 1.1.0: A shell parser and formatter for POSIX shell and bash
 dev-util/unconvert 0.1_pre20160804: Remove unnecessary type conversions from Go source
