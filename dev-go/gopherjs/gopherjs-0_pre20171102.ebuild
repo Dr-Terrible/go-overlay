@@ -4,21 +4,21 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/gopherjs"
-GOLANG_PKG_VERSION="00f306e07eaaaab04ea5dba605cd0e1eff9c6fb7"
+GOLANG_PKG_VERSION="444abdf920945de5d4a977b572bcc6c674d1e4eb"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/kardianos/osext:c2c54e5"
-	"github.com/fsnotify/fsnotify:944cff2" #v1.4.1
+	"github.com/kardianos/osext:ae77be6"
+	"github.com/fsnotify/fsnotify:629574c" #v1.4.2
 	"github.com/neelance/sourcemap:8c68805"
-	"github.com/spf13/cobra:9c28e4b"
-	"github.com/spf13/pflag:b83537d"
-	"github.com/golang/crypto:d172538 -> golang.org/x"
-	"github.com/golang/tools:b5358b5 -> golang.org/x"
-	"github.com/golang/sys:8d1157a -> golang.org/x"
+	"github.com/spf13/cobra:7b2c5ac" #v0.0.1
+	"github.com/spf13/pflag:e57e3ee" #v1.0.0
+	"github.com/golang/crypto:94eea52 -> golang.org/x"
+	"github.com/golang/tools:0444735 -> golang.org/x"
+	"github.com/golang/sys:8b4580a -> golang.org/x"
 
 	# Unit Testing
-	"github.com/kisielk/gotool:94d5dba"
+	"github.com/kisielk/gotool:d6ce626"
 	"github.com/shurcooL/go:c7751eb"
 )
 
