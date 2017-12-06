@@ -1,3 +1,2 @@
 move net-print/cups-connector net-print/cloud-print-connector
 move app-text/go-md2man dev-go/go-md2man
-move dev-util/go-tools dev-go/go-tools
