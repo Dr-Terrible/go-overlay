@@ -154,7 +154,7 @@ dev-util/interfacer 0.0.1_pre20170908: A linter for GoLang that suggests interfa
 dev-util/lll 0.1_pre20160702: Line length linter, used to enforce line length in files.
 dev-util/maligned 0.1_pre20160825: Detects Go structs that would take less memory if their fields were sorted
 dev-util/mdfmt 0.1_pre20160209: Like gofmt, but for Markdown with front matter.
-dev-util/minify 2.3.3 2.3.4: Go minifiers for web formats.
+dev-util/minify 2.3.4: Go minifiers for web formats.
 dev-util/misspell 0.3.0: Correct commonly misspelled words in source files
 dev-util/nakedret 0.1_pre20171108: a Go static analysis tool to find naked returns in functions
 dev-util/orange-cat 0.2.2-r1: A Markdown previewer written in GoLang
