@@ -6,19 +6,19 @@ EAPI=6
 GOLANG_PKG_IMPORTPATH="github.com/tdewolff"
 GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_BUILDPATH="/cmd/${PN}"
-GOLANG_PKG_LDFLAGS="-X main.Version=${PV} -X main.Commit=90df1aa"
+GOLANG_PKG_LDFLAGS="-X main.Version=${PV} -X main.Commit=2226721"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/tdewolff/parse:bace4cf" #v2.3.1
+	"github.com/tdewolff/parse:639f627" #v2.3.2
 	"github.com/dustin/go-humanize:bb3d318"
 	"github.com/fsnotify/fsnotify:629574c" #v1.4.2
-	"github.com/golang/sys:0dd5e19 -> golang.org/x"
+	"github.com/golang/sys:9167dbf -> golang.org/x"
 	"github.com/matryer/try:9ac251b"
 	"github.com/spf13/pflag:e57e3ee"  #v1.0.0
 
 	# unit testing
-	"github.com/tdewolff/test:2654270"
+	"github.com/tdewolff/test:26542"
 )
 
 inherit golang-single
