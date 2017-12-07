@@ -163,7 +163,7 @@ dev-util/pcstat 0.1_pre20160126: Page Cache stat: get page cache stats for files
 dev-util/pipecat 0.2: Pipecat allows you to scale any program using traditional UNIX pipes and AMQP
 dev-util/pprof 0.1_pre20171202: pprof is a tool for visualization and analysis of profiling data
 dev-util/prealloc 0.1_pre20171020: Go static analysis tool to find slice declarations that could potentially be preallocated
-dev-util/rambler 4.0.0: A simple and language-independent SQL schema migration tool
+dev-util/rambler 4.1.3: A simple and language-independent SQL schema migration tool
 dev-util/ramlapi 1.1.0: Automatic API generation for Go projects
 dev-util/realize 1.5.2: A Go build system with file watchers, output streams and live reload
 dev-util/rubigo 1.0.3: Golang dependency tool and package manager

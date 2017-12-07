@@ -11,12 +11,14 @@ GOLANG_PKG_USE_CGO=1
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/bradfitz/slice:d9036e2"
 	"github.com/client9/xson:71a0e90"
-	"github.com/codegangsta/cli:a14d7d3" #v1.18.1
-	"github.com/go-sql-driver/mysql:2a6c607"
-	"github.com/imdario/mergo:3e95a51" # v0.2.2
-	"github.com/lib/pq:ae8357d"
-	"github.com/mattn/go-sqlite3:86681de"
-	"github.com/camlistore/go4:399a9d7"
+	"github.com/urfave/cli:cfb3883"                #v1.20.0
+	"github.com/go-sql-driver/mysql:a0583e0"       #v1.3
+	"github.com/imdario/mergo:7fe0c75"             #v0.2.4
+	"github.com/lib/pq:83612a5"
+	"github.com/mattn/go-sqlite3:ed69081"          #v1.4.0
+	"github.com/camlistore/go4:034d17a"
+	"github.com/kelseyhightower/envconfig:f611eb3" #v1.3.0
+	"github.com/golang/net:a8b9294 -> golang.org/x"
 )
 
 inherit golang-single
