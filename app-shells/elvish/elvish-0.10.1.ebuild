@@ -15,3 +15,8 @@ HOMEPAGE="https://elvish.io"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="amd64 arm x86"
+
+src_test() {
+	GOLANG_PKG_IS_MULTIPLE=1
+	golang-single_src_test
+}
