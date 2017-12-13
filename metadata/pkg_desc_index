@@ -1,6 +1,6 @@
 app-admin/chaosmonkey 2.0.2: A resiliency tool that helps applications tolerate random instance failures
 app-admin/doctl 1.4.0: A command line tool for DigitalOcean services
-app-admin/gopass 1.6.2: The slightly more awesome standard unix password manager for teams
+app-admin/gopass 1.6.3: The slightly more awesome standard unix password manager for teams
 app-admin/juju 2.1_beta3: juju is devops distilled
 app-admin/pony 0.1.0_pre20170123: Local File-Based Password, API Key, Secret, Recovery Code Store Backed vy GPG
 app-admin/scaleway-cli 1.14: Official command line tool to interact with Scaleway API
@@ -31,7 +31,7 @@ app-misc/thymer 0.1.0: Consolo Pomodoro Timer written in GoLang
 app-misc/weather 0.5.0_pre20151218 0.5.0 0.6.0_pre20151218: Weather via the command line.
 app-misc/wego 2.0: Wego is a weather client for the terminal
 app-shells/antibody 2.2.2: A faster and simpler antigen written in Golang
-app-shells/elvish 0.5: A novel Unix shell
+app-shells/elvish 0.10.1: A novel Unix shell
 app-shells/fzf 0.17.1: A general-purpose command-line fuzzy finder
 app-shells/oh 0.0.1_pre20161126: A surprisingly powerful Unix shell
 app-shells/peco 0.4.3: Simplistic interactive filtering tool
@@ -121,6 +121,7 @@ dev-python/mdx_anchors_away 1.0.1: Add anchor tags and icons to all headers
 dev-python/mdx_callouts 1.0.0: Add anchor tags and icons to all headers
 dev-python/mdx_foldouts 1.0.0: Add anchor tags and icons to all headers
 dev-util/addlicense 0_pre20160627: A program which ensures source code files have copyright license headers
+dev-util/bug 0.4: Distributed bug tracking with the filesystem and hg or git
 dev-util/c-for-go 0.1.0_pre20171012: Automatic C-Go Bindings Generator for Go Programming Language
 dev-util/check 0.1_pre20160515-r1 0.1_pre20170402: A set of utilities for checking Go sources
 dev-util/deadcode 0.1_pre20160724: Deadcode finds unused Go source code
