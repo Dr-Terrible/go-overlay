@@ -20,7 +20,7 @@ RESTRICT+=" mirror"
 S="${WORKDIR}/${MY_PN}-${ECOMMIT}"
 
 RDEPEND="dev-libs/elfutils
-	dev-libs/protobuf:0/14
+	dev-libs/protobuf:0=
 	!libressl? ( dev-libs/openssl:0= )
 	libressl? ( dev-libs/libressl:0= )"
 DEPEND="dev-cpp/gmock"

@@ -161,7 +161,7 @@ dev-util/nakedret 0.1_pre20171108: a Go static analysis tool to find naked retur
 dev-util/orange-cat 0.2.2-r1: A Markdown previewer written in GoLang
 dev-util/panicparse 1.0.1: Parses Go's panic stack traces
 dev-util/pcstat 0.1_pre20160126: Page Cache stat: get page cache stats for files on Linux
-dev-util/perf-data-converter 0.1.0_pre20171201: Convert Linux perf files to the profile.proto format used by pprof
+dev-util/perf-data-converter 0.1.0_pre20171201-r1: Convert Linux perf files to the profile.proto format used by pprof
 dev-util/pipecat 0.2: Pipecat allows you to scale any program using traditional UNIX pipes and AMQP
 dev-util/pprof 0.1_pre20171202: pprof is a tool for visualization and analysis of profiling data
 dev-util/prealloc 0.1_pre20171020: Go static analysis tool to find slice declarations that could potentially be preallocated
