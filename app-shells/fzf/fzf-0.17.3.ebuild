@@ -8,11 +8,11 @@ GOLANG_PKG_TAGS="release"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/mattn/go-isatty:0360b2a"      #v0.0.3
-	"github.com/mattn/go-runewidth:9e777a8"   #v0.0.2
+	"github.com/mattn/go-isatty:66b8e73"
+	"github.com/mattn/go-runewidth:14207d2"
 	"github.com/mattn/go-shellwords:02e3cf0"  #v1.0.3
-	"github.com/golang/crypto:9f005a0 -> golang.org/x"
-	"github.com/golang/sys:665f652 -> golang.org/x"
+	"github.com/golang/crypto:e1a4589 -> golang.org/x"
+	"github.com/golang/sys:b90f89a -> golang.org/x"
 )
 
 inherit golang-single bash-completion-r1
