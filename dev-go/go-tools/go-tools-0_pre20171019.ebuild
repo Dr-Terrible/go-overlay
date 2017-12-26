@@ -6,7 +6,7 @@ EAPI=6
 GOLANG_PKG_IMPORTPATH="github.com/golang"
 GOLANG_PKG_IMPORTPATH_ALIAS="golang.org/x"
 GOLANG_PKG_NAME="${PN/go-}"
-GOLANG_PKG_VERSION="5d2fd3ccab986d52112bf301d47a819783339d0e"
+GOLANG_PKG_VERSION="ae8cc594552814363a7aeeb4f2825515a771fa38"
 GOLANG_PKG_IS_MULTIPLE=1
 GOLANG_PKG_HAVE_TEST=1
 
@@ -26,15 +26,11 @@ RDEPEND="!<dev-lang/go-1.8.0"
 
 src_compile() {
 	# Generate static.go
-	pushd godoc/static > /dev/null || die
-		ebegin "Building static files"
-			${EGO} run \
-				-a -p $( makeopts_jobs ) \
-				makestatic.go || die
-		eend
-	popd > /dev/null || die
+	ebegin "Generating static files"
+		${EGO} generate -a -p $( makeopts_jobs) golang.org/x/tools/godoc/static || die
+	eend
 
-	golang-single_src_compile
+#	golang-single_src_compile
 }
 
 src_install() {
@@ -42,9 +38,11 @@ src_install() {
 
 	# install binaries in $GOROOT/bin to avoid file collisions
 	exeinto "$(go env GOROOT)/bin"
+	rm "${GOBIN}"/cover || die # cover conflicts with the one provided by dev-lang/go in /usr/lib/go/pkg/tool/linux_amd64
 	doexe "${GOBIN}"/*
+
 	rm "${ED}"usr/bin/* || die
-	dosym "${ED}$( go env GOROOT )/bin/godoc" /usr/bin/godoc
+#	dosym "${ED}$( go env GOROOT )/bin/godoc" /usr/bin/godoc
 
 	# install static files for the 'present' tool
 	local EIMPORTPATH="${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}"
