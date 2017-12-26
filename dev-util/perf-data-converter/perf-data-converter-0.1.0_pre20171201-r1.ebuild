@@ -13,14 +13,14 @@ SRC_URI="https://github.com/google/${MY_PN}/archive/${ECOMMIT}.tar.gz -> ${P}.ta
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug test libressl"
+IUSE="debug test libressl elibc_uclibc"
 
 RESTRICT+=" mirror"
 
 S="${WORKDIR}/${MY_PN}-${ECOMMIT}"
 
-RDEPEND="dev-libs/elfutils
-	dev-libs/protobuf:0=
+RDEPEND="dev-libs/protobuf:0=
+	!elibc_uclibc? ( dev-libs/elfutils )
 	!libressl? ( dev-libs/openssl:0= )
 	libressl? ( dev-libs/libressl:0= )"
 DEPEND="dev-cpp/gmock"
