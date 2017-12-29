@@ -24,7 +24,7 @@ GOLANG_PKG_VENDOR=(
 
 pkg_setup() {
 	enewgroup ${PN}
-	enewuser ${PN} -1 -1 "/var/lib/${PN}"
+	enewuser ${PN} -1 -1 "/var/lib/${PN}" ${PN}
 }
 
 src_prepare() {
