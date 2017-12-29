@@ -5,93 +5,9 @@ EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/gogits"
 GOLANG_PKG_ARCHIVEPREFIX="v"
-GOLANG_PKG_LDFLAGS="-X github.com/gogits/gogs/modules/setting.BuildGitHash=0ea0c5e"
+GOLANG_PKG_LDFLAGS="-X github.com/gogits/gogs/modules/setting.BuildGitHash=6f2347f"
 GOLANG_PKG_USE_CGO=1
 GOLANG_PKG_HAVE_TEST=1
-
-# Dependencies
-GOLANG_PKG_DEPENDENCIES=(
-	"github.com/alexcesaro/quotedprintable:2caba25 -> gopkg.in/alexcesaro/quotedprintable.v3"
-	"github.com/bradfitz/gomemcache:2fafb84"
-	"github.com/Unknwon/cae:c6aac99"
-	"github.com/Unknwon/com:28b053d"
-	"github.com/Unknwon/i18n:39d6f27"
-	"github.com/Unknwon/paginater:701c23f"
-	"github.com/fatih/color:42c364b"
-	"github.com/urfave/cli:347a988"
-	"github.com/go-macaron/binding:4892016"
-	"github.com/go-macaron/cache:5617353"
-	"github.com/go-macaron/captcha:8aa5919"
-	"github.com/go-macaron/csrf:6a9a7df"
-	"github.com/go-macaron/gzip:cad1c65"
-	"github.com/go-macaron/i18n:ef57533"
-	"github.com/go-macaron/inject:d8a0b86"
-	"github.com/go-macaron/session:66031fc"
-	"github.com/go-macaron/toolbox:82b5115"
-	"github.com/go-sql-driver/mysql:2e00b5c"
-	"github.com/go-xorm/builder:867edcc"
-	"github.com/go-xorm/core:2fbe2c7"
-	"github.com/go-xorm/xorm:445a934"
-	"github.com/gogits/chardet:2404f77"
-	"github.com/gogits/go-libravatar:cd1abbd"
-	"github.com/gogits/go-gogs-client:98046bb"
-	"github.com/gogits/cron:2fc07a4"
-	"github.com/gogits/git-module:172cbc2"
-	"github.com/issue9/identicon:d36b545"
-	"github.com/jaytaylor/html2text:d16d412"
-	"github.com/klauspost/compress:461e8fd"
-	"github.com/klauspost/cpuid:09cded8"
-	"github.com/klauspost/crc32:cb6bfca"
-	"github.com/lib/pq:67c3f2a"
-	"github.com/mattn/go-colorable:d228849"
-	"github.com/mattn/go-isatty:30a891c"
-	"github.com/mattn/go-sqlite3:ce9149a"
-	"github.com/mcuadros/go-version:257f7b9"
-	"github.com/microcosm-cc/bluemonday:e797637"
-	"github.com/msteinert/pam:02ccfbf"
-	"github.com/nfnt/resize:891127d"
-	"github.com/russross/blackfriday:5f33e7b"
-	"github.com/shurcooL/sanitized_anchor_name:1dba4b3"
-	"github.com/satori/go.uuid:b061729"
-	"github.com/sergi/go-diff:24e2351"
-	"github.com/strk/go-libravatar:5eed7bf"
-	"github.com/golang/net:f249948 -> golang.org/x"
-	"github.com/golang/sys:d75a526 -> golang.org/x"
-	"github.com/golang/text:ece019d -> golang.org/x"
-	"github.com/go-gomail/gomail:81ebce5 -> gopkg.in/gomail.v2"
-	"github.com/go-ini/ini:e3c2d47 -> gopkg.in/ini.v1"
-	"github.com/go-macaron/macaron:78521e4 -> gopkg.in/macaron.v1"
-	"github.com/go-redis/redis:e617904 -> gopkg.in/redis.v2" #v2.3.2
-	"github.com/go-bufio/bufio:567b2bf -> gopkg.in/bufio.v1"
-	"github.com/go-clog/clog:d359c28 -> gopkg.in/clog.v1"
-	"github.com/go-ldap/ldap:8168ee0 -> gopkg.in/ldap.v2" #v2.5.0
-	"github.com/go-asn1-ber/asn1-ber:4e86f43 -> gopkg.in/asn1-ber.v1" #v1.1
-	"github.com/editorconfig/editorconfig-core-go:a872f05 -> gopkg.in/editorconfig/editorconfig-core-go.v1" #v1.2.0
-
-	# tidb
-	"github.com/go-xorm/tidb:c670be9"
-	"github.com/ngaut/log:37d3e0f"
-	"github.com/pingcap/tidb:151e8b1"
-	"github.com/boltdb/bolt:583e893" #v1.3.0
-	"github.com/juju/errors:1b5e39b"
-	"github.com/ngaut/pool:4406601"
-	"github.com/pingcap/check:3b578b2"
-	"github.com/pingcap/go-hbase:8e85130"
-	"github.com/pingcap/go-themis:a576b06"
-	"github.com/syndtr/goleveldb:1a9d62f"
-	"github.com/twinj/uuid:89173bc"
-	"github.com/golang/protobuf:02ac84f"
-	"github.com/golang/snappy:723cc1e"
-	"github.com/ngaut/go-zookeeper:9c3719e"
-	"github.com/ngaut/tso:f528289"
-	"github.com/ngaut/deadline:fae8f9d"
-
-	# Unit testing
-	"github.com/golang/crypto:dc137be -> golang.org/x"
-	"github.com/smartystreets/goconvey:5bb9e11"
-	"github.com/smartystreets/assertions:01fedaa"
-	"github.com/jtolds/gls:9a4a02d"
-)
 
 inherit user systemd golang-single
 
@@ -100,11 +16,11 @@ HOMEPAGE="https://gogs.io"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 IUSE_CACHE_ADAPTER="redis memcached"
 IUSE_DATABASE_ADAPTER="mysql postgres +sqlite tidb"
-IUSE="$IUSE_DATABASE_ADAPTER $IUSE_CACHE_ADAPTER pam +ssl"
+IUSE="$IUSE_DATABASE_ADAPTER $IUSE_CACHE_ADAPTER +pam +ssl"
 
 REQUIRED_USE="|| ( sqlite tidb mysql postgres )"
 
@@ -144,7 +60,7 @@ src_prepare() {
 	cp conf/app.ini "${T}"/app.user.ini || die
 
 	# Change the default values to LHS compliant one
-	# NOTE: here the ebuild sets common value for both the main app.ini
+	# NOTE: here the ebuild sets common values for both the main app.ini
 	#       and the one used by users.
 	sed -i \
 		-e "s:^PATH = data/gogs.db:PATH = database/${PN}.db:" \
@@ -263,35 +179,30 @@ src_install() {
 }
 
 src_test() {
-	if has sandbox $FEATURES && has network-sandbox $FEATURES; then
-		eerror "Some tests require 'sandbox', and 'network-sandbox' to be disabled in FEATURES."
-	fi
-
+	GOLANG_PKG_IS_MULTIPLE=1
 	golang-single_src_test
 }
 
 pkg_postinst() {
-	elog
+	echo
 	elog "If you want to enable Gogs as a standalone centralized web service"
 	elog "when your system boots, then execute the following commands:"
-	elog "$   systemctl enable gogs.service"
-	elog "$   systemctl start gogs.service"
+	elog "  $ systemctl enable gogs.service"
+	elog "  $ systemctl start gogs.service"
 	elog
 	elog "If this is a new install point your browser to: https://localhost:3000"
 	elog "and complete the installation process."
 	echo
-
-	elog
 	elog "Instead, if you want to enable Gogs as a non centralized web service"
 	elog "when your user log in, then execute the following commands"
 	elog "as a logged user (non root):"
-	elog "$   systemctl --user enable gogs.service"
-	elog "$   systemctl --user start gogs.service"
+	elog "  $ systemctl --user enable gogs.service"
+	elog "  $ systemctl --user start gogs.service"
 	elog
 	elog "The user must be in the '${USER_NAME}' group to be able to properly"
-	elog "run Gogs as a non centralized web service."
-	elog "Just run (replace <USER> with the desired username):"
-	elog "$   gpasswd -a <USER> ${USER_NAME}"
+	elog "run Gogs as a non centralized web service:"
+	elog "  $ gpasswd -a <USER> ${USER_NAME}"
+	elog "Just run (replace <USER> with the desired username),"
 	elog "then have <USER> re-login."
 	echo
 }

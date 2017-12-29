@@ -12,7 +12,6 @@ Environment="GOGS_CUSTOM=%h/.config/gogs"
 ExecStart=/usr/bin/gogs web --config %h/.config/gogs/app.ini
 Restart=always
 
-User=%i
 NoNewPrivileges=true
 DevicePolicy=closed
 PrivateTmp=true
