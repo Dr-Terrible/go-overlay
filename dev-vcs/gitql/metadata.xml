@@ -8,6 +8,5 @@
 	</maintainer>
 	<use>
 		<flag name="ssh">Enable SSH transport support</flag>
-		<flag name="trace">Enable tracing support</flag>
 	</use>
 </pkgmetadata>
