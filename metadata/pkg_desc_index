@@ -58,7 +58,7 @@ dev-go/bee 1.5.2: Bee is a tool for helping develop with beego app framework
 dev-go/benthos 0.0.2: A persistent stream buffer
 dev-go/callvis 0_pre20170107: Visualize call graph of your Go program using dot format
 dev-go/codecgen 0.1_pre20160928: Idiomatic codec and rpc lib for msgpack, cbor, json, etc. msgpack.org
-dev-go/dep 0_pre20170221 0.1.0 0.1.0-r1 0.3.2: A Go's dependency management tool
+dev-go/dep 0.3.2 0.4.1: A Go's dependency management tool
 dev-go/depscheck 0.1.0_pre20160406: Prints stats and suggests to remove small LeftPad-like imports from Go packages
 dev-go/discover 0.1_pre20160103: Discover is a utility to aid in conceptualizing large Go code bases
 dev-go/duktape 2.0.0_pre20170901: CLI for Duktape JavaScript engine written in GoLang
@@ -218,6 +218,6 @@ sys-fs/gocryptfs 1.2: Encrypted overlay filesystem written in Go
 www-apps/beehive 0.2-r1 0.3_pre20171101: An event and agent system which allows you to perform automated tasks
 www-apps/gogs 0.11.34: Gogs is a self-hosted Git service written in Go
 www-apps/gotty 0.0.13: A simple command-line tool that turns your CLI tools into web applications
-www-apps/hugo 0.32.4: A fast and flexible static site generator built in GoLang
+www-apps/hugo 0.32.4 0.34: A fast and flexible static site generator built in GoLang
 www-servers/caddy 0.9.5: Fast, cross-platform HTTP/2 web server with automatic HTTPS
 x11-misc/noti 2.4.0: Display a notification when a terminal process finishes
