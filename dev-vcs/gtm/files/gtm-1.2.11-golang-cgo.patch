@@ -1,5 +1,5 @@
---- /blame.go
-+++ /blame.go
+--- a/blame.go
++++ b/blame.go
 @@ -1,6 +1,7 @@
  package git
  
@@ -8,9 +8,9 @@
  #include <git2.h>
  */
  import "C"
---- /git_static.go
-+++ /git_static.go
-@@ -4,8 +4,8 @@
+--- a/git_static.go
++++ b/git_static.go
+@@ -4,9 +4,9 @@
  
  /*
  #cgo CFLAGS: -I${SRCDIR}/vendor/libgit2/include
@@ -19,5 +19,6 @@
  #cgo windows LDFLAGS: -lwinhttp
 -#cgo !windows pkg-config: --static ${SRCDIR}/vendor/libgit2/build/libgit2.pc
 +#cgo !windows pkg-config: --static ${SRCDIR}/vendor/libgit2/libgit2.pc
- */
- import "C"
+ #include <git2.h>
+ 
+ #if LIBGIT2_VER_MAJOR != 0 || LIBGIT2_VER_MINOR != 26

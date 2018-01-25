@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -11,12 +11,14 @@ GOLANG_PKG_HAVE_TEST=1
 GOLANG_PKG_USE_CGO=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/libgit2/git2go:334260d" #v25
-	"github.com/libgit2/libgit2:2fcb870" #v0.25.1
-	"github.com/mattn/go-isatty:fc9e8d8"
-	"github.com/mitchellh/cli:b481eac"
-	"github.com/armon/go-radix:4239b77"
-	"github.com/bgentry/speakeasy:4aabc24"
+	"github.com/libgit2/git2go:eb0bf21"     #v26
+	"github.com/libgit2/libgit2:15e1193"    #v0.26.0
+	"github.com/mattn/go-isatty:0360b2a"    #v0.0.3
+	"github.com/mitchellh/cli:518dc67"
+	"github.com/armon/go-radix:1fca145"
+	"github.com/hashicorp/go-multierror:b7773ae"
+	"github.com/posener/complete:dc2bc5a"   #v1.1
+	"github.com/bgentry/speakeasy:4aabc24"  #v0.1.0
 )
 
 CMAKE_IN_SOURCE_BUILD=1
@@ -51,12 +53,7 @@ src_prepare() {
 	# Force cgo to use the vendored libgit2 lib
 	# instead of the one from the system (if present)
 	pushd "${git2go}" > /dev/null || die
-		epatch "${FILESDIR}/${PN}-golang-cgo.patch"
-	popd > /dev/null || die
-
-	# libressl fix; bug #606556
-	pushd "${libgit2}" > /dev/null || die
-		epatch "${FILESDIR}/libgit2-0.24.6-libressl.patch"
+		epatch "${FILESDIR}/${P}-golang-cgo.patch"
 	popd > /dev/null || die
 
 	CMAKE_USE_DIR="${libgit2}"
