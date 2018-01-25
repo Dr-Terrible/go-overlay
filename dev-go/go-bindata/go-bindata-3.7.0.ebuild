@@ -3,10 +3,9 @@
 
 EAPI=6
 
-# NOTE: the original github.com/jteeuwen/go-bindata is no more maintained.
-#       We use a fork: github.com/shuLhan/go-bindata.
-#       See https://github.com/jteeuwen/go-bindata/issues/165
-#GOLANG_PKG_IMPORTPATH="github.com/shuLhan"
+# NOTE: The original github.com/jteeuwen/go-bindata is no more maintained.
+#       Instead, we use a fork which is API compatible.
+#       For more details, see https://github.com/Dr-Terrible/go-overlay/issues/76
 GOLANG_PKG_IMPORTPATH="github.com/kevinburke"
 GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_IS_MULTIPLE=1
