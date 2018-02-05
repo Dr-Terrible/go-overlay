@@ -8,44 +8,44 @@ GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/markbates/inflect:54ffb37"
+	"github.com/markbates/inflect:a12c3ae"
 	"github.com/bep/gitmap:de8030e"
 	"github.com/BurntSushi/toml:a368813"
 	"github.com/chaseadamsio/goorgeous:dcf1ef8"  #v1.1.0
 	"github.com/mattn/go-runewidth:9e777a8"      #v0.0.2
-	"github.com/pelletier/go-toml:16398ba"       #v1.0.1
+	"github.com/pelletier/go-toml:acdc450"       #v1.1.0
 	"github.com/PuerkitoBio/purell:0bcb03f"      #v1.0.1
 	"github.com/PuerkitoBio/urlesc:de5bf2a"
-	"github.com/alecthomas/chroma:d08da05"       #v0.2.0
+	"github.com/alecthomas/chroma:e0f32fb"       #v0.2.1
 	"github.com/disintegration/imaging:dd50a3e"  #v1.2.4
 	"github.com/dlclark/regexp2:487489b"         #v1.1.6
 	"github.com/eknkc/amber:cdade1c"
-	"github.com/gorilla/websocket:ea4d1f6"       #1.2.0
-	"github.com/kardianos/osext:ae77be6"
+	"github.com/gorilla/websocket:ea4d1f6"       #v1.2.0
+	"github.com/gobwas/glob:bea32b9"             #v0.2.2
 	"github.com/miekg/mmark:fd2f6c1"             #v1.3.6
-	"github.com/mitchellh/mapstructure:06020f8"
+	"github.com/mitchellh/mapstructure:b4575ee"
 	"github.com/russross/blackfriday:4048872"    #v1.5
 	"github.com/shurcooL/sanitized_anchor_name:86672fc"
-	"github.com/spf13/afero:ec3a311"             #v1.0.1
+	"github.com/spf13/afero:bb8f192"             #v1.0.2
 	"github.com/spf13/cast:acbeb36"              #v1.1.0
-	"github.com/spf13/cobra:7b2c5ac"
+	"github.com/spf13/cobra:b95ab73"
 	"github.com/spf13/fsync:12a01e6"
 	"github.com/spf13/nitro:24d7ef3"
 	"github.com/spf13/viper:25b30aa"             #v1.0.0
 	"github.com/spf13/pflag:e57e3ee"             #v1.0.0
-	"github.com/spf13/jWalterWeatherman:12bd96e"
+	"github.com/spf13/jWalterWeatherman:7c0cea3"
 	"github.com/cpuguy83/go-md2man:1d903dc"      #v1.0.7
 	"github.com/danwakefield/fnmatch:cbb64ac"
 	"github.com/yosssi/ace:ea038f4"              #v0.0.5
-	"github.com/fsnotify/fsnotify:629574c"       #v1.4.2
-	"github.com/go-yaml/yaml:eb3733d -> gopkg.in/yaml.v2"
-	"github.com/magiconair/properties:be5ece7"   #v1.7.3
+	"github.com/fsnotify/fsnotify:c282820"       #v1.4.7
+	"github.com/go-yaml/yaml:d670f94 -> gopkg.in/yaml.v2"
+	"github.com/magiconair/properties:d419a98"   #v1.7.4
 	"github.com/magefile/mage:2f97430"           #v1.0.2
-	"github.com/golang/image:f7e31b4 -> golang.org/x"
-	"github.com/golang/text:c01e476 -> golang.org/x"
-	"github.com/golang/sys:8dbc5d0 -> golang.org/x"
+	"github.com/golang/image:12117c1 -> golang.org/x"
+	"github.com/golang/text:e19ae14 -> golang.org/x"
+	"github.com/golang/sys:810d700 -> golang.org/x"
 	"github.com/golang/sync:fd80eb9 -> golang.org/x"
-	"github.com/golang/net:cd69bc3 -> golang.org/x"
+	"github.com/golang/net:2fb46b1 -> golang.org/x"
 	"github.com/hashicorp/hcl:23c074d"
 	"github.com/hashicorp/go-immutable-radix:8aac270"
 	"github.com/hashicorp/golang-lru:0a025b7"
@@ -53,14 +53,14 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/nicksnyder/go-i18n:0dc1626"        #v1.10.0
 	"github.com/inconshreveable/mousetrap:76626ae" #v1.0
 	"github.com/jdkato/prose:20d3663"              #v1.1.0
-	"github.com/olekukonko/tablewriter:65fec0d"
+	"github.com/olekukonko/tablewriter:96aac99"
 	"github.com/pmezard/go-difflib:792786c"        #v1.0.0
 
 	# Docs
-	"github.com/gohugoio/hugoDocs:eac596d" #v0.32
+	"github.com/gohugoio/hugoDocs:f66d13a" #v0.35
 
 	# unit testing
-	"github.com/stretchr/testify:69483b4"  #v1.1.4
+	"github.com/stretchr/testify:b91bfb9"  #v1.2.0
 	"github.com/fortytw2/leaktest:7dad533" #v1.1.0
 	"github.com/davecgh/go-spew:346938d"   #v1.1.0
 )
@@ -115,18 +115,17 @@ src_install() {
 			eerror "Doc generation require 'network-sandbox' to be disabled in FEATURES."
 		fi
 		pushd "${GOPATH}"/src/github.com/gohugoio/hugoDocs > /dev/null || die
+			HUGO_UGLYURLS=true \
+			HUGO_CANONIFYURLS=true \
 			${GOBIN}/${PN} \
 				-d "${T}"/docs \
 				--baseURL="file:///usr/share/doc/${PF}/html/" \
-				--canonifyURLs=true \
-				--uglyURLs=true \
 				--disableKinds=404 \
 				--disableKinds=RSS \
 				--disableKinds=sitemap \
 				--noTimes=true \
 				--enableGitInfo=false \
-				--verbose \
-				|| die
+				--verbose
 			docinto html
 			dodoc -r "${T}"/docs/*
 		popd > /dev/null || die
