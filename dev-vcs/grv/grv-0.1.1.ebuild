@@ -1,12 +1,13 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/rgburke"
 GOLANG_PKG_BUILDPATH="/cmd/${PN}"
-GOLANG_PKG_VERSION="31baa08e744227ac6a3b9b984dc8b47344f71835"
+GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_TAGS="static"
+GOLANG_PKG_LDFLAGS="-X main.version=${PV} -X main.headOid=5d8a501"
 GOLANG_PKG_USE_CGO=1
 GOLANG_PKG_HAVE_TEST=1
 
@@ -35,7 +36,7 @@ DESCRIPTION="GRV is a terminal interface for viewing git repositories"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="libressl threads +ssh +curl"
 
 DEPEND="
