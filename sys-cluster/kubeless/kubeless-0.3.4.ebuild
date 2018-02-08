@@ -12,7 +12,7 @@ inherit golang-single
 
 DESCRIPTION="Kubernetes Native Serverless Framework"
 
-EBUILD_COMMIT="cc6e694f"
+EBUILD_COMMIT="d16de3f"
 
 LICENSE="Apache-2.0"
 SLOT="0"
