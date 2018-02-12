@@ -37,7 +37,7 @@ app-shells/bullettrain 0.7: Bullet Train is a ZSH & BASH prompt theme inspired b
 app-shells/elvish 0.10.1: A novel Unix shell
 app-shells/fzf 0.17.3: A general-purpose command-line fuzzy finder
 app-shells/oh 0.0.1_pre20161126: A surprisingly powerful Unix shell
-app-shells/peco 0.4.3: Simplistic interactive filtering tool
+app-shells/peco 0.5.2: Simplistic interactive filtering tool
 app-shells/powerline-go 1.8.2: A beautiful and useful low-latency prompt for your shell
 app-text/wiki 1.4.0-r1: Command line tool to fetch summaries from MediaWiki
 dev-db/bolt 1.3.0: Bolt is a low level key/value NoSQL database written in GoLang
