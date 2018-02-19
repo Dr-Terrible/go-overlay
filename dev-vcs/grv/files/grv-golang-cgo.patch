@@ -1,15 +1,15 @@
---- /blame.go
-+++ /blame.go
+--- a/blame.go
++++ b/blame.go
 @@ -1,6 +1,7 @@
  package git
  
  /*
-+#cgo pkg-config: --static ${SRCDIR}/vendor/libgit2/libgit2.pc
++#cgo pkg-config: ${SRCDIR}/vendor/libgit2/libgit2.pc
  #include <git2.h>
  */
  import "C"
---- /git_static.go
-+++ /git_static.go
+--- a/git_static.go
++++ b/git_static.go
 @@ -4,8 +4,8 @@
  
  /*
@@ -18,6 +18,11 @@
 +#cgo LDFLAGS: -L${SRCDIR}/vendor/libgit2/ -lgit2
  #cgo windows LDFLAGS: -lwinhttp
 -#cgo !windows pkg-config: --static ${SRCDIR}/vendor/libgit2/build/libgit2.pc
-+#cgo !windows pkg-config: --static ${SRCDIR}/vendor/libgit2/libgit2.pc
++#cgo !windows pkg-config: ${SRCDIR}/vendor/libgit2/libgit2.pc
  */
  import "C"
+--- a/pkg-config-wrapper.sh
++++ b/pkg-config-wrapper.sh
+@@ -0,0 +1,2 @@
++#!/bin/sh
++pkg-config --static "$@"

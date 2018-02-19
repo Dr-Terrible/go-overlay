@@ -7,7 +7,7 @@ GOLANG_PKG_IMPORTPATH="github.com/rgburke"
 GOLANG_PKG_BUILDPATH="/cmd/${PN}"
 GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_TAGS="static"
-GOLANG_PKG_LDFLAGS="-X main.version=${PV} -X main.headOid=5d8a501"
+GOLANG_PKG_LDFLAGS="-X main.version=${PV} -X main.headOid=ffbd489"
 GOLANG_PKG_USE_CGO=1
 GOLANG_PKG_HAVE_TEST=1
 
@@ -70,6 +70,7 @@ src_prepare() {
 	# instead of the one from the system (if present)
 	pushd "${git2go}" > /dev/null || die
 		epatch "${FILESDIR}/${PN}-golang-cgo.patch"
+		chmod u+x pkg-config-wrapper.sh || die
 	popd > /dev/null || die
 
 	# libressl fix; bug #606556
@@ -82,6 +83,8 @@ src_prepare() {
 }
 
 src_compile() {
+	export PKG_CONFIG=${git2go}/pkg-config-wrapper.sh
+
 	# Build libgit2 as a static lib
 	local mycmakeargs=(
 		-DSONAME=OFF
