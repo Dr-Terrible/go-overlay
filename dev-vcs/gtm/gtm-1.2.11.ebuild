@@ -54,6 +54,7 @@ src_prepare() {
 	# instead of the one from the system (if present)
 	pushd "${git2go}" > /dev/null || die
 		epatch "${FILESDIR}/${P}-golang-cgo.patch"
+		chmod u+x pkg-config-wrapper.sh || die
 	popd > /dev/null || die
 
 	CMAKE_USE_DIR="${libgit2}"
@@ -61,6 +62,8 @@ src_prepare() {
 }
 
 src_compile() {
+	export PKG_CONFIG=${git2go}/pkg-config-wrapper.sh
+
 	# Build libgit2 as a static lib
 	local mycmakeargs=(
 		-DSONAME=OFF
