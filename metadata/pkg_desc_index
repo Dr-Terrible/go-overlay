@@ -212,7 +212,7 @@ net-print/cloud-print-connector 2016.01.02-r1: Google Cloud Print CUPS Connector
 net-proxy/morty 0_pre20161029: Privacy aware web content sanitizer proxy as a service
 net-proxy/toxiproxy 2.0.0: A proxy to simulate network and system conditions
 sys-apps/sift 0.8.0: A fast and powerful open source alternative to grep
-sys-cluster/kubeless 0.3.1: Kubernetes Native Serverless Framework
+sys-cluster/kubeless 0.3.4 0.4.0: Kubernetes Native Serverless Framework
 sys-devel/calc 0.1_pre20160311: A simple, fast command-line calculator written in GoLang
 sys-devel/delve 1.0.0_rc2: Delve is a debugger for the Go programming language
 sys-devel/gcvis 0.1.0_pre20160427: Visualise Go program Garbage Collector trace data in real-time.
