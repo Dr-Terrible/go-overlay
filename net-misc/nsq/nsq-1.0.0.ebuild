@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -34,40 +34,20 @@ HOMEPAGE="http://nsq.io"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 -x86 -arm"
-IUSE="doc"
+KEYWORDS="amd64 x86 arm"
 
-DEPEND=">=dev-libs/protobuf-3.0.3:0
-	doc? (
-		www-apps/jekyll
-		www-apps/jekyll-gist
-	)"
-
-src_prepare(){
-	golang-single_src_prepare
-	pushd ../nsqio.github.io > /dev/null || die
-		epatch "${FILESDIR}/${PN}-doc.patch"
-	popd > /dev/null || die
-}
+DEPEND=">=dev-libs/protobuf-3.0.3:0"
 
 src_install() {
 	golang-single_src_install
 
 	# install conf files
 	dodoc -r contrib/*
-
-	# install doc
-	if use doc; then
-		jekyll build --source "${GOPATH}/src/github.com/nsqio/nsqio.github.io" --destination "${T}"/html || die
-		dodoc -r "${T}"/html
-	fi
-
 }
 
 src_test() {
 	if has sandbox $FEATURES && has usersandbox $FEATURES; then
 		eerror "Tests require sandbox, and usersandbox to be disabled in FEATURES."
 	fi
-
 	golang-single_src_test
 }
