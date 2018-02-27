@@ -4,8 +4,8 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/gopherjs"
-GOLANG_PKG_VERSION="444abdf920945de5d4a977b572bcc6c674d1e4eb"
-GOLANG_PKG_HAVE_TEST=1
+GOLANG_PKG_VERSION="4e9f423448a0b0462d41b077c43bb9f2a5d103c6"
+GOLANG_PKG_TAGS="purego"
 
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/kardianos/osext:ae77be6"
@@ -24,10 +24,10 @@ GOLANG_PKG_DEPENDENCIES=(
 
 inherit golang-single
 
-DESCRIPTION="GopherJS compils GoLang code to pure JavaScript code"
+DESCRIPTION="GopherJS compiles GoLang code to pure JavaScript code"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm"
+KEYWORDS="amd64 x86 arm"
 
-DEPEND="<dev-lang/go-1.10"
+RESTRICT+=" test"
