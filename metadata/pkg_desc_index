@@ -91,7 +91,7 @@ dev-go/gonum-internal 9999: This is the set of internal packages for the Gonum p
 dev-go/gonum-stat 9999: A statistics package for the Go language
 dev-go/gopherjs 0_pre20180204 0_pre20180227: GopherJS compiles GoLang code to pure JavaScript code
 dev-go/gopm 0.7.2 0.8_pre20160708: Gopm is a package manager and build tool for Go
-dev-go/gops 0.3.1: A tool to list and diagnose Go processes currently running on your system
+dev-go/gops 0.3.2: A tool to list and diagnose Go processes currently running on your system
 dev-go/gore 0.2.5 0.2.6: A REPL for Golang
 dev-go/gostatus 0.1.0_pre20160915: A command-line tool that show the status of GoLang repositories
 dev-go/gotests 1.5.2: It's a Golang commandline tool that generates table driven tests
