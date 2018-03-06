@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -11,7 +11,6 @@ GOLANG_PKG_USE_CGO=1
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/jteeuwen/go-bindata:a0ff256" # see NOTE below
 	"github.com/muesli/beehive-vendor:890fc17"
 	"github.com/muesli/beehive-admin-dist:648f36d"
 
@@ -27,6 +26,8 @@ DESCRIPTION="An event and agent system which allows you to perform automated tas
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
+
+DEPEND="dev-go/go-bindata"
 
 USER_NAME="${PN}"
 USER_DIR="/var/lib/${USER_NAME}"
@@ -55,23 +56,15 @@ src_prepare() {
 }
 
 src_compile() {
-	# NOTE: beehive doesn't compile with go-bindata v3.2.0 from github.com/shuLhan/go-bindata.
-	#       we use a bundled copy of the old v3.1.0 from github.com/jteeuwen/go-bindata.
-	pushd "${GOPATH}"/src/github.com/jteeuwen/go-bindata > /dev/null || die
-		einfo "Compiling go-bindata ..."
-		${EGO} install -ldflags '-s -w' -tags ''    github.com/jteeuwen/go-bindata/... || die
-	popd > /dev/null || die
-
 	# Build assets
 	ebegin "Bulding assets"
-		"${GOBIN}"/go-bindata \
+		go-bindata \
 			--tags embed \
 			--pkg api \
 			-o api/bindata.go \
 			--ignore \\.git \
 			assets/... config/... || die
 	eend
-	rm "${GOBIN}"/go-bindata || die
 
 	golang-single_src_compile
 }

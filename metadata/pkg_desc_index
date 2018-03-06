@@ -1,6 +1,6 @@
 app-admin/chaosmonkey 2.0.2: A resiliency tool that helps applications tolerate random instance failures
 app-admin/doctl 1.4.0: A command line tool for DigitalOcean services
-app-admin/gopass 1.6.10: The slightly more awesome standard unix password manager for teams
+app-admin/gopass 1.6.11: The slightly more awesome standard unix password manager for teams
 app-admin/juju 2.1_beta3: juju is devops distilled
 app-admin/pony 0.1.0_pre20170123: Local File-Based Password, API Key, Secret, Recovery Code Store Backed vy GPG
 app-admin/scaleway-cli 1.14: Official command line tool to interact with Scaleway API
@@ -73,7 +73,7 @@ dev-go/ginkgo 1.2.0: BDD Testing Framework for GoLang
 dev-go/glide 0.13.1: Glide is a vendor Package Management for Golang
 dev-go/go-bind-plugin 0.2.1: A tool for building Go plugins and generating wrappers around exported symbols
 dev-go/go-bindata 3.7.0: A small utility for embedding binary data in a GoLang program.
-dev-go/go-bindata-assetfs 0.1.0_pre20151224: A small utility for embedding binary data in a GoLang program.
+dev-go/go-bindata-assetfs 1.0.0: A small utility for embedding binary data in a Go program
 dev-go/go-carpet 1.4: Shows test coverage for Go source files
 dev-go/go-fuzz 0.1_pre20171021: Go-fuzz is a coverage-guided fuzzing solution for testing of Go packages
 dev-go/go-md2man 1.0.7: Command-line tool to convert Markdown into UNIX man pages
@@ -119,7 +119,7 @@ dev-go/tomlv 0.2.0: A TOML validator written in GoLang
 dev-go/wago 1.0 1.2.0: Wago automates the actions you do after saving code.
 dev-go/walter 1.4.0: Walter is a tiny deployment pipeline
 dev-go/xj2s 20151106: A small tool for Golang to generate Golang strunc from xml/json file
-dev-go/xo 0.1_pre20160918: A cli tool to generate Golang types and funcs based on a database schema
+dev-go/xo 0.1_pre20170823: A cli tool to generate Golang types and funcs based on a database schema
 dev-go/zebrapack 2.0.4: ZebraPack is a data definition language and serialization format
 dev-go/zygomys 4.8.3: A 100% Golang, easy-to-use Lisp
 dev-python/markdown-include 0.5.1: Add anchor tags and icons to all headers
