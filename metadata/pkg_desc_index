@@ -224,4 +224,5 @@ www-apps/gogs 0.11.34: Gogs is a self-hosted Git service written in Go
 www-apps/gotty 0.0.13: A simple command-line tool that turns your CLI tools into web applications
 www-apps/hugo 0.34 0.35 0.37: A fast and flexible static site generator built in GoLang
 www-servers/caddy 0.9.5: Fast, cross-platform HTTP/2 web server with automatic HTTPS
-x11-misc/noti 2.4.0: Display a notification when a terminal process finishes
+x11-misc/cowyo 2.10.0: A feature-rich wiki webserver for minimalists
+x11-misc/noti 3.0.0: Display a notification when a terminal process finishes
