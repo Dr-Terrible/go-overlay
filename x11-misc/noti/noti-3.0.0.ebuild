@@ -15,8 +15,6 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64 arm x86"
 
-RESTRICT+=" test"
-
 RDEPEND="x11-libs/libnotify
 	app-accessibility/espeak"
 
@@ -25,4 +23,12 @@ src_install() {
 
 	doman docs/man/${PN}*.{1,5}
 	dodoc docs/*.md
+}
+
+src_test() {
+	if has network-sandbox $FEATURES; then
+		eerror "Some tests require 'network-sandbox' to be disabled in FEATURES."
+	fi
+	GOLANG_PKG_IS_MULTIPLE=1
+	golang-single_src_test
 }
