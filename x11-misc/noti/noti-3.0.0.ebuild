@@ -1,11 +1,11 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/variadico"
 GOLANG_PKG_BUILDPATH="/cmd/noti"
-GOLANG_PKG_ARCHIVEPREFIX="v"
+GOLANG_PKG_HAVE_TEST=1
 
 inherit golang-single
 
@@ -22,5 +22,7 @@ RDEPEND="x11-libs/libnotify
 
 src_install() {
 	golang-single_src_install
-	dodoc -r docs/*
+
+	doman docs/man/${PN}*.{1,5}
+	dodoc docs/*.md
 }
