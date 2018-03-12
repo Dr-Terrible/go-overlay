@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -21,46 +21,47 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/dlclark/regexp2:487489b"         #v1.1.6
 	"github.com/eknkc/amber:cdade1c"
 	"github.com/gorilla/websocket:ea4d1f6"       #v1.2.0
-	"github.com/gobwas/glob:bea32b9"             #v0.2.2
+	"github.com/gobwas/glob:5ccd90e"             #v0.2.3
 	"github.com/miekg/mmark:fd2f6c1"             #v1.3.6
-	"github.com/mitchellh/mapstructure:b4575ee"
-	"github.com/russross/blackfriday:4048872"    #v1.5
+	"github.com/mitchellh/mapstructure:a4e142e"
+	"github.com/russross/blackfriday:55d61fa"
 	"github.com/shurcooL/sanitized_anchor_name:86672fc"
 	"github.com/spf13/afero:bb8f192"             #v1.0.2
-	"github.com/spf13/cast:acbeb36"              #v1.1.0
-	"github.com/spf13/cobra:b95ab73"
+	"github.com/spf13/cast:8965335"              #v1.2.0
+	"github.com/spf13/cobra:be77323"
 	"github.com/spf13/fsync:12a01e6"
 	"github.com/spf13/nitro:24d7ef3"
 	"github.com/spf13/viper:25b30aa"             #v1.0.0
 	"github.com/spf13/pflag:e57e3ee"             #v1.0.0
 	"github.com/spf13/jWalterWeatherman:7c0cea3"
-	"github.com/cpuguy83/go-md2man:1d903dc"      #v1.0.7
+	"github.com/cpuguy83/go-md2man:a65d4d2"      #v1.0.6
 	"github.com/danwakefield/fnmatch:cbb64ac"
 	"github.com/yosssi/ace:ea038f4"              #v0.0.5
 	"github.com/fsnotify/fsnotify:c282820"       #v1.4.7
 	"github.com/go-yaml/yaml:d670f94 -> gopkg.in/yaml.v2"
-	"github.com/magiconair/properties:d419a98"   #v1.7.4
+	"github.com/magiconair/properties:c3beff4"   #v1.7.6
 	"github.com/magefile/mage:2f97430"           #v1.0.2
 	"github.com/golang/image:12117c1 -> golang.org/x"
-	"github.com/golang/text:e19ae14 -> golang.org/x"
-	"github.com/golang/sys:810d700 -> golang.org/x"
+	"github.com/golang/text:4e4a321 -> golang.org/x"
+	"github.com/golang/sys:37707fd -> golang.org/x"
 	"github.com/golang/sync:fd80eb9 -> golang.org/x"
-	"github.com/golang/net:2fb46b1 -> golang.org/x"
+	"github.com/golang/net:136a25c -> golang.org/x"
 	"github.com/hashicorp/hcl:23c074d"
-	"github.com/hashicorp/go-immutable-radix:8aac270"
-	"github.com/hashicorp/golang-lru:0a025b7"
+	"github.com/hashicorp/go-immutable-radix:7f3cd43"
+	"github.com/hashicorp/golang-lru:0fb14ef"
 	"github.com/kyokomi/emoji:7e06b23"             #v1.5
 	"github.com/nicksnyder/go-i18n:0dc1626"        #v1.10.0
 	"github.com/inconshreveable/mousetrap:76626ae" #v1.0
 	"github.com/jdkato/prose:20d3663"              #v1.1.0
-	"github.com/olekukonko/tablewriter:96aac99"
+	"github.com/olekukonko/tablewriter:b8a9be0"
 	"github.com/pmezard/go-difflib:792786c"        #v1.0.0
+	"github.com/muesli/smartcrop:1db4849"
 
 	# Docs
 	"github.com/gohugoio/hugoDocs:f66d13a" #v0.35
 
 	# unit testing
-	"github.com/stretchr/testify:b91bfb9"  #v1.2.0
+	"github.com/stretchr/testify:12b6f73"  #v1.2.1
 	"github.com/fortytw2/leaktest:7dad533" #v1.1.0
 	"github.com/davecgh/go-spew:346938d"   #v1.1.0
 )
