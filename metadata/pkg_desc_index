@@ -6,6 +6,7 @@ app-admin/pony 0.1.0_pre20170123: Local File-Based Password, API Key, Secret, Re
 app-admin/scaleway-cli 1.14: Official command line tool to interact with Scaleway API
 app-admin/terraform 0.6.16 0.11.0: Terraform builds, changes, and combines infrastructure safely and efficiently
 app-admin/trousseau 0.4.0: A networked and encrypted key-value database.
+app-admin/unik 0.1.0_pre20180130: The Unikernel Compilation and Deployment Platform
 app-benchmarks/hey 0.1_pre20160906: HTTP(S) load generator, ApacheBench (ab) replacement, written in GoLang
 app-benchmarks/vegeta 6.1.1: HTTP load testing tool and library written in GoLang.
 app-crypt/keybase 1.0.18-r50: Client for keybase.io
