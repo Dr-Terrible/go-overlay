@@ -213,6 +213,7 @@ net-p2p/syncthing-inotify 0.8.7-r1: File watcher intended for use with Syncthing
 net-print/cloud-print-connector 2016.01.02-r1: Google Cloud Print CUPS Connector
 net-proxy/morty 0_pre20161029: Privacy aware web content sanitizer proxy as a service
 net-proxy/toxiproxy 2.0.0: A proxy to simulate network and system conditions
+sci-misc/gobot 1.9.0: Go framework for robotics, drones, and the Internet of Things (IoT)
 sys-apps/sift 0.8.0: A fast and powerful open source alternative to grep
 sys-cluster/kubeless 0.3.4 0.4.0: Kubernetes Native Serverless Framework
 sys-devel/calc 0.1_pre20160311: A simple, fast command-line calculator written in GoLang
