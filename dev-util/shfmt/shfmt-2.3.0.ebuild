@@ -1,9 +1,10 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/mvdan"
+GOLANG_PKG_IMPORTPATH_ALIAS="mvdan.cc"
 GOLANG_PKG_NAME="sh"
 GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_BUILDPATH="/cmd/${PN}"
