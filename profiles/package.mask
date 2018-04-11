@@ -23,3 +23,8 @@ www-apps/gitea
 dev-go/lime-backend
 app-editors/lime-qml
 app-editors/lime-termbox
+
+# Toffanin Mauro <toffanin.mauro@gmail.com> (1 May 2015)
+# This package is specifically tailored to my needs; you should not use it.
+# Instead, you should use the ones provided by Portage.
+net-p2p/syncthing
