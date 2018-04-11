@@ -9,14 +9,15 @@ GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/markbates/inflect:a12c3ae"
-	"github.com/bep/gitmap:de8030e"
+	"github.com/bep/gitmap:012701e"
+	"github.com/bep/debounce:844797f"            #v1.1.0
 	"github.com/BurntSushi/toml:a368813"
 	"github.com/chaseadamsio/goorgeous:dcf1ef8"  #v1.1.0
 	"github.com/mattn/go-runewidth:9e777a8"      #v0.0.2
 	"github.com/pelletier/go-toml:acdc450"       #v1.1.0
 	"github.com/PuerkitoBio/purell:0bcb03f"      #v1.0.1
 	"github.com/PuerkitoBio/urlesc:de5bf2a"
-	"github.com/alecthomas/chroma:e0f32fb"       #v0.2.1
+	"github.com/alecthomas/chroma:85c342e"
 	"github.com/disintegration/imaging:dd50a3e"  #v1.2.4
 	"github.com/dlclark/regexp2:487489b"         #v1.1.6
 	"github.com/eknkc/amber:cdade1c"
@@ -25,13 +26,14 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/miekg/mmark:fd2f6c1"             #v1.3.6
 	"github.com/mitchellh/mapstructure:a4e142e"
 	"github.com/russross/blackfriday:55d61fa"
+	"github.com/sanity-io/litter:ae543b7"        #v1.1.0
 	"github.com/shurcooL/sanitized_anchor_name:86672fc"
-	"github.com/spf13/afero:bb8f192"             #v1.0.2
+	"github.com/spf13/afero:6364489"             #v1.1.1
 	"github.com/spf13/cast:8965335"              #v1.2.0
 	"github.com/spf13/cobra:be77323"
 	"github.com/spf13/fsync:12a01e6"
 	"github.com/spf13/nitro:24d7ef3"
-	"github.com/spf13/viper:25b30aa"             #v1.0.0
+	"github.com/spf13/viper:b5e8006"             #v1.0.2
 	"github.com/spf13/pflag:e57e3ee"             #v1.0.0
 	"github.com/spf13/jWalterWeatherman:7c0cea3"
 	"github.com/cpuguy83/go-md2man:a65d4d2"      #v1.0.6
@@ -58,7 +60,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/muesli/smartcrop:1db4849"
 
 	# Docs
-	"github.com/gohugoio/hugoDocs:f66d13a" #v0.35
+	"github.com/gohugoio/hugoDocs:2fb4c9a" #v0.38.2
 
 	# unit testing
 	"github.com/stretchr/testify:12b6f73"  #v1.2.1
