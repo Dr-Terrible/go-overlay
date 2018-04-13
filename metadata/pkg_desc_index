@@ -9,6 +9,7 @@ app-admin/trousseau 0.4.0: A networked and encrypted key-value database.
 app-admin/unik 0.1.0_pre20180130: The Unikernel Compilation and Deployment Platform
 app-benchmarks/hey 0.1_pre20160906: HTTP(S) load generator, ApacheBench (ab) replacement, written in GoLang
 app-benchmarks/vegeta 6.1.1: HTTP load testing tool and library written in GoLang.
+app-crypt/certspotter 0.8: Certificate Transparency Log Monitor
 app-crypt/keybase 1.0.18-r50: Client for keybase.io
 app-editors/lime-qml 20150428: QML frontend for Lime text editor.
 app-editors/lime-termbox 20150428: Termbox frontend for Lime text editor.
