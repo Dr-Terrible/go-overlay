@@ -25,5 +25,8 @@ IUSE="doc"
 
 src_install() {
 	golang-single_src_install
-	use doc && dohtml -r docs/*
+	if use doc; then
+		docinto html
+		dodoc -r docs/*
+	fi
 }
