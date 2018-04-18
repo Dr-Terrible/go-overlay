@@ -5,7 +5,7 @@ EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/gogits"
 GOLANG_PKG_ARCHIVEPREFIX="v"
-GOLANG_PKG_LDFLAGS="-X github.com/gogits/gogs/modules/setting.BuildGitHash=6f2347f"
+GOLANG_PKG_LDFLAGS="-X github.com/gogits/gogs/modules/setting.BuildGitHash=2978bb1"
 GOLANG_PKG_USE_CGO=1
 GOLANG_PKG_HAVE_TEST=1
 
