@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -11,8 +11,6 @@ GOLANG_PKG_HAVE_TEST=1
 GOLANG_PKG_USE_CGO=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/jteeuwen/go-bindata:a0ff256" # see NOTE below
-
 	"github.com/muesli/beehive-admin-dist:1af78df"
 	"github.com/muesli/go.hue:8aefcc6"
 	"github.com/muesli/goefa:26c9a51"
@@ -35,8 +33,8 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/guelfey/go.dbus:f6a3a23"
 	"github.com/hoisie/web:a498c02"
 	"github.com/huin/goserial:7b90efd"
-	"github.com/jteeuwen/go-pkg-rss:72391e6"
-	"github.com/jteeuwen/go-pkg-xmlx:76f54ee"
+	"github.com/muesli/go-pkg-rss:3bef0f3 -> github.com/jteeuwen"
+	"github.com/muesli/go-pkg-xmlx:76f54ee -> github.com/jteeuwen"
 	"github.com/kurrik/oauth1a:cb1b80e"
 	"github.com/mattn/go-xmpp:325c112"
 	"github.com/kr/pretty:cfb55aa"
@@ -60,6 +58,8 @@ LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="amd64 arm x86"
 
+DEPEND="dev-go/go-bindata"
+
 USER_NAME="${PN}"
 USER_DIR="/var/lib/${USER_NAME}"
 
@@ -76,23 +76,15 @@ src_prepare() {
 }
 
 src_compile() {
-	# NOTE: beehive doesn't compile with go-bindata v3.2.0 from github.com/shuLhan/go-bindata.
-	#       we need the old version from github.com/jteeuwen/go-bindata.
-	pushd "${GOPATH}"/src/github.com/jteeuwen/go-bindata > /dev/null || die
-		einfo "Compiling go-bindata ..."
-		${EGO} install -ldflags '-s -w' -tags ''    github.com/jteeuwen/go-bindata/... || die
-	popd > /dev/null || die
-
 	# Build assets
 	ebegin "Bulding assets"
-		"${GOBIN}"/go-bindata \
+		go-bindata \
 			--tags embed \
 			--pkg api \
 			-o api/bindata.go \
 			--ignore \\.git \
     		assets/... config/... || die
 	eend
-	rm "${GOBIN}"/go-bindata || die
 
 	golang-single_src_compile
 }
