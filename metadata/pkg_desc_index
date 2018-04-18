@@ -31,7 +31,7 @@ app-misc/impl 0.1_pre20160521: impl generates method stubs for implementing an i
 app-misc/jj 1.0.1: JSON Stream Editor
 app-misc/motion 0.1_pre20160411: Navigation and insight in Go
 app-misc/pup 0.4.0: Parsing HTML at the command line
-app-misc/textql 2.0.3 2.1.0_pre20170709: Execute SQL against structured text like CSV or TSV
+app-misc/textql 2.0.3 2.1.0_pre20180417: Execute SQL against structured text like CSV or TSV
 app-misc/thyme 0.2.3: Automatically track which applications you use and for how long
 app-misc/thymer 0.1.0: Consolo Pomodoro Timer written in GoLang
 app-misc/weather 0.5.0_pre20151218 0.5.0 0.6.0_pre20151218: Weather via the command line.

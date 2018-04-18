@@ -1,10 +1,10 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/dinedal"
-GOLANG_PKG_VERSION="01160a69ae3b9ea1258f979093c39ed6b59c8b46"
+GOLANG_PKG_VERSION="209924e1c31cedd133ec3a66f0a14e43cb98f114"
 GOLANG_PKG_LDFLAGS="-X main.VERSION=${PV}"
 GOLANG_PKG_TAGS="libsqlite3 linux"
 GOLANG_PKG_IS_MULTIPLE=1
