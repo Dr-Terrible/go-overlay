@@ -1,0 +1,23 @@
+#!/sbin/openrc-run
+
+start() {
+  ebegin "Starting acme-dns"
+  start-stop-daemon --start \
+    --exec /usr/bin/acme-dns \
+    --pidfile /run/acme-dns.pid \
+    --make-pidfile \
+    --background \
+    --user ${RUNAS_USER}:${RUNAS_GROUP} \
+    --stdout "${LOGFILE}" \
+    --stderr "${LOGFILE}"
+  eend $?
+}
+
+stop() {
+  ebegin "Stopping acme-dns"
+  start-stop-daemon --stop \
+    --exec /usr/bin/acme-dns \
+    --pidfile /run/acme-dns.pid \
+    --user ${RUNAS_USER}:${RUNAS_GROUP}
+  eend $?
+}
