@@ -4,7 +4,7 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/gopherjs"
-GOLANG_PKG_VERSION="4e9f423448a0b0462d41b077c43bb9f2a5d103c6"
+GOLANG_PKG_VERSION="d547d1d9531ed93dbdebcbff7f83e7c876a1e0ee"
 GOLANG_PKG_TAGS="purego"
 
 GOLANG_PKG_DEPENDENCIES=(
@@ -13,6 +13,7 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/neelance/sourcemap:8c68805"
 	"github.com/spf13/cobra:7b2c5ac" #v0.0.1
 	"github.com/spf13/pflag:e57e3ee" #v1.0.0
+	"github.com/shurcooL/httpfs:809bece"
 	"github.com/golang/crypto:94eea52 -> golang.org/x"
 	"github.com/golang/tools:0444735 -> golang.org/x"
 	"github.com/golang/sys:8b4580a -> golang.org/x"
@@ -28,6 +29,6 @@ DESCRIPTION="GopherJS compiles GoLang code to pure JavaScript code"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 x86 arm"
+KEYWORDS="amd64 arm x86"
 
 RESTRICT+=" test"
