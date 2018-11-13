@@ -8,10 +8,6 @@ GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_LDFLAGS="-X ${GOLANG_PKG_IMPORTPATH}/${PN}.Version=${PV}"
 GOLANG_PKG_HAVE_TEST=1
 
-GOLANG_PKG_DEPENDENCIES=(
-	"github.com/urfave/cli:a14d7d3 -> github.com/codegangsta" #v1.18.1
-)
-
 inherit golang-single
 
 DESCRIPTION="A proxy to simulate network and system conditions"
