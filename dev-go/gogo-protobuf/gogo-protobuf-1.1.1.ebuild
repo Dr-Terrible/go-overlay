@@ -17,7 +17,7 @@ HOMEPAGE="http://gogo.github.io"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="~amd64"
 
 DEPEND="dev-libs/protobuf:0=
 	dev-go/go-protobuf"
