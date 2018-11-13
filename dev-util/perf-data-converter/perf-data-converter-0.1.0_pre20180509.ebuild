@@ -4,7 +4,7 @@
 EAPI=6
 
 MY_PN="${PN//-/_}"
-ECOMMIT="b86dd5276ecdba751d56be4f1bafca7065b78ea4"
+ECOMMIT="7bdd434b2fdeb910f76723e5b8c77b7d123c7f70"
 
 DESCRIPTION="Convert Linux perf files to the profile.proto format used by pprof"
 HOMEPAGE="https://github.com/google/${MY_PN}"
@@ -20,6 +20,7 @@ RESTRICT+=" mirror"
 S="${WORKDIR}/${MY_PN}-${ECOMMIT}"
 
 RDEPEND="dev-libs/protobuf:0=
+	sys-libs/libcap-ng
 	!elibc_uclibc? ( dev-libs/elfutils )
 	!libressl? ( dev-libs/openssl:0= )
 	libressl? ( dev-libs/libressl:0= )"
