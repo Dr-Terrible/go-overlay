@@ -10,7 +10,7 @@ app-admin/unik 0.1.0_pre20180130: The Unikernel Compilation and Deployment Platf
 app-benchmarks/hey 0.1_pre20160906: HTTP(S) load generator, ApacheBench (ab) replacement, written in GoLang
 app-benchmarks/vegeta 6.1.1: HTTP load testing tool and library written in GoLang.
 app-crypt/acme-dns 0.4: Limited DNS server with RESTful HTTP API to handle ACME DNS challenges
-app-crypt/certspotter 0.8: Certificate Transparency Log Monitor
+app-crypt/certspotter 0.9: Certificate Transparency Log Monitor
 app-crypt/keybase 1.0.18-r50: Client for keybase.io
 app-doc/static 0.0.1: The static site anti-framework
 app-editors/lime-qml 20150428: QML frontend for Lime text editor.
@@ -90,7 +90,7 @@ dev-go/godep 79: dependency tool for go
 dev-go/gogo-protobuf 1.1.1: Protocol Buffers for Go with Gadgets
 dev-go/gom 20160119: A visual interface to work with runtime profiling data for Go
 dev-go/gompatible 0.1.0_pre20160127: A tool to show Go package's API changes between two (git) revisions
-dev-go/gopherjs 0_pre20180227: GopherJS compiles GoLang code to pure JavaScript code
+dev-go/gopherjs 0_pre20181103: GopherJS compiles GoLang code to pure JavaScript code
 dev-go/gopm 0.7.2 0.8_pre20160708: Gopm is a package manager and build tool for Go
 dev-go/gops 0.3.2: A tool to list and diagnose Go processes currently running on your system
 dev-go/gore 0.2.5 0.2.6: A REPL for Golang
@@ -161,7 +161,7 @@ dev-util/interfacer 0.0.1_pre20170908: A linter for GoLang that suggests interfa
 dev-util/lll 0.1_pre20160702: Line length linter, used to enforce line length in files.
 dev-util/maligned 0.1_pre20160825: Detects Go structs that would take less memory if their fields were sorted
 dev-util/mdfmt 0.1_pre20160209: Like gofmt, but for Markdown with front matter.
-dev-util/minify 2.3.4: Go minifiers for web formats.
+dev-util/minify 2.3.8: Go minifiers for web formats.
 dev-util/misspell 0.3.0: Correct commonly misspelled words in source files
 dev-util/nakedret 0.1_pre20171108: a Go static analysis tool to find naked returns in functions
 dev-util/node-prune 1.0.1: Remove unnecessary files from node_modules
