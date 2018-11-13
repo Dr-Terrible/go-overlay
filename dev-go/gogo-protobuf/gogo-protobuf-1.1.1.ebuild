@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -6,7 +6,7 @@ EAPI=6
 GOLANG_PKG_IMPORTPATH="github.com/gogo"
 GOLANG_PKG_NAME="${PN//gogo-}"
 GOLANG_PKG_ARCHIVEPREFIX="v"
-GOLANG_PKG_BUILDPATH="/proto /gogoproto /jsonpb /protoc-gen-gogo /protoc-gen-gofast /protoc-gen-gogofaster /protoc-gen-gogoslick /fieldpath/fieldpath-gen /fieldpath /pbpath /protoc-gen-gogo/version/protoc-min-version /protoc-gen-gogo/protoc-gen-combo"
+GOLANG_PKG_BUILDPATH="/proto /gogoproto /jsonpb /protoc-gen-gogo /protoc-gen-gofast /protoc-gen-gogofaster /protoc-gen-gogoslick /protoc-min-version /protoc-gen-combo"
 GOLANG_PKG_USE_CGO=1
 GOLANG_PKG_HAVE_TEST=1
 
@@ -17,9 +17,9 @@ HOMEPAGE="http://gogo.github.io"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm"
+KEYWORDS="~amd64 ~arm ~x86"
 
-DEPEND="dev-libs/protobuf:0/9
+DEPEND="dev-libs/protobuf:0=
 	dev-go/go-protobuf"
 
 src_compile() {
@@ -46,7 +46,7 @@ src_compile() {
 src_install() {
 	golang-single_src_install
 
-	# Removes binaries which are duplicate of dev-go/go-protobuf
+	# Removes binaries which are not installable
 	rm	"${ED}"/usr/bin/jsonpb \
 		"${ED}"/usr/bin/proto \
 		|| die
