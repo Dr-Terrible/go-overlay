@@ -5,6 +5,7 @@ EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/variadico"
 GOLANG_PKG_BUILDPATH="/cmd/noti"
+GOLANG_PKG_LDFLAGS="-X github.com/variadico/noti/internal/command.Version=${PV}"
 GOLANG_PKG_HAVE_TEST=1
 
 inherit golang-single
