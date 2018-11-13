@@ -87,7 +87,7 @@ dev-go/go-torch 0.1_pre20170718: Stochastic flame graph profiler for Go Programs
 dev-go/goa 0.0.1_pre20160218: Goa is a framework for building RESTful microservices in Go
 dev-go/gocode 2017.09.07: An autocompletion daemon for the Go programming language
 dev-go/godep 79: dependency tool for go
-dev-go/gogo-protobuf 0.3 1.1.1: Protocol Buffers for Go with Gadgets
+dev-go/gogo-protobuf 1.1.1: Protocol Buffers for Go with Gadgets
 dev-go/gom 20160119: A visual interface to work with runtime profiling data for Go
 dev-go/gompatible 0.1.0_pre20160127: A tool to show Go package's API changes between two (git) revisions
 dev-go/gopherjs 0_pre20180227: GopherJS compiles GoLang code to pure JavaScript code
@@ -224,4 +224,4 @@ www-apps/gotty 0.0.13: A simple command-line tool that turns your CLI tools into
 www-apps/hugo 0.39 0.40.3: A fast and flexible static site generator built in GoLang
 www-servers/caddy 0.9.5: Fast, cross-platform HTTP/2 web server with automatic HTTPS
 x11-misc/cowyo 2.10.0: A feature-rich wiki webserver for minimalists
-x11-misc/noti 3.0.0: Display a notification when a terminal process finishes
+x11-misc/noti 3.0.0 3.1.0: Display a notification when a terminal process finishes
