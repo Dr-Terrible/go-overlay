@@ -1,6 +1,6 @@
 app-admin/chaosmonkey 2.0.2: A resiliency tool that helps applications tolerate random instance failures
 app-admin/doctl 1.4.0: A command line tool for DigitalOcean services
-app-admin/gopass 1.6.11: The slightly more awesome standard unix password manager for teams
+app-admin/gopass 1.8.1 1.8.2: The slightly more awesome standard unix password manager for teams
 app-admin/juju 2.1_beta3: juju is devops distilled
 app-admin/pony 0.1.0_pre20170123: Local File-Based Password, API Key, Secret, Recovery Code Store Backed vy GPG
 app-admin/scaleway-cli 1.14: Official command line tool to interact with Scaleway API
@@ -9,16 +9,16 @@ app-admin/trousseau 0.4.0: A networked and encrypted key-value database.
 app-admin/unik 0.1.0_pre20180130: The Unikernel Compilation and Deployment Platform
 app-benchmarks/hey 0.1_pre20160906: HTTP(S) load generator, ApacheBench (ab) replacement, written in GoLang
 app-benchmarks/vegeta 6.1.1: HTTP load testing tool and library written in GoLang.
+app-crypt/acme-dns 0.4: Limited DNS server with RESTful HTTP API to handle ACME DNS challenges
 app-crypt/certspotter 0.8: Certificate Transparency Log Monitor
 app-crypt/keybase 1.0.18-r50: Client for keybase.io
 app-doc/static 0.0.1: The static site anti-framework
 app-editors/lime-qml 20150428: QML frontend for Lime text editor.
 app-editors/lime-termbox 20150428: Termbox frontend for Lime text editor.
-app-editors/liteide 27.2.1: LiteIDE is a simple, open source, cross-platform Go IDE.
-app-editors/micro 1.4.0: A modern and intuitive terminal-based text editor
+app-editors/micro 1.4.0 1.4.1: A modern and intuitive terminal-based text editor
 app-editors/srclib 0.2.5: A hackable, multilange code analysis library for building better software tools
 app-emulation/cinf 0.4.0: A tool to view namespaces and cgroups, useful for low-level container prodding
-app-emulation/packer 1.2.2: Packer is a tool for creating identical machine images for multiple platforms
+app-emulation/packer 1.2.2 1.2.5: Packer is a tool for creating identical machine images for multiple platforms
 app-emulation/runc 0.1.1-r51 1.0.0_rc2-r50: A CLI tool for spawning and running containers according to the OCF specs
 app-forensics/onionscan 0.2: a free and open source tool for investigating the Dark Web
 app-misc/asciinema 1.2.0: A terminal session recorder for asciinema.org service
@@ -77,18 +77,17 @@ dev-go/gen 4.3 4.4_pre20160108: Type-driven code generation for GoLang
 dev-go/ginkgo 1.2.0: BDD Testing Framework for GoLang
 dev-go/glide 0.13.1: Glide is a vendor Package Management for Golang
 dev-go/go-bind-plugin 0.2.1: A tool for building Go plugins and generating wrappers around exported symbols
-dev-go/go-bindata 3.7.0: A small utility for embedding binary data in a GoLang program.
+dev-go/go-bindata 3.7.0 3.12.0: A small utility for embedding binary data in a GoLang program.
 dev-go/go-bindata-assetfs 1.0.0: A small utility for embedding binary data in a Go program
 dev-go/go-carpet 1.4: Shows test coverage for Go source files
 dev-go/go-fuzz 0.1_pre20171021: Go-fuzz is a coverage-guided fuzzing solution for testing of Go packages
 dev-go/go-md2man 1.0.8: Command-line tool to convert Markdown into UNIX man pages
-dev-go/go-protobuf 0.1_pre20160927: Go support for Google's protocol buffers
 dev-go/go-tools 0_pre20171019: Various packages and tools that support the Go programming language
 dev-go/go-torch 0.1_pre20170718: Stochastic flame graph profiler for Go Programs
 dev-go/goa 0.0.1_pre20160218: Goa is a framework for building RESTful microservices in Go
 dev-go/gocode 2017.09.07: An autocompletion daemon for the Go programming language
 dev-go/godep 79: dependency tool for go
-dev-go/gogo-protobuf 0.1-r1 0.2-r1 0.3: Protocol Buffers for Go with Gadgets
+dev-go/gogo-protobuf 0.3 1.1.1: Protocol Buffers for Go with Gadgets
 dev-go/gom 20160119: A visual interface to work with runtime profiling data for Go
 dev-go/gompatible 0.1.0_pre20160127: A tool to show Go package's API changes between two (git) revisions
 dev-go/gopherjs 0_pre20180227: GopherJS compiles GoLang code to pure JavaScript code
@@ -133,7 +132,7 @@ dev-util/c-for-go 0.1.0_pre20171012 0.1.0_pre20180214: Automatic C-Go Bindings G
 dev-util/check 0.1_pre20160515-r1 0.1_pre20170402: A set of utilities for checking Go sources
 dev-util/deadcode 0.1_pre20160724: Deadcode finds unused Go source code
 dev-util/diagram 1.0.2: CLI app to convert ascii arts into hand drawn diagrams.
-dev-util/direnv 2.10.0: Direnv is an environment switcher for the shell.
+dev-util/direnv 2.10.0 2.17.0: Direnv is an environment switcher for the shell.
 dev-util/dupl 0.1_pre20171130: A tool for Go code clone detection
 dev-util/errcheck 0.1_pre20161118 0.1_pre20170918: Errcheck checks that you checked errors
 dev-util/flint 0.0.4 0.0.5_pre20160327: Check your project for common sources of contributor friction
@@ -169,7 +168,7 @@ dev-util/node-prune 1.0.1: Remove unnecessary files from node_modules
 dev-util/orange-cat 0.2.2-r1: A Markdown previewer written in GoLang
 dev-util/panicparse 1.0.1: Parses Go's panic stack traces
 dev-util/pcstat 0.1_pre20160126: Page Cache stat: get page cache stats for files on Linux
-dev-util/perf-data-converter 0.1.0_pre20171201-r1: Convert Linux perf files to the profile.proto format used by pprof
+dev-util/perf-data-converter 0.1.0_pre20171201-r1 0.1.0_pre20180509: Convert Linux perf files to the profile.proto format used by pprof
 dev-util/pipecat 0.2: Pipecat allows you to scale any program using traditional UNIX pipes and AMQP
 dev-util/pprof 0.1_pre20171202: pprof is a tool for visualization and analysis of profiling data
 dev-util/prealloc 0.1_pre20171020: Go static analysis tool to find slice declarations that could potentially be preallocated
@@ -198,7 +197,6 @@ net-misc/hoverfly 0.14.2: Hoverfly is a lightweight, open source service virtual
 net-misc/httplab 0.4.0: Interactive cli tool for HTTP inspection
 net-misc/httpstat 1.0.0: It's like curl -v, with colours
 net-misc/nsq 1.0.0: A real-time distributed messaging platform, written in GoLang
-net-misc/pup 0.4.0: Parsing HTML at the command line
 net-misc/teleport 1.3.2: Modern SSH server for clusters and teams
 net-misc/wsd 0.0.0_pre20150722: Simple cURL-like command line utility for debugging WebSocket servers
 net-misc/wuzz 0.4.0: Interactive cli tool for HTTP inspection
@@ -212,7 +210,7 @@ net-p2p/syncthing 0.14.43-r50 0.14.44-r50: Syncthing is an app that lets you syn
 net-p2p/syncthing-inotify 0.8.7-r1: File watcher intended for use with Syncthing
 net-print/cloud-print-connector 2016.01.02-r1: Google Cloud Print CUPS Connector
 net-proxy/morty 0_pre20161029: Privacy aware web content sanitizer proxy as a service
-net-proxy/toxiproxy 2.0.0: A proxy to simulate network and system conditions
+net-proxy/toxiproxy 2.1.3: A proxy to simulate network and system conditions
 sci-misc/gobot 1.9.0: Go framework for robotics, drones, and the Internet of Things (IoT)
 sys-apps/sift 0.8.0: A fast and powerful open source alternative to grep
 sys-cluster/kubeless 0.3.4 0.4.0: Kubernetes Native Serverless Framework
@@ -223,7 +221,7 @@ sys-fs/gocryptfs 1.2: Encrypted overlay filesystem written in Go
 www-apps/beehive 0.2-r2 0.3_pre20171101: An event and agent system which allows you to perform automated tasks
 www-apps/gogs 0.11.43: Gogs is a self-hosted Git service written in Go
 www-apps/gotty 0.0.13: A simple command-line tool that turns your CLI tools into web applications
-www-apps/hugo 0.38.2 0.39: A fast and flexible static site generator built in GoLang
+www-apps/hugo 0.39 0.40.3: A fast and flexible static site generator built in GoLang
 www-servers/caddy 0.9.5: Fast, cross-platform HTTP/2 web server with automatic HTTPS
 x11-misc/cowyo 2.10.0: A feature-rich wiki webserver for minimalists
 x11-misc/noti 3.0.0: Display a notification when a terminal process finishes
