@@ -4,23 +4,25 @@
 EAPI=6
 
 GOLANG_PKG_IMPORTPATH="github.com/msoap"
+GOLANG_PKG_HAVE_TEST=1
+
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/mgutz/ansi:9520e82c47"
-	"github.com/mattn/go-colorable:efa589957c"
-	"github.com/mattn/go-isatty:0360b2af4f"
-	"github.com/msoap/html2data:d08eee1f5e"
+	"github.com/mgutz/ansi:9520e82"
+	"github.com/mattn/go-colorable:efa5899"
+	"github.com/mattn/go-isatty:3fb116b"
+	"github.com/msoap/html2data:2be5631"  #v1.2.1
 )
 
 inherit golang-single
 
 DESCRIPTION="Command line interface for Yandex weather service"
-HOMEPAGE="https://github.com/msoap/yandex-weather-cli"
 
 LICENSE="MIT"
-KEYWORDS="~amd64 ~x86 ~arm"
+KEYWORDS="amd64 arm x86"
 SLOT="0"
 
 src_install() {
+	golang-single_src_install
+
 	doman yandex-weather-cli.1
-	golang-common_src_install
 }
