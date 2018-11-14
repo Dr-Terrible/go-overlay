@@ -39,7 +39,7 @@ app-misc/weather 0.5.0_pre20151218 0.5.0 0.6.0_pre20151218: Weather via the comm
 app-misc/wego 2.0: Wego is a weather client for the terminal
 app-shells/antibody 2.2.2: A faster and simpler antigen written in Golang
 app-shells/bullettrain 0.7: Bullet Train is a ZSH & BASH prompt theme inspired by the Powerline Vim plugin
-app-shells/elvish 0.10.1: A novel Unix shell
+app-shells/elvish 0.12: A novel Unix shell
 app-shells/fzf 0.17.3: A general-purpose command-line fuzzy finder
 app-shells/oh 0.0.1_pre20161126: A surprisingly powerful Unix shell
 app-shells/peco 0.5.2: Simplistic interactive filtering tool
