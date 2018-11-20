@@ -23,5 +23,6 @@
 		<flag name="pygments">
 			Enables syntax highlighting via <pkg>dev-python/pygments</pkg>
 		</flag>
+		<flag name="sass">Enable SASS/SCSS support</flag>
 	</use>
 </pkgmetadata>
