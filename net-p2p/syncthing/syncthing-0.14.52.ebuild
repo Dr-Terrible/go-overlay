@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -11,7 +11,7 @@ GOLANG_PKG_LDFLAGS="-w -X main.Version=v${PV} -X main.BuildUser=portage -X main.
 
 inherit user systemd golang-single
 
-EDOC_COMMIT="649993f1f2177001be6eac12eae6f796b74b3654"
+EDOC_COMMIT="cd28cad885dea0e3afe8f1929a489cc3f626800f"
 
 DESCRIPTION="Syncthing is an app that lets you synchronize your files across multiple devices"
 HOMEPAGE="https://syncthing.net"
@@ -19,15 +19,14 @@ SRC_URI+=" doc? ( https://github.com/${PN}/docs/archive/${EDOC_COMMIT}.tar.gz ->
 
 LICENSE="MPL-2.0"
 SLOT="0"
-KEYWORDS="amd64 x86 arm"
-IUSE+=" cli doc inotify"
+KEYWORDS="amd64 arm x86"
+IUSE="cli doc"
 
 RESTRICT+=" test"
 
 DEPEND="doc? ( dev-python/sphinx )"
 RDEPEND="!net-misc/${PN}
-	!<net-p2p/${PN}-0.13.99
-	inotify? ( net-p2p/syncthing-inotify )"
+	!<net-p2p/${PN}-0.13.99"
 
 DOCS=( README.md AUTHORS CONTRIBUTING.md )
 
@@ -50,7 +49,9 @@ src_compile() {
 
 	# compile documentation
 	if use doc; then
-		emake singlehtml -C "${WORKDIR}"/docs-${EDOC_COMMIT} || die
+		pushd "${WORKDIR}"/docs-${EDOC_COMMIT} || die
+			emake html
+		popd || die
 	fi
 }
 
@@ -63,8 +64,10 @@ src_install() {
 
 	# install documentation
 	if use doc; then
-		docinto html
-		dodoc -r "${WORKDIR}"/docs-${EDOC_COMMIT}/_build/singlehtml/*
+		pushd "${WORKDIR}"/docs-${EDOC_COMMIT} || die
+			docinto html
+			dodoc -r "${WORKDIR}"/docs-${EDOC_COMMIT}/_build/html/*
+		popd || die
 	fi
 
 	# install systemd services
