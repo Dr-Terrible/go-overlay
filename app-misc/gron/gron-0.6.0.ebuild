@@ -9,9 +9,11 @@ GOLANG_PKG_LDFLAGS="-X main.gronVersion=${PV}"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/fatih/color:507f605"
+	"github.com/fatih/color:3f9d52f"
+	"github.com/mattn/go-colorable:efa5899"
+	"github.com/mattn/go-isatty:3fb116b"
 	"github.com/nwidger/jsoncolor:75a6de4"
-	"github.com/pkg/errors:816c908"
+	"github.com/pkg/errors:059132a"
 )
 
 inherit golang-single
