@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -24,7 +24,7 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="bash-completion zsh-completion fish-completion dmenu"
 
-DEPEND="app-crypt/gpgme:1
+DEPEND=">=app-crypt/gnupg-2
 	dev-vcs/git[threads,gpg,curl]
 	dmenu? ( x11-misc/dmenu x11-misc/xdotool )"
 RDEPEND="${DEPEND}
