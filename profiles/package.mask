@@ -14,7 +14,6 @@ dev-go/gogo-protobuf
 # These packages are marked as a work in progress by upstream.
 # Compilation failures are guarantee.
 dev-go/lime-backend
-app-editors/lime-qml
 app-editors/lime-termbox
 
 # Toffanin Mauro <toffanin.mauro@gmail.com> (1 May 2015)
