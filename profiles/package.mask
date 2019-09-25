@@ -5,17 +5,15 @@
 #
 # NOTE: Please add your entry at the top!
 
-# Toffanin Mauro <toffanin.mauro@gmail.com> (09 Gen 2016)
-# Gitea is no longer developed by upstream. For reference
-# see https://github.com/go-gitea/gitea/issues/227
-# Please use www-apps/gogs
-www-apps/gitea
+# Gantenbein Reto <reto.gantenbein@linuxmonk.ch> (25 Sep 2019)
+# Depends on dev-go/go-protobuf which is hard-masked upstream and likely
+# going to disappear.
+dev-go/gogo-protobuf
 
 # Toffanin Mauro <toffanin.mauro@gmail.com> (10 Jun 2015)
 # These packages are marked as a work in progress by upstream.
 # Compilation failures are guarantee.
 dev-go/lime-backend
-app-editors/lime-qml
 app-editors/lime-termbox
 
 # Toffanin Mauro <toffanin.mauro@gmail.com> (1 May 2015)
