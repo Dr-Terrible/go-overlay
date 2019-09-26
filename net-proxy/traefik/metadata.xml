@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@chaoslab.org</email>
+		<name>Ian Moone</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">containous/traefik</remote-id>
+		<bugs-to>https://github.com/containous/traefik/issues</bugs-to>
+		<doc>https://docs.traefik.io</doc>
+	</upstream>
+	<longdescription lang="en">
+		Træfik (pronounced like traffic) is a modern HTTP reverse
+		proxy and load balancer made to deploy microservices with
+		ease. It supports several backends (Docker, Swarm mode,
+		Kubernetes, Marathon, Consul, Etcd, Rancher, Amazon ECS,
+		and a lot more) to manage its configuration automatically
+		and dynamically.
+	</longdescription>
+</pkgmetadata>

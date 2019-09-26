@@ -1,0 +1,24 @@
+#!/sbin/openrc-run
+# Copyright 1999-2018 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+output_log="${output_log:-/dev/null}"
+error_log="${error_log:-${TRAEFIK_LOGDIR}/error.log}"
+
+name="${name:-Traefik}"
+command="/usr/bin/traefik"
+command_args="--configFile=${TRAEFIK_CONFIG} ${TRAEFIK_OPTS}"
+command_user="${command_user:-traefik:traefik}"
+command_background=true
+pidfile="/run/${RC_SVCNAME}.pid"
+required_files="${TRAEFIK_CONFIG}"
+retry="${retry:-TERM/30/KILL/5}"
+start_stop_daemon_args="${SSD_OPTS}"
+
+depend() {
+	need net
+}
+
+start_pre() {
+	checkpath -d -m 0750 -o "${command_user}" "${TRAEFIK_LOGDIR}"
+}
