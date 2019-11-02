@@ -32,7 +32,7 @@ DEPEND=">dev-go/go-bindata-3.0.7
 RDEPEND="${DEPEND}
 	app-shells/bash
 	dev-vcs/git[curl,threads]
-	pam? ( virtual/pam )
+	pam? ( sys-libs/pam )
 	ssl? ( net-misc/openssh )
 	mysql? ( virtual/mysql )
 	postgres? ( dev-db/postgresql[pam?,ssl?] )"
