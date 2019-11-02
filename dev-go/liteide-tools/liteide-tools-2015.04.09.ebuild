@@ -21,4 +21,4 @@ HOMEPAGE="https://github.com/visualfc/gotools"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86 ~amd64-fbsd ~x86-fbsd"
+KEYWORDS="~amd64 ~arm ~x86"
