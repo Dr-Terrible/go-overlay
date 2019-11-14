@@ -1,0 +1,8 @@
+# config file for /etc/init.d/traefik
+
+TRAEFIK_CONFIG="/etc/traefik/traefik.toml"
+TRAEFIK_LOGDIR="/var/log/${RC_SVCNAME}"
+
+# Logging
+#output_log="${TRAEFIK_LOGDIR}/traefik.log"
+#error_log="${TRAEFIK_LOGDIR}/error.log"

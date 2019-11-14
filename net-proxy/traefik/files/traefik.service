@@ -1,0 +1,15 @@
+[Unit]
+Description=Traefik
+After=network.target
+
+[Service]
+Type=notify
+User=traefik
+Group=traefik
+WorkingDirectory=/
+ExecStart=/usr/bin/traefik --configFile=/etc/traefik/traefik.toml
+Restart=always
+WatchdogSec=1s
+
+[Install]
+WantedBy=multi-user.target
