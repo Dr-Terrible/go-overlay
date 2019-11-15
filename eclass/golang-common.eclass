@@ -210,7 +210,7 @@ GOLANG_PKG_STATIK="${GOLANG_PKG_STATIK:-}"
 
 
 # Adds gccgo as a compile-time dependency when GOLANG_PKG_USE_CGO is set.
-[[ -n ${GOLANG_PKG_USE_CGO} ]] && DEPEND+=" >=sys-devel/gcc-4.8.4[go]"
+#[[ -n ${GOLANG_PKG_USE_CGO} ]] && DEPEND+=" >=sys-devel/gcc-4.8.4[go]"
 
 # Adds dev-go/statik as a compile-time dependency when GOLANG_PKG_STATIK is set.
 [[ -n ${GOLANG_PKG_STATIK} ]] && DEPEND+=" dev-go/statik"
