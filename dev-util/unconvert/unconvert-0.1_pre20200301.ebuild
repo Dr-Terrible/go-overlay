@@ -1,16 +1,15 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2020 Go Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 GOLANG_PKG_IMPORTPATH="github.com/mdempsky"
-GOLANG_PKG_VERSION="beb68d938016d2dec1d1b078054f4d3db25f97be"
+GOLANG_PKG_VERSION="95ecdbfc0b5f3e65790c43c77874ee5357ad8a8f"
 GOLANG_PKG_HAVE_TEST=1
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/kisielk/gotool:5e136de"
-	"github.com/golang/tools:b5358b5 -> golang.org/x"
-	"github.com/golang/text:ede1cb9 -> golang.org/x"
+	"github.com/golang/tools:23e62d3 -> golang.org/x"  #v0.3.3
+	"github.com/golang/text:342b2e1 -> golang.org/x"   #v0.3.2
 )
 
 inherit golang-single
@@ -19,4 +18,4 @@ DESCRIPTION="Remove unnecessary type conversions from Go source"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 x86 arm"
+KEYWORDS="amd64 arm x86"
