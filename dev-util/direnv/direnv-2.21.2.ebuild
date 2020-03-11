@@ -1,7 +1,7 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2020 Go Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 GOLANG_PKG_IMPORTPATH="github.com/direnv"
 GOLANG_PKG_ARCHIVEPREFIX="v"
@@ -14,7 +14,7 @@ HOMEPAGE="http://direnv.net"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 x86 arm"
+KEYWORDS="amd64 arm x86"
 
 DEPEND="!dev-go/direnv"
 
