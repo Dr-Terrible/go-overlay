@@ -8,6 +8,7 @@
 # @AUTHOR:
 # Mauro Toffanin <toffanin.mauro@gmail.com>
 # @BLURB: Base eclass for GoLang packages
+# @SUPPORTED_EAPIS: 7
 # @DESCRIPTION:
 # This eclass provides functionalities which are used by golang-single.eclass,
 # golang-live.eclass, and as well as from ebuilds.
@@ -15,27 +16,27 @@
 # This eclass should not be inherited directly from an ebuild.
 # Instead, you should inherit golang-single or golang-live for GoLang packages.
 
-inherit versionator eutils multiprocessing
+inherit eutils multiprocessing
 
 if [[ -z ${_GOLANG_BASE_ECLASS} ]]; then
 _GOLANG_BASE_ECLASS=1
 
 # Silences repoman warnings.
 case "${EAPI:-0}" in
-		5|6)
-				case "${GOLANG_PKG_DEPEND_ON_GO_SUBSLOT:-yes}" in
-					yes)
-						GO_DEPEND="dev-lang/go:0="
-						;;
-					*)
-						GO_DEPEND="dev-lang/go:*"
-						;;
-				esac
+	7)
+		case "${GOLANG_PKG_DEPEND_ON_GO_SUBSLOT:-yes}" in
+			yes)
+				GO_DEPEND="dev-lang/go:0="
 				;;
-		*)
-				die "${ECLASS}: Unsupported eapi (EAPI=${EAPI})"
+			*)
+				GO_DEPEND="dev-lang/go:*"
 				;;
+		esac
+		;;
+	*)
+		die "${ECLASS}: EAPI=${EAPI:-0} is not supported" ;;
 esac
+
 DEPEND+=" ${GO_DEPEND}"
 
 RESTRICT+=" mirror strip"
@@ -396,8 +397,9 @@ golang_setup() {
 		export GOPATH="$_GOPATH"
 		export GOBIN="$_GOBIN"
 		export CGO_ENABLED
-		export GOEXPERIMENT
-		export GO15VENDOREXPERIMENT=0
+		#export GOEXPERIMENT
+		#export GO15VENDOREXPERIMENT=0
+		export GO111MODULE="off"
 
 		debug-print "${FUNCNAME}: GOPATH = ${GOPATH}"
 		debug-print "${FUNCNAME}: GOBIN = ${GOBIN}"
@@ -596,7 +598,7 @@ golang-common_src_configure() {
 	# Removes GoLang object files from package source directories (pkg/)
 	# and temporary directories (_obj/ _test*/).
 	local EGO_SUBPACKAGES="${GOLANG_PKG_IMPORTPATH_ALIAS}/${GOLANG_PKG_NAME}"
-	case $( get_version_component_range 1-2 ${GOLANG_VERSION} ) in
+	case $( ver_cut 1-2 ${GOLANG_VERSION} ) in
 		1.4*) ;;
 		*)
 			EGO_SUBPACKAGES+="/..."
@@ -919,7 +921,7 @@ golang_do_build() {
 	# Filters "=" chars from ldflags declaration.
 	# NOTE: from go1.5+ linker syntax is no more compatible with <go1.4;
 	#       this hack ensures that the old behaviour is honoured.
-	if [[ $( get_version_component_range 1-2 ${GOLANG_VERSION} ) == "1.4" ]]; then
+	if [[ $( ver_cut 1-2 ${GOLANG_VERSION} ) == "1.4" ]]; then
 		GOLANG_PKG_LDFLAGS="${GOLANG_PKG_LDFLAGS//=/ }"
 	fi
 
