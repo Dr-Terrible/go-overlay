@@ -1,7 +1,7 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2020 Go Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 GOLANG_PKG_IMPORTPATH="github.com/fzipp"
 GOLANG_PKG_VERSION="6acd4345c835499920e8426c7e4e8d7a34f1bb83"
@@ -14,3 +14,7 @@ DESCRIPTION="Calculate cyclomatic complexities of functions in Go source code"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="amd64 x86 arm"
+
+PATCHES=(
+	"${FILESDIR}/dont-recurse.patch"
+)
