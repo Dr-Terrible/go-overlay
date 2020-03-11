@@ -1,18 +1,19 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2020 Go Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 GOLANG_PKG_IMPORTPATH="github.com/stripe"
-GOLANG_PKG_VERSION="452e37ed794488bd0d99676532f346e03cc6cd2c"
+GOLANG_PKG_VERSION="8c0f8039deab5c83c73c30e2ac85121e1a3cefa5"
 
 GOLANG_PKG_DEPENDENCIES=(
-	"github.com/golang/tools:0444735 -> golang.org/x"
+	"github.com/golang/tools:23e62d3 -> golang.org/x"  #v0.3.3
 )
+
 inherit golang-single
 
 DESCRIPTION="Static analysis tool for GoLang that protects against SQL injections"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 x86 arm"
+KEYWORDS="amd64 arm x86"
