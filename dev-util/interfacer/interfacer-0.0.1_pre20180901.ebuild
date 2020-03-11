@@ -1,15 +1,15 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2020 Go Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 GOLANG_PKG_IMPORTPATH="mvdan.cc"
-GOLANG_PKG_VERSION="d7e7372184a059b8fd99d96a593e3811bf989d75"
+GOLANG_PKG_VERSION="c20040233aedb03da82d460eca6130fcd91c629a"
 
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/mvdan/lint:adc824a -> mvdan.cc"
-	"github.com/kisielk/gotool:d6ce626"
-	"github.com/golang/tools:0444735 -> golang.org/x"
+	"github.com/kisielk/gotool:8051706"                #v1.0.0
+	"github.com/golang/tools:23e62d3 -> golang.org/x"  #v0.3.3
 )
 
 # (Ugly hack) Must be declared before the inherit since we're
