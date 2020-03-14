@@ -6,7 +6,7 @@ EAPI=7
 MY_PV="${PV/_/-}"
 CODENAME="maroilles"
 EGO_PN="github.com/containous/${PN}"
-EGO_VENDOR=( "github.com/containous/go-bindata e237f24c9fab" )
+EGO_VENDOR=( "github.com/containous/go-bindata 532cb0b0736b109aefe85e24e37a2ef35eafc6a8" )
 
 inherit golang-vcs-snapshot systemd user
 
