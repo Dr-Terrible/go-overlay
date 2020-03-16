@@ -1,11 +1,11 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-GOLANG_PKG_IMPORTPATH="github.com/gogits"
+GOLANG_PKG_IMPORTPATH="github.com/gogs"
 GOLANG_PKG_ARCHIVEPREFIX="v"
-GOLANG_PKG_LDFLAGS="-X github.com/gogits/gogs/modules/setting.BuildGitHash=2978bb1"
+GOLANG_PKG_LDFLAGS="-X github.com/gogs/gogs/modules/setting.BuildGitHash=c154721"
 GOLANG_PKG_USE_CGO=1
 GOLANG_PKG_HAVE_TEST=1
 
@@ -14,9 +14,9 @@ inherit user systemd golang-single
 DESCRIPTION="Gogs is a self-hosted Git service written in Go"
 HOMEPAGE="https://gogs.io"
 
-LICENSE="BSD"
+LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 IUSE_CACHE_ADAPTER="redis memcached"
 IUSE_DATABASE_ADAPTER="mysql postgres +sqlite tidb"
@@ -44,7 +44,7 @@ APP_DIR="/usr/share/${PN}"
 pkg_setup() {
 	enewgroup ${USER_NAME}
 	enewuser ${USER_NAME} -1 /bin/bash "${USER_DIR}" ${USER_NAME}
-	GOLANG_PKG_LDFLAGS+=" -X github.com/gogits/gogs/modules/setting.BuildTime=$(date -u '+%Y-%m-%d')"
+	GOLANG_PKG_LDFLAGS+=" -X github.com/gogs/gogs/modules/setting.BuildTime=$(date -u '+%Y-%m-%d')"
 }
 
 src_prepare() {
