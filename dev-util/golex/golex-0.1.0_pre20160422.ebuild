@@ -1,7 +1,7 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2020 Go Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 GOLANG_PKG_IMPORTPATH="github.com/cznic"
 GOLANG_PKG_VERSION="da5a7153a51074477ecac5c45a7e5182a0c72448"
