@@ -18,7 +18,7 @@ app-editors/micro 1.4.1-r2 2.0.1 2.0.2: A modern and intuitive terminal-based te
 app-editors/srclib 0.2.5: A hackable, multilange code analysis library for building better software tools
 app-emulation/cinf 0.4.0: A tool to view namespaces and cgroups, useful for low-level container prodding
 app-emulation/runc 0.1.1-r51 1.0.0_rc2-r50: A CLI tool for spawning and running containers according to the OCF specs
-app-emulation/stellar 0.1.0: Simplified Container System
+app-emulation/stellar 0.2.0: Simplified Container System
 app-eselect/eselect-go 0.1.0: Eselect module for managing multiple Go versions
 app-forensics/onionscan 0.2: a free and open source tool for investigating the Dark Web
 app-misc/asciinema 1.2.0: A terminal session recorder for asciinema.org service

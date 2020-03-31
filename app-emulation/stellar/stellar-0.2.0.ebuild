@@ -6,7 +6,7 @@ EAPI=7
 GOLANG_PKG_IMPORTPATH="github.com/ehazlett"
 GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_BUILDPATH="/cmd/sctl /cmd/${PN} /cmd/${PN}-cni-ipam"
-GOLANG_PKG_LDFLAGS="-X github.com/ehazlett/stellar/version.Build=-gentoo -X github.com/ehazlett/stellar/version.GitCommit=ae539df"
+GOLANG_PKG_LDFLAGS="-X github.com/ehazlett/stellar/version.Build=-gentoo -X github.com/ehazlett/stellar/version.GitCommit=eff2144"
 GOLANG_PKG_HAVE_TEST=1
 
 inherit systemd golang-single
