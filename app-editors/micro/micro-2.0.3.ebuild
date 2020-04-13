@@ -50,7 +50,7 @@ DOCS=( "${S}"/runtime/help/ )
 src_compile() {
 	rm "${S}"/go.mod || die
 	rm "${S}"/go.sum || die
-	emake install-quick GOBIN="${GOBIN}" HASH="c51f849" VERSION="${GOLANG_PKG_VERSION}" || die
+	emake install-quick GOBIN="${GOBIN}" HASH="f594686" VERSION="${GOLANG_PKG_VERSION}" || die
 }
 
 src_test() {

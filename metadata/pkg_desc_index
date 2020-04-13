@@ -14,7 +14,7 @@ app-crypt/certspotter 0.9: Certificate Transparency Log Monitor
 app-crypt/keybase 1.0.18-r50: Client for keybase.io
 app-doc/static 0.0.1: The static site anti-framework
 app-editors/lime-termbox 20150428: Termbox frontend for Lime text editor.
-app-editors/micro 1.4.1-r2 2.0.1 2.0.2: A modern and intuitive terminal-based text editor
+app-editors/micro 1.4.1-r2 2.0.1 2.0.3: A modern and intuitive terminal-based text editor
 app-editors/srclib 0.2.5: A hackable, multilange code analysis library for building better software tools
 app-emulation/cinf 0.4.0: A tool to view namespaces and cgroups, useful for low-level container prodding
 app-emulation/runc 0.1.1-r51 1.0.0_rc2-r50: A CLI tool for spawning and running containers according to the OCF specs
