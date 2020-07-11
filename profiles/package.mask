@@ -1,22 +1,33 @@
-####################################################################
-# $Header: $
-# When you add an entry to this file, add your name, the date, and an
-# explanation of why something is getting masked
+# When you add an entry to the top of this file, add your name, the date
+# in the UTC timezone, and an explanation of why something is getting masked.
 #
-# NOTE: Please add your entry at the top!
+# Example:
+#
+# # John Smith <john@smith.org> (2019-07-01)
+# # Masking these versions until we can get the deps to work properly again.
+# <=dev-libs/something-0.1.0
+# >dev-libs/something-0.2.0-r1
+#
+# Please be extremely careful not to commit atoms that are not valid,
+# as it can cause large-scale breakage.
 
-# Gantenbein Reto <reto.gantenbein@linuxmonk.ch> (25 Sep 2019)
+# Toffanin Mauro <toffanin.mauro@gmail.com> (2019-10-01)
+=app-eselect/eselect-go-9999
+=dev-lang/go-bootstrap-1.8
+dev-lang/go:stable
+
+# Gantenbein Reto <reto.gantenbein@linuxmonk.ch> (2019-09-25)
 # Depends on dev-go/go-protobuf which is hard-masked upstream and likely
 # going to disappear.
 dev-go/gogo-protobuf
 
-# Toffanin Mauro <toffanin.mauro@gmail.com> (10 Jun 2015)
+# Toffanin Mauro <toffanin.mauro@gmail.com> (2015-06-10)
 # These packages are marked as a work in progress by upstream.
 # Compilation failures are guarantee.
 dev-go/lime-backend
 app-editors/lime-termbox
 
-# Toffanin Mauro <toffanin.mauro@gmail.com> (1 May 2015)
+# Toffanin Mauro <toffanin.mauro@gmail.com> (2015-05-01)
 # This package is specifically tailored to my needs; you should not use it.
 # Instead, you should use the ones provided by Portage.
 net-p2p/syncthing
