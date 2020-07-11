@@ -1,3 +1,5 @@
+acct-group/cloud-print-connector 0: group for Cloud Print Connector
+acct-user/cloud-print-connector 0: group for Cloud Print Connector
 app-admin/chaosmonkey 2.0.2: A resiliency tool that helps applications tolerate random instance failures
 app-admin/doctl 1.45.1: The official command line interface for the DigitalOcean API
 app-admin/juju 2.1_beta3: juju is devops distilled
@@ -198,7 +200,7 @@ net-p2p/btcd 0.12.0-r1 9999: An alternative full node bitcoin implementation wri
 net-p2p/btcsim 0.1_pre20150902 9999: Implements a simulation test driver using the simnet network provided by btcd
 net-p2p/cloud-torrent 0.8.11: Cloud Torrent is a self-hosted remote torrent client, written in GoLang
 net-p2p/syncthing 0.14.52: Syncthing is an app that lets you synchronize your files across multiple devices
-net-print/cloud-print-connector 2016.01.02-r1: Google Cloud Print CUPS Connector
+net-print/cloud-print-connector 1.16: Google Cloud Print CUPS Connector
 net-proxy/morty 0_pre20161029: Privacy aware web content sanitizer proxy as a service
 net-proxy/toxiproxy 2.1.3: A proxy to simulate network and system conditions
 net-proxy/traefik 1.7.18 1.7.19: A modern HTTP reverse proxy and load balancer made to deploy microservices
