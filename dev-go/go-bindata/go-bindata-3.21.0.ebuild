@@ -17,4 +17,4 @@ DESCRIPTION="A small utility for embedding binary data in a GoLang program."
 
 LICENSE="CC0-1.0"
 SLOT="0"
-KEYWORDS="amd64 arm x86"
+KEYWORDS="amd64 arm arm64 x86"
