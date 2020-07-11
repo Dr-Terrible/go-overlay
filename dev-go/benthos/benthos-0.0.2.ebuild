@@ -13,7 +13,7 @@ GOLANG_PKG_USE_CGO=1
 GOLANG_PKG_DEPENDENCIES=(
 	"github.com/Shopify/sarama:38d579a"
 	"github.com/edsrzf/mmap-go:935e0e8"
-	"github.com/go-mangos/mangos:7e2b801"
+	"github.com/nanomsg/mangos-v1:7e2b801"
 	"github.com/jeffail/gabs:1ad8a46"
 	"github.com/jeffail/util:83e0dd9"
 	"github.com/streadway/amqp:2e25825"
@@ -40,6 +40,18 @@ KEYWORDS="amd64 x86"
 IUSE="zmq doc"
 
 RDEPEND="zmq? ( >=net-libs/zeromq-4.1.1 )"
+
+src_prepare() {
+	golang-single_src_prepare
+
+	golang_fix_importpath_alias \
+		"github.com/nanomsg/mangos-v1" \
+		"github.com/go-mangos/mangos"
+
+	golang_fix_importpath_alias \
+		"github.com/nanomsg/mangos-v1" \
+		"nanomsg.org/go-mangos"
+}
 
 src_compile() {
 	use zmq && GOLANG_PKG_TAGS+=" ZMQ4"
