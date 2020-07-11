@@ -7,6 +7,7 @@ GOLANG_PKG_IMPORTPATH="github.com/digitalocean"
 GOLANG_PKG_ARCHIVEPREFIX="v"
 GOLANG_PKG_BUILDPATH="/cmd/${PN}"
 GOLANG_PKG_USE_CGO=1
+GOLANG_PKG_LDFLAGS="-X github.com/digitalocean/doctl.Major=1 -X github.com/digitalocean/doctl.Minor=45 -X github.com/digitalocean/doctl.Patch=1 -X github.com/digitalocean/doctl.Build=1041a0e -X github.com/digitalocean/doctl.Label=release"
 GOLANG_PKG_HAVE_TEST=1
 
 inherit golang-single
