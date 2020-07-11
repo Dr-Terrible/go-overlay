@@ -168,7 +168,7 @@ dev-util/rambler 4.1.3: A simple and language-independent SQL schema migration t
 dev-util/ramlapi 1.1.0: Automatic API generation for Go projects
 dev-util/realize 1.5.2: A Go build system with file watchers, output streams and live reload
 dev-util/rubigo 1.0.3: Golang dependency tool and package manager
-dev-util/shfmt 2.6.4: A shell parser and formatter for POSIX shell and bash
+dev-util/shfmt 3.1.2: A shell parser and formatter for POSIX shell and bash
 dev-util/unconvert 0.1_pre20200301: Remove unnecessary type conversions from Go source
 dev-util/unparam 0.1_pre20191111: a Go static analysis tool to find naked returns in functions
 dev-util/wellington 1.0.5_pre20180225: Wellington is a CSS preprocessor with spriting and based on libsass
