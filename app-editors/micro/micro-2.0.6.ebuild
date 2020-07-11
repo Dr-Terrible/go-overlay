@@ -14,15 +14,18 @@ GOLANG_PKG_DEPENDENCIES=(
 	"github.com/kballard/go-shellquote:95032a8"
 	"github.com/mattn/go-isatty:7b513a9"                  #v0.0.12
 	"github.com/mattn/go-runewidth:a4df4dd"               #v0.0.8
+	"github.com/p-e-w/go-runewidth:3e1705c"               #v0.0.10
 	"github.com/mitchellh/go-homedir:af06845"             #v1.1.0
+	"github.com/robertkrimen/otto:c382bd3"
 	"github.com/sergi/go-diff:58c5cb1"                    #v1.1.0
 	"github.com/yuin/gopher-lua:ab39c60"
-	"github.com/zyedidia/clipboard:241f98e"
+	"github.com/zyedidia/clipboard:7c45b86"
 	"github.com/zyedidia/glob:dd4023a"
+	"github.com/zyedidia/go-shellquote:eccd813"
 	"github.com/zyedidia/highlight:201131c"
 	"github.com/zyedidia/json5:2da050b"
 	"github.com/zyedidia/pty:3036466"                     #v2.0.0
-	"github.com/zyedidia/tcell:37fef3e"                   #v1.4.4
+	"github.com/zyedidia/tcell:8196932"                   #v1.4.8
 	"github.com/zyedidia/terminal:533c623"
 	"github.com/layeh/gopher-luar:bb67d56 -> layeh.com"   #v1.0.7
 	"github.com/gdamore/encoding:6289cdc"                 #v1.0.0
@@ -42,14 +45,31 @@ HOMEPAGE="https://micro-editor.github.io https://github.com/zyedidia/micro"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm x86"
+KEYWORDS="amd64 x86"
+IUSE="wayland"
+
+RDEPEND="|| (
+	!wayland? (
+		x11-misc/xsel
+		x11-misc/xclip
+	)
+	wayland? ( gui-apps/wl-clipboard )
+)"
 
 DOCS=( "${S}"/runtime/help/ )
+
+src_prepare() {
+	golang-single_src_prepare
+
+	golang_fix_importpath_alias \
+		"github.com/zyedidia/micro" \
+		"github.com/zyedidia/micro/v2"
+}
 
 src_compile() {
 	rm "${S}"/go.mod || die
 	rm "${S}"/go.sum || die
-	emake install-quick GOBIN="${GOBIN}" HASH="7c71995" VERSION="${GOLANG_PKG_VERSION}" || die
+	emake install-quick GOBIN="${GOBIN}" HASH="60846f5" VERSION="${GOLANG_PKG_VERSION}" || die
 }
 
 src_test() {
