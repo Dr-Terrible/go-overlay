@@ -168,6 +168,10 @@ GOLANG_PKG_VENDOR=()
 # This eclass defaults to an empty list.
 GOLANG_PKG_STATIK="${GOLANG_PKG_STATIK:-}"
 
+# @ECLASS-VARIABLE: GOLANG_PKG_USE_MODULES
+# @DESCRIPTION:
+# Set to enable the compilation of the package with Go modules support.
+
 
 # @ECLASS-VARIABLE: GO
 # @DEFAULT_UNSET
@@ -399,7 +403,10 @@ golang_setup() {
 		export CGO_ENABLED
 		#export GOEXPERIMENT
 		#export GO15VENDOREXPERIMENT=0
-		export GO111MODULE="off"
+
+		GO111MODULE="off"
+		[[ -z ${GOLANG_PKG_USE_MODULES} ]] || GO111MODULE="on"
+		export GO111MODULE
 
 		debug-print "${FUNCNAME}: GOPATH = ${GOPATH}"
 		debug-print "${FUNCNAME}: GOBIN = ${GOBIN}"
@@ -555,7 +562,6 @@ golang-common_src_prepare() {
 	if [[ -d "${VENDOR}" ]]; then
 		golang_add_vendor "${VENDOR}"
 	fi
-
 
 	# Evaluates PATCHES array.
 	default_src_prepare
