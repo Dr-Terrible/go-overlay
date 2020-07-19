@@ -14,7 +14,7 @@
 # Toffanin Mauro <toffanin.mauro@gmail.com> (2019-10-01)
 =app-eselect/eselect-go-9999
 =dev-lang/go-bootstrap-1.8
-dev-lang/go:stable
+# dev-lang/go:stable
 
 # Gantenbein Reto <reto.gantenbein@linuxmonk.ch> (2019-09-25)
 # Depends on dev-go/go-protobuf which is hard-masked upstream and likely
