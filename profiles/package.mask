@@ -12,22 +12,7 @@
 # as it can cause large-scale breakage.
 
 # Toffanin Mauro <toffanin.mauro@gmail.com> (2019-10-01)
-=app-eselect/eselect-go-9999
-=dev-lang/go-bootstrap-1.8
-dev-lang/go:stable
-
-# Gantenbein Reto <reto.gantenbein@linuxmonk.ch> (2019-09-25)
-# Depends on dev-go/go-protobuf which is hard-masked upstream and likely
-# going to disappear.
-dev-go/gogo-protobuf
-
-# Toffanin Mauro <toffanin.mauro@gmail.com> (2015-06-10)
-# These packages are marked as a work in progress by upstream.
-# Compilation failures are guarantee.
-dev-go/lime-backend
-app-editors/lime-termbox
-
-# Toffanin Mauro <toffanin.mauro@gmail.com> (2015-05-01)
-# This package is specifically tailored to my needs; you should not use it.
-# Instead, you should use the ones provided by Portage.
-net-p2p/syncthing
+# (WIP)
+#=app-eselect/eselect-go-9999
+#=dev-lang/go-bootstrap-1.8
+#dev-lang/go:stable
