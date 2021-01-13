@@ -350,13 +350,13 @@ golang_setup() {
 
 	# dev-lang/go is available and working.
 	# Exports GO/EGO/EGOFMT global variables.
-	export GO="${GOLANG_BINS[0]}"
+	export GO="${EPREFIX}/${GOLANG_BINS[0]}"
 	export EGO="${GOLANG_BINS[0]##*/}"
-	export EGOFMT="${GOLANG_BINS[1]}"
+	export EGOFMT="${EPREFIX}/${GOLANG_BINS[1]}"
 
 	# dev-go/statik is available and working.
 	# Exports ESTATIK global variable.
-	[[ -n ${GOLANG_PKG_STATIK} ]] && export ESTATIK="${GOLANG_BINS[2]##*/}"
+	[[ -n ${GOLANG_PKG_STATIK} ]] && export ESTATIK="${EPREFIX}/${GOLANG_BINS[2]##*/}"
 
 	debug-print "${FUNCNAME}: GO = ${GO}"
 	debug-print "${FUNCNAME}: EGO = ${EGO}"
