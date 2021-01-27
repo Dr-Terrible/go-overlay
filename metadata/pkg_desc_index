@@ -75,7 +75,6 @@ dev-go/go-torch 0.1_pre20170718: Stochastic flame graph profiler for Go Programs
 dev-go/goa 0.0.1_pre20160218: Goa is a framework for building RESTful microservices in Go
 dev-go/gocode 2017.09.07: An autocompletion daemon for the Go programming language
 dev-go/godep 79: dependency tool for go
-dev-go/gogo-protobuf 1.1.1: Protocol Buffers for Go with Gadgets
 dev-go/gom 20160119: A visual interface to work with runtime profiling data for Go
 dev-go/gompatible 0.1.0_pre20160127: A tool to show Go package's API changes between two (git) revisions
 dev-go/gopherjs 0_pre20181103: GopherJS compiles GoLang code to pure JavaScript code
@@ -111,7 +110,6 @@ dev-go/zebrapack 2.0.4: ZebraPack is a data definition language and serializatio
 dev-go/zygomys 4.8.3: A 100% Golang, easy-to-use Lisp
 dev-lang/go 1.13.4-r1: A concurrent garbage collected and typesafe programming language
 dev-lang/go-bin 1.13.4: Version of go compiler used for bootstrapping
-dev-python/markdown-include 0.5.1: Add anchor tags and icons to all headers
 dev-python/mdx_anchors_away 1.0.1: Add anchor tags and icons to all headers
 dev-python/mdx_callouts 1.0.0: Add anchor tags and icons to all headers
 dev-python/mdx_foldouts 1.0.0: Add anchor tags and icons to all headers
@@ -140,7 +138,7 @@ dev-util/golex 0.1.0_pre20160422: A lex/flex like (not fully POSIX lex compatibl
 dev-util/golint 0.1_pre20200301: This is a linter for Go source code
 dev-util/gometalinter 2.0.2 3.0.0: Concurrently run Go lint tools and normalise their output
 dev-util/goreleaser 0.128.0: Deliver Go binaries as fast and easily as possible
-dev-util/gorganizer 0.3: Organize your folders into a beautiful classified folder structure
+dev-util/gorganizer 1.0.1: Organize your folders into a beautiful classified folder structure
 dev-util/gosec 2.2.0: Inspects golang source code for security problems
 dev-util/gotags 1.3.0 1.4.0_pre20150803: ctags-compatible tag generator for Go
 dev-util/goyacc 0.1.0_pre20160420: Goyacc is a version of yacc generating Go parsers.
@@ -185,7 +183,6 @@ net-misc/hoverfly 0.14.2: Hoverfly is a lightweight, open source service virtual
 net-misc/httplab 0.4.0: Interactive cli tool for HTTP inspection
 net-misc/httpstat 1.0.0: It's like curl -v, with colours
 net-misc/nsq 1.0.0: A real-time distributed messaging platform, written in GoLang
-net-misc/teleport 1.3.2: Modern SSH server for clusters and teams
 net-misc/wsd 0.0.0_pre20150722: Simple cURL-like command line utility for debugging WebSocket servers
 net-misc/wuzz 0.4.0: Interactive cli tool for HTTP inspection
 net-misc/yandex-weather-cli 1.13 1.14: A command line interface for Yandex weather service
