@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Go Overlay Authors
+# Copyright 1999-2021 Go Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -11,18 +11,22 @@ GOLANG_PKG_HAVE_TEST=1
 GOLANG_PKG_USE_CGO=1
 
 GOLANG_PKG_DEPENDENCIES=(
+	"github.com/fatih/color:bc22696"              #v1.10.0
 	"github.com/libgit2/git2go:ecaeb7a"           #v27
 	"github.com/libgit2/libgit2:2882803"          #v0.27.8
 	"github.com/mattn/go-isatty:1311e84"          #v0.0.8
 	"github.com/mitchellh/cli:3d22a24"            #v1.0.0
 	"github.com/armon/go-radix:1a2de0c"           #v1.0.0
 	"github.com/hashicorp/go-multierror:886a7fb"  #v1.0.0
+	"github.com/hashicorp/errwrap:7b00e5d"        #v1.1.0
 	"github.com/posener/complete:3ef9b31"         #v1.2.1
 	"github.com/bgentry/speakeasy:4aabc24"        #v0.1.0
+
+	"github.com/golang/sys:5e06dd2 -> golang.org/x"
 )
 
 CMAKE_IN_SOURCE_BUILD=1
-inherit cmake-utils golang-single
+inherit cmake golang-single
 
 DESCRIPTION="Simple, seamless, lightweight time tracking for Git"
 
@@ -53,12 +57,12 @@ src_prepare() {
 	# Force cgo to use the vendored libgit2 lib
 	# instead of the one from the system (if present)
 	pushd "${git2go}" > /dev/null || die
-		epatch "${FILESDIR}/${P}-golang-cgo.patch"
+		eapply "${FILESDIR}/${PN}-1.2.11-golang-cgo.patch"
 		chmod u+x pkg-config-wrapper.sh || die
 	popd > /dev/null || die
 
 	CMAKE_USE_DIR="${libgit2}"
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_compile() {
@@ -82,8 +86,8 @@ src_compile() {
 		-DUSE_SSH="$(usex ssh)"
 		-DTHREADSAFE="$(usex threads)"
 	)
-	cmake-utils_src_configure
-	cmake-utils_src_compile
+	cmake_src_configure
+	cmake_src_compile
 
 	# Build gtm
 	GOLANG_PKG_IS_MULTIPLE=1
