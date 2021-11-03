@@ -81,7 +81,7 @@ SRC_URI="https://github.com/mgechev/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64 arm64 x86"
-IUSE="pie"
+IUSE="pie debug"
 
 DOCS=(
 	CONTRIBUTING.md
@@ -93,7 +93,7 @@ DOCS=(
 
 src_compile() {
 	go build \
-		-ldflags="-w -s -X main.version=${PV} -X main.date=$( date -u '+%Y-%m-%d' ) -X main.commit=111721b -X main.builtBy=Gentoo" \
+		-ldflags="$(usex debug '' -w) $(usex debug '' -s) -X main.version=${PV} -X main.date=$( date -u '+%Y-%m-%d' ) -X main.commit=111721b -X main.builtBy=Gentoo" \
 		-buildmode="$(usex pie pie default)" \
 		-trimpath \
 		-o bin/${PN} . \
