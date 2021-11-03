@@ -3,8 +3,14 @@
 # * generated automatically using egencache *
 
 app-admin/trousseau:fish-completion - Enable fish completion support.
-app-editors/liteide:gdb - Enables support for sys-devel/gdb
-app-editors/liteide:tools - Install additional tools such as dev-go/liteide-tools and dev-go/gotools
-www-apps/gitea:memcached - Adds support for storing cache in memory via net-misc/memcached
-www-apps/gitea:redis - Adds support for storing cache in a redis DB via dev-db/redis
-www-apps/hugo:pygments - Enables syntax highlighting via dev-python/pygments
+dev-go/benthos:zmq - Add support ZMQ4 input/output targets from net-libs/zeromq (PUSH, PULL, SUB, PUB)
+dev-lang/go:gccgo - Bootstrap using sys-devel/gcc[go]
+dev-lang/go:system-bootstrap - Bootstrap using previously installed dev-lang/go
+dev-vcs/gitql:ssh - Enable SSH transport support
+dev-vcs/grv:ssh - Enable SSH transport support
+dev-vcs/gtm:ssh - Enable SSH transport support
+net-misc/hoverfly:cli - Build command-line tool hoverctl
+net-proxy/toxiproxy:cli - Build command-line client
+www-apps/gogs:memcached - Compiles in for storing cache in memory via net-misc/memcached
+www-apps/gogs:redis - Compiles in support for storing cache in a redis DB via dev-db/redis
+www-apps/gogs:tidb - Compiles in support for dev-db/tidb backend

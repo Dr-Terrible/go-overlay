@@ -97,6 +97,7 @@ dev-go/otto 0.0.1_pre20180617: CLI for Otto, an JavaScript (ECMA5) interpreter w
 dev-go/packr 1.9.0: The simple and easy way to embed static files into Go binaries
 dev-go/prdeps 0.1_pre20160501: prdeps prints the dependency graph of a Go package
 dev-go/re2dfa 0.1.0_pre20151021: Transforms regexs into finite state machines and output Go source code
+dev-go/revive 1.1.2: a linter for Go
 dev-go/rts 0.1.0_pre20160617: Generates Go structs from JSON server responses
 dev-go/safesql 0.2.0: Static analysis tool for GoLang that protects against SQL injections
 dev-go/staticfiles 0_pre20160903: staticfiles compiles a directory of files into an embeddable .go file
@@ -169,7 +170,7 @@ dev-util/unparam 0.1_pre20191111: a Go static analysis tool to find naked return
 dev-util/wellington 1.0.5_pre20180225: Wellington is a CSS preprocessor with spriting and based on libsass
 dev-vcs/gitql 1.3.0-r2 1.4.0_pre20171101: A git query language
 dev-vcs/grv 0.1.2: GRV is a terminal interface for viewing git repositories
-dev-vcs/gtm 1.2.11 1.3.5: Simple, seamless, lightweight time tracking for Git
+dev-vcs/gtm 1.3.5-r1: Simple, seamless, lightweight time tracking for Git
 net-analyzer/dbshield 1.0.0_beta4: Protects your data by inspecting incoming queries from your application server
 net-ftp/pixiecore 0.1.0_pre20161101: PXE booting for people in a hurry
 net-misc/bat 0.1.0 0.1.0-r1: Go implemented CLI cURL-like tool for humans
@@ -207,5 +208,5 @@ sys-fs/tmsu 0.7.5: github.com/oniony/TMSU/releases
 www-apps/beehive 0.2-r2 0.3_pre20171101: An event and agent system which allows you to perform automated tasks
 www-apps/gogs 0.11.43: Gogs is a self-hosted Git service written in Go
 www-apps/gotty 0.0.13: A simple command-line tool that turns your CLI tools into web applications
-x11-misc/cowyo 2.10.0: A feature-rich wiki webserver for minimalists
+x11-misc/cowyo 2.10.0 2.12.0: A feature-rich wiki webserver for minimalists
 x11-misc/noti 3.0.0 3.1.0: Display a notification when a terminal process finishes
